@@ -19,9 +19,9 @@
 \usepackage{libertine}
 \RequirePackage{libertinegc}
 \usepackage[supstfm=libertinesups,%
-supscaled=1.2,%
-raised=-.13em]% match XHeight of libertine
-{superiors}
+   supscaled=1.2,%
+   raised=-.13em]% match XHeight of libertine
+   {superiors}
 \usepackage[scaled=0.85]{beramono}
 \usepackage{textcomp}
 %\usepackage{euler}
@@ -29,11 +29,11 @@ raised=-.13em]% match XHeight of libertine
 \usepackage{textgreek}
 \usepackage[%
    final,%
-   %%%tracking=smallcaps,%
+   tracking=smallcaps,%
    %%%expansion=alltext,%
    protrusion=true%
    ]{microtype}%
-%%%\SetTracking{encoding=*,shape=sc}{50}%
+\SetTracking{encoding=*,shape=sc}{50}%
 \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 
 \usepackage[autostyle]{csquotes}
@@ -83,6 +83,8 @@ raised=-.13em]% match XHeight of libertine
 
 \usepackage{hieroglf}
 
+\usepackage[hyphens]{url}
+
 \usepackage{hologo}
 
 \usepackage{imakeidx}
@@ -100,7 +102,7 @@ raised=-.13em]% match XHeight of libertine
 
 \newcommand{\LuaLaTeX}{\hologo{LuaLaTeX}}
 \newcommand{\METAFONT}{\hologo{METAFONT}}
-\newcommand{\pdflatex}{\hologo{pdfLaTeX}}
+\newcommand{\pdfLaTeX}{\hologo{pdfLaTeX}}
 \newcommand{\XeLaTeX}{\hologo{XeLaTeX}}
 
 \setlength{\footnotemargin}{4mm}
@@ -137,7 +139,7 @@ Texten als Forschungsgegenstand}
 
 \author{Thomas Hilarius Meyer}
 \date{}
-\publishers{DANTE~e.V.}
+\publishers{DANTE~e.\,V.}
 
 \lowertitleback{\copyright{} 2016 Thomas Hilarius Meyer
 	Satz: thm mit \LaTeXe{} und \KOMAScript \\
@@ -149,7 +151,7 @@ Texten als Forschungsgegenstand}
 
 Philologie bedeutet
 
-also müssten philologen besondere sorgfalt und liebe zur erstellung ...
+also müssten Philologen besondere Sorgfalt und liebe zur Erstellung ...
 
 Dieses Skript richtet sich an zwei Zielgruppen, deren Bedürfnisse verwandt, aber doch verschieden sind:
 
@@ -158,7 +160,7 @@ Dieses Skript richtet sich an zwei Zielgruppen, deren Bedürfnisse verwandt, abe
  -- sei es zur Erstellung einer Seminararbeit, einer Bachelor- oder Masterarbeit, eines
  Dissertationsprojektes oder eines komplexen Editionsvorhabens --
  einsetzen möchten und keine oder nur sehr geringe Kenntnisse des \LaTeX{}-Systems haben.
- \item Erfahrene \TeX -niker
+ \item Erfahrene \TeX-niker
 \end{itemize}
 
 Am Beginn dieses Buches muss ich den Leser um Vergebung für eine eigentlich unverzeihliche begriffliche
@@ -189,22 +191,22 @@ Wie so oft hilft ein Blick in die Geschichte, die Vielfalt der Gegenwart zu vers
 
 \section{Zur Geschichte von \TeX{}, \LaTeX{} und Co. -- zugleich eine Begriffsklärung}
 
-Am Anfang der gesamten Entwicklung steht Donald Knuth, ein US-amerkianischer Mathematiker und 
+Am Anfang der gesamten Entwicklung steht Donald Knuth, ein US-amerikanischer Mathematiker und 
 Informatiker, der mit der typographischen Qualität zeitgenössischer mathematischer Texte 
 unzufrieden war:
 
-\begin{quote}
+\begin{foreigndisplayquote}{english}
  Mathematics books and journals do not look as beautiful as they used to.
  It is not that mathemathical content is unsatisfactory, rather than the old and 
  well-developed traditions of typesetting have become too expensive.
  Fortunately it now appears that mathematics itself can be used to solve this problem.%
- \footcite[Zitiert nach: ][S. 1]{voss:einfuehrung}
-\end{quote}
+ \footcite[Zitiert nach:][1]{voss:einfuehrung}
+\end{foreigndisplayquote}
 
 Die Antwort von Donald Knuth auf das von ihm wahrgenommene ästhetische Defizit war das  
 Programm \TeX. Als Ergänzung entwickelte er das \METAFONT-System zur Definition von 
 Zeichensätzen.
-\TeX bildet bis heute, die Grundlage des Gesamtsystems, doch wurde das Programm immer 
+\TeX{} bildet bis heute, die Grundlage des Gesamtsystems, doch wurde das Programm immer 
 wieder erweitert und angepasst.
 
 Die wichtigste Erweiterung erfolgte durch Leslie Lamport der eine ganze Reihe von 
@@ -217,18 +219,18 @@ Zwei Dinge haben sich seither weiterentwickelt:
 Das Ausgabeformat PDF hat sich als universelles Dokumentformat durchgesetzt; es wird von neueren
 \LaTeX-Entwicklungen direkt erzeugt. (\TeX{} und das ursprüngliche \LaTeX{} erzeugten DVI-Dateien,
 die man zu PS-Dateien konvertieren konnte, die man zu PDF-Dateien konvertieren konnte.)
-Das ausführende Programm hieß nun \pdflatex. 
+Das ausführende Programm hieß nun \pdfLaTeX. 
 Selbstverständlich versteht es auch Dateien in reinem \TeX ;
 es kann per Kommandozeilenoption dazu gebracht werden, DVI-Dateien zu erzeugen, wenn dies aus 
 bestimmten Gründen gewünscht ist.
 Ruft man den Kommandozeilenbefehl \lstinline/latex/ auf, wird in aller Regel das Programm 
-pdflatex gestartet.
+\pdfLaTeX{} gestartet.
 
 Die zweite große Änderung betrifft das Eingabeformat:
-\TeX{} und \LaTeX{} wurden so umgebaut, dass sie umittelbar Unicode-Zeichen verstehen.
-Das ist v.a. für Sprachwissenschaftler interessant, stehen doch jetzt praktisch alle Schriftzeichen
+\TeX{} und \LaTeX{} wurden so umgebaut, dass sie unmittelbar Unicode-Zeichen verstehen.
+Das ist v.\,a. für Sprachwissenschaftler interessant, stehen doch jetzt praktisch alle Schriftzeichen
 der Welt unmittelbar zur Verfügung. 
-Man kann das traditionelle pdflatex-Programm m.H. eines sog. Paketes dazu bringen, Unicode-Zeichen
+Man kann das traditionelle \pdfLaTeX-Programm m.\,H. eines sog. Paketes dazu bringen, Unicode-Zeichen
 zu verstehen
 (Die entsprechenden Befehle heißen: \lstinline/\usepackage[utf8]{inputenc}/ 
 und \lstinline/\usepackage[T1]{fontenc}/.)
@@ -238,7 +240,7 @@ Die neueste Entwicklung in der Welt der \TeX-Programme ist die Integration der S
 Lua in die \LaTeX-engine: \LuaLaTeX{} wird als der kommende Standard gehandelt.
 
 Die Beispiele des folgenden Buches sowie das Buch selbst sind -- wegen der weiten Verbreitung --
-mit \pdflatex{} erzeugt worden.
+mit \pdfLaTeX{} erzeugt worden.
 
 \section{Arbeitswerkzeuge}
 
@@ -260,7 +262,7 @@ den manchmal Geschachtelten geschweiften Klammern kann durch einen guten Editor 
 erleichtert werden: Fährt man eine schließende Klammer an, wird die jeweils dazugehörende
 öffnende Klammer hervorgehoben.
 
-Das zweite Merkmal, das ein Editor (v.a. für den Einsatz in geisteswissenschaftlichen Projekten!) 
+Das zweite Merkmal, das ein Editor (v.\,a. für den Einsatz in geisteswissenschaftlichen Projekten!) 
 erfüllen muss, ist der Umgang mit Unicode. Moderne Linux-Distributionen verwenden Unicode (utf8)
 bereits standardmäßig als Codierung, manchmal muss das manuell eingestellt werden.
 
@@ -268,8 +270,8 @@ Einige empfehlenswerte Editoren für die Arbeit mit \LaTeX{} sind:
 für Linux: kwrite,  und kate (beide aus dem KDE-Projekt) --
 für Windows: Notepad++.
 
-Einen Sonderfall stellt der plattformübergreifend verfügbare Editor Emacs mit Auc-Tex-Ergänzung
-dar: Eigentlich handelt es sich dabei bereits um eine ausgewachsene Entwicklungsumgebung (s.u.);
+Einen Sonderfall stellt der plattformübergreifend verfügbare Editor Emacs mit AucTeX-Ergänzung
+dar: Eigentlich handelt es sich dabei bereits um eine ausgewachsene Entwicklungsumgebung (s.\,u.);
 Emacs-Anhänger erledigen noch viele andere Dinge mit \enquote{ihrem} Editor, doch ist die 
 Einarbeitung für Uneingeweihte etwas gewöhnungsbedürftig.
 Der Autor dieser Schrift war nie geekish genug für Emacs...
@@ -292,8 +294,8 @@ Texshop (Mac)
 TexnicCenter (Windows)
 
 
-\minisec{online-Lösungen}
-\texttt{www.overleaf.com} \index{overleaf} und \texttt{www.sharelatex.com} \index{sharelatex}
+\minisec{Online-Lösungen}
+\url{www.overleaf.com} \index{overleaf} und \url{www.sharelatex.com} \index{sharelatex}
 \footcite{meyer:dtk2015/1}
 
 
@@ -302,7 +304,7 @@ TexnicCenter (Windows)
 
 Anlegen einer Datei
 
-Dokumentsrtuktur: Präambel, Dokumentklasse etc.
+Dokumentstruktur: Präambel, Dokumentklasse etc.
 
 Übersetzen der \LaTeX{}-Datei
 
@@ -359,16 +361,16 @@ Was bedeuten die Anweisungen im einzelnen?
 \begin{description}
  \item[1] Das Einstellen der Dokumentklasse definiert das grundsätzliche Aussehen des 
  Textes: geht es um ein Buch, einen Artikel oder - wie hier - eine Hausarbeit. 
- Die Angabe \lstinline/scrrprt/ bedeutet, dass ein ``Report'' (also z.B. eine Hausarbeit)
- m.H. der Definitionen des \KOMAScript -Paketes von Markus Kohm erstellt werden soll.
+ Die Angabe \lstinline/scrrprt/ bedeutet, dass ein \enquote{Report} (also z.\,B. eine Hausarbeit)
+ m.\,H. der Definitionen des \KOMAScript-Paketes von Markus Kohm erstellt werden soll.
  (Mehr dazu vgl. \pageref{komaskript}
  \item[3-4] Zwei Zauberzeilen, die dazu führen, dass alle möglichen Unicode-Sonderzeichen
- benutzt werden dürfen und auch ausgegeben werden können wie z.B. ä, ö, ü, ß, æ, ï oder þ.
- (Achtung! Der Editor muss auf Unicode eingestellt sein! - vgl. S. \pageref{unicode}
+ benutzt werden dürfen und auch ausgegeben werden können wie z.\,B. ä, ö, ü, ß, æ, ï oder þ.
+ (Achtung! Der Editor muss auf Unicode eingestellt sein! - vgl. S.~\pageref{unicode}
  \item[6-7] \LaTeX{} benutzt jetzt deutsche Begriffe (Bibliographie statt Bibliography) und 
  Silbentrennmuster (\paket{babel}). 
  \footnote{Etwas genauer: Es gelten die Regeln der sog. Rechtschreibreform von 1996.
- Sollen die Regeln von 1901 gelten, muss als Option statt dessen \lstinline/german/ angeben
+ Sollen die Regeln von 1901 gelten, muss als Option stattdessen \lstinline/german/ angeben
  werden. Vgl. \ref{babel} auf S. \pageref{babel}}
  Außerdem werden (Z. 7) deutsche Gepflogenheiten bei den Anführungszeichen
  verwendet (\paket{csquotes}). 
@@ -391,7 +393,7 @@ Was bedeuten die Anweisungen im einzelnen?
  \item[22] Diese Zeile sorgt dafür, dass auf dem Titelblatt das jeweils aktuelle Datum als 
  Stand der Arbeit ausgegeben wird. Das kann praktisch sein, wenn man seltener seinen Schreibtisch
  aufräumt, als neue Fassungen ausdruckt.\\
- Achtung! Soll (z.B. in der Endfassung) kein Datum ausgegeben werden, so muss man explizit
+ Achtung! Soll (z.\,B. in der Endfassung) kein Datum ausgegeben werden, so muss man explizit
  \lstinline/\date{}/ angeben. Löscht man die \lstinline/\date/-Anweisung ganz, wird 
  automatisch das heutige Datum ausgegeben!
  \item[24] Achtung! Erst mit dem Befehl \lstinline/\maketitle/ wird \LaTeX{} dazu gebracht,
@@ -413,16 +415,16 @@ Legen wir sie an:
 
 \begin{lstlisting}
 @Book{voss:einfuehrung,
- author = {Heinrich Voß}, 
+ author = {Herbert Voß}, 
  title = {Einführung in \LaTeX},
- publisher = {dante e.V. and Lehmanns Media},
+ publisher = {DANTE~e.\,V. and Lehmanns Media},
  location = {Berlin and Heidelberg},
  year = {2016},
- edition = {2. Aufl},
+ edition = {2},
 }
 \end{lstlisting}
 
-Die bibliografien-Datei unseres Projektes enthält also einen einzigen Eintrag:
+Die Bibliografie-Datei unseres Projektes enthält also einen einzigen Eintrag:
 \bigskip
 
 \framebox[75mm]{
@@ -438,7 +440,7 @@ Die bibliografien-Datei unseres Projektes enthält also einen einzigen Eintrag:
 Dieser Titel ist übrigens automatisch aufgelöst worden; 
 in der Datei steht nur \lstinline/\cite{voss:einfuehrung}/.
 Allein diese Funktionalität -- und all die Tricks, die sich in dem Zusammenhang anstellen
-lassen, rechtfertigen den Einsatz von \LaTeX{} und co. (Mehr dazu S. \pageref{biblatex} ff.)
+lassen, rechtfertigen den Einsatz von \LaTeX{} und Co. (Mehr dazu S.~\pageref{biblatex}\,ff.)
 
 
 %\chapter{Typographische Gestaltung}
@@ -477,7 +479,7 @@ der Satz von komplexen mathematischen Formeln und Gleichungen.
 \end{quotation}
 
 
-Längeres Zitat aus Erste Hilfe Typographie o.ä.
+Längeres Zitat aus Erste Hilfe Typographie o.\,ä.
 
 
 \section{Wahl der Dokumentklasse}
@@ -488,7 +490,7 @@ Welche Gliederungsebenen sind vorgesehen, wie ist die grundsätzliche Formatieru
 
 Es existiert eine sehr große Vielzahl von verschiedenen Dokumentklassen;
 so gibt es für Hausarbeiten oder Dissertationen zahlreicher Universitäten eine eigene
-Dokumentklasse. Existiert eine solche, sollte man sie i.d.R. auch benutzen.
+Dokumentklasse. Existiert eine solche, sollte man sie i.\,d.R. auch benutzen.
 
 Die folgende Einführung beschränkt sich auf die Klassen des \KOMAScript -Paketes von
 Markus Kohm, weil diese eine überragende typographische Qualität sowie zahllose Möglichkeiten
@@ -541,7 +543,7 @@ eingestellt ist) dar.
 
 Auch der Dokumentklasse sollte man die Standardsprache des Dokumentes bekanntgeben.
 Denn zahlreiche Pakete , die später geladen werden, werten diese Sprachoption aus und 
-passen sich an (z.B. \paket{varioref}).
+passen sich an (z.\,B. \paket{varioref}).
 
 Somit ergibt sich folgender Typische Dokumentbeginn:
 
@@ -608,7 +610,7 @@ nutzen will.
  
  \subsection*{Ein Unterabs. o. E. im Iv.}
  
- \subsubsection*{Ein kleiner Unterabschnitt o.E.i.I.}
+ \subsubsection*{Ein kleiner Unterabschnitt o.\,E.i.\,I.}
  
  \chapter[Kurzfssg. f. d. Kolumnentitel]{Ein Kapitel}
  
@@ -617,7 +619,7 @@ nutzen will.
  \subsection[Kurzfssg. f. d. Kolumnentitel]{Ein Unterabschnitt}
 \end{lstlisting}
 
-Texte lassen sich in \LaTeX{} m.H. eines hierarchischen Systems von Überschriften gliedern:
+Texte lassen sich in \LaTeX{} m.\,H. eines hierarchischen Systems von Überschriften gliedern:
 
 \begin{description}
  \item[1-9] Texte der Kategorien 
@@ -634,7 +636,7 @@ Texte lassen sich in \LaTeX{} m.H. eines hierarchischen Systems von Überschrift
  desweiteren lassen sich alle Texte in Abschnitte und Unterabschnitte untergliedern 
  (\lstinline/\section{}/ bis \lstinline/\subsubsection{}/) 
  gliedern.
- Jede Überschrift beeinflusst die Kolumnentitel (s.u.) und erzeugt automatisch einen Eintrag
+ Jede Überschrift beeinflusst die Kolumnentitel (s.\,u.) und erzeugt automatisch einen Eintrag
  im Inhaltsverzeichnis.
  \item[1-9] Die sog. ``Sternvarianten'' der Gliederungsbefehle erzeugen die gleiche
  Formatierung der Überschriften, hinterlassen aber keinen Eintrag im Inhaltsverzeichnis.
@@ -659,7 +661,8 @@ Texte lassen sich in \LaTeX{} m.H. eines hierarchischen Systems von Überschrift
 \index{Unterstreichung}
 
 \begin{tabular}{lll}
- \lstinline/\emph{}/ 		&	\emph{kursiv} 		&	+ \\
+ \lstinline/\emph{}/ 		&	\emph{hervorgehoben} (z.\,B. kursiv in recte-Texten) 		&	+ \\
+ \lstinline/\textit{}/		&	\textsl{kursiv} &	-- -- \\
  \lstinline/\textsl{}/		&	\textsl{schräggestellt} &	-- -- \\
  \lstinline/\textsc{}/		&	\textsc{Kapitälchen}	&	+ \\
  \lstinline/\textbf{}/ 		&	\textbf{fett} 		&	+/- \\
@@ -895,7 +898,7 @@ wird als Absatzgrenze interpretiert. Einfache Zeilenwechsel führen zu einem nor
 Wortzwischenraum. Dies kann unerwünscht sein:
 
 Besonders bei komplexeren \LaTeX -Strukturen kann es sinnvoll sein, Zeilenwechsel einzufügen,
-z.B. zwischen einzelnen Befehlen oder einem Wort und einer folgenden Fußnote.
+z.\,B. zwischen einzelnen Befehlen oder einem Wort und einer folgenden Fußnote.
 An diesen Stellen soll aber kein Wortzischenraum -- womöglich sogar ein sich ergebender 
 Zeilenwechsel -- eingefügt werden.
 
@@ -917,7 +920,7 @@ Man beachte den Unterschied:
 \minisec{Sonderzeichen für Germanisten}
 
 Quasi unterhalb der Ebene von Unicode mit seinem Zugang zum gesamten Zeichensatz hält 
-\LaTeX{} einige Sonderzeichen bereit, die z.B. für Germanisten von besonderem Interesse
+\LaTeX{} einige Sonderzeichen bereit, die z.\,B. für Germanisten von besonderem Interesse
 sein dürften. Sie können als besondere Befehle eingegeben werden:
 
 \begin{tabular}{ll}
@@ -1105,7 +1108,7 @@ Aufzählung verändern:
 \minisec{Worterklärung, Glossar I: description}
 \index{Glossar}
 
-Besonders für Worterklärungen o.ä. eignet sich die Umgebung \lstinline/description/,
+Besonders für Worterklärungen o.\,ä. eignet sich die Umgebung \lstinline/description/,
 die zu jedem \lstinline/\item/  eine Angabe in eckigen Klammern erwartet:
 
 \begin{LTXexample}
@@ -1182,7 +1185,7 @@ beliebig komplex verschachteln lassen:
 
 Nur darauf hingewiesen sei auf das Paket \paket{enumitem}, mit dem sich zahlreiche 
 weitere Sonderwünsche verwirklichen lassen.
-(XXX z.B. ...)
+(XXX z.\,B. ...)
 \footcite[S.~304ff.]{voss:einfuehrung}
 
 
@@ -1278,7 +1281,7 @@ Leider nur für polyglossia\footcite[S. 33 ff. ]{rouquette:2012}
 Fußnoten haben eine doppelte Funktion: 
 Zum einen können bestimmte Informationen, die den Lesefluss des Haupttextes eher behindern,
 Anmerkungen, Erklärungen, Ergänzungen oder Korrekturen in Fußnoten verlagert werden.
-Zum anderen dienen -- v.a. in den Geisteswissebschaften -- Fußnoten zur Aufnahme der 
+Zum anderen dienen -- v.\,a. in den Geisteswissebschaften -- Fußnoten zur Aufnahme der 
 Literaturnachweise.
 
 Diese Doppelfunktion spiegelt sich in \LaTeX{} wider, das zwei Befehle zur Fußnotenerstellung
@@ -1314,7 +1317,7 @@ den eigenen gestalterischen Wünschen anpassen. Dazu dienen die beiden Befehle
 und 
 \lstinline/\deffootnotemark{Markendefinition}/.
 
-Folgende Umdefinitionen erzeugen z.B. Fußnoten mit eingeklammerten Ziffern 
+Folgende Umdefinitionen erzeugen z.\,B. Fußnoten mit eingeklammerten Ziffern 
 in Grundschriftgröße; die jeweils erste Zeile jeder Fußnote ist eingerückt:
 
 \begin{lstlisting}
@@ -1327,13 +1330,13 @@ in Grundschriftgröße; die jeweils erste Zeile jeder Fußnote ist eingerückt:
 Das Paket \paket{footmisc} von Robin Fairbains erlaubt zahlreiche Sonderfunktionen, die 
 lediglich per Paketoption angewähl werden müssen.
 
-Die m.E. nützlichsten Optionen sind:
+Die m.\,E. nützlichsten Optionen sind:
 
 \begin{description}
  \item[perpage] Die Fußnoten werden seitenweise gezählt. (2 Durchläufe nötig!)
- \item[para] Die Fußnoten werden alle zu einem Absatz zusammengefasst, das spart v.a. dann
+ \item[para] Die Fußnoten werden alle zu einem Absatz zusammengefasst, das spart v.\,a. dann
   viel Platz und verbessert das Druckbild, wenn es sich um sehr kurze Fußnotentexte (etwa nur
-  Bibelstellenangaben o.ä.) handelt.
+  Bibelstellenangaben o.\,ä.) handelt.
  \item[ragged] Die Fußnoten werden im Flattersatz gesetzt.
  \item[hang] Hängender Einzug der Fußnoten (wie in diesem Buch).
   Die Breite des Einzugs wird durch \lstinline/\footnotemargin/ festgelegt.\\
@@ -1370,10 +1373,10 @@ Es gibt zwei grundsätzlich verschiedene Szenarien, in denen man Zeilennummern v
 kann. 
 
 \begin{itemize}
- \item Einfach einen Text(abschnitt) durchnumerieren, z.B. auf einem Arbeitsblatt oder in
+ \item Einfach einen Text(abschnitt) durchnumerieren, z.\,B. auf einem Arbeitsblatt oder in
  einem Lehrbuch.
  \item einen Text mit Zeilennummern versehen, auf die später Bezug genommen wird, 
- z.B. im Rahmen einer großen Textausgabe. 
+ z.\,B. im Rahmen einer großen Textausgabe. 
 \end{itemize}
 
 Hier wird nur das erste gezeigt;
@@ -1381,7 +1384,7 @@ Aufgabe Nr. 2 ist viel komplexer, s. Kapitel zum Erstellen einer kritischen Edit
 S. \pageref{reledmac} 
 
 Das Paket \paket{lineno} bietet eine Reihe von Funktionen, einen Text -- oder 
-zahlreiche eingeschobene Texte wie Zitate o.ä. mit Zeilennummern als Lesehilfe zu 
+zahlreiche eingeschobene Texte wie Zitate o.\,ä. mit Zeilennummern als Lesehilfe zu 
 versehen.
 
 
@@ -1446,7 +1449,7 @@ Länge \lstinline/\linenumbersep/ bestimmt Abstand zwischen Zeilennummer und Tex
 
  
 
-\minisec{Eingeschobene Gedichte o.ä. mit Zeilennummern}
+\minisec{Eingeschobene Gedichte o.\,ä. mit Zeilennummern}
 
 Auch die Nummerierung eines Gedichtes gelingt auf diese Weise ohne Probleme:
 
@@ -1477,7 +1480,7 @@ Randbemerkungen stehen immer außen auf den Seitenrändern; bei zweispaltigem La
 \emph{auf linken Seiten} der als \lstinline/[links]/ definierte Text ausgegeben, falls vorhanden.
 
 Mit dem Befehl \lstinline/\reversemarginpar/ lässt sich dieses Verhalten umkehren; 
-von der Benutzung ist abzuraten, da innen stehende Marginalien i.d.R. wegen der Bindung schlecht
+von der Benutzung ist abzuraten, da innen stehende Marginalien i.\,d.R. wegen der Bindung schlecht
 lesbar sind.
 
 Marginalien, die mit dem \LaTeX -Standardbefehl gesetzt sind, dürfen nicht in Gleitumgebungen
@@ -1506,7 +1509,7 @@ Bilder
 Eine weitere Option ist, die Beschriftung einer Gleitumgebung (Bild, Tabelle) auf den Rand zu
 setzen, während die Gleitumgebung selbst die gesamte Breite des Textfeldes einnimmt.
 
-Auch Bilder und Tabellen, die sich über die ganze Seitenbreite, d.h. den eigentlichen Satzspiegel
+Auch Bilder und Tabellen, die sich über die ganze Seitenbreite, d.\,h. den eigentlichen Satzspiegel
 \emph{und} die Marginalspalte erstrecken, werden unterstützt.
 
 Nähere Informationen enthält die Paketdokumentation.
@@ -1535,12 +1538,12 @@ Spalten gesetzt.
 Daneben bietet \LaTeX die Möglichkeit, in einem Dokument eine zweispaltige Passage
 zu integrieren. Die Passage wird mit dem Befehl \lstinline/\twocolumn[xxx] /
 eingeleitet. Die angegebene Überschrift wird einspaltig über beide Spalten gesetzt.
-Außer einer echten Überschrift (z.B. \lstinline/\section{}/ etc. sind hier auch
+Außer einer echten Überschrift (z.\,B. \lstinline/\section{}/ etc. sind hier auch
 längere Einleitungstexte etc. möglich.
 
 Mit dem Befehl \lstinline/\onecolumn/ wird wieder auf einspaltigen Satz zurückgestellt.
 
-Beide Kommandos beginnen jeweils eine neue Seite, was ihre praktische Benutzbarkeit m.E.
+Beide Kommandos beginnen jeweils eine neue Seite, was ihre praktische Benutzbarkeit m.\,E.
 stark einschränkt.
 
 
@@ -1571,7 +1574,7 @@ stark einschränkt.
  \lstinline/columnseprule/ auf einen Wert größer 0 gestellt werden;
  in diesem Beispiel liegt er bei 0.4pt: \lstinline/\setlength{\columnseprule}{0.4pt}/.
  
- Daneben bietet das Paket weitere Einstellmöglichkeiten, wie. z.B. den Spaltenabstand
+ Daneben bietet das Paket weitere Einstellmöglichkeiten, wie. z.\,B. den Spaltenabstand
  oder die Farbe der Trennlinie.
 \end{multicols}
 
@@ -1589,8 +1592,8 @@ Voraussetzung: Paket \paket{graphicx} in Dokumentspräambel einbinden:
 
 Dann fügt der Befehl \lstinline/\includegraphics[Optionen]{Name}/ an der jeweiligen Stelle
 die angegebene Grafik (als eigenen Absatz) ein.
-Als Option sollte z.B. die gewünschte Abbildungsgröße eingestellt werden.
-Wieder sind sowohl absolute Angaben möglich als auch Bezugnahmen z.B. auf 
+Als Option sollte z.\,B. die gewünschte Abbildungsgröße eingestellt werden.
+Wieder sind sowohl absolute Angaben möglich als auch Bezugnahmen z.\,B. auf 
 \lstinline/\textwidth/.
 
 Meist möchte man die Abbibldung jedoch in eine Gleitumgebung einfügen, so dass das Satzprogramm
@@ -1777,7 +1780,7 @@ je nach Aufgabenbreich sind diese verschieden gut geeignet:
 
 \minisec{Möglichkeit I: Einzelbuchstaben}
 
-Die erste Möglichkeit besteht in der Eingabe m.H. der Einzelnbuchstaben-Symbole des Paketes
+Die erste Möglichkeit besteht in der Eingabe m.\,H. der Einzelnbuchstaben-Symbole des Paketes
 \paket{textgreek}; das Verfahren ist in Abscnitt \ref{griechEinzelbuchstaben}, 
 S.~\pageref{griechEinzelbuchstaben}, beschrieben.
 
@@ -1788,7 +1791,7 @@ einzelnen Zeichen bis maximal ca. einem Wort.
 \minisec{Möglichkeit II: Transkription mit \paket{ibycus}}
 
 Die zweite Methode eignet sich demgegenüber hervorragend, wenn es darum geht auch etwas 
-längere (alt-)griechische Passagen in ein ansonsten deutschsprachiges Dokument -- m.H. eines
+längere (alt-)griechische Passagen in ein ansonsten deutschsprachiges Dokument -- m.\,H. eines
 deutschen Computers mit QWERTZ-Tastatur -- einzugeben.
 
 Dabei wird für die griechischen Buchstaben eine Art Transkription in lateinischen Buchstaben
@@ -1852,8 +1855,8 @@ dennoch gibt \LaTeX{} alle Zeichen richtig wider:
 (Joh. 3,16)
 
 Diese Methode dürfte sich in der Praxis am ehesten eignen, wenn bereits ein Textcorpus
-(z.B. via Internet) ediert und Unicode-Erfasst vorliegt, und Textpartien ins eigene Dokument
-ohne Veränderungen übernommen werden sollen -- so wie z.B. bei Zitaten aus der Bibel oder
+(z.\,B. via Internet) ediert und Unicode-Erfasst vorliegt, und Textpartien ins eigene Dokument
+ohne Veränderungen übernommen werden sollen -- so wie z.\,B. bei Zitaten aus der Bibel oder
 der klassischen Literatur.
 
 Will man selbst (alt-)griechische Textpassagen schreiben, scheint das Ibykus-Verfahren
@@ -1870,8 +1873,8 @@ Anwenderfreundlich -- im Sinne von Anwendern an einem westlichen PC mit ansonste
 lateinischen Alphabet -- gelöst:
 
 Nach \lstinline/\usepackage{cjhebrew}/%
-\footnote{Eine besondere Angabe z.B. bei \paket{babel} ist nicht nötig.}
-steht v.a. der Befehl \lstinline/\cjRL{}/ 
+\footnote{Eine besondere Angabe z.\,B. bei \paket{babel} ist nicht nötig.}
+steht v.\,a. der Befehl \lstinline/\cjRL{}/ 
 -- für hebräische Einzelworte im laufenden Absatz -- sowie die 
 Umgebung \lstinline/cjhebrew/ 
 -- für ganze Absätze in Hebräisch -- zur Verfügung.
@@ -1899,7 +1902,7 @@ Die Bearbeitung mit \LaTeX{} ergibt:
  b*e:re'+siyt b*ArA' 'E:lohim 'et ha+s*amayim w:'et hA'ArE.s;
 \end{cjhebrew}
 
-Wegen der Einzelheiten der Zeichen-, Vokal-, Akzent- und Satzzeichen-Codierung (inkl. z.B. 
+Wegen der Einzelheiten der Zeichen-, Vokal-, Akzent- und Satzzeichen-Codierung (inkl. z.\,B. 
 Mem finalis) sei auf die Paketdokumentation verwiesen.
 
 \section{Russisch}
@@ -2001,7 +2004,7 @@ DEK\footcite{sarman:dtk2009/1}
 
 Das Paket \paket{covington} von Michael Covington stellt einige primär für Linguisten nützliche
 Befehle zur Verfügung. Mit seiner Hilfe ist es relativ einfach, eine einfache 
-Interlinearglosse zu erstellen, d.h. Wort für Wort zu übersetzen oder zu kommentieren:
+Interlinearglosse zu erstellen, d.\,h. Wort für Wort zu übersetzen oder zu kommentieren:
 
 \begin{lstlisting}
 \gll La  neige,  qui {n'a pas} cesse       de tomber 
@@ -2221,7 +2224,7 @@ dokumentierter text  ---  dokumentierender text ...
 \minisec{Wiedergabe der \TeX -typischen Logos}
 
 Das Paket \paket{hologo} von Heiko Oberdiek stellt den Befehl \lstinline/\hologo{Name}/ zur 
-Verfügung, das u.a. folgende Logos erzeugen kann:
+Verfügung, das u.\,a. folgende Logos erzeugen kann:
 
 \begin{center}
  \begin{tabular}{ll}
@@ -2348,7 +2351,7 @@ Spezialtitel, je nach individuellem Bedürfnis:
 
 \section{Bücher veralten. Wer hält mich auf dem Laufenden?}
 
-dante e.V.
+dante e.\,V.
 
 
 \printbibliography
