@@ -371,7 +371,7 @@ Was bedeuten die Anweisungen im einzelnen?
  Silbentrennmuster (\paket{babel}). 
  \footnote{Etwas genauer: Es gelten die Regeln der sog. Rechtschreibreform von 1996.
  Sollen die Regeln von 1901 gelten, muss als Option stattdessen \lstinline/german/ angeben
- werden. Vgl. \ref{babel} auf S. \pageref{babel}}
+ werden. Vgl. \ref{babel} auf S.~\pageref{babel}}
  Außerdem werden (Z. 7) deutsche Gepflogenheiten bei den Anführungszeichen
  verwendet (\paket{csquotes}). 
  Die beiden zaubersprüche sollten in keiner deutschen datei fehlen.
@@ -465,7 +465,7 @@ der Satz von komplexen mathematischen Formeln und Gleichungen.
  weil die Laien-Typografen nicht sehen, was nicht stimmt und nicht wissen
  können, worauf es ankommt.
  So gewöhnt man sich an falsche und schlechte Typografie.
- \footcite[S. 9]{erste_hilfe}
+ \footcite[9]{erste_hilfe}
  \end{quote}
  
 \begin{quotation}
@@ -475,7 +475,7 @@ der Satz von komplexen mathematischen Formeln und Gleichungen.
  \emph{Was} ein Doktorand oder Diplomand zu schreiben hat, das hat er studiert.
  \emph{Wie} er es zu schreiben hat, hat er nicht studiert, er setzt irgendwie drauflos.
  Mit unübersichtlicher und schlecht lesbarer Laien-Typografie schadet er oft genug seiner Arbeit.
- \footcite[S. 86]{erste_hilfe}
+ \footcite[86]{erste_hilfe}
 \end{quotation}
 
 
@@ -834,7 +834,7 @@ Die ausgezeichnete deutschsprachige Paketdokumentation eignet sich übrigens seh
 den dahinterliegenden Fontauswahlmechanismus von \LaTeX{} kennenzulernen.
 
 In der Praxis wird man die Fontaufrufe in ein selbstdefiniertes Makro verpacken, 
-vgl. \ref{makros} auf Seite \pageref{makros}.
+vgl. \ref{makros} auf S.~\pageref{makros}.
 
 
 \section{Sonderzeichen}
@@ -843,7 +843,7 @@ vgl. \ref{makros} auf Seite \pageref{makros}.
 
 \minisec{Der Wortzwischenraum}
 
-Der übliche Wortzwischenraum (Fachbezeichnung: Spatium (Sicher???)) wird von \LaTeX{} beim Absatzumbruch innerhalb einer Zeile
+Der übliche Wortzwischenraum (Fachbezeichnung: Spatium (NEIN, das Spatium ist nur eine Ergänzungmöglichkeit. Heute bei LaTeX als \, bekannt)) wird von \LaTeX{} beim Absatzumbruch innerhalb einer Zeile
 gleichmäßig verteilt. Die Eingabe erfolgt in Form von normalen Leerzeichen oder als 
 einfacher Zeilenwechsel.
 
@@ -956,9 +956,9 @@ Betonungszeichen etc.
 \minisec{Unicode-Codes}
 
 Was immer geht: 
-vgl. Abschnitt \ref{unicodeeingabe} auf S. \pageref{unicodeeingabe} 
+vgl. Abschnitt \ref{unicodeeingabe} auf S.~\pageref{unicodeeingabe} 
 (für die Eingabemethode)
-bzw. Abschnitt \ref{utf8codes} auf S. \pageref{utf8codes} 
+bzw. Abschnitt \ref{utf8codes} auf S.~\pageref{utf8codes} 
 (für eine Übersicht über häufig benötigte Unicode-Zeichen und ihre Codes).
 
 
@@ -1003,7 +1003,7 @@ Offene Frage: Akzente
 Wo liegt die Schmerzgrenze für dieses Verfahren?
 Wahrscheinlich bei etwas über einem Wort...
 
-Comprehensive S. 
+Comprehensive S.~
 
 
 \minisec{Ein \enquote{kleines Ärgernis}: Anführungszeichen}
@@ -1053,10 +1053,10 @@ reflectbox
 
 \LaTeX{} bietet eine ganze Reihe von Möglichkeiten, Listen und Aufzählungen zu gestalten.
 Hier werden nur die grundlegenden Funktionen gezeigt; daneben gibt zahlreiche Möglichkeiten zur
-Modifikation.\footcite[S. 295ff.]{voss:einfuehrung}
+Modifikation.\footcite[295\psqq]{voss:einfuehrung}
 
 
-\minisec{``Triviale'' Listen ohne alles: trivlist}
+\minisec{\enquote{Triviale} Listen ohne alles: trivlist}
 
 Am anspruchlosesten ist die einfache Auflistung ohne irgendwelche Formatierung:
 
@@ -1194,7 +1194,7 @@ weitere Sonderwünsche verwirklichen lassen.
 \minisec{Zitate im Fließtext}
 
 Normale Eingabe;
-Anführungszeichen am besten mit \lstinline/\enquote{}/ codieren (vgl. S. \pageref{enquote}); 
+Anführungszeichen am besten mit \lstinline/\enquote{}/ codieren (vgl. S.~\pageref{enquote}); 
 Textstellen belegen mit Fußnote und automatischer Literaturverwaltung.
 
 
@@ -1203,12 +1203,12 @@ Textstellen belegen mit Fußnote und automatischer Literaturverwaltung.
 
 \enquote{Ein häufiger anzutreffendes Element ist ein Zitat oder eine Redewendung, die rechtsbündig unter 
 oder über einer Überschrift gesetzt wird. dabei werden der Spruch selbst und der Quellennachweis
-in der Regel speziell formatiert.}\footcite[S. 131]{kohm:2014}
+in der Regel speziell formatiert.}\footcite[131]{kohm:2014}
 
 \KOMAScript\ stellt hierfür den Befehl \lstinline/\dictum[Urheber]{Spruch}/ zur Verfügung.
 
 Die angesprochene Formatierung lässt sich in allen Details verändern.
-\footcite[vgl. S. 131ff.]{kohm:2014}
+\footcite[vgl.][131\psqq]{kohm:2014}
 
 
 \minisec{Einen Abschnitt zitieren: quote}
@@ -1274,7 +1274,7 @@ und ab wann \paket{poemscol}?
 
 \minisec{Fremdsprachige Zitate}
 
-Leider nur für polyglossia\footcite[S. 33 ff. ]{rouquette:2012}
+Leider nur für polyglossia\footcite[33\psqq]{rouquette:2012}
 
 \section{Fußnoten}
 
@@ -1381,7 +1381,7 @@ kann.
 
 Hier wird nur das erste gezeigt;
 Aufgabe Nr. 2 ist viel komplexer, s. Kapitel zum Erstellen einer kritischen Edition, 
-S. \pageref{reledmac} 
+S.~\pageref{reledmac} 
 
 Das Paket \paket{lineno} bietet eine Reihe von Funktionen, einen Text -- oder 
 zahlreiche eingeschobene Texte wie Zitate o.\,ä. mit Zeilennummern als Lesehilfe zu 
@@ -2071,7 +2071,7 @@ Das obige Beispiel erzeugt folgende Ausgabe:
  \end{Parallel}
 \nolinenumbers
 
-(Zu der Zeilennummerierung vgl. Abschnitt \ref{zeilennummer} auf S. \pageref{zeilennummer}.)
+(Zu der Zeilennummerierung vgl. Abschnitt \ref{zeilennummer} auf S.~\pageref{zeilennummer}.)
 
 \minisec{Das Paket \paket{paracol}}
 
@@ -2079,7 +2079,7 @@ Das obige Beispiel erzeugt folgende Ausgabe:
 
 \section{Seitenweise}
 
-\paket{ledpar}\footcite[S. 175ff.]{rouquette:2012}
+\paket{ledpar}\footcite[175\psqq]{rouquette:2012}
 
 
 \chapter{Kritische Apparate setzen}
@@ -2096,7 +2096,7 @@ Bezug zu TUSTEP?
 Recherche zu anderen Alternativen?
 
 \paket{reledmac}, \paket{ledpar} und \paket{ednotes} (wird nicht erklärt.)
-\footcite[S. 165ff.]{rouquette:2012}
+\footcite[165\psqq]{rouquette:2012}
 
 
 \chapter{Literatur und Zitate automatisch verwalten}
@@ -2107,7 +2107,7 @@ Recherche zu anderen Alternativen?
 \section{Der (neue) Standard: biblatex und biber}
 
 \paket{biblatex}
-Vgl.\footcite[S. 79ff.]{rouquette:2012}
+Vgl.\footcite[79\psqq]{rouquette:2012}
 \footcite{voss:bibliografien}
 \footcite{wassenhoven:dtk2008/2}
 \footcite{wassenhoven:dtk2008/4}
