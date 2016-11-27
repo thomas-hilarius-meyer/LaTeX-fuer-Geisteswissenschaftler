@@ -1,6 +1,15 @@
-\documentclass[draft=false,11pt,DIV=8]{scrbook}  	% dieser DIV-Wert wird später überschrieben...
-\usepackage[paperwidth=17cm,paperheight=24cm]{geometry}
-\KOMAoptions{DIV=13,BCOR=7mm}
+% !TEX TS-program = pdflatex
+% !BIB TS-program = biber
+
+\documentclass[%
+   %%%draft=false,%
+   fontsize=11pt,%
+   paper=17cm:24cm,%
+   DIV=13,%
+   pagesize%
+   ]{scrbook}  	% dieser DIV-Wert wird später überschrieben... (MS: alles integriert))
+%%%\usepackage[paperwidth=17cm,paperheight=24cm]{geometry}
+%%%\KOMAoptions{DIV=13,BCOR=7mm}
 
 
 %\documentclass[12pt,BCOR=10mm]{scrbook}
@@ -8,7 +17,14 @@
 \usepackage[OT1,T1]{fontenc}
 \usepackage[ibycus,polutonikogreek,english,french,ngerman]{babel}
 \usepackage[autostyle]{csquotes}
-%\usepackage{ngerman}
+\usepackage{libertine}
+\usepackage[scaled=0.85]{beramono}
+\usepackage{textcomp}
+%\usepackage{euler}
+\usepackage{yfonts}
+\usepackage{textgreek}
+\usepackage{microtype}
+
 \usepackage{graphicx}
 \usepackage[a4,center,cross]{crop}
 
@@ -30,14 +46,6 @@
 
 \usepackage{showexpl}
 
-\usepackage{beramono}
-
-%\usepackage{euler}
-\usepackage{yfonts}
-
-\usepackage{textcomp}
-\usepackage{textgreek}
-
 \usepackage[pagewise]{lineno}
 
 \usepackage{sidenotes}
@@ -47,10 +55,10 @@
 \usepackage{forest}
 
 \usepackage{covington}
-\renewcommand{\it}{}
-\renewcommand{\rm}{}
+%%%\renewcommand{\it}{}
+%%%\renewcommand{\rm}{}
 
-\usepackage[hang]{footmisc}
+\usepackage[hang]{footmisc} %%%MS: Evtl. besser direkt \deffootnote
 
 \usepackage{parallel}
 
@@ -71,12 +79,15 @@
 \newcommand{\paket}[1]{\textsf{#1}\index[pakete]{#1}}
 
 
-\usepackage[style=verbose-inote,pageref=true]{biblatex}
+\usepackage[style=verbose-inote,pageref=true,backend=biber]{biblatex}
 %\usepackage[style=historische-zeitschrift]{biblatex}
 \addbibresource{lfgw-bibliographie.bib}
 \defbibheading{bibliography}{\chapter{#1}}
 
-
+\newcommand{\LuaLaTeX}{\hologo{LuaLaTeX}}
+\newcommand{\METAFONT}{\hologo{METAFONT}}
+\newcommand{\pdflatex}{\hologo{pdfLaTeX}}
+\newcommand{\XeLaTeX}{\hologo{XeLaTeX}}
 \begin{document}
 \setlength{\footnotemargin}{4mm}
 
@@ -99,7 +110,7 @@ Texten als Forschungsgegenstand}
 
 \author{Thomas Hilarius Meyer}
 \date{}
-\publishers{dante e.V.}
+\publishers{DANTE~e.V.}
 
 \lowertitleback{\copyright{} 2016 Thomas Hilarius Meyer
 	Satz: thm mit \LaTeXe{} und \KOMAScript \\
@@ -116,10 +127,10 @@ also müssten philologen besondere sorgfalt und liebe zur erstellung ...
 Dieses Skript richtet sich an zwei Zielgruppen, deren Bedürfnisse verwandt, aber doch verschieden sind:
 
 \begin{itemize}
- \item Angehörige der Geistes- und Sozialwissenschaften, die \LaTeX\ im Rahmen ihrer Arbeit
+ \item Angehörige der Geistes- und Sozialwissenschaften, die \LaTeX{} im Rahmen ihrer Arbeit
  -- sei es zur Erstellung einer Seminararbeit, einer Bachelor- oder Masterarbeit, eines
  Dissertationsprojektes oder eines komplexen Editionsvorhabens --
- einsetzen möchten und keine oder nur sehr geringe Kenntnisse des \LaTeX -Systems haben.
+ einsetzen möchten und keine oder nur sehr geringe Kenntnisse des \LaTeX{}-Systems haben.
  \item Erfahrene \TeX -niker
 \end{itemize}
 
@@ -130,7 +141,7 @@ Latex wird von einer sehr aktiven Community weiterentwickelt.
 
 DTK verzeichnet ca. 50 NEUE Pakete im Quartal.
 
-Deshalb große unübersichtlichkeit: Neulinge finden oft auch veraltetes bzw,. sehen vor lauter
+Deshalb große Unübersichtlichkeit: Neulinge finden oft auch veraltetes bzw,. sehen vor lauter
 Wald die Bäume nicht.
 
 Deshalb Idee dieses Buches: Für die häufigsten Bedürfnisse im geisteswissenschaftlichen
@@ -144,12 +155,12 @@ Herzlichen Dank
 
 \chapter{Grundsätzliches}
 
-Der Einsteiger in die Welt von \TeX\ und \LaTeX\ wird mit einer Vielzahl von Programmnamen und 
+Der Einsteiger in die Welt von \TeX{} und \LaTeX{} wird mit einer Vielzahl von Programmnamen und 
 Spezialbegriffen, die zunächst einmal Verwirrung stiftet. 
 Wie so oft hilft ein Blick in die Geschichte, die Vielfalt der Gegenwart zu verstehen...
 
 
-\section{Zur Geschichte von \TeX{}, \LaTeX{} und co. -- zugleich eine Begriffsklärung}
+\section{Zur Geschichte von \TeX{}, \LaTeX{} und Co. -- zugleich eine Begriffsklärung}
 
 Am Anfang der gesamten Entwicklung steht Donald Knuth, ein US-amerkianischer Mathematiker und 
 Informatiker, der mit der typographischen Qualität zeitgenössischer mathematischer Texte 
@@ -164,22 +175,22 @@ unzufrieden war:
 \end{quote}
 
 Die Antwort von Donald Knuth auf das von ihm wahrgenommene ästhetische Defizit war das  
-programm \TeX . Als Ergänzung entwickelte er das Metafont -System zur Definition von 
+Programm \TeX. Als Ergänzung entwickelte er das \METAFONT-System zur Definition von 
 Zeichensätzen.
 \TeX bildet bis heute, die Grundlage des Gesamtsystems, doch wurde das Programm immer 
 wieder erweitert und angepasst.
 
 Die wichtigste Erweiterung erfolgte durch Leslie Lamport der eine ganze Reihe von 
-inhaltlich ausgerichteten Befehlen auf \TeX -Basis definierte: \LaTeX\ war geboren.
-Die bislang letzte Version dieses Programmes -- \LaTeXe\ -- stammt aus dem Jahre 1994
+inhaltlich ausgerichteten Befehlen auf \TeX-Basis definierte: \LaTeX{} war geboren.
+Die bislang letzte Version dieses Programmes -- \LaTeXe{} -- stammt aus dem Jahre 1994
 und definiert das Grundgerüst.
 
 Zwei Dinge haben sich seither weiterentwickelt:
 
 Das Ausgabeformat PDF hat sich als universelles Dokumentformat durchgesetzt; es wird von neueren
-\LaTeX -Entwicklungen direkt erzeugt. (\TeX\ und das ursprüngliche \LaTeX\ erzeugten DVI-Dateien,
+\LaTeX-Entwicklungen direkt erzeugt. (\TeX{} und das ursprüngliche \LaTeX{} erzeugten DVI-Dateien,
 die man zu PS-Dateien konvertieren konnte, die man zu PDF-Dateien konvertieren konnte.)
-Das ausführende Programm hieß nun pdflatex. 
+Das ausführende Programm hieß nun \pdflatex. 
 Selbstverständlich versteht es auch Dateien in reinem \TeX ;
 es kann per Kommandozeilenoption dazu gebracht werden, DVI-Dateien zu erzeugen, wenn dies aus 
 bestimmten Gründen gewünscht ist.
@@ -187,24 +198,24 @@ Ruft man den Kommandozeilenbefehl \lstinline/latex/ auf, wird in aller Regel das
 pdflatex gestartet.
 
 Die zweite große Änderung betrifft das Eingabeformat:
-\TeX\ und \LaTeX\ wurden so umgebaut, dass sie umittelbar Unicode-Zeichen verstehen.
+\TeX{} und \LaTeX{} wurden so umgebaut, dass sie umittelbar Unicode-Zeichen verstehen.
 Das ist v.a. für Sprachwissenschaftler interessant, stehen doch jetzt praktisch alle Schriftzeichen
 der Welt unmittelbar zur Verfügung. 
 Man kann das traditionelle pdflatex-Programm m.H. eines sog. Paketes dazu bringen, Unicode-Zeichen
 zu verstehen
-(Die entsprechenden Befehle heißen: \lstinline/usepackage[utf8]{inputenc}/ 
-und \lstinline/usepackage[T1]{fontenc}/.)
-oder das speziell für die Unicode-Untersützung entwickelte XeLaTeX verwenden.
+(Die entsprechenden Befehle heißen: \lstinline/\usepackage[utf8]{inputenc}/ 
+und \lstinline/\usepackage[T1]{fontenc}/.)
+oder das speziell für die Unicode-Untersützung entwickelte \XeLaTeX{} verwenden.
 
-Die neueste Entwicklung in der Welt der \TeX -Programme ist die Integration der Skriptsprache
-Lua in die \LaTeX -engine: luaLaTeX wird als der kommende Standard gehandelt.
+Die neueste Entwicklung in der Welt der \TeX-Programme ist die Integration der Skriptsprache
+Lua in die \LaTeX-engine: \LuaLaTeX{} wird als der kommende Standard gehandelt.
 
 Die Beispiele des folgenden Buches sowie das Buch selbst sind -- wegen der weiten Verbreitung --
-mit pdflatex erzeugt worden.
+mit \pdflatex{} erzeugt worden.
 
 \section{Arbeitswerkzeuge}
 
-empfehlenswert für die tägliche Arbeit mit \LaTeX gerade bei größeren Projekten ist eine IDE.
+empfehlenswert für die tägliche Arbeit mit \LaTeX{} gerade bei größeren Projekten ist eine IDE.
 Diese Schrift wurde mit kile erstellt.
 Alternative: overleaf oder sharelatex.
 Doch zuerst sollte man die Einzelwerkzeuge kennen, die in solchen \enquote{Meta-Werkzeugen}
@@ -216,7 +227,7 @@ zusammengefasst sind.
 Doch es gibt ein paar Qualitätsmerkmale, auf die man bei der Auswahl achten sollte, weil
 sie die tägliche Arbeit wesentlich erleichtern:
 
-Syntax-Highlighting hebt \LaTeX -Befehle sowie bestimmte Inhalte wie Überschriften etc. farblich
+Syntax-Highlighting hebt \LaTeX-Befehle sowie bestimmte Inhalte wie Überschriften etc. farblich
 hervor, was die Übersicht über das Dokument wesentlich erleichtert. Auch die Navigation in
 den manchmal Geschachtelten geschweiften Klammern kann durch einen guten Editor wesentlich
 erleichtert werden: Fährt man eine schließende Klammer an, wird die jeweils dazugehörende
@@ -226,7 +237,7 @@ Das zweite Merkmal, das ein Editor (v.a. für den Einsatz in geisteswissenschaft
 erfüllen muss, ist der Umgang mit Unicode. Moderne Linux-Distributionen verwenden Unicode (utf8)
 bereits standardmäßig als Codierung, manchmal muss das manuell eingestellt werden.
 
-Einige empfehlenswerte Editoren für die Arbeit mit \LaTeX\ sind:
+Einige empfehlenswerte Editoren für die Arbeit mit \LaTeX{} sind:
 für Linux: kwrite,  und kate (beide aus dem KDE-Projekt) --
 für Windows: Notepad++.
 
@@ -327,7 +338,7 @@ Was bedeuten die Anweisungen im einzelnen?
  \item[3-4] Zwei Zauberzeilen, die dazu führen, dass alle möglichen Unicode-Sonderzeichen
  benutzt werden dürfen und auch ausgegeben werden können wie z.B. ä, ö, ü, ß, æ, ï oder þ.
  (Achtung! Der Editor muss auf Unicode eingestellt sein! - vgl. S. \pageref{unicode}
- \item[6-7] \LaTeX\ benutzt jetzt deutsche Begriffe (Bibliographie statt Bibliography) und 
+ \item[6-7] \LaTeX{} benutzt jetzt deutsche Begriffe (Bibliographie statt Bibliography) und 
  Silbentrennmuster (\paket{babel}). 
  \footnote{Etwas genauer: Es gelten die Regeln der sog. Rechtschreibreform von 1996.
  Sollen die Regeln von 1901 gelten, muss als Option statt dessen \lstinline/german/ angeben
@@ -343,7 +354,7 @@ Was bedeuten die Anweisungen im einzelnen?
  imakeidx umfangreich konfigurieren.
  \item[12-13] Diese beiden recht abschreckenden Zauberformeln werden uns erlauben, unsere
  gesamte Literaturverwaltung mit allen Formalien automatisch erledigen zu lassen.
- Hier sagen wir \LaTeX\ , dass wir unsere Bibliographiedaten in einer Datei namens 
+ Hier sagen wir \LaTeX{} , dass wir unsere Bibliographiedaten in einer Datei namens 
  meine-bibliographie.bib aufheben, dass das Programm biblatex für uns die Arbeit machen soll
  und dass es sich dabei an einem bestimmten, eher traditionellen geisteswissenschaftlichen
  Stil ausrichten soll.
@@ -356,7 +367,7 @@ Was bedeuten die Anweisungen im einzelnen?
  Achtung! Soll (z.B. in der Endfassung) kein Datum ausgegeben werden, so muss man explizit
  \lstinline/\date{}/ angeben. Löscht man die \lstinline/\date/-Anweisung ganz, wird 
  automatisch das heutige Datum ausgegeben!
- \item[24] Achtung! Erst mit dem Befehl \lstinline/\maketitle/ wird \LaTeX\ dazu gebracht,
+ \item[24] Achtung! Erst mit dem Befehl \lstinline/\maketitle/ wird \LaTeX{} dazu gebracht,
  die definierten Titelseiten auch wirklich \emph{auszugeben}!
  \item[26] Dieser Befehl gibt das Inhaltsverzeichnis aus.
  \item[28] Jetzt kommen endlich unsere wertvollen Inhalte.
@@ -400,7 +411,7 @@ Die bibliografien-Datei unseres Projektes enthält also einen einzigen Eintrag:
 Dieser Titel ist übrigens automatisch aufgelöst worden; 
 in der Datei steht nur \lstinline/\cite{voss:einfuehrung}/.
 Allein diese Funktionalität -- und all die Tricks, die sich in dem Zusammenhang anstellen
-lassen, rechtfertigen den Einsatz von \LaTeX\ und co. (Mehr dazu S. \pageref{biblatex} ff.)
+lassen, rechtfertigen den Einsatz von \LaTeX{} und co. (Mehr dazu S. \pageref{biblatex} ff.)
 
 
 %\chapter{Typographische Gestaltung}
@@ -412,7 +423,7 @@ Gestaltung.
 Die häufigsten Anforderungen werden im folgenden der Reihe nach durchgegangen.
 Maches davon ist \LaTeX -Standard; anderes wird außerhalb der Geisteswissenschaften eher
 selten gebraucht.
-Ein großer Bereich, für den \LaTeX\ eigentlich bekannt ist, bleibt ganz außen vor:
+Ein großer Bereich, für den \LaTeX{} eigentlich bekannt ist, bleibt ganz außen vor:
 der Satz von komplexen mathematischen Formeln und Gleichungen.
 
 
@@ -579,7 +590,7 @@ nutzen will.
  \subsection[Kurzfssg. f. d. Kolumnentitel]{Ein Unterabschnitt}
 \end{lstlisting}
 
-Texte lassen sich in \LaTeX\ m.H. eines hierarchischen Systems von Überschriften gliedern:
+Texte lassen sich in \LaTeX{} m.H. eines hierarchischen Systems von Überschriften gliedern:
 
 \begin{description}
  \item[1-9] Texte der Kategorien 
@@ -649,14 +660,14 @@ Texte lassen sich in \LaTeX\ m.H. eines hierarchischen Systems von Überschrifte
 
 \section{Besondere Schriftarten}
 
-Am bequemsten lassen sich in \LaTeX\ Schriften verwenden, für die bereits ein fertiges
+Am bequemsten lassen sich in \LaTeX{} Schriften verwenden, für die bereits ein fertiges
 Paket existiert, dass lediglich in der Präambel eingebunden werden muss.
 
 
 \minisec{Alte deutsche Schriften: Fraktur-Schriften}
 
 {\frakfamily
-Mit \LaTeX\ lassen sich drei ältere deutsche Schriftarten sehr komfortabel und mit 
+Mit \LaTeX{} lassen sich drei ältere deutsche Schriftarten sehr komfortabel und mit 
 professionellem Anspruch verwenden:}
 
 \begin{enumerate}
@@ -790,7 +801,7 @@ Ich kann schreiben!}
 \end{LTXexample}
 
 Die ausgezeichnete deutschsprachige Paketdokumentation eignet sich übrigens sehr gut,
-den dahinterliegenden Fontauswahlmechanismus von \LaTeX\ kennenzulernen.
+den dahinterliegenden Fontauswahlmechanismus von \LaTeX{} kennenzulernen.
 
 In der Praxis wird man die Fontaufrufe in ein selbstdefiniertes Makro verpacken, 
 vgl. \ref{makros} auf Seite \pageref{makros}.
@@ -802,7 +813,7 @@ vgl. \ref{makros} auf Seite \pageref{makros}.
 
 \minisec{Der Wortzwischenraum}
 
-Der übliche Wortzwischenraum (Fachbezeichnung: Spatium) wird von \LaTeX\ beim Absatzumbruch innerhalb einer Zeile
+Der übliche Wortzwischenraum (Fachbezeichnung: Spatium) wird von \LaTeX{} beim Absatzumbruch innerhalb einer Zeile
 gleichmäßig verteilt. Die Eingabe erfolt in Form von normalen Leerzeichen oder als 
 einfacher Zeilenwechsel.
 
@@ -852,7 +863,7 @@ Daraus wird:
 
 \minisec{Leerzeichen vermeiden -- das Zeichen \%}
 
-\LaTeX\ hält sich bekanntlich nicht an die Zeilenaufteilung der Quelldatei. Erst eine Leerzeile
+\LaTeX{} hält sich bekanntlich nicht an die Zeilenaufteilung der Quelldatei. Erst eine Leerzeile
 wird als Absatzgrenze interpretiert. Einfache Zeilenwechsel führen zu einem normalen 
 Wortzwischenraum. Dies kann unerwünscht sein:
 
@@ -879,7 +890,7 @@ Man beachte den Unterschied:
 \minisec{Sonderzeichen für Germanisten}
 
 Quasi unterhalb der Ebene von Unicode mit seinem Zugang zum gesamten Zeichensatz hält 
-\LaTeX\ einige Sonderzeichen bereit, die z.B. für Germanisten von besonderem Interesse
+\LaTeX{} einige Sonderzeichen bereit, die z.B. für Germanisten von besonderem Interesse
 sein dürften. Sie können als besondere Befehle eingegeben werden:
 
 \begin{tabular}{ll}
@@ -900,8 +911,8 @@ zur Verfügung:
  \textdied & 	\lstinline/\textdied/ \\
  \end{tabular}
  
-Dies stellt nur eine winzige Teilmenge der in \LaTeX\ zur Verfügung stehenden Sonderzeichen dar;
-eine vollständige Übersicht bietet die \enquote{Comprehensive \LaTeX\ Symbol List} von
+Dies stellt nur eine winzige Teilmenge der in \LaTeX{} zur Verfügung stehenden Sonderzeichen dar;
+eine vollständige Übersicht bietet die \enquote{Comprehensive \LaTeX{} Symbol List} von
 Scott Pakin (331 Seiten, Stand Nov. 2015).
 \footnote{\lstinline/texdoc comprehensive/}
 
@@ -1010,7 +1021,7 @@ reflectbox
 
 \section{Listen und Aufzählungen}
 
-\LaTeX\ bietet eine ganze Reihe von Möglichkeiten, Listen und Aufzählungen zu gestalten.
+\LaTeX{} bietet eine ganze Reihe von Möglichkeiten, Listen und Aufzählungen zu gestalten.
 Hier werden nur die grundlegenden Funktionen gezeigt; daneben gibt zahlreiche Möglichkeiten zur
 Modifikation.\footcite[S. 295ff.]{voss:einfuehrung}
 
@@ -1243,7 +1254,7 @@ Anmerkungen, Erklärungen, Ergänzungen oder Korrekturen in Fußnoten verlagert 
 Zum anderen dienen -- v.a. in den Geisteswissebschaften -- Fußnoten zur Aufnahme der 
 Literaturnachweise.
 
-Diese Doppelfunktion spiegelt sich in \LaTeX\ wider, das zwei Befehle zur Fußnotenerstellung
+Diese Doppelfunktion spiegelt sich in \LaTeX{} wider, das zwei Befehle zur Fußnotenerstellung
 anbietet:
 
 \lstinline/\footnote{...}/ erzeugt eine \enquote{normale}, frei formulierte Fußnote.
@@ -1476,7 +1487,7 @@ Nähere Informationen enthält die Paketdokumentation.
 
 \section{Texte mehrspaltig setzen}
 
-Es gibt in \LaTeX\ zwei verschiedene Wege, zweispaltigen Satz zu erreichen:
+Es gibt in \LaTeX{} zwei verschiedene Wege, zweispaltigen Satz zu erreichen:
 Bereits der \LaTeX -Kern bietet die Möglichkeit, Texte zweispaltig zu setzen;
 daneben gibt es das Paket \paket{multicol}, dass mehrspaltige Einschübe in einem ansonsten
 einspaltigen Dokument ermöglicht.
@@ -1791,14 +1802,14 @@ in das \LaTeX -Dokument einzufügen. Dazu reicht es aus, dem Paket \paket{babel}
 \lstinline/\usepackage[polutonikogreek,ngerman]{babel}/.
 \footnote{Achtung! Bei den meisten \LaTeX -Installationen im Rahmen von Linux-Distributionen muss
 man Pakete nachinstallieren!}
-Damit \LaTeX\ den griechischen Font richtig ansprechen kann, braucht auch das Paket \paket{fontenc} 
+Damit \LaTeX{} den griechischen Font richtig ansprechen kann, braucht auch das Paket \paket{fontenc} 
 eine Modifikation: \lstinline/\usepackage[OT1,T1]{fontenc}/.
 
 Dann kann mit \lstinline/\selectlanguage{polutonikogreek}/ auf Griechisch umgeschaltet werden.
 
 Der folgende Bibelvers wurde aus dem Internet unverändert in das \LaTeX -Dokument
 kopiert. Derzeit werden nicht alle Zeichen in meinem KDE-Editor (kile) korrekt dargestellt (vgl. Abb.);
-dennoch gibt \LaTeX\ alle Zeichen richtig wider:
+dennoch gibt \LaTeX{} alle Zeichen richtig wider:
 
 \begin{figure}
  \includegraphics[width=\textwidth]{ersatzdarstellung}
@@ -1855,7 +1866,7 @@ Mit etwas Eingewöhnung arbeitet man mit diesem System \emph{wesentlich} schnell
 angenehmer, als wenn man etwa die Unicode-Zeichen mit Hilfe eines grafischen Auswahlwerkzeuges
 einzeln auswählt...
 
-Die Bearbeitung mit \LaTeX\ ergibt:
+Die Bearbeitung mit \LaTeX{} ergibt:
 
 \begin{cjhebrew}
  b*e:re'+siyt b*ArA' 'E:lohim 'et ha+s*amayim w:'et hA'ArE.s;
@@ -2293,7 +2304,7 @@ Wenn man sich zur Benutzung der \KOMAScript -Klassen entscheidet, ist die ultima
 mit der man erst das ganze Paket ausnutzen kann:
 \cite{kohm:2014}
 
-Die einzige Spezialmonographie zum Thema \LaTeX\ in den Geisteswissenschaften ist
+Die einzige Spezialmonographie zum Thema \LaTeX{} in den Geisteswissenschaften ist
 \cite{rouquette:2012}
 
 Ideal zum Nachschlagen bestimmter Befehle eignet sich:
