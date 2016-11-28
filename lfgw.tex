@@ -450,7 +450,7 @@ lassen, rechtfertigen den Einsatz von \LaTeX{} und Co. (Mehr dazu S.~\pageref{bi
 Geistes- und humanwissenschaftliche Arbeiten haben besondere Anforderungen an die typografische
 Gestaltung. 
 Die häufigsten Anforderungen werden im folgenden der Reihe nach durchgegangen.
-Maches davon ist \LaTeX -Standard; anderes wird außerhalb der Geisteswissenschaften eher
+Manches davon ist \LaTeX-Standard; anderes wird außerhalb der Geisteswissenschaften eher
 selten gebraucht.
 Ein großer Bereich, für den \LaTeX{} eigentlich bekannt ist, bleibt ganz außen vor:
 der Satz von komplexen mathematischen Formeln und Gleichungen.
@@ -492,16 +492,16 @@ Es existiert eine sehr große Vielzahl von verschiedenen Dokumentklassen;
 so gibt es für Hausarbeiten oder Dissertationen zahlreicher Universitäten eine eigene
 Dokumentklasse. Existiert eine solche, sollte man sie i.\,d.R. auch benutzen.
 
-Die folgende Einführung beschränkt sich auf die Klassen des \KOMAScript -Paketes von
+Die folgende Einführung beschränkt sich auf die Klassen des \KOMAScript-Paketes von
 Markus Kohm, weil diese eine überragende typographische Qualität sowie zahllose Möglichkeiten
-zur individuellen Anpassung bieten.
+zur individuellen Anpassung bieten.%
 \footnote{Wer allerdings ihre volle Funktionalität nutzen will, sollte sich die originale 
-Dokumentation beschaffen und sich mit ihrer Hilfe genauer einarbeiten...}
+Dokumentation beschaffen und sich mit ihrer Hilfe genauer einarbeiten\dots}
 Hinzu treten zwei Dokumentklassen für speziellere Fälle, nämlich für Präsentationen und 
 Prüfungen.
 
-\begin{description}
- \item[scrartcl] ist die \KOMAScript -Klasse für Artikel.
+\begin{labeling}{scrreprt}
+ \item[scrartcl] ist die \KOMAScript-Klasse für Artikel.
  \item[scrreprt] kann gut für längere Seminar- oder auch Bachelor-Arbeiten genutzt werden.
  \item[scrbook] ist die Klasse für Bücher mit zahlreichen ausgereiften Funktionen für
   die Titelei etc.
@@ -509,7 +509,7 @@ Prüfungen.
  \item[beamer] stellt eine ganze Reihe von features für die Erstellung von Präsentationen
   zur Verfügung. Mit etwas Einarbeitung gelingen damit schneller bessere Präsentationen als 
   mit der verbreiteten Konkurrenz.
-\end{description}
+\end{labeling}
 
 
 \minisec{Zum Unterschied zwischen KLASSE und Paket}
@@ -519,16 +519,16 @@ Eine \textbf{Dokumentklasse} ...
 \textbf{Pakete} ...
 
 
-\section{Nationale Besonderheiten - das Paket babel}
+\section{Nationale Besonderheiten -- das Paket \paket{babel}}
 \label{babel}
 
 \dictum[HPW 104]{Wenn ich nur das Wort Europa höre, entsichere ich meine Dicke Bertha.}
 
 \paket{babel}
 
-Aufruf: \lstinline/\usepackage[Liste mit benutzen Sprachen]{babel}/ 
+Aufruf: \lstinline/\usepackage[<Liste mit benutzen Sprachen>]{babel}/ 
 
-Babel unterstützt eine ganze Reihe von Sprachen; für Geisteswisschenschaftler am wichtigsten sind
+Babel unterstützt eine ganze Reihe von Sprachen; für Geisteswissenschaftler am wichtigsten sind
 wohl:
 
 \begin{description}
@@ -562,7 +562,7 @@ Im laufenden Dokument kann auf eine der im Paketaufruf angegebenen Sprachen umge
 
 
 
-\minisec{Alternative: Das Paket polyglossia}
+\minisec{Alternative: Das Paket \paket{polyglossia}}
 
 \paket{polyglossia}
 
@@ -571,7 +571,7 @@ Im laufenden Dokument kann auf eine der im Paketaufruf angegebenen Sprachen umge
 \label{komaskript}
 \index{Seitenspiegel} \index{Goldener Schnitt}
 
-Die folgenden Angaben sind nur von Interesse, wenn man als Papierformat nicht Din-A-4-Papier 
+Die folgenden Angaben sind nur von Interesse, wenn man als Papierformat nicht Din"~A4-Papier 
 nutzen will.
 
 \KOMAScript{}
@@ -630,7 +630,7 @@ Texte lassen sich in \LaTeX{} m.\,H. eines hierarchischen Systems von Überschri
  bestehen aus Teilen (\lstinline/\part{}/)
  \footnote{Ehrlich gesagt: eher selten. 
  \lstinline/part/ 
- erzeugt einen sog. ``Zwischentitel'',
+ erzeugt einen sog. \enquote{Zwischentitel},
  der im deutschsprachigen Raum eher unüblich ist. Ausprobieren! }
  und Kapitel (\lstinline/\chapter/);
  desweiteren lassen sich alle Texte in Abschnitte und Unterabschnitte untergliedern 
@@ -638,10 +638,10 @@ Texte lassen sich in \LaTeX{} m.\,H. eines hierarchischen Systems von Überschri
  gliedern.
  Jede Überschrift beeinflusst die Kolumnentitel (s.\,u.) und erzeugt automatisch einen Eintrag
  im Inhaltsverzeichnis.
- \item[1-9] Die sog. ``Sternvarianten'' der Gliederungsbefehle erzeugen die gleiche
+ \item[1-9] Die sog. \enquote{Sternvarianten} der Gliederungsbefehle erzeugen die gleiche
  Formatierung der Überschriften, hinterlassen aber keinen Eintrag im Inhaltsverzeichnis.
- Außerdem werden die Überschriften nicht numeriert.
- \item[19-23] Die Kapitel und ggf. Abschnitssüberschriften werden auch als lebende Kolumnentitel
+ Außerdem werden die Überschriften nicht nummeriert.
+ \item[19-23] Die Kapitel und ggf. Abschnittsüberschriften werden auch als lebende Kolumnentitel
  verwendet. Wenn sie dafür zu lang sind, kann man in eckigen Klammern einen alternativen
  Kurztitel zur Verwendung als Kolumnentitel angeben. \index{Kolumnentitel}
 \end{description}
@@ -773,13 +773,13 @@ Paketes:, sondern auch zu gestalterischen Fragen im Zusammenhang mit der Fraktur
 
 Das Paket \paket{schulschriften} von Walter Entenmann bietet verschiedene deutsche Schulschriften.
 \footcite[Zur Geschichte der deutschen Schulschriften sowie dem Vorgehen zu ihrer Implementierung 
-in \LaTeX :][]{entenmann:dtk2012/4}
+in \LaTeX:][]{entenmann:dtk2012/4}
 
 Zu beachten ist, dass das Paket nicht mit \lstinline/\usepackage/ eingebunden werden muss;
 das ist auch nicht möglich, da es keine Paketdatei (\enquote{schulschriften.sty}) anbietet.
 Es reicht aus, die Fontdateien zu installieren.
 
-Die Fonts müssen dann über den eigentlichen Fontauswahlmechanismus von \LaTeXe\ angesprochen werden:
+Die Fonts müssen dann über den eigentlichen Fontauswahlmechanismus von \LaTeXe{} angesprochen werden:
 
 Sütterlin-Schrift mit gerader Feder:
 
@@ -1186,7 +1186,7 @@ beliebig komplex verschachteln lassen:
 Nur darauf hingewiesen sei auf das Paket \paket{enumitem}, mit dem sich zahlreiche 
 weitere Sonderwünsche verwirklichen lassen.
 (XXX z.\,B. ...)
-\footcite[S.~304ff.]{voss:einfuehrung}
+\footcite[304\psqq]{voss:einfuehrung}
 
 
 \section{Textpassagen zitieren}
@@ -2208,10 +2208,10 @@ exam\footcite{ziegenhagen:dtk2016/2}
 beamer\footcite{voss:praesentationen}
 
 
-\chapter{Eigene \LaTeX -Erfindungen dokumentieren}
+\chapter{Eigene \LaTeX-Erfindungen dokumentieren}%%%MS: Erfindungen finde ich den falschen Begriff
 
-Man muss kein besonders gewiefter \TeX niker sein, um in die Verlegenheit zu kommen, eigene 
-\LaTeX -``Erfindungen`` dokumentieren zu müssen
+Man muss kein besonders gewiefter \TeX{}niker sein, um in die Verlegenheit zu kommen, eigene 
+\LaTeX-\enquote{Erfindungen} dokumentieren zu müssen
 -- und sei es nur ein einzelnes kleines \lstinline/\renewcommand/
 im Rahmen eines Projektes mit mehreren Mitarbeitern.
 
@@ -2221,7 +2221,7 @@ als die anderen Dinge auch, die Philologen mit Textverarbeitungsprogrammen so an
 dokumentierter text  ---  dokumentierender text ...
 
 
-\minisec{Wiedergabe der \TeX -typischen Logos}
+\minisec{Wiedergabe der \TeX-typischen Logos}
 
 Das Paket \paket{hologo} von Heiko Oberdiek stellt den Befehl \lstinline/\hologo{Name}/ zur 
 Verfügung, das u.\,a. folgende Logos erzeugen kann:
