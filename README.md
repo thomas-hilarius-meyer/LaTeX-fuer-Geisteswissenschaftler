@@ -1,9 +1,30 @@
 # LaTeX-fuer-Geisteswissenschaftler
-Ein Skript mit Hinweisen zur Benutzung von LaTeX für (nichtmathematische) Geisteswissenschaftler
+
+Geplant ist die Erstellung eines Sammelbandes mit Hinweisen zur Benutzung von LaTeX für (nichtmathematische) Geisteswissenschaftler.
+
+Die derzeitigen Kapitel sind: 
+
+1. Grundsätzliches
+
+2. Texte schreiben
+
+3. Textpassagen in nicht-lateinischen Alphabeten einbetten
+
+4. Texte parallel setzen
+
+5. Kritische Apparate setzen - baem2 (Philipp)
+
+6. Literatur und Zitate automatisch verwalten
+
+7. Texte durch Register erschließen
+
+8. Prüfungen aufsetzen: exam
+
+9. Präsentationen gestalten: beamer
+
+10. Eigene \LaTeX-"Erfindungen" dokumentieren
 
 
-Zuständigkeitsbereiche:
+Evtl. noch:
 
-Kritische Editionen mit Reledmac - baem2 (Philipp)
-
-LaTeX für die Arbeit in Teams - Martin Sievers (angefragt...)
+LaTeX für die Arbeit in Teams 
