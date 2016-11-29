@@ -14,7 +14,7 @@ Die derzeitigen Kapitel sind:
 
 5. Kritische Apparate setzen - baem2 (Philipp)
 
-6. Literatur und Zitate automatisch verwalten (Lukas)
+6. Literatur und Zitate automatisch verwalten --> Lukas
 
 7. Texte durch Register erschließen - Thomas
 
@@ -23,6 +23,7 @@ Die derzeitigen Kapitel sind:
 9. Präsentationen gestalten: beamer
 
 10. Eigene \LaTeX-"Erfindungen" dokumentieren
+11. Hilfeseiten #17 --> Lukas/Thomas
 
 
 Evtl. noch:
