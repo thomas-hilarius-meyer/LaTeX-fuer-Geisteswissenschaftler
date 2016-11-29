@@ -16,7 +16,7 @@ Die derzeitigen Kapitel sind:
 
 6. Literatur und Zitate automatisch verwalten (Lukas)
 
-7. Texte durch Register erschließen
+7. Texte durch Register erschließen - Thomas
 
 8. Prüfungen aufsetzen: exam
 
