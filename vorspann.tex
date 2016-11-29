@@ -1,0 +1,118 @@
+% !TeX root = lfgw.tex
+% !TEX TS-program = pdflatex
+% !BIB TS-program = biber
+\RequirePackage[ngerman=ngerman-x-latest]{hyphsubst}
+\documentclass[%
+   %%%draft=false,%
+   fontsize=11pt,%
+   paper=17cm:24cm,%
+   DIV=13,%
+   pagesize%
+   ]{scrbook}
+
+\usepackage[utf8]{inputenc}
+\usepackage[OT1,T1]{fontenc}
+\usepackage[ibycus,polutonikogreek,english,french,ngerman]{babel}
+\usepackage{libertine}
+\RequirePackage{libertinegc}
+\usepackage[supstfm=libertinesups,%
+   supscaled=1.2,%
+   raised=-.13em]% match XHeight of libertine
+   {superiors}
+\usepackage[scaled=0.85]{beramono}
+\usepackage{textcomp}
+%\usepackage{euler}
+\usepackage{yfonts}
+\usepackage{textgreek}
+\usepackage[%
+   final,%
+   tracking=smallcaps,%
+   %%%expansion=alltext,%
+   protrusion=true%
+   ]{microtype}%
+\SetTracking{encoding=*,shape=sc}{50}%
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+
+\usepackage[autostyle]{csquotes}
+\usepackage[newcommands]{ragged2e}
+
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage[a4,center,cross]{crop}
+
+\usepackage{listings}
+\lstset{inputencoding=utf8,
+  language=[LaTeX]{TeX},
+  numbers=left, 
+  %stepnumber=3, 
+  numberfirstline=false,  
+  numberstyle=\tiny\textsf,
+  basicstyle=\footnotesize\ttfamily,
+  %frame=tlrb,
+  breaklines=true,
+  postbreak=\mbox{$\hookrightarrow$},
+  %showstringspace=false, 
+  captionpos=b,
+  literate={ä}{{\"a}}1{ö}{{\"o}}1{ü}{{\"u}}1{ß}{{\ss}}1
+  }
+
+\usepackage{showexpl}
+
+\usepackage[pagewise]{lineno}
+
+\usepackage{sidenotes}
+
+\usepackage{multicol}
+
+\usepackage{forest}
+
+\usepackage{covington}
+%%%\renewcommand{\it}{}
+%%%\renewcommand{\rm}{}
+
+\usepackage[hang]{footmisc} %%%MS: Evtl. besser direkt \deffootnote
+
+\usepackage{parallel}
+
+\usepackage{cjhebrew}
+
+\usepackage{runic}
+
+\usepackage{hieroglf}
+
+\usepackage[hyphens]{url}
+
+\usepackage{hologo}
+
+\usepackage{imakeidx}
+\indexsetup{level = \subsection*, toclevel = subsection, noclearpage, headers = {\indexname}{\indexname}}
+
+\makeindex[                title = {Allgemeiner Index}]
+\makeindex[name = pakete,  title = {Verzeichnis der Paketnamen}]
+
+\usepackage[style=verbose-inote,pageref=true,backend=biber]{biblatex}
+%\usepackage[style=historische-zeitschrift]{biblatex}
+\addbibresource{lfgw-bibliographie.bib}
+\defbibheading{bibliography}{\chapter{#1}} %%%Besser bei \addchap bleiben
+
+\newcommand{\paket}[1]{\textsf{#1}\index[pakete]{#1}}
+
+\newcommand{\LuaLaTeX}{\hologo{LuaLaTeX}}
+\newcommand{\METAFONT}{\hologo{METAFONT}}
+\newcommand{\pdfLaTeX}{\hologo{pdfLaTeX}}
+\newcommand{\XeLaTeX}{\hologo{XeLaTeX}}
+
+\setlength{\footnotemargin}{4mm}
+
+\tolerance 1414
+\hbadness 1414
+\emergencystretch 1.5em
+\hfuzz 0.3pt
+\widowpenalty=10000
+\displaywidowpenalty=10000
+\clubpenalty=5000
+\interfootnotelinepenalty=9999
+\brokenpenalty=2000
+\vfuzz \hfuzz
+%%%\raggedbottom
+\endinput
