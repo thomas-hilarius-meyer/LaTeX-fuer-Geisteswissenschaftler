@@ -3,6 +3,7 @@
 % !BIB TS-program = biber
 \RequirePackage[ngerman=ngerman-x-latest]{hyphsubst}
 \documentclass[%
+ibycus,polutonikogreek,english,french,ngerman,
    %%%draft=false,%
    fontsize=11pt,%
    paper=17cm:24cm,%
@@ -12,7 +13,7 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage[OT1,T1]{fontenc}
-\usepackage[ibycus,polutonikogreek,english,french,ngerman]{babel}
+\usepackage[]{babel}
 \usepackage{libertine}
 \RequirePackage{libertinegc}
 \usepackage[supstfm=libertinesups,%
@@ -94,6 +95,46 @@
 %\usepackage[style=historische-zeitschrift]{biblatex}
 \addbibresource{lfgw-bibliographie.bib}
 \defbibheading{bibliography}{\chapter{#1}} %%%Besser bei \addchap bleiben
+
+\usepackage{varioref}
+
+\usepackage{hyperxmp}
+\usepackage{hyperref}
+\hypersetup{					% setup the hyperref-package options
+	pdftitle={LaTeX für die Geisteswissenschaften},	% 	- title (PDF meta)
+	pdfsubject={Handbuch},% 	- subject (PDF meta)
+	pdfauthor={varia},	% 	- author (PDF meta)
+	pdfauthortitle={},
+	pdfcopyright={Copyright (c) \the\year\. All rights reserved.},
+	pdfhighlight=/N,
+	pdfdisplaydoctitle=true,
+	pdfdate={\the\year-\the\month-\the\day}
+	pdflang={de},
+	pdfcaptionwriter={varia},
+	pdfkeywords={{LaTeX}, {Geisteswissenschaften}},
+%	pdfproducer={XeLaTeX},
+	pdflicenseurl={http://creativecommons.org/licenses/by-nc-nd/4.0/},
+	plainpages=false,			% 	- 
+  colorlinks   = true, %Colours links instead of ugly boxes
+  urlcolor     =  blue!50!black, %Colour for external hyperlinks
+  linkcolor    = blue, %Colour of internal links
+  citecolor   = green!50!black, %Colour of citations
+  linktoc=page,
+  	pdfborder={0 0 0},			% 	-
+	breaklinks=true,			% 	- allow line break inside links
+ %   bookmarks=true,
+	bookmarksnumbered=true,		%
+	bookmarksopenlevel=2,
+	bookmarksopen=true,		%
+    bookmarksdepth=3,
+	final=true	% = true, nur bei web-Dokument!! (wichtig!!)
+}
+\usepackage{bookmark}%advanced bookmarks
+
+\usepackage[
+  sort,
+  nameinlink
+  ]{cleveref}%nach hyperref laden
 
 \newcommand{\paket}[1]{\textsf{#1}\index[pakete]{#1}}
 \newcommand{\Package}[1]{\paket{#1}}%zwecks kompatibilität mit DTK
