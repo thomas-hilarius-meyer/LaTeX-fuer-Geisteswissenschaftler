@@ -14,7 +14,7 @@ Die derzeitigen Kapitel sind:
 
 5. Kritische Apparate setzen - baem2 (Philipp)
 
-6. Literatur und Zitate automatisch verwalten
+6. Literatur und Zitate automatisch verwalten (Lukas)
 
 7. Texte durch Register erschließen
 
