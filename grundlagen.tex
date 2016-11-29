@@ -1,0 +1,264 @@
+% !TeX root = lfgw.tex
+\chapter{Grundsätzliches}
+
+Der Einsteiger in die Welt von \TeX{} und \LaTeX{} wird mit einer Vielzahl von Programmnamen und 
+Spezialbegriffen, die zunächst einmal Verwirrung stiftet. 
+Wie so oft hilft ein Blick in die Geschichte, die Vielfalt der Gegenwart zu verstehen...
+
+
+\section{Zur Geschichte von \TeX{}, \LaTeX{} und Co. -- zugleich eine Begriffsklärung}
+
+Am Anfang der gesamten Entwicklung steht Donald Knuth, ein US-amerikanischer Mathematiker und 
+Informatiker, der mit der typographischen Qualität zeitgenössischer mathematischer Texte 
+unzufrieden war:
+
+\begin{foreigndisplayquote}{english}
+ Mathematics books and journals do not look as beautiful as they used to.
+ It is not that mathemathical content is unsatisfactory, rather than the old and 
+ well-developed traditions of typesetting have become too expensive.
+ Fortunately it now appears that mathematics itself can be used to solve this problem.%
+ \footcite[Zitiert nach:][1]{voss:einfuehrung}
+\end{foreigndisplayquote}
+
+Die Antwort von Donald Knuth auf das von ihm wahrgenommene ästhetische Defizit war das  
+Programm \TeX. Als Ergänzung entwickelte er das \METAFONT-System zur Definition von 
+Zeichensätzen.
+\TeX{} bildet bis heute, die Grundlage des Gesamtsystems, doch wurde das Programm immer 
+wieder erweitert und angepasst.
+
+Die wichtigste Erweiterung erfolgte durch Leslie Lamport der eine ganze Reihe von 
+inhaltlich ausgerichteten Befehlen auf \TeX-Basis definierte: \LaTeX{} war geboren.
+Die bislang letzte Version dieses Programmes -- \LaTeXe{} -- stammt aus dem Jahre 1994
+und definiert das Grundgerüst.
+
+Zwei Dinge haben sich seither weiterentwickelt:
+
+Das Ausgabeformat PDF hat sich als universelles Dokumentformat durchgesetzt; es wird von neueren
+\LaTeX-Entwicklungen direkt erzeugt. (\TeX{} und das ursprüngliche \LaTeX{} erzeugten DVI-Dateien,
+die man zu PS-Dateien konvertieren konnte, die man zu PDF-Dateien konvertieren konnte.)
+Das ausführende Programm hieß nun \pdfLaTeX. 
+Selbstverständlich versteht es auch Dateien in reinem \TeX ;
+es kann per Kommandozeilenoption dazu gebracht werden, DVI-Dateien zu erzeugen, wenn dies aus 
+bestimmten Gründen gewünscht ist.
+Ruft man den Kommandozeilenbefehl \lstinline/latex/ auf, wird in aller Regel das Programm 
+\pdfLaTeX{} gestartet.
+
+Die zweite große Änderung betrifft das Eingabeformat:
+\TeX{} und \LaTeX{} wurden so umgebaut, dass sie unmittelbar Unicode-Zeichen verstehen.
+Das ist v.\,a. für Sprachwissenschaftler interessant, stehen doch jetzt praktisch alle Schriftzeichen
+der Welt unmittelbar zur Verfügung. 
+Man kann das traditionelle \pdfLaTeX-Programm m.\,H. eines sog. Paketes dazu bringen, Unicode-Zeichen
+zu verstehen
+(Die entsprechenden Befehle heißen: \lstinline/\usepackage[utf8]{inputenc}/ 
+und \lstinline/\usepackage[T1]{fontenc}/.)
+oder das speziell für die Unicode-Untersützung entwickelte \XeLaTeX{} verwenden.
+
+Die neueste Entwicklung in der Welt der \TeX-Programme ist die Integration der Skriptsprache
+Lua in die \LaTeX-engine: \LuaLaTeX{} wird als der kommende Standard gehandelt.
+
+Die Beispiele des folgenden Buches sowie das Buch selbst sind -- wegen der weiten Verbreitung --
+mit \pdfLaTeX{} erzeugt worden.
+
+\section{Arbeitswerkzeuge}
+
+empfehlenswert für die tägliche Arbeit mit \LaTeX{} gerade bei größeren Projekten ist eine IDE.
+Diese Schrift wurde mit kile erstellt.
+Alternative: overleaf oder sharelatex.
+Doch zuerst sollte man die Einzelwerkzeuge kennen, die in solchen \enquote{Meta-Werkzeugen}
+zusammengefasst sind.
+
+\minisec{Einzelwerkzeuge}
+
+\LaTeX -Dokumente lassen sich mit jedem beliebigen \textbf{Editor} erstellen.
+Doch es gibt ein paar Qualitätsmerkmale, auf die man bei der Auswahl achten sollte, weil
+sie die tägliche Arbeit wesentlich erleichtern:
+
+Syntax-Highlighting hebt \LaTeX-Befehle sowie bestimmte Inhalte wie Überschriften etc. farblich
+hervor, was die Übersicht über das Dokument wesentlich erleichtert. Auch die Navigation in
+den manchmal Geschachtelten geschweiften Klammern kann durch einen guten Editor wesentlich
+erleichtert werden: Fährt man eine schließende Klammer an, wird die jeweils dazugehörende
+öffnende Klammer hervorgehoben.
+
+Das zweite Merkmal, das ein Editor (v.\,a. für den Einsatz in geisteswissenschaftlichen Projekten!) 
+erfüllen muss, ist der Umgang mit Unicode. Moderne Linux-Distributionen verwenden Unicode (utf8)
+bereits standardmäßig als Codierung, manchmal muss das manuell eingestellt werden.
+
+Einige empfehlenswerte Editoren für die Arbeit mit \LaTeX{} sind:
+für Linux: kwrite,  und kate (beide aus dem KDE-Projekt) --
+für Windows: Notepad++.
+
+Einen Sonderfall stellt der plattformübergreifend verfügbare Editor Emacs mit AucTeX-Ergänzung
+dar: Eigentlich handelt es sich dabei bereits um eine ausgewachsene Entwicklungsumgebung (s.\,u.);
+Emacs-Anhänger erledigen noch viele andere Dinge mit \enquote{ihrem} Editor, doch ist die 
+Einarbeitung für Uneingeweihte etwas gewöhnungsbedürftig.
+Der Autor dieser Schrift war nie geekish genug für Emacs...
+
+Kommandozeile
+
+pdflatex
+
+biber
+
+
+\minisec{Integrierte Entwicklungsumgebungen (IDE)}
+
+kile (Linux)
+
+texworks (Win + Linux)
+
+Texshop (Mac)
+
+TexnicCenter (Windows)
+
+
+\minisec{Online-Lösungen}
+\url{www.overleaf.com} \index{overleaf} und \url{www.sharelatex.com} \index{sharelatex}
+\footcite{meyer:dtk2015/1}
+
+
+
+\section{Erste Schritte in \LaTeX}
+
+Anlegen einer Datei
+
+Dokumentstruktur: Präambel, Dokumentklasse etc.
+
+Übersetzen der \LaTeX{}-Datei
+
+Betrachten und evtl. Ausdrucken der PDF-Datei
+
+
+\section{Musterprojekt: eine beispielhafte Hausarbeit}
+
+Angenommen, wir sollen eine Hausarbeit schreiben.
+Wir wollen Grafiken einbauen, unsere Literatur automatisch verarbeiten und ein Register erstellen.
+Außerdem soll die Typographie schön sein.
+
+Also brauchen wir für den Anfang erst einmal eine Datei mit ein paar Zauberworten:
+
+
+\minisec{Datei: hausarbeit.tex}
+
+\begin{lstlisting}
+\documentclass{scrreprt}
+ 
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage[ngerman]{babel}
+\usepackage{csquotes}
+\usepackage{graphicx}
+
+\usepackage{imakeidx}
+
+\usepackage[style=verbose-inote,pageref=true]{biblatex}
+\addbibresource{meine-bibliographie.bib}
+
+
+\begin{document}
+
+\title{\LaTeX{} und der Sinn des Lebens}
+\subtitle{Eine vielosofische Hausarbeit}
+
+\author{Eberhard Knesenbeck}
+\date{[Stand: \today]}
+
+\maketitle
+
+\tableofcontents
+
+blubb, blah...
+
+\printbibliography
+\end{document}
+\end{lstlisting}
+
+Was bedeuten die Anweisungen im einzelnen?
+
+\begin{description}
+ \item[1] Das Einstellen der Dokumentklasse definiert das grundsätzliche Aussehen des 
+ Textes: geht es um ein Buch, einen Artikel oder - wie hier - eine Hausarbeit. 
+ Die Angabe \lstinline/scrrprt/ bedeutet, dass ein \enquote{Report} (also z.\,B. eine Hausarbeit)
+ m.\,H. der Definitionen des \KOMAScript-Paketes von Markus Kohm erstellt werden soll.
+ (Mehr dazu vgl. \pageref{komaskript}
+ \item[3-4] Zwei Zauberzeilen, die dazu führen, dass alle möglichen Unicode-Sonderzeichen
+ benutzt werden dürfen und auch ausgegeben werden können wie z.\,B. ä, ö, ü, ß, æ, ï oder þ.
+ (Achtung! Der Editor muss auf Unicode eingestellt sein! - vgl. S.~\pageref{unicode}
+ \item[6-7] \LaTeX{} benutzt jetzt deutsche Begriffe (Bibliographie statt Bibliography) und 
+ Silbentrennmuster (\paket{babel}). 
+ \footnote{Etwas genauer: Es gelten die Regeln der sog. Rechtschreibreform von 1996.
+ Sollen die Regeln von 1901 gelten, muss als Option stattdessen \lstinline/german/ angeben
+ werden. Vgl. \ref{babel} auf S.~\pageref{babel}}
+ Außerdem werden (Z. 7) deutsche Gepflogenheiten bei den Anführungszeichen
+ verwendet (\paket{csquotes}). 
+ Die beiden zaubersprüche sollten in keiner deutschen datei fehlen.
+ \item[8] Das Paket \paket{graphicx} ist ein mächtiges Werkzeug um Grafiken einzubinden.
+ Wir laden es vorsorglich; wenn unser Text nicht lang genug ist, können wir Bilder dazunehmen...
+ \item[10] Das paket \paket{imakeidx} wird uns später erlauben, sehr einfach ein Register zu unserer
+ Arbeit auszugeben.
+ Für komplexere Aufgaben wie Orts- und Personenregister, Bibelstellenregister etc. lässt sich
+ imakeidx umfangreich konfigurieren.
+ \item[12-13] Diese beiden recht abschreckenden Zauberformeln werden uns erlauben, unsere
+ gesamte Literaturverwaltung mit allen Formalien automatisch erledigen zu lassen.
+ Hier sagen wir \LaTeX{} , dass wir unsere Bibliographiedaten in einer Datei namens 
+ meine-bibliographie.bib aufheben, dass das Programm biblatex für uns die Arbeit machen soll
+ und dass es sich dabei an einem bestimmten, eher traditionellen geisteswissenschaftlichen
+ Stil ausrichten soll.
+ \item[15] Jetzt wird es ernst: Unser eigentliches Dokument beginnt.
+ \item[18-19] Erst mal legen wir einen guten Titel und Untertitel fest...
+ \item[21] ... und sagen, wer wir sind.
+ \item[22] Diese Zeile sorgt dafür, dass auf dem Titelblatt das jeweils aktuelle Datum als 
+ Stand der Arbeit ausgegeben wird. Das kann praktisch sein, wenn man seltener seinen Schreibtisch
+ aufräumt, als neue Fassungen ausdruckt.\\
+ Achtung! Soll (z.\,B. in der Endfassung) kein Datum ausgegeben werden, so muss man explizit
+ \lstinline/\date{}/ angeben. Löscht man die \lstinline/\date/-Anweisung ganz, wird 
+ automatisch das heutige Datum ausgegeben!
+ \item[24] Achtung! Erst mit dem Befehl \lstinline/\maketitle/ wird \LaTeX{} dazu gebracht,
+ die definierten Titelseiten auch wirklich \emph{auszugeben}!
+ \item[26] Dieser Befehl gibt das Inhaltsverzeichnis aus.
+ \item[28] Jetzt kommen endlich unsere wertvollen Inhalte.
+ \item[30] Hier wird das automatisch erstellte Inhaltsverzeichnis ausgegeben.
+ \item[31] Diese letzte Zeile schließt \LaTeX -Dokumente ab.
+ \end{description}
+ 
+ 
+\minisec{Datei: meine-bibliographie.bib}
+
+Damit sich die Datei kompilieren lässt, muss die in Zeile 13 angekündigte Datei mit 
+bibliografischen Angaben auch existieren!
+
+Sie habe einen einzigen Eintrag mit einem wichtigen Buch für \LaTeX -Einsteiger.
+Legen wir sie an:
+
+\begin{lstlisting}
+@Book{voss:einfuehrung,
+ author = {Herbert Voß}, 
+ title = {Einführung in \LaTeX},
+ publisher = {DANTE~e.\,V. and Lehmanns Media},
+ location = {Berlin and Heidelberg},
+ year = {2016},
+ edition = {2},
+}
+\end{lstlisting}
+
+Die Bibliografie-Datei unseres Projektes enthält also einen einzigen Eintrag:
+\bigskip
+
+\framebox[75mm]{
+  \parbox{65mm}{
+    \cite{voss:einfuehrung}
+  }
+}
+\parbox{40mm}{
+   \emph{übrigens sehr lesenswert...}
+}
+\bigskip
+
+Dieser Titel ist übrigens automatisch aufgelöst worden; 
+in der Datei steht nur \lstinline/\cite{voss:einfuehrung}/.
+Allein diese Funktionalität -- und all die Tricks, die sich in dem Zusammenhang anstellen
+lassen, rechtfertigen den Einsatz von \LaTeX{} und Co. (Mehr dazu S.~\pageref{biblatex}\,ff.)
+
+\endinput
+
+
