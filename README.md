@@ -18,7 +18,7 @@ Die derzeitigen Kapitel sind:
 
 7. Texte durch Register erschließen - Thomas
 
-8. Prüfungen aufsetzen: exam
+8. Prüfungen aufsetzen: exam --> Uwe
 
 9. Präsentationen gestalten: beamer
 
