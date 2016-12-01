@@ -126,11 +126,11 @@ Dieses Skript richtet sich an zwei Zielgruppen, deren Bedürfnisse verwandt, abe
 Am Beginn dieses Buches muss ich den Leser um Vergebung für eine eigentlich unverzeihliche begriffliche
 Unsauberkeit bitten: nichtmathematische Geisteswisschenschaftler!
 
-Latex wird von einer sehr aktiven Community weiterentwickelt.
+\LaTeX{} wird von einer sehr aktiven Community weiterentwickelt.
 
-DTK verzeichnet ca. 50 NEUE Pakete im Quartal.
+DTK verzeichnet ca.\ 50 NEUE Pakete im Quartal.
 
-Deshalb große unübersichtlichkeit: Neulinge finden oft auch veraltetes bzw,. sehen vor lauter
+Deshalb große unübersichtlichkeit: Neulinge finden oft auch veraltetes bzw., sehen vor lauter
 Wald die Bäume nicht.
 
 Deshalb Idee dieses Buches: Für die häufigsten Bedürfnisse im geisteswissenschaftlichen
@@ -149,7 +149,7 @@ Spezialbegriffen, die zunächst einmal Verwirrung stiftet.
 Wie so oft hilft ein Blick in die Geschichte, die Vielfalt der Gegenwart zu verstehen...
 
 
-\section{Zur Geschichte von \TeX{}, \LaTeX{} und co. -- zugleich eine Begriffsklärung}
+\section{Zur Geschichte von \TeX{}, \LaTeX{} und co.\ -- zugleich eine Begriffsklärung}
 
 Am Anfang der gesamten Entwicklung steht Donald Knuth, ein US-amerkianischer Mathematiker und 
 Informatiker, der mit der typographischen Qualität zeitgenössischer mathematischer Texte 
@@ -160,7 +160,7 @@ unzufrieden war:
  It is not that mathemathical content is unsatisfactory, rather than the old and 
  well-developed traditions of typesetting have become too expensive.
  Fortunately it now appears that mathematics itself can be used to solve this problem.%
- \footcite[Zitiert nach: ][S. 1]{voss:einfuehrung}
+ \footcite[Zitiert nach: ][S.~1]{voss:einfuehrung}
 \end{quote}
 
 Die Antwort von Donald Knuth auf das von ihm wahrgenommene ästhetische Defizit war das  
@@ -190,14 +190,14 @@ Die zweite große Änderung betrifft das Eingabeformat:
 \TeX\ und \LaTeX\ wurden so umgebaut, dass sie umittelbar Unicode-Zeichen verstehen.
 Das ist v.a. für Sprachwissenschaftler interessant, stehen doch jetzt praktisch alle Schriftzeichen
 der Welt unmittelbar zur Verfügung. 
-Man kann das traditionelle pdflatex-Programm m.H. eines sog. Paketes dazu bringen, Unicode-Zeichen
+Man kann das traditionelle pdflatex-Programm m.H.\ eines sog.\ Paketes dazu bringen, Unicode-Zeichen
 zu verstehen
 (Die entsprechenden Befehle heißen: \lstinline/usepackage[utf8]{inputenc}/ 
 und \lstinline/usepackage[T1]{fontenc}/.)
 oder das speziell für die Unicode-Untersützung entwickelte XeLaTeX verwenden.
 
 Die neueste Entwicklung in der Welt der \TeX -Programme ist die Integration der Skriptsprache
-Lua in die \LaTeX -engine: luaLaTeX wird als der kommende Standard gehandelt.
+Lua in die \LaTeX -engine: \hologo{LuaLaTeX} wird als der kommende Standard gehandelt.
 
 Die Beispiele des folgenden Buches sowie das Buch selbst sind -- wegen der weiten Verbreitung --
 mit pdflatex erzeugt worden.
@@ -321,17 +321,17 @@ Was bedeuten die Anweisungen im einzelnen?
 \begin{description}
  \item[1] Das Einstellen der Dokumentklasse definiert das grundsätzliche Aussehen des 
  Textes: geht es um ein Buch, einen Artikel oder - wie hier - eine Hausarbeit. 
- Die Angabe \lstinline/scrrprt/ bedeutet, dass ein ``Report'' (also z.B. eine Hausarbeit)
+ Die Angabe \lstinline/scrrprt/ bedeutet, dass ein ``Report'' (also z.B.\ eine Hausarbeit)
  m.H. der Definitionen des \KOMAScript -Paketes von Markus Kohm erstellt werden soll.
  (Mehr dazu vgl. \pageref{komaskript}
  \item[3-4] Zwei Zauberzeilen, die dazu führen, dass alle möglichen Unicode-Sonderzeichen
- benutzt werden dürfen und auch ausgegeben werden können wie z.B. ä, ö, ü, ß, æ, ï oder þ.
- (Achtung! Der Editor muss auf Unicode eingestellt sein! - vgl. S. \pageref{unicode}
+ benutzt werden dürfen und auch ausgegeben werden können wie z.B.\ ä, ö, ü, ß, æ, ï oder þ.
+ (Achtung! Der Editor muss auf Unicode eingestellt sein! - vgl. S.~\pageref{unicode}
  \item[6-7] \LaTeX\ benutzt jetzt deutsche Begriffe (Bibliographie statt Bibliography) und 
  Silbentrennmuster (\paket{babel}). 
  \footnote{Etwas genauer: Es gelten die Regeln der sog. Rechtschreibreform von 1996.
  Sollen die Regeln von 1901 gelten, muss als Option statt dessen \lstinline/german/ angeben
- werden. Vgl. \ref{babel} auf S. \pageref{babel}}
+ werden. Vgl. \ref{babel} auf S.~\pageref{babel}}
  Außerdem werden (Z. 7) deutsche Gepflogenheiten bei den Anführungszeichen
  verwendet (\paket{csquotes}). 
  Die beiden zaubersprüche sollten in keiner deutschen datei fehlen.
@@ -353,7 +353,7 @@ Was bedeuten die Anweisungen im einzelnen?
  \item[22] Diese Zeile sorgt dafür, dass auf dem Titelblatt das jeweils aktuelle Datum als 
  Stand der Arbeit ausgegeben wird. Das kann praktisch sein, wenn man seltener seinen Schreibtisch
  aufräumt, als neue Fassungen ausdruckt.\\
- Achtung! Soll (z.B. in der Endfassung) kein Datum ausgegeben werden, so muss man explizit
+ Achtung! Soll (z.B.\ in der Endfassung) kein Datum ausgegeben werden, so muss man explizit
  \lstinline/\date{}/ angeben. Löscht man die \lstinline/\date/-Anweisung ganz, wird 
  automatisch das heutige Datum ausgegeben!
  \item[24] Achtung! Erst mit dem Befehl \lstinline/\maketitle/ wird \LaTeX\ dazu gebracht,
@@ -400,7 +400,7 @@ Die bibliografien-Datei unseres Projektes enthält also einen einzigen Eintrag:
 Dieser Titel ist übrigens automatisch aufgelöst worden; 
 in der Datei steht nur \lstinline/\cite{voss:einfuehrung}/.
 Allein diese Funktionalität -- und all die Tricks, die sich in dem Zusammenhang anstellen
-lassen, rechtfertigen den Einsatz von \LaTeX\ und co. (Mehr dazu S. \pageref{biblatex} ff.)
+lassen, rechtfertigen den Einsatz von \LaTeX\ und co. (Mehr dazu S.~\pageref{biblatex} ff.)
 
 
 %\chapter{Typographische Gestaltung}
@@ -425,7 +425,7 @@ der Satz von komplexen mathematischen Formeln und Gleichungen.
  weil die Laien-Typografen nicht sehen, was nicht stimmt und nicht wissen
  können, worauf es ankommt.
  So gewöhnt man sich an falsche und schlechte Typografie.
- \footcite[S. 9]{erste_hilfe}
+ \footcite[S.~9]{erste_hilfe}
  \end{quote}
  
 \begin{quotation}
@@ -435,7 +435,7 @@ der Satz von komplexen mathematischen Formeln und Gleichungen.
  \emph{Was} ein Doktorand oder Diplomand zu schreiben hat, das hat er studiert.
  \emph{Wie} er es zu schreiben hat, hat er nicht studiert, er setzt irgendwie drauflos.
  Mit unübersichtlicher und schlecht lesbarer Laien-Typografie schadet er oft genug seiner Arbeit.
- \footcite[S. 86]{erste_hilfe}
+ \footcite[S.~86]{erste_hilfe}
 \end{quotation}
 
 
@@ -503,7 +503,7 @@ eingestellt ist) dar.
 
 Auch der Dokumentklasse sollte man die Standardsprache des Dokumentes bekanntgeben.
 Denn zahlreiche Pakete , die später geladen werden, werten diese Sprachoption aus und 
-passen sich an (z.B. \paket{varioref}).
+passen sich an (z.B.\ \paket{varioref}).
 
 Somit ergibt sich folgender Typische Dokumentbeginn:
 
@@ -857,7 +857,7 @@ wird als Absatzgrenze interpretiert. Einfache Zeilenwechsel führen zu einem nor
 Wortzwischenraum. Dies kann unerwünscht sein:
 
 Besonders bei komplexeren \LaTeX -Strukturen kann es sinnvoll sein, Zeilenwechsel einzufügen,
-z.B. zwischen einzelnen Befehlen oder einem Wort und einer folgenden Fußnote.
+z.B.\ zwischen einzelnen Befehlen oder einem Wort und einer folgenden Fußnote.
 An diesen Stellen soll aber kein Wortzischenraum -- womöglich sogar ein sich ergebender 
 Zeilenwechsel -- eingefügt werden.
 
@@ -879,7 +879,7 @@ Man beachte den Unterschied:
 \minisec{Sonderzeichen für Germanisten}
 
 Quasi unterhalb der Ebene von Unicode mit seinem Zugang zum gesamten Zeichensatz hält 
-\LaTeX\ einige Sonderzeichen bereit, die z.B. für Germanisten von besonderem Interesse
+\LaTeX\ einige Sonderzeichen bereit, die z.B.\ für Germanisten von besonderem Interesse
 sein dürften. Sie können als besondere Befehle eingegeben werden:
 
 \begin{tabular}{ll}
@@ -915,9 +915,9 @@ Betonungszeichen etc.
 \minisec{Unicode-Codes}
 
 Was immer geht: 
-vgl. Abschnitt \ref{unicodeeingabe} auf S. \pageref{unicodeeingabe} 
+vgl. Abschnitt \ref{unicodeeingabe} auf S.~\pageref{unicodeeingabe} 
 (für die Eingabemethode)
-bzw. Abschnitt \ref{utf8codes} auf S. \pageref{utf8codes} 
+bzw. Abschnitt \ref{utf8codes} auf S.~\pageref{utf8codes} 
 (für eine Übersicht über häufig benötigte Unicode-Zeichen und ihre Codes).
 
 
@@ -1012,7 +1012,7 @@ reflectbox
 
 \LaTeX\ bietet eine ganze Reihe von Möglichkeiten, Listen und Aufzählungen zu gestalten.
 Hier werden nur die grundlegenden Funktionen gezeigt; daneben gibt zahlreiche Möglichkeiten zur
-Modifikation.\footcite[S. 295ff.]{voss:einfuehrung}
+Modifikation.\footcite[S.~295ff.]{voss:einfuehrung}
 
 
 \minisec{``Triviale'' Listen ohne alles: trivlist}
@@ -1153,7 +1153,7 @@ weitere Sonderwünsche verwirklichen lassen.
 \minisec{Zitate im Fließtext}
 
 Normale Eingabe;
-Anführungszeichen am besten mit \lstinline/\enquote{}/ codieren (vgl. S. \pageref{enquote}); 
+Anführungszeichen am besten mit \lstinline/\enquote{}/ codieren (vgl. S.~\pageref{enquote}); 
 Textstellen belegen mit Fußnote und automatischer Literaturverwaltung.
 
 
@@ -1162,12 +1162,12 @@ Textstellen belegen mit Fußnote und automatischer Literaturverwaltung.
 
 \enquote{Ein häufiger anzutreffendes Element ist ein Zitat oder eine Redewendung, die rechtsbündig unter 
 oder über einer Überschrift gesetzt wird. dabei werden der Spruch selbst und der Quellennachweis
-in der Regel speziell formatiert.}\footcite[S. 131]{kohm:2014}
+in der Regel speziell formatiert.}\footcite[S.~131]{kohm:2014}
 
 \KOMAScript\ stellt hierfür den Befehl \lstinline/\dictum[Urheber]{Spruch}/ zur Verfügung.
 
 Die angesprochene Formatierung lässt sich in allen Details verändern.
-\footcite[vgl. S. 131ff.]{kohm:2014}
+\footcite[vgl. S.~131ff.]{kohm:2014}
 
 
 \minisec{Einen Abschnitt zitieren: quote}
@@ -1233,7 +1233,7 @@ und ab wann \paket{poemscol}?
 
 \minisec{Fremdsprachige Zitate}
 
-Leider nur für polyglossia\footcite[S. 33 ff. ]{rouquette:2012}
+Leider nur für polyglossia\footcite[S.~33 ff. ]{rouquette:2012}
 
 \section{Fußnoten}
 
@@ -1276,7 +1276,7 @@ den eigenen gestalterischen Wünschen anpassen. Dazu dienen die beiden Befehle
 und 
 \lstinline/\deffootnotemark{Markendefinition}/.
 
-Folgende Umdefinitionen erzeugen z.B. Fußnoten mit eingeklammerten Ziffern 
+Folgende Umdefinitionen erzeugen z.B.\ Fußnoten mit eingeklammerten Ziffern 
 in Grundschriftgröße; die jeweils erste Zeile jeder Fußnote ist eingerückt:
 
 \begin{lstlisting}
@@ -1332,15 +1332,15 @@ Es gibt zwei grundsätzlich verschiedene Szenarien, in denen man Zeilennummern v
 kann. 
 
 \begin{itemize}
- \item Einfach einen Text(abschnitt) durchnumerieren, z.B. auf einem Arbeitsblatt oder in
+ \item Einfach einen Text(abschnitt) durchnumerieren, z.B.\ auf einem Arbeitsblatt oder in
  einem Lehrbuch.
  \item einen Text mit Zeilennummern versehen, auf die später Bezug genommen wird, 
- z.B. im Rahmen einer großen Textausgabe. 
+ z.B.\ im Rahmen einer großen Textausgabe. 
 \end{itemize}
 
 Hier wird nur das erste gezeigt;
-Aufgabe Nr. 2 ist viel komplexer, s. Kapitel zum Erstellen einer kritischen Edition, 
-S. \pageref{reledmac} 
+Aufgabe Nr. 2 ist viel komplexer, s.\ Kapitel zum Erstellen einer kritischen Edition, 
+S.~\pageref{reledmac} 
 
 Das Paket \paket{lineno} bietet eine Reihe von Funktionen, einen Text -- oder 
 zahlreiche eingeschobene Texte wie Zitate o.ä. mit Zeilennummern als Lesehilfe zu 
@@ -1360,7 +1360,7 @@ Auch das Ende der aktuellen Umgebung beendet die Zeilennummern.
  \begin{quotation}
  \modulolinenumbers[5]
  \linenumbers
- Den 20. ging Lenz durchs Gebirg. Die Gipfel und hohen Bergflächen im Schnee, die Täler
+ Den 20.\ ging Lenz durchs Gebirg. Die Gipfel und hohen Bergflächen im Schnee, die Täler
  hinunter graues Gestein...
  \end{quotation}
 \end{lstlisting}
@@ -1373,7 +1373,7 @@ Daraus wird:
  \begin{quotation}
  \modulolinenumbers[5]
  \linenumbers
- Den 20. ging Lenz durchs Gebirg. Die Gipfel und hohen Bergflächen im Schnee, die Täler
+ Den 20.\ ging Lenz durchs Gebirg. Die Gipfel und hohen Bergflächen im Schnee, die Täler
  hinunter graues Gestein, grüne Flächen, Felsen und Tannen. Es war naßkalt, das Wasser
  rieselte die Felsen hinunter und sprang über den Weg. Die Äste der Tannen hingen schwer
  herab in die feuchte Luft. Am Himmel zogen graue Wolken, aber alles so dicht, und dann 
@@ -1497,7 +1497,7 @@ Spalten gesetzt.
 Daneben bietet \LaTeX die Möglichkeit, in einem Dokument eine zweispaltige Passage
 zu integrieren. Die Passage wird mit dem Befehl \lstinline/\twocolumn[xxx] /
 eingeleitet. Die angegebene Überschrift wird einspaltig über beide Spalten gesetzt.
-Außer einer echten Überschrift (z.B. \lstinline/\section{}/ etc. sind hier auch
+Außer einer echten Überschrift (z.B.\ \lstinline/\section{}/ etc. sind hier auch
 längere Einleitungstexte etc. möglich.
 
 Mit dem Befehl \lstinline/\onecolumn/ wird wieder auf einspaltigen Satz zurückgestellt.
@@ -1533,7 +1533,7 @@ stark einschränkt.
  \lstinline/columnseprule/ auf einen Wert größer 0 gestellt werden;
  in diesem Beispiel liegt er bei 0.4pt: \lstinline/\setlength{\columnseprule}{0.4pt}/.
  
- Daneben bietet das Paket weitere Einstellmöglichkeiten, wie. z.B. den Spaltenabstand
+ Daneben bietet das Paket weitere Einstellmöglichkeiten, wie. z.B.\ den Spaltenabstand
  oder die Farbe der Trennlinie.
 \end{multicols}
 
@@ -1551,8 +1551,8 @@ Voraussetzung: Paket \paket{graphicx} in Dokumentspräambel einbinden:
 
 Dann fügt der Befehl \lstinline/\includegraphics[Optionen]{Name}/ an der jeweiligen Stelle
 die angegebene Grafik (als eigenen Absatz) ein.
-Als Option sollte z.B. die gewünschte Abbildungsgröße eingestellt werden.
-Wieder sind sowohl absolute Angaben möglich als auch Bezugnahmen z.B. auf 
+Als Option sollte z.B.\ die gewünschte Abbildungsgröße eingestellt werden.
+Wieder sind sowohl absolute Angaben möglich als auch Bezugnahmen z.B.\ auf 
 \lstinline/\textwidth/.
 
 Meist möchte man die Abbibldung jedoch in eine Gleitumgebung einfügen, so dass das Satzprogramm
@@ -1811,11 +1811,11 @@ dennoch gibt \LaTeX\ alle Zeichen richtig wider:
 Οὕτως γὰρ ἠγάπησεν ὁ Θεὸς τὸν κόσμον, ὥστε τὸν Υἱὸν τὸν μονογενῆ ἔδωκεν, 
 ἵνα πᾶς ὁ πιστεύων εἰς αὐτὸν μὴ ἀπόληται ἀλλ’ ἔχῃ ζωὴν αἰώνιον.
 \end{otherlanguage}
-(Joh. 3,16)
+(Joh.\ 3,16)
 
 Diese Methode dürfte sich in der Praxis am ehesten eignen, wenn bereits ein Textcorpus
-(z.B. via Internet) ediert und Unicode-Erfasst vorliegt, und Textpartien ins eigene Dokument
-ohne Veränderungen übernommen werden sollen -- so wie z.B. bei Zitaten aus der Bibel oder
+(z.B.\ via Internet) ediert und Unicode-Erfasst vorliegt, und Textpartien ins eigene Dokument
+ohne Veränderungen übernommen werden sollen -- so wie z.B.\ bei Zitaten aus der Bibel oder
 der klassischen Literatur.
 
 Will man selbst (alt-)griechische Textpassagen schreiben, scheint das Ibykus-Verfahren
@@ -1832,7 +1832,7 @@ Anwenderfreundlich -- im Sinne von Anwendern an einem westlichen PC mit ansonste
 lateinischen Alphabet -- gelöst:
 
 Nach \lstinline/\usepackage{cjhebrew}/%
-\footnote{Eine besondere Angabe z.B. bei \paket{babel} ist nicht nötig.}
+\footnote{Eine besondere Angabe z.B.\ bei \paket{babel} ist nicht nötig.}
 steht v.a. der Befehl \lstinline/\cjRL{}/ 
 -- für hebräische Einzelworte im laufenden Absatz -- sowie die 
 Umgebung \lstinline/cjhebrew/ 
@@ -1861,7 +1861,7 @@ Die Bearbeitung mit \LaTeX\ ergibt:
  b*e:re'+siyt b*ArA' 'E:lohim 'et ha+s*amayim w:'et hA'ArE.s;
 \end{cjhebrew}
 
-Wegen der Einzelheiten der Zeichen-, Vokal-, Akzent- und Satzzeichen-Codierung (inkl. z.B. 
+Wegen der Einzelheiten der Zeichen-, Vokal-, Akzent- und Satzzeichen-Codierung (inkl. z.B.\ 
 Mem finalis) sei auf die Paketdokumentation verwiesen.
 
 \section{Russisch}
@@ -2030,7 +2030,7 @@ Das obige Beispiel erzeugt folgende Ausgabe:
  \end{Parallel}
 \nolinenumbers
 
-(Zu der Zeilennummerierung vgl. Abschnitt \ref{zeilennummer} auf S. \pageref{zeilennummer}.)
+(Zu der Zeilennummerierung vgl.\ Abschnitt \ref{zeilennummer} auf S.~\pageref{zeilennummer}.)
 
 \minisec{Das Paket \paket{paracol}}
 
@@ -2038,7 +2038,7 @@ Das obige Beispiel erzeugt folgende Ausgabe:
 
 \section{Seitenweise}
 
-\paket{ledpar}\footcite[S. 175ff.]{rouquette:2012}
+\paket{ledpar}\footcite[S.~175ff.]{rouquette:2012}
 
 
 \chapter{Kritische Apparate setzen}
@@ -2055,7 +2055,7 @@ Bezug zu TUSTEP?
 Recherche zu anderen Alternativen?
 
 \paket{reledmac}, \paket{ledpar} und \paket{ednotes} (wird nicht erklärt.)
-\footcite[S. 165ff.]{rouquette:2012}
+\footcite[S.~165ff.]{rouquette:2012}
 
 
 \chapter{Literatur und Zitate automatisch verwalten}
@@ -2066,7 +2066,7 @@ Recherche zu anderen Alternativen?
 \section{Der (neue) Standard: biblatex und biber}
 
 \paket{biblatex}
-Vgl.\footcite[S. 79ff.]{rouquette:2012}
+Vgl.\footcite[S.~79ff.]{rouquette:2012}
 \footcite{voss:bibliografien}
 \footcite{wassenhoven:dtk2008/2}
 \footcite{wassenhoven:dtk2008/4}
