@@ -1,0 +1,85 @@
+% !TeX root = lfgw.tex
+\chapter{Texte parallel setzen}
+
+\section{Wortweise: Interlinearglossen}
+\index{Interlinearübersetzung}
+
+Das Paket \paket{covington} von Michael Covington stellt einige primär für Linguisten nützliche
+Befehle zur Verfügung. Mit seiner Hilfe ist es relativ einfach, eine einfache 
+Interlinearglosse zu erstellen, d.\,h. Wort für Wort zu übersetzen oder zu kommentieren:
+
+\begin{lstlisting}
+\gll La  neige,  qui {n'a pas} cesse       de tomber 
+     Der Schnee, der {nicht hat} aufgehört zu fallen 
+\glt Der Schnee, der nicht zu fallen aufgehört hat
+\glend 
+\end{lstlisting}
+stand oder
+\gll La  neige,  qui {n'a pas} cesse       de tomber 
+     Der Schnee, der {nicht hat} aufgehört zu fallen 
+\glt Der Schnee, der nicht zu fallen aufgehört hat
+\glend
+
+Zu beachten ist, dass es neben dem Kommando \lstinline/\gll/ auch ein Kommando 
+\lstinline/\glll/ gibt, das die Zusammenstellung von drei Zeilen ermöglicht.
+
+\textbf{Achtung!} Die neueste Version von \paket{covington} stammt aus dem Jahr 
+2001 und verwendet altermtümliche Fontbefehle. Damit das paket mit modernen Dokumentklassen 
+wie \KOMAScript\ zusammenarbeitet, war es nötig, im Paket die Zeilem 225-227 auszukommentieren.
+
+\section{Spaltenweise}
+
+Das Paket \paket{parallel} von Matthias Eckermann stellt eine Umgebung 
+\lstinline/Parallel/ zur Verfügung, in der mit den Befehlen 
+\lstinline/\ParallelLText{...}/ und 
+\lstinline/\ParallelRText{...}/ die jeweils links- bzw. rechtsstehenden Texte
+angegeben werden können.
+
+Durch den Befehl \lstinline/\ParallelPar/ wird ein neuer \enquote{Doppelabsatz} begonnen.
+
+\begin{lstlisting}
+ \linenumbers
+ \begin{Parallel}{.45\textwidth}{.45\textwidth}
+  \ParallelLText{Gallia est omnis divisa in partes tres ...}
+  \ParallelRText{Gallien als ganzes ist in drei Teile...}
+  \ParallelPar
+  \ParallelLText{Hi omnes...}
+  \ParallelRText{Sie alle...}
+ \end{Parallel}
+\end{lstlisting}
+
+Beim Erzeugen der \lstinline/Parallel/-Umgebung ist für die linke und rechte Seite ihre
+jeweilige Breite anzugeben; das kann als absolute Angabe (in mm oder cm) oder als 
+Bezugnahme zu einem Wert wie \lstinline/\textwidth/ (der Breite des aktuellen 
+Satzspiegels) erfolgen.
+
+Das obige Beispiel erzeugt folgende Ausgabe:
+\bigskip 
+
+\linenumbers
+\begin{Parallel}{.45\textwidth}{.45\textwidth}
+  \ParallelLText{Gallia est omnis divisa in partes tres, 
+    quarum unam incolunt Belgae,
+    aliam Aquitani,
+    tertiam, qui ipsorum lingua Celtae, nostra Galli appellantur.}
+  \ParallelRText{Gallien als ganzes ist in drei Teile gegliedert,
+    deren erster die Belger bewohnen,
+    den zweiten die Aquitanier,
+    den dritten jene, die in ihrer eigenen Sprache Kelten, in der unseren Gallier genannt werden.}
+  \ParallelPar
+  \ParallelLText{Hi omnes lingua institutis legibus inter se differunt.}
+  \ParallelRText{Sie alle unterscheiden sich hinsichtlich der Sprache, 
+    der (staatlichen) Einrichtungen und der Gesetze von einander.}
+ \end{Parallel}
+\nolinenumbers
+
+(Zu der Zeilennummerierung vgl. Abschnitt \ref{zeilennummer} auf S.~\pageref{zeilennummer}.)
+
+\minisec{Das Paket \paket{paracol}}
+
+\paket{paracol}
+
+\section{Seitenweise}
+
+\paket{ledpar}\footcite[175\psqq]{rouquette:2012}
+

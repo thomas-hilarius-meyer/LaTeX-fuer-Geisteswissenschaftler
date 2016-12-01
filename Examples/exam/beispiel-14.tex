@@ -1,0 +1,59 @@
+\documentclass[addpoints,12pt,ngerman,answers]{exam}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{booktabs}
+\usepackage{babel}
+\usepackage{graphicx}
+\usepackage{csquotes}
+\usepackage{paralist}
+\usepackage{xcolor,siunitx}
+
+\pointpoints{Punkt}{Punkte}
+\bonuspointpoints{Bonuspunkt}{Bonuspunkte}
+\renewcommand{\solutiontitle}{\noindent\textbf{Lösung:}\enspace}
+ 
+\chqword{Frage}   
+\chpgword{Seite} 
+\chpword{Punkte}   
+\chbpword{Bonus Punkte} 
+\chsword{Erreicht}   
+\chtword{Gesamt}
+\hpgword{Seite:}
+\hpword{Punkte:}
+\hsword{Ergebnis:}
+
+\hqword{Aufgabe:}
+\htword{Summe:}
+
+\newcommand{\dozent}{Dr. Uwe Ziegenhagen}
+\newcommand{\fach}{Klausur Statistik}
+ 
+\pagestyle{headandfoot}
+\runningheadrule \firstpageheadrule
+\firstpageheader{}{}{\dozent \\ \fach}
+\runningheader{}{}{\dozent \\ \fach}
+\firstpagefooter{}{}{\thepage\,/\,\numpages}
+\runningfooter{}{}{\thepage\,/\,\numpages}
+
+\begin{document}
+
+\begin{questions}
+\question[5]
+Wieviel wiegt Luft?
+
+\begin{solution}
+Luft wiegt \SI{0,0012}{\gram\per \centi\meter^3} 
+\end{solution}
+
+\question[5]
+Wieviel wiegt Blei?
+
+\begin{solution}
+Blei wiegt \SI{11,342}{\gram\per \centi\meter^3} 
+\end{solution}
+
+\end{questions}
+
+\gradetable[h][pages]
+
+\end{document}
