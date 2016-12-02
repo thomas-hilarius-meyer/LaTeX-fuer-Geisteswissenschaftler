@@ -1,0 +1,50 @@
+% !TEX TS-program = pdflatex
+% !BIB TS-program = biber
+\input{vorspann}
+\begin{document}
+\frontmatter
+\include{titelei}
+\include{vorwort}
+\tableofcontents
+\mainmatter
+\include{grundlagen}
+\include{typographie}
+\include{texte}
+\include{texteUnicode}
+\include{paralleleTexte}
+\include{kritischeApparate}
+\include{literaturverwaltung}
+\include{register}
+\include{exam}
+\include{beamer}
+\include{eigeneErweiterungen}
+\include{anhang}
+\printbibliography
+\chapter{Register} %%%MS: Besser \addchap
+\printindex          % der "allgemeine" Index
+\printindex[pakete]
+
+
+\vfill
+\minisec{Kolophon}
+
+opensuse 13.2 auf lenovo ideapad s10e von 2008
+
+kile
+
+pdflatex mit \KOMAScript 
+
+Klasse scrbook
+
+geometry, DIV,  BCOR ...
+
+babel
+
+lstlisting
+
+biblatex und biber
+
+Bibliografiestil der Historischen Zeitschrift (\lstinline/\usepackage[style=historische-zeitschrift]{biblatex}/)
+
+imakeidx
+\end{document}
