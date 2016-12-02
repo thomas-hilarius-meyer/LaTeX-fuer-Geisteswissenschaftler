@@ -3,11 +3,108 @@
 
 \section{Allgemeines: babel, Unicode}
 
-Grunndlegend ist der Artikel von Axel Kielhorn in der DTK.%
+Grundlegend ist der Artikel von Axel Kielhorn in der DTK.%
 \footcite{kielhorn:dtk2014}
 
 \section{Eingabe von Unicode-Sonderzeichen}
 \label{unicodeeingabe}
+
+\minisec{Eingabe von Unicode-Zeichen in einem Emacs Buffer}
+
+Zwei Methoden ermöglichen die Eingabe von Unicode-Zeichen in Emacs:
+
+\minisubsec {Methode 1: Hexdezimalzahl eingeben}
+
+Emacs-Dokumentation benutzt die Schreibweise: \texttt {C-x 8}
+um zu beschreiben: man druckt die Tastenkombination
+\KeyboardKey {Strg} und \KeyboardKey {8}.
+
+In diesem Fall heisst das: %
+\texttt {C-x 8} %
+$\langle $\texttt {Return}$\rangle $ 
+$\langle $\texttt {Unicode Codepoint}$\rangle $%
+$\langle $\texttt {Return}$\rangle $ %
+ermöglicht die direket Eingabe einer Unicode Zeichen.
+
+Um einem ``Capitulum'' einzugeben: %
+\texttt {C-x 8} %
+$\langle $\texttt {Return}$\rangle $ 
+\texttt {2E3F}%
+$\langle $\texttt {Return}$\rangle $ %
+%
+% Die Unicode Codepoint ``2021'' ist: DOUBLE DAGGER und sieht so aus ``‡''
+% Die Unicode Codepoint ``2045'' ist: LEFT SQUARE BRACKET WITH QUILL und sieht so aus ``⁅''
+% Die Unicode Codepoint ``2046'' ist: RIGHT SQUARE BRACKET WITH QUILL und sieht so aus ``⁆''
+% Die Unicode Codepoint ``2E3F'' ist: CAPITULUM und sieht so aus ``⸿''
+% Die Unicode Codepoint ``02AD'' ist: LATIN LETTER BIDENTAL PERCUSSIVE und sieht so aus ``ʭ''
+% Die Unicode Codepoint ``169B'' ist: OGHAM FEATHER MARK und sieht so aus ``᚛''
+% Die Unicode Codepoint ``169C'' ist: OGHAM REVERSED FEATHER MARK und sieht so aus ``᚜''
+
+\minisubsec {Methode 2: Emacs-Aliase benutzen}
+
+Emacs hat eine lange Liste vorgefertigte Aliase um oft
+benutzte Unicode Zeichen einzugeben. Zuerst, mit nur drei
+Tastendrücke: um eine \texttt {no-break space} einzugeben: %
+\texttt {C-x 8} %
+$\langle $\texttt {Leertaste}$\rangle $ %
+
+Einige Aliase sind fertig nach drei Tastendrücke. Andere
+benötige vier Tastendrücke. Ich möchte das Wort ``Français''
+eingeben. Mit %
+\texttt {C-x 8 , c} %
+kann ich einen ``c'' mit eine Cedille eingeben.
+
+Ich möchte das Wort ``Mañana'' eingeben. Mit %
+\texttt {C-x 8 ~ n} %
+kann ich einen ``n'' mit einen Tilde eingeben.
+
+Es gibt auch Aliase für drei verschiedene Bruchzahlen. Aber
+\TeX{}-Benutzer haben nie Probleme damit gehabt, Bruchzahlen
+zu setzen.
+
+\minisec{Eingabe von Unicode-Zeichen in gedit}
+
+gedit ermöglicht auch die direket Eingabe einer Unicode
+Zeichen. Mit %
+\texttt {S-C-u 2022} %
+$\langle $\texttt {Return}$\rangle $ %
+kann ich einen ``Bullet'' eingeben.
+
+\minisec{Eingabe von Unicode-Zeichen in nano}
+
+GNU nano ermöglicht auch die direket Eingabe einer Unicode
+Zeichen.
+
+%\begin{foreigndisplayquote}{english}
+%Entering Text
+%
+%nano is a “modeless” editor. This means that all keystrokes, with the exception of Control and Meta sequences, enter text into the file being edited.
+%
+%Characters not present on the keyboard can be entered in two ways:
+%
+%For characters with a single-byte code, pressing the Esc key twice and then typing a three-digit decimal number (from 000 to 255) will enter the character with the corresponding value.
+%
+%For any possible character, pressing M-V (Alt+V) and then typing a six-digit hexadecimal number (starting with 0 or 1) will enter the character with the corresponding Unicode value.
+%\end{foreigndisplayquote}
+%
+\textbf {Texteingabe}
+
+nano erlaubt die Eingabe jede mögliche Zeichen (ausser
+Meta-Sequenzen und Steuerung-Sequenzen) direkt in einem
+Textdatei einzugeben.
+
+Es gibt eine Methode um Zeichen die in dem Bereich 0$_{10}$
+bis zum 255$_{10}$ (hex FF$_{16}$)~-- ein Byte Zeichen~--
+einzugeben. Ein zweite Methode erlaubt die Eingabe von zwei
+Byte Zeichen.
+
+Methode 1:~zweimal die %
+$\langle $\texttt {Esc}$\rangle $%
+-Taste drücken; %
+$\langle $\texttt {dreistellige Dezimalzahl}$\rangle $
+
+Methode 2:~\texttt {M-v} %
+$\langle $\texttt {sechsstellige Hexadezimalzahl}$\rangle $%
 
 \minisec{Eingabe direkt mit der Tastatur}
 
@@ -29,7 +126,7 @@ KCharselect
 
 \minisec{Eingabe über die Zeichennummer}
 
-Vgl. Abschnitt \ref{utf8codes} auf Seite \pageref{utf8codes}.
+Vgl.\ Abschnitt \ref{utf8codes} auf Seite \pageref{utf8codes}.
 
 \section{Griechisch}
 \index{Griechisch}
@@ -45,14 +142,14 @@ Die erste Möglichkeit besteht in der Eingabe m.\,H. der Einzelnbuchstaben-Symbo
 S.~\pageref{griechEinzelbuchstaben}, beschrieben.
 
 Dieses Verfahren eignet sich eigentlich nur für ganz kurze Einsprengsel im Umfang von 
-einzelnen Zeichen bis maximal ca. einem Wort.
+einzelnen Zeichen bis maximal ca.\ einem Wort.
 
 
 \minisec{Möglichkeit II: Transkription mit \paket{ibycus}}
 
 Die zweite Methode eignet sich demgegenüber hervorragend, wenn es darum geht auch etwas 
-längere (alt-)griechische Passagen in ein ansonsten deutschsprachiges Dokument -- m.\,H. eines
-deutschen Computers mit QWERTZ-Tastatur -- einzugeben.
+längere (alt-)griechische Passagen in ein ansonsten deutschsprachiges Dokument~-- m.\,H. eines
+deutschen Computers mit QWERTZ-Tastatur~-- einzugeben.
 
 Dabei wird für die griechischen Buchstaben eine Art Transkription in lateinischen Buchstaben
 vorgenommen, die sich bei etwas Übung sehr leicht benutzen lässt.
@@ -78,7 +175,7 @@ Das wird zu:
   h(‘n ai)ti’hn e)pole’mhsan a)llh’loisi. 
   \end{ibycus}
 
-  Und jetzt ein einzelnes griechisches Wort --  \ibygr{a)rxai=a gra’mmata}  -- im Text.
+  Und jetzt ein einzelnes griechisches Wort~-- \ibygr{a)rxai=a gra’mmata}~-- im Text.
 
 
 
@@ -116,7 +213,7 @@ dennoch gibt \LaTeX{} alle Zeichen richtig wider:
 
 Diese Methode dürfte sich in der Praxis am ehesten eignen, wenn bereits ein Textcorpus
 (z.\,B. via Internet) ediert und Unicode-Erfasst vorliegt, und Textpartien ins eigene Dokument
-ohne Veränderungen übernommen werden sollen -- so wie z.\,B. bei Zitaten aus der Bibel oder
+ohne Veränderungen übernommen werden sollen~-- so wie z.\,B. bei Zitaten aus der Bibel oder
 der klassischen Literatur.
 
 Will man selbst (alt-)griechische Textpassagen schreiben, scheint das Ibykus-Verfahren
@@ -129,21 +226,21 @@ wesentlich angenehmer und effizienter.
 Das Paket \paket{cjhebrew} von Christian Justen eignet sich hervorragend für 
 Theologen und Orientalisten, denn es erlaubt auch die Vokalisierung sowie die Verwendung 
 von Akzenten. Auch das Problem der rechts- bzw. linksläufigen Schriften wird sehr
-Anwenderfreundlich -- im Sinne von Anwendern an einem westlichen PC mit ansonsten 
-lateinischen Alphabet -- gelöst:
+Anwenderfreundlich~-- im Sinne von Anwendern an einem westlichen PC mit ansonsten 
+lateinischen Alphabet~-- gelöst:
 
 Nach \lstinline/\usepackage{cjhebrew}/%
 \footnote{Eine besondere Angabe z.\,B. bei \paket{babel} ist nicht nötig.}
 steht v.\,a. der Befehl \lstinline/\cjRL{}/ 
--- für hebräische Einzelworte im laufenden Absatz -- sowie die 
+-- für hebräische Einzelworte im laufenden Absatz~-- sowie die 
 Umgebung \lstinline/cjhebrew/ 
--- für ganze Absätze in Hebräisch -- zur Verfügung.
+-- für ganze Absätze in Hebräisch~-- zur Verfügung.
 
 Beide drehen die Folge der Schriftzeichen automatisch um, so dass hebräische Textpartien
 ganz gewohnt eingegeben werden können. Dabei sind für die einzelnen Zeichen sehr leicht 
 merkbare Codes definiert worden:
 
-Der Beginn des biblischen Buches Genesis -- \enquote{Im Anfang schuf Gott Himmel und Erde...} --
+Der Beginn des biblischen Buches Genesis~-- \enquote{Im Anfang schuf Gott Himmel und Erde...} --
 wird so eingegeben:
 
 \begin{lstlisting}
@@ -187,7 +284,7 @@ Ist \paket{arabtex} noch aktuell?
 \index{Hieroglyphen}
 \index{Ägyptologie}
 
-\paket{hieroglf} --  \enquote{The Poor Man’s Hieroglyphic Font}
+\paket{hieroglf}~-- \enquote{The Poor Man’s Hieroglyphic Font}
 
 
  \pmglyph{K:l-i-o-p-a-d:r-a} 
