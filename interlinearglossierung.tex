@@ -1,0 +1,26 @@
+
+\chapter{Interlinearglossierung}
+\index{Interlinearübersetzung}
+
+Das Paket \paket{covington} von Michael Covington stellt einige primär für Linguisten nützliche
+Befehle zur Verfügung. Mit seiner Hilfe ist es relativ einfach, eine einfache 
+Interlinearglosse zu erstellen, d.\,h. Wort für Wort zu übersetzen oder zu kommentieren:
+
+\begin{lstlisting}
+\gll La  neige,  qui {n'a pas} cesse       de tomber 
+     Der Schnee, der {nicht hat} aufgehört zu fallen 
+\glt Der Schnee, der nicht zu fallen aufgehört hat
+\glend 
+\end{lstlisting}
+stand oder
+\gll La  neige,  qui {n'a pas} cesse       de tomber 
+     Der Schnee, der {nicht hat} aufgehört zu fallen 
+\glt Der Schnee, der nicht zu fallen aufgehört hat
+\glend
+
+Zu beachten ist, dass es neben dem Kommando \lstinline/\gll/ auch ein Kommando 
+\lstinline/\glll/ gibt, das die Zusammenstellung von drei Zeilen ermöglicht.
+
+\textbf{Achtung!} Die neueste Version von \paket{covington} stammt aus dem Jahr 
+2001 und verwendet altermtümliche Fontbefehle. Damit das paket mit modernen Dokumentklassen 
+wie \KOMAScript\ zusammenarbeitet, war es nötig, im Paket die Zeilem 225-227 auszukommentieren.
