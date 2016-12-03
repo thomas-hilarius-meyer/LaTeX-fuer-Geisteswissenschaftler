@@ -623,7 +623,7 @@ Am anspruchlosesten ist die einfache Auflistung ohne irgendwelche Formatierung:
 \end{LTXexample}
 
 
-\minisec{``Normale'' Liste mit Aufzählungszeichen: itemize}
+\minisec{\enquote{Normale} Liste mit Aufzählungszeichen: itemize}
 
 \begin{LTXexample}
 \begin{itemize}
@@ -963,7 +963,7 @@ Auch das Ende der aktuellen Umgebung beendet die Zeilennummern.
 Daraus wird:
 \bigskip
 
- Georg Büchners \enquote{Lenz} beginnt mit einm langen Textabschnitt:
+ Georg Büchners \enquote{Lenz} beginnt mit einem langen Textabschnitt:
 
  \begin{quotation}
  \modulolinenumbers[5]
@@ -985,21 +985,21 @@ verändern:
 
 Beim Aufruf des Paketes können folgende Optionen angegeben werden:
 
-\begin{description}
+\begin{labeling}{pagewise}
  \item[left] Die Zeilennummern stehen am linken Rand.
  \item[right] Die Zeilennummern stehen am rechten Rand.
  \item[switch] Die Zeilennummern stehen (bei zweiseitigem Layout) am äußeren Rand.
  \item[switch*] Die Zeilennummern stehen am inneren Rand.
  \item[pagewise] Die Zeilennummerierung beginnt auf jeder neuen Seite wieder bei 1.
  \item[modulo] Nur jede x-te Zeile erhält eine Nummer. 
-  Das Einstellen der Schrittweite erfolgt durch \lstinline/\modulolinenumbers[...]/ 
+  Das Einstellen der Schrittweite erfolgt durch \cs{modulolinenumbers\oarg{Integer}} 
   (sic! Die Klammern müssen eckig sein...);
   voreingestellt ist der Wert von 5.
-\end{description}
+\end{labeling}
 
-Makro \lstinline/\linenumberfont/ für die Schriftart der Zeilennummer.
+Makro \cs{linenumberfont} für die Schriftart der Zeilennummer.
 
-Länge \lstinline/\linenumbersep/ bestimmt Abstand zwischen Zeilennummer und Text.
+Länge \cs{linenumbersep} bestimmt Abstand zwischen Zeilennummer und Text.
 
  
 
@@ -1134,7 +1134,7 @@ stark einschränkt.
 
 
 
-\section{Das Konzept der ``Gleitumgebung''}
+\section{Das Konzept der \enquote{Gleitumgebung}}
 \dictum[Heraklit?]{Alles fließt.}
 
 \minisec{Gleitumgebungen beschriften: Das Paket \paket{caption}}
