@@ -10,7 +10,9 @@ Die derzeitigen Kapitel sind:
 
 3. Textpassagen in nicht-lateinischen Alphabeten einbetten
 
-4. Texte parallel setzen  - Philipp (zumindest Teil 2 und 3)
+4.a Interlinearglossierung
+
+4.b Texte parallel setzen  - Philipp
 
 5. Kritische Apparate setzen - Philipp
 
