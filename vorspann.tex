@@ -18,7 +18,7 @@ ibycus,polutonikogreek,english,french,ngerman,
    supscaled=1.2,%
    raised=-.13em]% match XHeight of libertine
    {superiors}
-\usepackage[scaled=0.85]{beramono}
+\usepackage[scaled=0.8]{beramono}
 \usepackage{textcomp}
 %\usepackage{euler}
 \usepackage{yfonts}
@@ -142,6 +142,35 @@ ibycus,polutonikogreek,english,french,ngerman,
 \newcommand{\pdfLaTeX}{\hologo{pdfLaTeX}}
 \newcommand{\XeLaTeX}{\hologo{XeLaTeX}}
 
+\makeatletter
+\DeclareRobustCommand\cs[1]{\texttt{\char`\\#1}}
+\DeclareRobustCommand\meta[1]{%
+   \ensuremath\langle
+   \ifmmode \expandafter \nfss@text \fi
+   {%
+      \meta@font@select
+      \edef\meta@hyphen@restore
+      {\hyphenchar\the\font\the\hyphenchar\font}%
+      \hyphenchar\font\m@ne
+      \language\l@nohyphenation
+      #1\/%
+      \meta@hyphen@restore
+   }\ensuremath\rangle
+}
+\def\marg{\@ifstar{\@@marg}{\@marg}}
+\providecommand\@marg[1]{%
+   {\ttfamily\char`\{}\meta{#1}{\ttfamily\char`\}}}
+\providecommand\@@marg[1]{%
+   {\ttfamily\char`\{}{#1}{\ttfamily\char`\}}}
+\def\oarg{\@ifstar{\@@oarg}{\@oarg}}
+\providecommand\@oarg[1]{%
+   {\ttfamily[}\meta{#1}{\ttfamily]}}
+\providecommand\@@oarg[1]{%
+   {\ttfamily[}{#1}{\ttfamily]}}
+\providecommand\parg[1]{%
+   {\ttfamily(}\meta{#1}{\ttfamily)}}
+\def\meta@font@select{\itshape}
+\makeatother
 \setlength{\footnotemargin}{4mm}
 
 \tolerance 1414

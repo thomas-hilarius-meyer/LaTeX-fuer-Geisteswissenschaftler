@@ -1,0 +1,9 @@
+Alle Zwischenstände sollten immer lauffähig sein, d.h. mit einem (aktuellen) TeX Live bzw. MiKTeX übersetzbar sein!
+
+– Abkürzungen werden mit Spatium gesetzt: z.\,B.
+– Anführungszeichen stets als \enquote{} angeben
+– Keine Leerzeichen zwischen Makroname und Argumenten
+– Inline-Codeschnipsel sollten immer \cs für das Makro, \marg für obligatorische (mandatory) Argumente und \oarg für optionale Argumente nutzen:
+  \cs{beispiel\marg{Argument}}
+– Nutzung von labeling-Umgebung statt description-Umgebung
+ 
