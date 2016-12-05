@@ -1,19 +1,21 @@
 % !TeX root = lfgw.tex
-\chapter{Prüfungen aufsetzen: exam}
+\chapter{Prüfungen erstelken mit \paket{exam}}
 
 exam\footcite{ziegenhagen:dtk2016/2}
 
-
-
 \section{Einleitung}
 
-CTAN hält eine Reihe von Paketen bereit, um Klausuren und Übungsblätter zu setzen, neben \texttt{exam} sind hier \texttt{eqexam}, \texttt{exercise} und \texttt{exsheets} zu nennen. Im folgenden möchte ich nur auf \texttt{exam} weiter eingehen, dem geneigten Leser sei die Lektüre der Dokumentationen für die anderen Pakete ans Herz gelegt.
+CTAN hält eine Reihe von Paketen bereit, um Klausuren und Übungsblätter zu setzen, neben \paket{exam} sind hier \paket{eqexam}, \paket{exercise} und \paket{exsheets} zu nennen. 
+Im folgenden möchte ich nur auf \texttt{exam} weiter eingehen, dem geneigten Leser sei die Lektüre der Dokumentationen für die anderen Pakete ans Herz gelegt.
 
-\texttt{exam} wird von Philip Hirschhorn (Wellesley College, USA) betreut, das Paket kann auf eine Geschichte zurückblicken, die bis ins Jahr 1994 reicht. Die aktuelle Version, die als Grundlage für diesen Artikel dient, datiert auf Mai 2015. Da mein Artikel nicht alle Funktionen der Klasse detailliert beschreiben kann, erlaube man mir schon an dieser Stelle einen Hinweis auf die exzellente Dokumentation, die auf mehr als 100 Seiten den Umgang mit \texttt{exam} erläutert.
+\texttt{exam} wird von Philip Hirschhorn (Wellesley College, USA) betreut, das Paket kann auf eine Geschichte zurückblicken, die bis ins Jahr 1994 reicht. 
+Die aktuelle Version, die als Grundlage für diesen Artikel dient, datiert auf Mai 2015. 
+Da dieses Kapitel nicht alle Funktionen der Klasse detailliert beschreiben kann, sei an dieser Stelle ein Hinweis auf die exzellente Dokumentation erlaubt, die auf mehr als 100 Seiten den Umgang mit \paket{exam} erläutert.
 
 \section{Minimalbeispiel}
 
-Listing \ref{lis:b01} zeigt ein Minimalbeispiel, das eine einzelne Frage in ein Dokument setzt. Neben der obligatorischen Angabe der Dokumentenklasse \texttt{exam}, die intern auf \texttt{article} basiert, werden alle Fragen mittels \texttt{\textbackslash question} Befehl in eine \texttt{questions} Umgebung gesetzt. 
+Listing \ref{lis:b01} zeigt ein Minimalbeispiel, das eine einzelne Frage in ein Dokument setzt. 
+Neben der obligatorischen Angabe der Dokumentenklasse \texttt{exam}, die intern auf \texttt{article} basiert, werden alle Fragen mittels \texttt{\textbackslash question} Befehl in eine \texttt{questions} Umgebung gesetzt. 
 
 \begin{lstlisting}[caption={Minimalbeispiel \texttt{beispiel-01.tex}},label={lis:b01}]
 \documentclass[12pt]{exam}
@@ -28,11 +30,14 @@ Wieviel wiegt Blei?
 \end{document}
 \end{lstlisting}
 
-Dem  \texttt{\textbackslash question} Befehl kann noch optional die Anzahl der möglichen Punkte für diese Frage übergeben werden. \texttt{exam} kann -- sofern die Klassenoption \enquote{addpoints} gesetzt ist -- die Punkte zusammenaddieren und auch eine Bewertungstabelle ausgeben; eine hilfreiche Funktion, die den Dozenten vor lästigen Rechenfehlern bewahren kann.
+Dem  \texttt{\textbackslash question} Befehl kann noch optional die Anzahl der möglichen Punkte für diese Frage übergeben werden. 
+\paket{exam} kann -- sofern die Klassenoption \enquote{addpoints} gesetzt ist -- die Punkte zusammenaddieren und auch eine Bewertungstabelle ausgeben; eine hilfreiche Funktion, die den Dozenten vor lästigen Rechenfehlern bewahren kann.
 
 Neben \enquote{addpoints} gibt es noch eine weitere Klassenoption, die an dieser Stelle nicht unerwähnt bleiben soll: \enquote{answers}. Sie steuert, ob die Antworten auf eine Frage unter die Frage gesetzt werden sollen oder nicht, dazu später mehr.
 
-Betrachten wir uns das Ergebnis von \ref{lis:b01} in Abbildung \ref{fig:b01}, so fällt auf dass statt \enquote{Punkte} \enquote{points} gesetzt wurde. Dies liegt daran, dass das Paket standardmäßig mit englischen Begriffen arbeitet, die erst eingedeutscht werden müssen. Außerdem war das Minimalbeispiel so minimal, dass eine Reihe von nützlichen oder notwendigen Paketen noch nicht eingebunden ist. Da ich persönlich noch am liebsten mit \texttt{pdflatex} arbeite, enthält meine Paketliste (siehe Listing \ref{lis:pak}) noch Pakete, die bei der Nutzung von xe\LaTeX\ oder lua\LaTeX\ nicht unbedingt notwendig sind.
+Betrachten wir uns das Ergebnis von \ref{lis:b01} in Abbildung \ref{fig:b01}, so fällt auf dass statt \enquote{Punkte} \enquote{points} gesetzt wurde. 
+Dies liegt daran, dass das Paket standardmäßig mit englischen Begriffen arbeitet, die erst eingedeutscht werden müssen. Außerdem war das Minimalbeispiel so minimal, dass eine Reihe von nützlichen oder notwendigen Paketen noch nicht eingebunden ist. 
+Da ich persönlich noch am liebsten mit \texttt{pdflatex} arbeite, enthält meine Paketliste (siehe Listing \ref{lis:pak}) noch Pakete, die bei der Nutzung von xe\LaTeX\ oder lua\LaTeX\ nicht unbedingt notwendig sind.
 
 \begin{figure}
 \fbox{\includegraphics[clip,trim=2cm 25cm 6cm 1cm,width=\textwidth]{./Examples/exam/beispiel-01}}
@@ -80,7 +85,10 @@ Kombinieren wir nun die Paketliste aus Listing \ref{lis:pak} mit dem Minimalbeis
 
 \section{Formatierung von Kopf \& Fuß}
 
-\texttt{exam} bietet eine Reihe von Möglichkeiten für die Anpassung von Kopf und Fuß. Listing \ref{lis:headfoot} zeigt, wie \texttt{firstpageheader} und -\texttt{footer} für die Titelseite beziehungsweise \texttt{runningpageheader} und -\texttt{footer} für Folgeseiten mit Angabe von Fach und Dozent ausgestattet werden können. Horizontale Linien unter den Kopfzeilen werden durch die entsprechenden \texttt{\dots headrule} Befehle gesetzt. Abbildung \ref{fig:headfoot} zeigt das entsprechende Ergebnis.
+\texttt{exam} bietet eine Reihe von Möglichkeiten für die Anpassung von Kopf und Fuß. 
+Listing \ref{lis:headfoot} zeigt, wie \texttt{firstpageheader} und -\texttt{footer} für die Titelseite beziehungsweise \texttt{runningpageheader} und -\texttt{footer} für Folgeseiten mit Angabe von Fach und Dozent ausgestattet werden können.
+Horizontale Linien unter den Kopfzeilen werden durch die entsprechenden \texttt{\dots headrule} Befehle gesetzt. 
+Abbildung \ref{fig:headfoot} zeigt das entsprechende Ergebnis.
 
 \begin{lstlisting}[caption={Definition von Kopf und Fuß auf Titel- und Folgeseiten},label={lis:headfoot}]
 \newcommand{\dozent}{Dr. Uwe Ziegenhagen}
@@ -106,7 +114,8 @@ Kombinieren wir nun die Paketliste aus Listing \ref{lis:pak} mit dem Minimalbeis
 
 \section{Einfügen von Teilfragen}
 
-Einzelne Fragen, die mit \texttt{\textbackslash question} gesetzt wurden, lassen sich noch in Unterfragen unterteilen. \texttt{exam} bietet dazu folgende Umgebungen und dazugehörige Befehle an, die wie \texttt{\textbackslash question} zu nutzen sind:
+Einzelne Fragen, die mit \texttt{\textbackslash question} gesetzt wurden, lassen sich noch in Unterfragen unterteilen. 
+\paket{exam} bietet dazu folgende Umgebungen und dazugehörige Befehle an, die wie \texttt{\textbackslash question} zu nutzen sind:
 
 \begin{itemize}
 	\item \texttt{parts} Umgebung mit \texttt{\textbackslash part} Befehl
@@ -146,7 +155,9 @@ Es stellt dazu folgende Umgebungen bzw. Befehle bereit:
 \item[fillin] Befehl für Lückentext, als optionaler Parameter wird das Lösungswort übergeben
 \end{description}
 
-Für die drei genannten Umgebungen gilt, dass die jeweils richtige Antwort bzw. die richtigen Antworten mittels \texttt{\textbackslash CorrectChoice} von den falschen Antworten unterschieden werden können. Setzt man die \enquote{answers} Option wie oben beschrieben als Klassenoption, so werden diese richtigen Antworten entsprechend markiert. Listing \ref{lis:mchoice1} und \ref{lis:mchoice2} zeigen die entsprechenden Code-Beispiele, Abbildung \ref{fig:mchoicea} die Ausgabe mit \enquote{answers} aktiviert.
+Für die drei genannten Umgebungen gilt, dass die jeweils richtige Antwort bzw. die richtigen Antworten mittels \texttt{\textbackslash CorrectChoice} von den falschen Antworten unterschieden werden können. 
+Setzt man die \enquote{answers} Option wie oben beschrieben als Klassenoption, so werden diese richtigen Antworten entsprechend markiert. 
+Listing \ref{lis:mchoice1} und \ref{lis:mchoice2} zeigen die entsprechenden Code-Beispiele, Abbildung \ref{fig:mchoicea} die Ausgabe mit \enquote{answers} aktiviert.
 
 \begin{lstlisting}[caption={Multiple-Choice Aufgaben 1},label={lis:mchoice1}]
 \question Wer war kein Beatle?
@@ -197,7 +208,8 @@ Für die drei genannten Umgebungen gilt, dass die jeweils richtige Antwort bzw. 
 
 \section{Platz für Antworten}
 
-\texttt{exam} erlaubt es dem Dozenten auch, unterschiedliche Leerräume für die Antworten von Schülern und Studenten bereitzuhalten. Neben einfachem Leerraum mittels \texttt{\textbackslash vspace} und umrahmten Boxen mittels (siehe Listing \ref{lis:vspace1} sowie die Ausgabe in Abbildung \ref{fig:vspace1}) stellt \texttt{exam} auch linierte und gepunktete Linien sowie karierten Platz bereit.
+\texttt{exam} erlaubt es dem Dozenten auch, unterschiedliche Leerräume für die Antworten von Schülern und Studenten bereitzuhalten. 
+Neben einfachem Leerraum mittels \texttt{\textbackslash vspace} und umrahmten Boxen mittels (siehe Listing \ref{lis:vspace1} sowie die Ausgabe in Abbildung \ref{fig:vspace1}) stellt \texttt{exam} auch linierte und gepunktete Linien sowie karierten Platz bereit.
 
 \begin{lstlisting}[caption={Leerraum und Boxen für Antworten}, label={lis:vspace1}]
 % einfacher Abstand
@@ -220,7 +232,9 @@ Für die drei genannten Umgebungen gilt, dass die jeweils richtige Antwort bzw. 
 \caption{Ergebnis von Listing \ref{lis:vspace1}, \texttt{beispiel-07.tex}}\label{fig:vspace1}
 \end{figure}
 
-Für Linien nutzt man \texttt{\textbackslash fillwithlines}, für gepunktete Linien \texttt{\textbackslash fillwithdottedlines}, und für ein kariertes Raster \texttt{\textbackslash fillwithgrid}. Alle drei Befehle benötigen als Parameter die vertikale Länge des Platzes, den sie für die Antworten reservieren sollen. Außerdem stellt \texttt{exam} noch den \texttt{\textbackslash answerline} Befehl bereit, der Platz für ein Wort oder einen Satz schafft, der optional für die Lösungsausgabe angegeben werden kann.
+Für Linien nutzt man \texttt{\textbackslash fillwithlines}, für gepunktete Linien \texttt{\textbackslash fillwithdottedlines}, und für ein kariertes Raster \texttt{\textbackslash fillwithgrid}. 
+Alle drei Befehle benötigen als Parameter die vertikale Länge des Platzes, den sie für die Antworten reservieren sollen. 
+Außerdem stellt \texttt{exam} noch den \texttt{\textbackslash answerline} Befehl bereit, der Platz für ein Wort oder einen Satz schafft, der optional für die Lösungsausgabe angegeben werden kann.
 
 Beispiele für die Nutzung dieser Befehle finden sich in Listing \ref{lis:fill}, für die Ausgaben siehe die Abbildungen \ref{fig:fill1} und \ref{fig:fill2}. 
 
@@ -250,7 +264,9 @@ Beispiele für die Nutzung dieser Befehle finden sich in Listing \ref{lis:fill},
 
 \section{Ausgabe von Lösungen}
 
-Wie bereits erwähnt, steuert die globale Option \enquote{answers}, ob die hinterlegten Lösungen angezeigt werden sollen oder nicht. Die Hinterlegung von Lösungen bei Textaufgaben im Text erfolgt dabei über eingefügte \texttt{solution} Umgebungen, die hinter jede \texttt{\textbackslash question} gesetzt werden, Listing \ref{lis:sol1} zeigt ein entsprechendes Beispiel, Abbildung \ref{fig:sol2} die entsprechende Ausgabe.
+Wie bereits erwähnt, steuert die globale Option \enquote{answers}, ob die hinterlegten Lösungen angezeigt werden sollen oder nicht. 
+Die Hinterlegung von Lösungen bei Textaufgaben im Text erfolgt dabei über eingefügte \texttt{solution} Umgebungen, die hinter jede \texttt{\textbackslash question} gesetzt werden.
+Listing \ref{lis:sol1} zeigt ein entsprechendes Beispiel, Abbildung \ref{fig:sol2} die entsprechende Ausgabe.
 
 \begin{lstlisting}[label={lis:sol1},caption={Beispielhafte Lösung}]
 \question Was ist die Antwort auf alle Fragen?
@@ -265,7 +281,8 @@ Wie bereits erwähnt, steuert die globale Option \enquote{answers}, ob die hinte
 \caption{Beispiel für die \texttt{solution} Umgebung}\label{fig:sol2}
 \end{figure}
 
-Alternativ biete das \texttt{exam} Paket auch die Möglichkeit, je nach gesetzter \enquote{answers} Option entweder die hinterlegte Lösung oder den Platz für die Antworten zu hinterlegen. Dazu stellt \texttt{exam} die folgenden Umgebungen bereit, deren jeweilige Bedeutung sich leicht aus dem Namen erschließt:
+Alternativ biete das \texttt{exam} Paket auch die Möglichkeit, je nach gesetzter \enquote{answers} Option entweder die hinterlegte Lösung oder den Platz für die Antworten zu hinterlegen. 
+Dazu stellt \texttt{exam} die folgenden Umgebungen bereit, deren jeweilige Bedeutung sich leicht aus dem Namen erschließt:
 
 \begin{itemize}
 	\item solutionorbox
@@ -285,6 +302,12 @@ Die Abbildungen \ref{fig:solbox1} und \ref{fig:solbox2} zeigen am Beispiel von \
 \fbox{\includegraphics[clip, trim=2cm 15.5cm 2cm 0.7cm,width=\textwidth]{./Examples/exam/beispiel-12}} % 
 \caption{Ausgabe von \texttt{\textbackslash solutionorgrid} mit gesetztem \enquote{answers}}\label{fig:solbox2}
 \end{figure}
+
+
+
+
+
+
 
 
 \section{Ausgabe von Notentabellen}
@@ -309,4 +332,4 @@ Wie bereits erwähnt kann \texttt{exam} auch Bewertungstabellen setzen, vertikal
 \end{figure} 
 
 
-\texttt{exam} bietet noch mehr, als diese kurze Einführung zeigen konnte, interessierten Lesern möchte ich daher nochmals die Dokumentation zum Paket empfehlen. 
+\paket{exam} bietet noch mehr, als diese kurze Einführung zeigen konnte, interessierten Lesern möchte ich daher nochmals die Dokumentation zum Paket empfehlen. 
