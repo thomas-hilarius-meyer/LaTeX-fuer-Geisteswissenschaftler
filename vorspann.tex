@@ -137,8 +137,10 @@ ibycus,polutonikogreek,english,french,ngerman,
   ]{cleveref}%nach hyperref laden
 
 \providecommand*{\prog}[1]{\texttt{#1}}
+\let\Program\prog
+
 \providecommand*{\paket}[1]{\textsf{#1}\index[pakete]{#1}}
-\providecommand*{\Package}[1]{\paket{#1}}%zwecks kompatibilität mit DTK
+\let\Package\paket%zwecks kompatibilität mit DTK
 
 \providecommand*{\LaTeXTeX}{\hologo{(La)TeX}}
 \providecommand*{\AmSLaTeX}{\hologo{AmSLaTeX}}
