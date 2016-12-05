@@ -134,13 +134,85 @@ ibycus,polutonikogreek,english,french,ngerman,
   nameinlink
   ]{cleveref}%nach hyperref laden
 
-\newcommand{\paket}[1]{\textsf{#1}\index[pakete]{#1}}
-\newcommand{\Package}[1]{\paket{#1}}%zwecks kompatibilität mit DTK
+\providecommand*{\prog}[1]{\texttt{#1}}
+\providecommand*{\paket}[1]{\textsf{#1}\index[pakete]{#1}}
+\providecommand*{\Package}[1]{\paket{#1}}%zwecks kompatibilität mit DTK
 
-\newcommand{\LuaLaTeX}{\hologo{LuaLaTeX}}
-\newcommand{\METAFONT}{\hologo{METAFONT}}
-\newcommand{\pdfLaTeX}{\hologo{pdfLaTeX}}
-\newcommand{\XeLaTeX}{\hologo{XeLaTeX}}
+\providecommand*{\LaTeXTeX}{\hologo{(La)TeX}}
+\providecommand*{\AmSLaTeX}{\hologo{AmSLaTeX}}
+\providecommand*{\AmSTeX}{\hologo{AmSTeX}}
+\providecommand*{\biber}{\hologo{biber}}
+\providecommand*{\BibTeX}{\hologo{BibTeX}}
+\providecommand*{\BibTeXacht}{\hologo{BibTeX8}}
+\providecommand*{\ConTeXt}{\hologo{ConTeXt}}
+\let\context\ConTeXt
+\providecommand*{\emTeX}{\hologo{emTeX}}
+\providecommand*{\eTeX}{\hologo{eTeX}}
+\providecommand*{\ExTeX}{\hologo{ExTeX}}
+\providecommand*{\HanTheThanh}{\hologo{HanTheThanh}}
+\providecommand*{\iniTeX}{\hologo{iniTeX}}
+\providecommand*{\KOMAScript}{\hologo{KOMAScript}}
+\providecommand*{\LaTeX}{\hologo{LaTeX}}
+\providecommand*{\LaTeXe}{\hologo{LaTeX2e}}
+\providecommand*{\LaTeXIII}{\hologo{LaTeX3}}
+\providecommand*{\LaTeXML}{\hologo{LaTeXML}}
+\providecommand*{\LuaLaTeX}{\hologo{LuaLaTeX}}
+\let\lualatex\LuaLaTeX
+\providecommand*{\LuaTeX}{\hologo{LuaTeX}}
+\let\luatex\LuaTeX
+\providecommand*{\LyX}{\hologo{LyX}}
+\providecommand*{\METAFONT}{\hologo{METAFONT}}
+\let\MF\METAFONT
+\providecommand*{\MetaFun}{\hologo{MetaFun}}
+\providecommand*{\METAPOST}{\hologo{METAPOST}}
+\providecommand*{\MetaPost}{\hologo{MetaPost}}
+\let\MP\METAPOST
+\providecommand*{\MiKTeX}{\hologo{MiKTeX}}
+\providecommand*{\NTS}{\hologo{NTS}}
+\providecommand*{\OzMF}{\hologo{OzMF}}
+\providecommand*{\OzMP}{\hologo{OzMP}}
+\providecommand*{\OzTeX}{\hologo{OzTeX}}
+\providecommand*{\OzTtH}{\hologo{OzTth}}
+\providecommand*{\PCTeX}{\hologo{PCTeX}}
+\providecommand*{\pdfTeX}{\hologo{pdfTeX}}
+\let\pdftex\pdfTeX
+\providecommand*{\pdfLaTeX}{\hologo{pdfLaTeX}}
+\let\pdflatex\pdfLaTeX
+\providecommand*{\PiC}{\hologo{PiC}}
+\providecommand*{\PiCTeX}{\hologo{PiCTeX}}
+\providecommand*{\plainTeX}{\hologo{plainTeX}}
+\providecommand*{\SageTeX}{\hologo{SageTeX}}
+\providecommand*{\SLiTeX}{\hologo{SLiTeX}}
+\providecommand*{\teTeX}{\hologo{teTeX}}
+\providecommand*{\TeXivht}{\hologo{TeX4ht}}
+\providecommand*{\TTH}{\hologo{TTH}}
+\providecommand*{\virTeX}{\hologo{virTeX}}
+\providecommand*{\VTeX}{\hologo{VTeX}}
+\providecommand*{\XeLaTeX}{\hologo{XeLaTeX}}
+\providecommand*{\XeTeX}{\hologo{XeTeX}}
+%%
+\newcommand\BibTool{\textsc{Bib\hskip-.1em
+      T\hskip-.15emo\hskip-.05emo\hskip-.05eml}\xspace}
+\providecommand*{\tikz}{\textsf{Ti\textit{k}Z}}
+%\providecommand*{\pgf/tikz}{\textsf{pgf/Ti\textit{k}Z}}
+\def\pgf/tikz{\textsf{pgf/Ti\textit{k}Z}}
+\providecommand*{\ALEPH}{\ensuremath{\aleph}}
+\let\TikZ\tikz
+
+\providecommand\eV{e.V\kern-0.18em\@ifnextchar.{}{.}\kern0.18em}
+\providecommand\dante{\mbox{DANTE~\eV}}
+\providecommand\Dante{DANTE,
+   Deutschsprachige Anwendervereinigung \TeX~\eV}
+\providecommand\DTK{Die \TeX\-ni\-sche Ko\-m{\"o}\-die}
+\providecommand\PS{Post\-Script}
+\providecommand\TUG{\TeX{} Users Group}
+\providecommand\TUGboat{\textsl{TUGboat}}
+\let\DANTE\dantelogo
+\providecommand*{\TeXLive}{\TeX{}Live}
+
+\def\BibLaTeX{Bib\hologo{LaTeX}}
+\let\biblatex\BibLaTeX
+\providecommand*{\CTAN}{\texttt{CTAN}\xspace}
 
 \makeatletter
 \DeclareRobustCommand\cs[1]{\texttt{\char`\\#1}}
