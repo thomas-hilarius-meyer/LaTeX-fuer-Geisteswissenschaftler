@@ -1,5 +1,6 @@
 % !TeX root = lfgw.tex
-\usepackage[german]{keystroke}% Computer-Tastatur-Tasten in Anweisungs-Texte zu setzen (z.B. \Shift, \Ctrl, \Spacebar
+% Folgende Zeile ist in dem Datei vorspann.tex:
+%   \usepackage[german]{keystroke}% Computer-Tastatur-Tasten in Anweisungs-Texte zu setzen (z.B. \Shift, \Ctrl, \Spacebar).
 \chapter{Textpassagen in nicht-lateinischen Alphabeten einbetten}
 
 Hinweis von Lukas C. Bossert:
@@ -27,24 +28,34 @@ Es befriedigt \LaTeX{}-Benutzer die Programme \LuaLaTeX ,
 \METAFONT , \pdfLaTeX und \XeLaTeX{} zu benutzen. Um einen
 Kropfnugn zu gestalten, benutzen sie einen Paket wie
 \Package{booktabs} oder \paket{graphicx}.
-Nach einige \cs {biegen\marg {Buenos Aires}} in der
-\cs {biegen\oarg {Sao Paulo}} zu bestimmen. Auch zwei
-\cs {biegen\parg {Ciudad Mexico}} Sachen sind
-\meta {skateboard} wichtig.
+Nach einige %
+\cs {biegen\marg {color}}%
+\space%
+in der %
+\cs {biegen\oarg {landscape}\marg {color}}%
+\space%
+zu bestimmen. Auch zwei %
+\cs {biegen\parg {purple}}
+\space%
+Sachen sind %
+\meta {offene Vokale}%
+\space%
+wichtig.
 
-\minisec{Wie arktisvogel die \texttt {Keystroke}-Paket anwendet}
-\label{cpftestbety}
+\minisec{Wie arktisvogel das \paket{keystroke}-Paket anwendet}
+\label{cpftestbeta}
 
 Das Paket \paket{keystroke} bietet die Möglichkeit,
 Tastendrücke darzustellen.
 
 \minisec{Almut A.\ Altquist}
 
-\textit{Achtung: zur Zeit die Benutzung der keystroke Paket
-liefert nur französiche Tasten-Darstellungen!}\/ Das
+\emph{Achtung: zur Zeit die Benutzung der keystroke Paket
+liefert nur französische Tasten-Darstellungen!} Das
 Paket \paket{keystroke} bietet die Möglichkeit,
 Tastendrücke darzustellen. Für ja,
-die \hbox{\keystroke{J}-Taste} ist gut. Wenn sie \Del{} und %
+die \hbox{\keystroke{J}-Taste} ist gut.
+Wenn sie \Del{} und %
 \Ins{}%
 und %
 \Esc{}%
@@ -68,7 +79,8 @@ und %
 \Break{} sehen wollen, geht es in Ordnung.
 
 \minisec{Bertha B.\ Bertzbach}
-Der Schriftsteller Markus Arktisvogel braucht die Symbole %
+Der Schriftsteller Markus Arktisvogel
+braucht die Symbole %
 \Esc{}%
 und %
 \Shift{}%
@@ -123,8 +135,8 @@ In diesem Fall heisst das: %
 \keystroke{8}%
 \Return{}%
 \meta{Unicode Codepoint}%
-\Return . ermöglicht die direkte Eingabe einer Unicode
-Zeichen.
+\Return . ermöglicht die direkte Eingabe einer
+Unicode Zeichen.
 
 Um einem \enquote{Capitulum} einzugeben: %
 \hbox{\Ctrl$+$\keystroke{X}}%
@@ -158,7 +170,7 @@ drei Tastendrücke: um eine \enquote{no-break space} einzugeben: %
 \Spacebar .
 
 Einige Aliase sind fertig nach drei Tastendrücke. Andere
-benötige vier Tastendrücke. Ich möchte das Wort \enquote{Français}
+benötigen vier Tastendrücke. Ich möchte das Wort \enquote{Français}
 eingeben. Mit %
 \hbox{\Ctrl$+$\keystroke{X}}%
 \keystroke{,}%
@@ -264,16 +276,16 @@ je nach Aufgabenbreich sind diese verschieden gut geeignet:
 \minisec{Möglichkeit I: Einzelbuchstaben}
 
 Die erste Möglichkeit besteht in der Eingabe m.\,H. der Einzelnbuchstaben-Symbole des Paketes
-\paket{textgreek}; das Verfahren ist in Abscnitt \ref{griechEinzelbuchstaben}, 
+\paket{textgreek}; das Verfahren ist in Abscnitt \ref{griechEinzelbuchstaben},
 S.~\pageref{griechEinzelbuchstaben}, beschrieben.
 
-Dieses Verfahren eignet sich eigentlich nur für ganz kurze Einsprengsel im Umfang von 
+Dieses Verfahren eignet sich eigentlich nur für ganz kurze Einsprengsel im Umfang von
 einzelnen Zeichen bis maximal ca.\ einem Wort.
 
 
 \minisec{Möglichkeit II: Transkription mit \paket{ibycus}}
 
-Die zweite Methode eignet sich demgegenüber hervorragend, wenn es darum geht auch etwas 
+Die zweite Methode eignet sich demgegenüber hervorragend, wenn es darum geht auch etwas
 längere (alt-)griechische Passagen in ein ansonsten deutschsprachiges Dokument~-- m.\,H. eines
 deutschen Computers mit QWERTZ-Tastatur~-- einzugeben.
 
@@ -298,7 +310,7 @@ Das wird zu:
  \begin{ibycus}
   (Hrodo'tou Qouri’ou i(stori’hs a)po’decis h(’de,
   ...
-  h(‘n ai)ti’hn e)pole’mhsan a)llh’loisi. 
+  h(‘n ai)ti’hn e)pole’mhsan a)llh’loisi.
   \end{ibycus}
 
   Und jetzt ein einzelnes griechisches Wort~-- \ibygr{a)rxai=a gra’mmata}~-- im Text.
@@ -310,12 +322,12 @@ Das wird zu:
 \minisec{Möglichkeit III: Direkteingabe von Unicode-Text}
 
 Die dritte Möglichkeit besteht darin, die griechischen Schriftzeichen direkt als Unicode-Zeichen
-in das \LaTeX -Dokument einzufügen. Dazu reicht es aus, dem Paket \paket{babel} die 
-(alt-)griechische Sprache als zusätzliche Option anzugeben: 
+in das \LaTeX -Dokument einzufügen. Dazu reicht es aus, dem Paket \paket{babel} die
+(alt-)griechische Sprache als zusätzliche Option anzugeben:
 \lstinline/\usepackage[polutonikogreek,ngerman]{babel}/.
 \footnote{Achtung! Bei den meisten \LaTeX -Installationen im Rahmen von Linux-Distributionen muss
 man Pakete nachinstallieren!}
-Damit \LaTeX{} den griechischen Font richtig ansprechen kann, braucht auch das Paket \paket{fontenc} 
+Damit \LaTeX{} den griechischen Font richtig ansprechen kann, braucht auch das Paket \paket{fontenc}
 eine Modifikation: \lstinline/\usepackage[OT1,T1]{fontenc}/.
 
 Dann kann mit \lstinline/\selectlanguage{polutonikogreek}/ auf Griechisch umgeschaltet werden.
@@ -332,7 +344,7 @@ dennoch gibt \LaTeX{} alle Zeichen richtig wider:
 
 
 \begin{otherlanguage}{polutonikogreek}
-Οὕτως γὰρ ἠγάπησεν ὁ Θεὸς τὸν κόσμον, ὥστε τὸν Υἱὸν τὸν μονογενῆ ἔδωκεν, 
+Οὕτως γὰρ ἠγάπησεν ὁ Θεὸς τὸν κόσμον, ὥστε τὸν Υἱὸν τὸν μονογενῆ ἔδωκεν,
 ἵνα πᾶς ὁ πιστεύων εἰς αὐτὸν μὴ ἀπόληται ἀλλ’ ἔχῃ ζωὴν αἰώνιον.
 \end{otherlanguage}
 (Joh. 3,16)
@@ -349,21 +361,21 @@ wesentlich angenehmer und effizienter.
 \section{Hebräisch}
 \index{Hebräisch}
 
-Das Paket \paket{cjhebrew} von Christian Justen eignet sich hervorragend für 
-Theologen und Orientalisten, denn es erlaubt auch die Vokalisierung sowie die Verwendung 
+Das Paket \paket{cjhebrew} von Christian Justen eignet sich hervorragend für
+Theologen und Orientalisten, denn es erlaubt auch die Vokalisierung sowie die Verwendung
 von Akzenten. Auch das Problem der rechts- bzw. linksläufigen Schriften wird sehr
-Anwenderfreundlich~-- im Sinne von Anwendern an einem westlichen PC mit ansonsten 
+Anwenderfreundlich~-- im Sinne von Anwendern an einem westlichen PC mit ansonsten
 lateinischen Alphabet~-- gelöst:
 
 Nach \lstinline/\usepackage{cjhebrew}/%
 \footnote{Eine besondere Angabe z.\,B. bei \paket{babel} ist nicht nötig.}
-steht v.\,a. der Befehl \lstinline/\cjRL{}/ 
--- für hebräische Einzelworte im laufenden Absatz~-- sowie die 
-Umgebung \lstinline/cjhebrew/ 
+steht v.\,a. der Befehl \lstinline/\cjRL{}/
+-- für hebräische Einzelworte im laufenden Absatz~-- sowie die
+Umgebung \lstinline/cjhebrew/
 -- für ganze Absätze in Hebräisch~-- zur Verfügung.
 
 Beide drehen die Folge der Schriftzeichen automatisch um, so dass hebräische Textpartien
-ganz gewohnt eingegeben werden können. Dabei sind für die einzelnen Zeichen sehr leicht 
+ganz gewohnt eingegeben werden können. Dabei sind für die einzelnen Zeichen sehr leicht
 merkbare Codes definiert worden:
 
 Der Beginn des biblischen Buches Genesis~-- \enquote{Im Anfang schuf Gott Himmel und Erde...} --
@@ -372,10 +384,10 @@ wird so eingegeben:
 \begin{lstlisting}
 \begin{cjhebrew}
  b*e:re'+siyt b*ArA' 'E:lohim 'et ha+s*amayim w:'et hA'ArE.s;
-\end{cjhebrew} 
+\end{cjhebrew}
 \end{lstlisting}
 
-Mit etwas Eingewöhnung arbeitet man mit diesem System \emph{wesentlich} schneller und 
+Mit etwas Eingewöhnung arbeitet man mit diesem System \emph{wesentlich} schneller und
 angenehmer, als wenn man etwa die Unicode-Zeichen mit Hilfe eines grafischen Auswahlwerkzeuges
 einzeln auswählt...
 
@@ -385,7 +397,7 @@ Die Bearbeitung mit \LaTeX{} ergibt:
  b*e:re'+siyt b*ArA' 'E:lohim 'et ha+s*amayim w:'et hA'ArE.s;
 \end{cjhebrew}
 
-Wegen der Einzelheiten der Zeichen-, Vokal-, Akzent- und Satzzeichen-Codierung (inkl. z.\,B. 
+Wegen der Einzelheiten der Zeichen-, Vokal-, Akzent- und Satzzeichen-Codierung (inkl. z.\,B.
 Mem finalis) sei auf die Paketdokumentation verwiesen.
 
 \section{Russisch}
@@ -413,8 +425,8 @@ Ist \paket{arabtex} noch aktuell?
 \paket{hieroglf}~-- \enquote{The Poor Man’s Hieroglyphic Font}
 
 
- \pmglyph{K:l-i-o-p-a-d:r-a} 
- 
+ \pmglyph{K:l-i-o-p-a-d:r-a}
+
 
 \section{Keilschrift}
 \index{Keilschrift}
@@ -425,7 +437,7 @@ Ist \paket{arabtex} noch aktuell?
 \index{Runen}
 
 Das Paket \paket{runic} von Peter Wilson stellt die Runen des sog.\ Futhark-Alphabets bereit.
-Nach \lstinline/\usepackage{runic}/ gibt es den Befehl \lstinline/\textfut{}/, der 
+Nach \lstinline/\usepackage{runic}/ gibt es den Befehl \lstinline/\textfut{}/, der
 die Runen ausgibt. Dies ist die Transkription:
 
 \begin{center}
