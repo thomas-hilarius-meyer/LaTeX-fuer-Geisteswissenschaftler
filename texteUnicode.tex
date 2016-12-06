@@ -1,0 +1,497 @@
+% !TeX root = lfgw.tex
+\chapter{Textpassagen in nicht-lateinischen Alphabeten einbetten}
+
+Hinweis von Lukas C. Bossert:
+Für einzelne Wörter kann man auch \url{http://www.perseus.tufts.edu/hopper/morph} nutzen.
+bzw. für antike Texte auch hieraus (\url{http://www.perseus.tufts.edu/hopper/collection?collection=Perseus:collection:Greco-Roman}) kopieren.
+
+\section{Allgemeines: babel, Unicode}
+
+Grundlegend ist der Artikel von Axel Kielhorn in der DTK.%
+\footcite{kielhorn:dtk2014}
+
+\section{Eingabe von Unicode-Sonderzeichen}
+\label{unicodeeingabe}
+
+\minisec{Eingabe von Unicode-Zeichen in
+einem \Program{Emacs} Buffer}
+\label{unicodeviaemacs}
+
+\section{Test Block von arktisvogel}
+
+\minisec{Wie arktisvogel die \texttt{lfgw}-Makros anwendet}
+\label{cpftestalpha}
+
+Es befriedigt \LaTeX{}-Benutzer die Programme \LuaLaTeX ,
+\METAFONT{}, \pdfLaTeX{} und \XeLaTeX{} zu benutzen. Um einen
+Kropfnugn zu gestalten, benutzen sie einen Paket wie
+\Package{booktabs} oder \paket{graphicx}.
+Nach einige %
+\cs {biegen\marg {color}}%
+\space%
+in der %
+\cs {biegen\oarg {landscape}\marg {color}}%
+\space%
+zu bestimmen. Auch zwei %
+\cs {biegen\parg {purple}}
+\space%
+Sachen sind %
+\meta {offene Vokale}%
+\space%
+wichtig.
+
+\minisec{Wie arktisvogel das \paket{keystroke}-Paket anwendet}
+\label{cpftestbeta}
+Nach einige \cs{biegen\marg{Buenos Aires}} in der
+\cs{biegen\oarg{Sao Paulo}} zu bestimmen. Auch zwei
+\cs{biegen\parg{Ciudad Mexico}} Sachen sind
+\meta{skateboard} wichtig.
+
+\minisec{Wie arktisvogel die \paket{Keystroke}-Paket anwendet}
+\label{cpftestbety}
+
+Das Paket \paket{keystroke} bietet die Möglichkeit,
+Tastendrücke darzustellen.
+
+\minisec{Almut A.\ Altquist}
+
+\emph{Achtung: zur Zeit die Benutzung der keystroke Paket
+liefert nur französische Tasten-Darstellungen!} Das
+Paket \paket{keystroke} bietet die Möglichkeit,
+Tastendrücke darzustellen. Für ja,
+die \hbox{\keystroke{J}-Taste} ist gut.
+Wenn sie \Del{} und %
+\Ins{}%
+und %
+\Esc{}%
+und %
+\Shift{}%
+und %
+\Ctrl{}%
+und %
+\Home{}%
+und %
+\End{}%
+und %
+\PgUp{}%
+und %
+\PgDown{}%
+und %
+\PrtScroll{}%
+und %
+\Spacebar{}%
+und %
+\Break{} sehen wollen, geht es in Ordnung.
+
+\minisec{Bertha B.\ Bertzbach}
+Der Schriftsteller Markus Arktisvogel
+braucht die Symbole %
+\Esc{}%
+und %
+\Shift{}%
+und %
+\Ctrl{}%
+und %
+\Alt{}%
+und %
+\Return{}%
+und %
+\Spacebar{}%
+um alle Probleme zu lösen.
+
+Karl hat drei \Spacebar{}%
+und %
+\Return{}%
+und %
+\BSpace{}%
+und %
+\Tab{}%
+und %
+\Alt{}%
+und %
+\AltGr{}%
+und %
+\NumLock{}%
+und %
+\UArrow{}%
+und %
+\DArrow{}%
+und %
+\LArrow{}%
+und %
+\RArrow{} vorhanden.
+
+$$\diamondsuit\qquad\diamondsuit\qquad\diamondsuit$$
+
+Zwei Methoden ermöglichen die Eingabe von
+Unicode-Zeichen in \Program{Emacs}:
+
+\minisec{Methode 1:\enspace Hexdezimalzahl eingeben}
+\Program{Emacs}-Dokumentation benutzt die Schreibweise: %
+\texttt{C-x 8}
+um den Vorgang zu beschreiben: man druckt die Tastenkombination
+\Ctrl$+$\keystroke{X}%
+\space%
+\keystroke{8}.
+
+In diesem Fall heisst das: %
+\Ctrl$+$\keystroke{X}%
+\space%
+\keystroke{8}%
+\Return{}%
+\meta{Unicode Codepoint}%
+\Return . ermöglicht die direkte Eingabe einer
+Unicode Zeichen.
+
+Um einem \enquote{Capitulum} einzugeben: %
+\hbox{\Ctrl$+$\keystroke{X}}%
+\keystroke{8}%
+\Return{}%
+\keystroke{2}%
+\keystroke{E}%
+\keystroke{3}%
+\keystroke{F}%
+\space%
+\Return{}%
+
+% Die Unicode Codepoint 2021 ist: Double Dagger, und sieht so aus: ``‡''
+% Die Unicode Codepoint 2045 ist: Left Square Bracket With Quill, und sieht so aus: ``⁅''
+% Die Unicode Codepoint 2046 ist: Right Square Bracket With Quill, und sieht so aus: ``⁆''
+% Die Unicode Codepoint 2e3f ist: Capitulum, und sieht so aus: ``⸿''
+% Die Unicode Codepoint 02ad ist: Latin Letter Bidental Percussive, und sieht so aus: ``ʭ''
+% Die Unicode Codepoint 169b ist: Ogham Feather Mark, und sieht so aus: ``᚛''
+% Die Unicode Codepoint 169c ist: Ogham Reversed Feather Mark, und sieht so aus: ``᚜''
+%
+\minisec{Methode 2:\enspace \Program{Emacs}-Aliase Benutzen}
+
+\Program{Emacs} hat eine lange Liste vorgefertigte Aliase%
+\footnote{Ein \enquote{Alias} ist eine Aufruf, mit der
+mehrere Funktionen, durch einen neuen Befehl ersetzt werden kann.
+Es wird benutzt, um Zeit zu sparen und weniger zu tippen.}%
+um oft benutzte Unicode Zeichen einzugeben. Zuerst, mit nur
+drei Tastendrücke: um eine \enquote{no-break space} einzugeben: %
+\hbox{\Ctrl$+$\keystroke{X}}%
+\keystroke{8}%
+\Spacebar .
+
+Einige Aliase sind fertig nach drei Tastendrücke. Andere
+benötigen vier Tastendrücke. Ich möchte das Wort \enquote{Français}
+eingeben. Mit %
+\hbox{\Ctrl$+$\keystroke{X}}%
+\keystroke{,}%
+\keystroke{C}%
+\space%
+kann ich einen \enquote{c} mit eine Cedille eingeben.
+
+Ich möchte das Wort \enquote{mañana} eingeben. Mit %
+\hbox{\Ctrl$+$\keystroke{X}}%
+\keystroke{\char126}%
+\keystroke{N}%
+\space%
+kann ich einen \enquote{n} mit einen Tilde eingeben.
+
+Es gibt auch Aliase für drei verschiedene Bruchzahlen. Aber
+\TeX{}-Benutzer haben nie Probleme damit gehabt, Bruchzahlen
+zu setzen.
+
+\minisec{Eingabe von Unicode-Zeichen in \Program{gedit}}
+\label{unicodeviagedit}
+
+\Program{gedit} ermöglicht auch die direket Eingabe einer Unicode
+Zeichen durch Tastendruck-Folge %
+\hbox{\Shift$+$\Ctrl$+$\keystroke{U}}%
+\meta{Unicode Codepoint}%
+\Return{}%
+\space%
+ermöglicht die direkte Eingabe einer Unicode
+Zeichen.
+
+Mit %
+\hbox{\Shift$+$\Ctrl$+$\keystroke{U}}%
+\keystroke{2}%
+\keystroke{0}%
+\keystroke{2}%
+\keystroke{2}%
+\Return{}%
+\space%
+kann ich einen \enquote{Bullet} eingeben.
+
+%% \minisec{Eingabe von Unicode-Zeichen in \Program{nano}}
+%% \label{unicodevianano}
+
+%% \Program{GNU nano} ermöglicht auch die direket Eingabe einer
+%% Unicode Zeichen.
+
+%% \begin{foreigndisplayquote}{english}
+%% Entering Text
+
+%% nano is a “modeless” editor. This means that all keystrokes, with the exception of Control and Meta sequences, enter text into the file being edited.
+
+%% Characters not present on the keyboard can be entered in two ways:
+
+%% For characters with a single-byte code, pressing the Esc key twice and then typing a three-digit decimal number (from 000 to 255) will enter the character with the corresponding value.
+
+%% For any possible character, pressing M-V (Alt+V) and then typing a six-digit hexadecimal number (starting with 0 or 1) will enter the character with the corresponding Unicode value.
+%% \end{foreigndisplayquote}
+%%
+%% \textbf{Texteingabe}
+
+%% \Program{nano} erlaubt die Eingabe jede mögliche Zeichen
+%% (ausser Meta-Sequenzen und Steuerung-Sequenzen) direkt in
+%% einem Textdatei einzugeben.
+
+%% Es gibt eine Methode um Zeichen die in dem Bereich 0$_{10}$
+%% bis zum 255$_{10}$ (hex FF$_{16}$)~-- ein Byte Zeichen~--
+%% einzugeben. Ein zweite Methode erlaubt die Eingabe von zwei
+%% Byte Zeichen.
+
+%% Methode 1:~zweimal die %
+%% \Esc\Esc{}$\langle$\texttt {dreistellige Dezimalzahl}$\rangle$
+
+%% Methode 2:~\Alt$+$\keystroke{V}$\langle$\texttt {sechsstellige Hexadezimalzahl}$\rangle$%
+
+\minisec{Eingabe direkt mit der Tastatur}
+
+Lohnend besonders bei den modernen Fremdsprachen: Anschaffen einer Tastatur in der jeweiligen
+Sprache.
+
+Problem im altphilologischen Bereich: Akzente und (bei Hebräisch) Vokalzeichen sind heute
+nicht mehr verwendet und fehlen deshalb auf den heutigen Tastaturen.
+
+\minisec{Auswahl über Maus-gestützte tools}
+KCharselect
+
+\begin{figure}
+ \includegraphics[width=\textwidth]{kcharselect}
+ \caption{Mit dem KDE-Programm KCharselect kann man Unicode-Buchstaben immerhin mit der Maus
+ auswählen.}
+\end{figure}
+
+\minisec{Eingabe über die Zeichennummer}
+
+Vgl.\ Abschnitt \ref{utf8codes} auf Seite \pageref{utf8codes}.
+
+\section{Griechisch}
+\index{Griechisch}
+
+Es gibt (mindestens...) drei verschiedene Möglichkeiten, griechische Textpassagen einzubinden;
+je nach Aufgabenbreich sind diese verschieden gut geeignet:
+
+
+\minisec{Möglichkeit I: Einzelbuchstaben}
+
+Die erste Möglichkeit besteht in der Eingabe m.\,H. der Einzelnbuchstaben-Symbole des Paketes
+\paket{textgreek}; das Verfahren ist in Abscnitt \ref{griechEinzelbuchstaben},
+S.~\pageref{griechEinzelbuchstaben}, beschrieben.
+
+Dieses Verfahren eignet sich eigentlich nur für ganz kurze Einsprengsel im Umfang von
+einzelnen Zeichen bis maximal ca.\ einem Wort.
+
+
+\minisec{Möglichkeit II: Transkription mit \paket{ibycus}}
+
+Die zweite Methode eignet sich demgegenüber hervorragend, wenn es darum geht auch etwas
+längere (alt-)griechische Passagen in ein ansonsten deutschsprachiges Dokument~-- m.\,H. eines
+deutschen Computers mit QWERTZ-Tastatur~-- einzugeben.
+
+Dabei wird für die griechischen Buchstaben eine Art Transkription in lateinischen Buchstaben
+vorgenommen, die sich bei etwas Übung sehr leicht benutzen lässt.
+
+Das Paket \paket{ibycus}%
+\footnote{Paketdokumentation: texdoc ibycus-babel}
+definiert dabei eine Art Pseudosprache für \paket{babel},
+in der Dokumenpräambel ist also anzugeben:
+
+\begin{lstlisting}
+ \usepackage[ibycus,ngerman]{babel}
+\end{lstlisting}
+
+Im Dokument stehen dann eine Umgebung \lstinline/ibycus/ sowie ein Befehl \lstinline/\ibygr{}/
+zur Verfügung:
+
+
+Das wird zu:
+
+ \begin{ibycus}
+  (Hrodo'tou Qouri’ou i(stori’hs a)po’decis h(’de,
+  ...
+  h(‘n ai)ti’hn e)pole’mhsan a)llh’loisi.
+  \end{ibycus}
+
+  Und jetzt ein einzelnes griechisches Wort~-- \ibygr{a)rxai=a gra’mmata}~-- im Text.
+
+
+
+
+
+\minisec{Möglichkeit III: Direkteingabe von Unicode-Text}
+
+Die dritte Möglichkeit besteht darin, die griechischen Schriftzeichen direkt als Unicode-Zeichen
+in das \LaTeX -Dokument einzufügen. Dazu reicht es aus, dem Paket \paket{babel} die
+(alt-)griechische Sprache als zusätzliche Option anzugeben:
+\lstinline/\usepackage[polutonikogreek,ngerman]{babel}/.
+\footnote{Achtung! Bei den meisten \LaTeX -Installationen im Rahmen von Linux-Distributionen muss
+man Pakete nachinstallieren!}
+Damit \LaTeX{} den griechischen Font richtig ansprechen kann, braucht auch das Paket \paket{fontenc}
+eine Modifikation: \lstinline/\usepackage[OT1,T1]{fontenc}/.
+
+Dann kann mit \lstinline/\selectlanguage{polutonikogreek}/ auf Griechisch umgeschaltet werden.
+
+Der folgende Bibelvers wurde aus dem Internet unverändert in das \LaTeX -Dokument
+kopiert. Derzeit werden nicht alle Zeichen in meinem KDE-Editor (kile) korrekt dargestellt (vgl. Abb.);
+dennoch gibt \LaTeX{} alle Zeichen richtig wider:
+
+\begin{figure}
+ \includegraphics[width=\textwidth]{ersatzdarstellung}
+ \caption{KDE kann nicht alle aus dem Internet kopierten Unicode-Zeichen korrekt darstellen;
+ Buchstaben mit Akzent und Spiritus bekommen eine (nichtssagende) Ersatzdarstellung!}
+\end{figure}
+
+
+\begin{otherlanguage}{polutonikogreek}
+Οὕτως γὰρ ἠγάπησεν ὁ Θεὸς τὸν κόσμον, ὥστε τὸν Υἱὸν τὸν μονογενῆ ἔδωκεν,
+ἵνα πᾶς ὁ πιστεύων εἰς αὐτὸν μὴ ἀπόληται ἀλλ’ ἔχῃ ζωὴν αἰώνιον.
+\end{otherlanguage}
+(Joh. 3,16)
+
+Diese Methode dürfte sich in der Praxis am ehesten eignen, wenn bereits ein Textcorpus
+(z.\,B. via Internet) ediert und Unicode-Erfasst vorliegt, und Textpartien ins eigene Dokument
+ohne Veränderungen übernommen werden sollen~-- so wie z.\,B. bei Zitaten aus der Bibel oder
+der klassischen Literatur.
+
+Will man selbst (alt-)griechische Textpassagen schreiben, scheint das Ibykus-Verfahren
+wesentlich angenehmer und effizienter.
+
+
+\section{Hebräisch}
+\index{Hebräisch}
+
+Das Paket \paket{cjhebrew} von Christian Justen eignet sich hervorragend für
+Theologen und Orientalisten, denn es erlaubt auch die Vokalisierung sowie die Verwendung
+von Akzenten. Auch das Problem der rechts- bzw. linksläufigen Schriften wird sehr
+Anwenderfreundlich~-- im Sinne von Anwendern an einem westlichen PC mit ansonsten
+lateinischen Alphabet~-- gelöst:
+
+Nach \lstinline/\usepackage{cjhebrew}/%
+\footnote{Eine besondere Angabe z.\,B. bei \paket{babel} ist nicht nötig.}
+steht v.\,a. der Befehl \lstinline/\cjRL{}/
+-- für hebräische Einzelworte im laufenden Absatz~-- sowie die
+Umgebung \lstinline/cjhebrew/
+-- für ganze Absätze in Hebräisch~-- zur Verfügung.
+
+Beide drehen die Folge der Schriftzeichen automatisch um, so dass hebräische Textpartien
+ganz gewohnt eingegeben werden können. Dabei sind für die einzelnen Zeichen sehr leicht
+merkbare Codes definiert worden:
+
+Der Beginn des biblischen Buches Genesis~-- \enquote{Im Anfang schuf Gott Himmel und Erde...} --
+wird so eingegeben:
+
+\begin{lstlisting}
+\begin{cjhebrew}
+ b*e:re'+siyt b*ArA' 'E:lohim 'et ha+s*amayim w:'et hA'ArE.s;
+\end{cjhebrew}
+\end{lstlisting}
+
+Mit etwas Eingewöhnung arbeitet man mit diesem System \emph{wesentlich} schneller und
+angenehmer, als wenn man etwa die Unicode-Zeichen mit Hilfe eines grafischen Auswahlwerkzeuges
+einzeln auswählt...
+
+Die Bearbeitung mit \LaTeX{} ergibt:
+
+\begin{cjhebrew}
+ b*e:re'+siyt b*ArA' 'E:lohim 'et ha+s*amayim w:'et hA'ArE.s;
+\end{cjhebrew}
+
+Wegen der Einzelheiten der Zeichen-, Vokal-, Akzent- und Satzzeichen-Codierung (inkl. z.\,B.
+Mem finalis) sei auf die Paketdokumentation verwiesen.
+
+\section{Russisch}
+\index{Kyrillisch}
+\index{Russisch}
+
+\section{Koptisch}
+\index{Koptisch}
+
+\section{Altkirchenslawisch}
+\index{Altkirchenslawisch}
+
+\paket{churchslavonic}
+
+
+\section{Arabisch}
+\index{Arabisch}
+
+Ist \paket{arabtex} noch aktuell?
+
+\section{Hieroglyphen}
+\index{Hieroglyphen}
+\index{Ägyptologie}
+
+\paket{hieroglf}~-- \enquote{The Poor Man’s Hieroglyphic Font}
+
+
+ \pmglyph{K:l-i-o-p-a-d:r-a}
+
+
+\section{Keilschrift}
+\index{Keilschrift}
+
+\paket{archaic} und andere...
+
+\section{Runen}
+\index{Runen}
+
+Das Paket \paket{runic} von Peter Wilson stellt die Runen des sog.\ Futhark-Alphabets bereit.
+Nach \lstinline/\usepackage{runic}/ gibt es den Befehl \lstinline/\textfut{}/, der
+die Runen ausgibt. Dies ist die Transkription:
+
+\begin{center}
+\begin{tabular}{ll}
+ \lstinline/F/ &	\textfut{F} \\
+ \lstinline/U/ &	\textfut{U} \\
+ \lstinline/\Fthorn/ &	\textfut{\Fthorn} \\
+ \lstinline/A/ &	\textfut{A} \\
+ \lstinline/R/ &	\textfut{R} \\
+ \lstinline/K/ &	\textfut{K} \\
+ \lstinline/G/ &	\textfut{G} \\
+ \lstinline/W/ &	\textfut{W} \\
+ \lstinline/H/ &	\textfut{H} \\
+ \lstinline/N/ &	\textfut{N} \\
+ \lstinline/I/ &	\textfut{I} \\
+ \lstinline/J/ &	\textfut{J} \\
+ \lstinline/Y/ &	\textfut{Y} \\
+ \lstinline/P/ &	\textfut{P} \\
+ \lstinline/X/ &	\textfut{X} \\
+ \lstinline/S/ &	\textfut{S} \\
+ \lstinline/T/ &	\textfut{T} \\
+ \lstinline/B/ &	\textfut{B} \\
+ \lstinline/E/ &	\textfut{E} \\
+ \lstinline/M/ &	\textfut{M} \\
+ \lstinline/L/ &	\textfut{L} \\
+ \lstinline/\Fng/ &	\textfut{\Fng} \\
+ \lstinline/D/ &	\textfut{D} \\
+ \lstinline/O/ &	\textfut{O} \\
+ \lstinline/:/ &	\textfut{:} \\
+ \end{tabular}
+ \end{center}
+
+
+\section{Phonetische Alphabete}
+
+
+\section{Kurzschriften}
+\index{Kurzschrift}
+\index{Schnellschrift}
+
+\minisec{Tironische Noten}
+\index{Tironische Noten}
+
+
+\minisec{Deutsche Einheits-Kurzschrift}
+DEK\footcite{sarman:dtk2009/1}
+\index{Deutsche Einheits-Kurzschrift}
+\index{DEK}
+
+
+\minisec{Pitman-Kurzschrift}
+\index{Pitman}
