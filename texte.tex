@@ -789,7 +789,7 @@ Textstellen belegen mit Fußnote und automatischer Literaturverwaltung.
 
 
 \minisec{\enquote{Schlauer Spruch} am Kapitelanfang}
-\dictum[xxx]{Si tacuisses, philosophus mansisses.}
+\dictum[Sinnspruch nach Boethius]{Si tacuisses, philosophus mansisses.}
 
 \enquote{Ein häufiger anzutreffendes Element ist ein Zitat oder eine Redewendung, die rechtsbündig unter 
 oder über einer Überschrift gesetzt wird. dabei werden der Spruch selbst und der Quellennachweis
@@ -1069,7 +1069,7 @@ Dabei ist die Bezeichnung \enquote{links} und \enquote{rechts} missverständlich
 Randbemerkungen stehen immer außen auf den Seitenrändern; bei zweispaltigem Layout wird 
 \emph{auf linken Seiten} der als \lstinline/[links]/ definierte Text ausgegeben, falls vorhanden.
 
-Mit dem Befehl \lstinline/\reversemarginpar/ lässt sich dieses Verhalten umkehren; 
+Mit dem Befehl \cs{reversemarginpar} lässt sich dieses Verhalten umkehren; 
 von der Benutzung ist abzuraten, da innen stehende Marginalien i.\,d.R. wegen der Bindung schlecht
 lesbar sind.
 
@@ -1078,9 +1078,13 @@ stehen und können selbst nur einfachen Text enthalten.
 
 
 \minisec{Erweiterte Möglichkeiten für Marginalien}
+Das Paket \paket{marginnote} stellt eine verbesserte Variante von Marginalien bereit, 
+da marginpar Probleme mit Floats hat:
+\cs{marginnote}\oarg{left}\marg{right}\oarg{voffset}
+%Beschreibung der Optionen?
 
-Das paket \paket{sidenotes} von Andy Thomas bietet weitere Möglichkeiten: 
-Es ist mit ihm auch Möglich, Randbemerkungen innerhalb von Gleitumgebungen zu setzen oder
+Das Paket \paket{sidenotes} von Andy Thomas bietet weitere Möglichkeiten: 
+Es ist mit ihm auch möglich, Randbemerkungen innerhalb von Gleitumgebungen zu setzen oder
 Bilder
 \begin{marginfigure}
  \includegraphics[width=20mm]{Caesarius_von_Heisterbach_als_Novizenmeister}
@@ -1206,12 +1210,13 @@ Alles zusammen sieht dann so aus:
 \end{lstlisting}
 
 
-\begin{figure}
- \begin{center}
+\begin{figure}[!htb]
+\centering
   \includegraphics[width=.7\textwidth]{Caesarius_von_Heisterbach_als_Novizenmeister}
   \caption{Caesarius von Heisterbach als Novizenmeister}
- \end{center}
 \end{figure}
+
+\section{Unter-Abbildungen mit \protect\paket{subcaption}}
 
 
 \section{Diagramme zeichnen}
