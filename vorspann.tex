@@ -54,7 +54,29 @@ ibycus,polutonikogreek,english,french,ngerman,%global definiert!
   captionpos=b,
   literate={ä}{{\"a}}1{ö}{{\"o}}1{ü}{{\"u}}1{ß}{{\ss}}1
   }
+\usepackage[%
+  skins,%
+  listings,%
+  breakable,%
+]{tcolorbox}
 
+\newtcblisting{example}{%
+before skip=\baselineskip,
+boxrule=1pt,
+%bottomrule=2pt,
+%toprule=2pt,
+%colframe=black,
+colback=black!5,
+coltitle=gray!5,
+bicolor,
+sharp corners,
+fontupper=\small\ttfamily,
+colbacklower=white,
+fonttitle=\sffamily\bfseries,
+breakable,
+  sidebyside,
+listing and text,
+}
 \usepackage{showexpl}
 
 \usepackage[pagewise]{lineno}
