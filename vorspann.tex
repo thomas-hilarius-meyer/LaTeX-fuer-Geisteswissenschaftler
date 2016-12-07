@@ -54,6 +54,8 @@ ibycus,polutonikogreek,english,french,ngerman,%global definiert!
   captionpos=b,
   literate={ä}{{\"a}}1{ö}{{\"o}}1{ü}{{\"u}}1{ß}{{\ss}}1
   }
+
+  
 \usepackage[%
   skins,%
   listings,%
@@ -62,7 +64,7 @@ ibycus,polutonikogreek,english,french,ngerman,%global definiert!
 
 \newtcblisting{example}{%
 before skip=\baselineskip,
-boxrule=1pt,
+boxrule=0pt,
 %bottomrule=2pt,
 %toprule=2pt,
 %colframe=black,
@@ -76,6 +78,7 @@ fonttitle=\sffamily\bfseries,
 breakable,
   sidebyside,
 listing and text,
+%text and listing,
 }
 \usepackage{showexpl}
 
@@ -107,6 +110,27 @@ listing and text,
 \usepackage[hyphens]{url}
 
 \usepackage{hologo}
+
+\usepackage{siunitx} %Supreme typesetting of units
+\sisetup{%
+    tight-spacing=true, %
+    %math-rm=\mathsf, 
+    %		text-rm=\sffamily,
+    detect-all, %Zahlen werden in der aktuellen Schrift angezeigt
+    detect-family,
+    exponent-to-prefix  	= true,%
+    round-mode          	= places,% 
+    round-precision     	= 2,%
+    group-minimum-digits 	= 4, % Für "Tausenderpunkt" --> 1.234 anstatt 1234
+    group-separator			={.},% für "12.345" statt "12 345"
+    %  scientific-notation = engineering, % Use multiples of 3 as exponent
+    locale					=DE, % Typeset numbers and units the German way
+    range-phrase 			={$\times$},%
+    %		zero-decimal-to-integer,%aus "2.0" wird "2"
+    range-units				=single,  % --> 2 x 2 m, - auskommentieren für 2 m x 2 m
+    %%%---------
+%    unit-color=myred,
+}
 
 \usepackage[german]{keystroke}% Computer-Tastatur-Tasten in Anweisungs-Texte zu setzen (z.B. \Shift, \Ctrl, \Spacebar).
 
@@ -285,4 +309,59 @@ listing and text,
 \brokenpenalty=2000
 \vfuzz \hfuzz
 %%%\raggedbottom
+
+%***********************
+%für katalog.tex
+\usepackage{framed}
+\newenvironment{bsp}{\begin{framed}\begin{footnotesize}}%
+{\end{footnotesize}\end{framed}}
+\newcommand\catalogueentry[1]{%
+\RaggedRight\begingroup
+\setkeys{catalogue}{#1}%
+\ifdef{\KVhouse}{\section{\KVhouse
+			\ifdef{\KVlabel}{\label{\KVlabel}}{}}
+			}{}%
+\begin{labeling}{Beschreibung}
+\ifdef{\KVdescription}{\item[Beschreibung] \KVdescription}{}%
+\ifdef{\KVlocation}{\item[Verortung] \KVlocation}{}%
+\ifdef{\KVinterior}{%
+	\item[Ausstattung] \KVinterior %
+	\ifboolexpr{bool{@KVinteriorM} or bool {@KVinteriorW} or bool {@KVinteriorS}}{%
+	\begin{labeling}{Wandgemälde}
+			\ifdef{\KVinteriorM}{\item[Mosaike:] \KVinteriorM}{}
+			\ifdef{\KVinteriorW}{\item[Wandgemälde:] \KVinteriorW}{}
+			\ifdef{\KVinteriorS}{\item[Statuen:] \KVinteriorS}{}
+			\end{labeling}
+		}{}}%
+	{%
+	\ifboolexpr{bool{@KVinteriorM} or bool {@KVinteriorW} or bool {@KVinteriorS}}{%
+		\item[Ausstattung]%
+	\begin{labeling}{Wandgemälde}	
+				\ifdef{\KVinteriorM}{\item[Mosaike:] \KVinteriorM}{}
+				\ifdef{\KVinteriorW}{\item[Wandgemälde:] \KVinteriorW}{}
+				\ifdef{\KVinteriorS}{\item[Statuen:] \KVinteriorS}{}
+			\end{labeling}
+	}{}}%
+\ifdef{\KVsize}{	\item[Größe] \SI{\KVsize}{\meter\squared}}{}%
+\ifdef{\KVbackref}{\item[Erwähnungen]S.\ \KVbackref}{}%		oder \pno{}
+\end{labeling}
+\endgroup
+}
+
+\makeatletter
+\newbool{@KVinteriorM}
+\newbool{@KVinteriorW}
+\newbool{@KVinteriorS}
+\define@key{catalogue}{house}{\def\KVhouse{#1}}
+\define@key{catalogue}{label}{\def\KVlabel{#1}}
+\define@key{catalogue}{description}{\def\KVdescription{#1}}
+\define@key{catalogue}{location}{\def\KVlocation{#1}}
+\define@key{catalogue}{size}{\def\KVsize{#1}}
+\define@key{catalogue}{interior}{\def\KVinterior{#1}}
+\define@key{catalogue}{interiorM}{\def\KVinteriorM{#1}\booltrue{@KVinteriorM}}
+\define@key{catalogue}{interiorW}{\def\KVinteriorW{#1}\booltrue{@KVinteriorW}}
+\define@key{catalogue}{interiorS}{\def\KVinteriorS{#1}\booltrue{@KVinteriorS}}
+\define@key{catalogue}{backref}{\def\KVbackref{#1}}
+\makeatother
+
 \endinput
