@@ -658,11 +658,16 @@ Aufzählung verändern:
 \end{enumerate} 
 \end{LTXexample}
 
-Mit dem Paket \paket{enumitum} kann die Umgebung \lstinline/enumerate/  dahingehend modifiziert werden, sodass es ebenso möglich ist, 
+
+\minisec{Erweiterte Möglichkeiten: das Paket \paket{enumitem}}
+
+Nur darauf hingewiesen sei auf das Paket \paket{enumitem}, mit dem sich zahlreiche 
+weitere Sonderwünsche verwirklichen lassen.\footcite[304\psqq]{voss:einfuehrung}
+Die Umgebung \lstinline/enumerate/  kann dahingehend modifiziert werden, sodass es ebenso möglich ist, 
 die durchnummerierten Label selbst zu definieren
 und auf diese im Fließtext zu verweisen:
 
-\begin{LTXexample}
+\begin{example}
 \begin{enumerate}[%
   label={\bfseries \arabic{*}. Fall:\ },
   ref={\arabic{*}. Fall}]
@@ -673,7 +678,7 @@ und auf diese im Fließtext zu verweisen:
 \end{enumerate}
 Der \ref{fall:1} wird auch Werfall gennant,
 der \ref{fall:4} hingegen Wenfall.
-\end{LTXexample}
+\end{example}
 
 \begin{description}
  \item[2] Modifikation des Zählers: 
@@ -685,7 +690,7 @@ der \ref{fall:4} hingegen Wenfall.
    wie beim Aufruf von \lstinline/\ref/ der Verweis aussehen soll;
    hier wie das Label jedoch ohne Fettung. 
  \end{description}
- 
+ \iffalse
  \begin{enumerate}[%
   label={\bfseries \arabic{*}. Fall:\ },
   ref={\arabic{*}. Fall}]
@@ -696,7 +701,7 @@ der \ref{fall:4} hingegen Wenfall.
 \end{enumerate}
 Der \ref{fall:1} wird auch Werfall gennant,
 der \ref{fall:4} hingegen Wenfall.
- 
+ \fi
 \minisec{Worterklärung, Glossar I: description}
 \index{Glossar}
 
@@ -772,13 +777,6 @@ beliebig komplex verschachteln lassen:
 \end{LTXexample}
 
 
-
-\minisec{Erweiterte Möglichkeiten: das Paket \paket{enumitem}}
-
-Nur darauf hingewiesen sei auf das Paket \paket{enumitem}, mit dem sich zahlreiche 
-weitere Sonderwünsche verwirklichen lassen.
-(XXX z.\,B. ...)
-\footcite[304\psqq]{voss:einfuehrung}
 
 
 \section{Textpassagen zitieren}
