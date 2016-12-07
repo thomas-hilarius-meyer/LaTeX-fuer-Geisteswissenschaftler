@@ -658,7 +658,45 @@ Aufzählung verändern:
 \end{enumerate} 
 \end{LTXexample}
 
+Mit dem Paket \paket{enumitum} kann die Umgebung \lstinline/enumerate/  dahingehend modifiziert werden, sodass es ebenso möglich ist, 
+die durchnummerierten Label selbst zu definieren
+und auf diese im Fließtext zu verweisen:
 
+\begin{LTXexample}
+\begin{enumerate}[%
+  label={\bfseries \arabic{*}. Fall:\ },
+  ref={\arabic{*}. Fall}]
+\item Nominativ \label{fall:1}
+\item Genitiv\label{fall:2}
+\item Dativ\label{fall:3}
+\item Akkusativ\label{fall:4}
+\end{enumerate}
+Der \ref{fall:1} wird auch Werfall gennant,
+der \ref{fall:4} hingegen Wenfall.
+\end{LTXexample}
+
+\begin{description}
+ \item[2] Modifikation des Zählers: 
+ Mit \lstinline/label=/ wird definiert,
+ wie der Zähler beschriftet ist; hier wird er fett gesetzt und 
+ erhält eine arabische Nummer an die als Ergänzung \enquote*{. Fall:} gesetzt wird.
+  \item[3] Modifikation der Referenz: 
+   Mit \lstinline/ref=/ wird definiert,
+   wie beim Aufruf von \lstinline/\ref/ der Verweis aussehen soll;
+   hier wie das Label jedoch ohne Fettung. 
+ \end{description}
+ 
+ \begin{enumerate}[%
+  label={\bfseries \arabic{*}. Fall:\ },
+  ref={\arabic{*}. Fall}]
+\item Nominativ \label{fall:1}
+\item Genitiv\label{fall:2}
+\item Dativ\label{fall:3}
+\item Akkusativ\label{fall:4}
+\end{enumerate}
+Der \ref{fall:1} wird auch Werfall gennant,
+der \ref{fall:4} hingegen Wenfall.
+ 
 \minisec{Worterklärung, Glossar I: description}
 \index{Glossar}
 
