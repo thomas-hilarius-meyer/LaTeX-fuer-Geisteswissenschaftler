@@ -22,145 +22,41 @@ Grundlegend ist der Artikel von Axel Kielhorn in der DTK.%
 \section{Eingabe von Unicode-Sonderzeichen}
 \label{unicodeeingabe}
 
-\minisec{Eingabe von Unicode-Zeichen in
+\subsection{Eingabe von Unicode-Zeichen in
 einem \Program{Emacs} Buffer}
 \label{unicodeviaemacs}
-
-\section{Test Block von arktisvogel}
-
-\minisec{Wie arktisvogel die \texttt{lfgw}-Makros anwendet}
-\label{cpftestalpha}
-
-Es befriedigt \LaTeX{}-Benutzer die Programme \LuaLaTeX ,
-\METAFONT{}, \pdfLaTeX{} und \XeLaTeX{} zu benutzen. Um einen
-Kropfnugn zu gestalten, benutzen sie einen Paket wie
-\Package{booktabs} oder \paket{graphicx}.
-Nach einige %
-\cs {newcommand}%
-und einige
-\cs {biegen\marg {color}}%
-\space%
-in der %
-\cs {biegen\oarg {landscape}\marg {color}}%
-\space%
-zu bestimmen. Auch zwei %
-\cs {biegen\parg {purple}}
-\space%
-Sachen sind %
-\meta {offene Vokale}%
-\space%
-wichtig, nur dann wenn %
-\parg {cyan}%
-\space%
-Handtücher.
-
-\minisec{Wie arktisvogel die \paket{Keystroke}-Paket anwendet}
-\label{cpftestbeta}
-\ExecuteOptions{german}
-
-Das Paket \paket{keystroke} bietet die Möglichkeit,
-Tastendrücke darzustellen.
-
-\minisec{Almut A.\ Altquist}
-
-\emph{Achtung: zur Zeit die Benutzung der keystroke Paket
-liefert nur französische Tasten-Darstellungen!} Das
-Paket \paket{keystroke} bietet die Möglichkeit,
-Tastendrücke darzustellen. Für ja,
-die \hbox{\keystroke{J}-Taste} ist gut.
-Wenn sie \Del{} und %
-\Ins{}%
-und %
-\Esc{}%
-und %
-\Shift{}%
-und %
-\Ctrl{}%
-und %
-\Home{}%
-und %
-\End{}%
-und %
-\PgUp{}%
-und %
-\PgDown{}%
-und %
-\PrtScroll{}%
-und %
-\Spacebar{}%
-und %
-\Break{} sehen wollen, geht es in Ordnung.
-
-\minisec{Bertha B.\ Bertzbach}
-Der Schriftsteller Markus Arktisvogel
-braucht die Symbole %
-\Esc{}%
-und %
-\Shift{}%
-und %
-\Ctrl{}%
-und %
-\Alt{}%
-und %
-\Return{}%
-und %
-\Spacebar{}%
-um alle Probleme zu lösen.
-
-Karl hat drei \Spacebar{}%
-und %
-\Return{}%
-und %
-\BSpace{}%
-und %
-\Tab{}%
-und %
-\Alt{}%
-und %
-\AltGr{}%
-und %
-\NumLock{}%
-und %
-\UArrow{}%
-und %
-\DArrow{}%
-und %
-\LArrow{}%
-und %
-\RArrow{} vorhanden.
-
-$$\diamondsuit\qquad\diamondsuit\qquad\diamondsuit$$
 
 Zwei Methoden ermöglichen die Eingabe von
 Unicode-Zeichen in \Program{Emacs}:
 
-\minisec{Methode 1:\enspace Hexadezimalzahl eingeben}
+\subsubsection*{Methode 1:\enspace Hexadezimalzahl eingeben}
 \Program{Emacs}-Dokumentation benutzt die Schreibweise: %
 \texttt{C-x 8}
 um den Vorgang zu beschreiben: man druckt die Tastenkombination
-\Ctrl$+$\keystroke{X}%
-\space%
-\keystroke{8}.
+\texttt{Strg}$+$\texttt{X} und dann \texttt{8}.
+%% um den Vorgang zu beschreiben: man druckt die Tastenkombination
+%% \Ctrl$+$\keystroke{X}\keystroke{8}.
 
 In diesem Fall heisst das: %
-\Ctrl$+$\keystroke{X}%
-\space%
-\keystroke{8}%
-\Return{}%
-\meta{Unicode Codepoint}%
-\Return . ermöglicht die direkte Eingabe einer
-Unicode Zeichen.
+\texttt{C-x 8}\meta{Eingabe}\meta{Unicode Codepoint}\meta{Eingabe}
+ermöglicht die direkte Eingabe einer Unicode Zeichen.
+
+%% In diesem Fall heisst das: %
+%% \Ctrl$+$\keystroke{X}\keystroke{8}%
+%% \Return{}%
+%% \meta{Unicode Codepoint}%
+%% \Return{} ermöglicht die direkte Eingabe einer
+%% Unicode Zeichen.
 
 Um einem \enquote{Capitulum} einzugeben: %
-\hbox{\Ctrl$+$\keystroke{X}}%
-\keystroke{8}%
-\Return{}%
-\keystroke{2}%
-\keystroke{E}%
-\keystroke{3}%
-\keystroke{F}%
-\space%
-\Return{}%
+\texttt{C-x 8}\meta{Eingabe}\texttt{2e3f}\meta{Eingabe}
+%% Um einem \enquote{Capitulum} einzugeben: %
+%% \hbox{\Ctrl$+$\keystroke{X}}%
+%% \keystroke{8}%
+%% \Return{}%
+%% \keystroke{2}\keystroke{E}\keystroke{3}\keystroke{F}%
+%% \Return{}%
+
 
 % Die Unicode Codepoint 2021 ist: Double Dagger, und sieht so aus: ``‡''
 % Die Unicode Codepoint 2045 ist: Left Square Bracket With Quill, und sieht so aus: ``⁅''
@@ -170,41 +66,41 @@ Um einem \enquote{Capitulum} einzugeben: %
 % Die Unicode Codepoint 169b ist: Ogham Feather Mark, und sieht so aus: ``᚛''
 % Die Unicode Codepoint 169c ist: Ogham Reversed Feather Mark, und sieht so aus: ``᚜''
 %
-\minisec{Methode 2:\enspace \Program{Emacs}-Aliase Benutzen}
-
+\subsubsection*{Methode 2:\enspace \Program{Emacs}-Aliase Benutzen}
 \Program{Emacs} hat eine lange Liste vorgefertigte Aliase%
 \footnote{Ein \enquote{Alias} ist eine Aufruf, mit der
 mehrere Funktionen, durch einen neuen Befehl ersetzt werden kann.
 Es wird benutzt, um Zeit zu sparen und weniger zu tippen.}%
 um oft benutzte Unicode Zeichen einzugeben. Zuerst, mit nur
 drei Tastendrücke: um eine \enquote{no-break space} einzugeben: %
-\hbox{\Ctrl$+$\keystroke{X}}%
-\keystroke{8}%
-\Spacebar .
+\texttt{C-x 8}\meta{Leertaste}
+%% \hbox{\Ctrl$+$\keystroke{X}}%
+%% \keystroke{8}%
+%% \Spacebar .
 
-Einige Aliase sind fertig nach drei Tastendrücke. Andere
+
+Einige Aliase sind erst nach drei Tastendrücke fertig. Andere
 benötigen vier Tastendrücke. Ich möchte das Wort \enquote{Français}
 eingeben. Mit %
-\hbox{\Ctrl$+$\keystroke{X}}%
-\keystroke{,}%
-\keystroke{C}%
-\space%
+\texttt{C-x 8}\texttt{,c}
+%% \hbox{\Ctrl$+$\keystroke{X}}%
+%% \keystroke{,}%
+%% \keystroke{c} %
 kann ich einen \enquote{c} mit eine Cedille eingeben.
 
 Ich möchte das Wort \enquote{mañana} eingeben. Mit %
-\hbox{\Ctrl$+$\keystroke{X}}%
-\keystroke{\char126}%
-\keystroke{N}%
-\space%
+\texttt{C-x 8}\texttt{\char126n}
+%% \hbox{\Ctrl$+$\keystroke{X}}%
+%% \keystroke{\char126}%
+%% \keystroke{N} %
 kann ich einen \enquote{n} mit einen Tilde eingeben.
 
 Es gibt auch Aliase für drei verschiedene Bruchzahlen. Aber
 \TeX{}-Benutzer haben nie Probleme damit gehabt, Bruchzahlen
 zu setzen.
 
-\minisec{Eingabe von Unicode-Zeichen in \Program{gedit}}
+\subsection{Eingabe von Unicode-Zeichen in \Program{gedit}}
 \label{unicodeviagedit}
-
 \Program{gedit} ermöglicht auch die direkt Eingabe einer Unicode
 Zeichen durch Tastendruck-Folge %
 \hbox{\Shift$+$\Ctrl$+$\keystroke{U}}%
@@ -216,47 +112,9 @@ Zeichen.
 
 Mit %
 \hbox{\Shift$+$\Ctrl$+$\keystroke{U}}%
-\keystroke{2}%
-\keystroke{0}%
-\keystroke{2}%
-\keystroke{2}%
-\Return{}%
-\space%
+\keystroke{2}\keystroke{0}\keystroke{2}\keystroke{2}%
+\Return{} %
 kann ich einen \enquote{Bullet} eingeben.
-
-%% \minisec{Eingabe von Unicode-Zeichen in \Program{nano}}
-%% \label{unicodevianano}
-
-%% \Program{GNU nano} ermöglicht auch die direket Eingabe einer
-%% Unicode Zeichen.
-
-%% \begin{foreigndisplayquote}{english}
-%% Entering Text
-
-%% nano is a “modeless” editor. This means that all keystrokes, with the exception of Control and Meta sequences, enter text into the file being edited.
-
-%% Characters not present on the keyboard can be entered in two ways:
-
-%% For characters with a single-byte code, pressing the Esc key twice and then typing a three-digit decimal number (from 000 to 255) will enter the character with the corresponding value.
-
-%% For any possible character, pressing M-V (Alt+V) and then typing a six-digit hexadecimal number (starting with 0 or 1) will enter the character with the corresponding Unicode value.
-%% \end{foreigndisplayquote}
-%%
-%% \textbf{Texteingabe}
-
-%% \Program{nano} erlaubt die Eingabe jede mögliche Zeichen
-%% (ausser Meta-Sequenzen und Steuerung-Sequenzen) direkt in
-%% einem Textdatei einzugeben.
-
-%% Es gibt eine Methode um Zeichen die in dem Bereich 0$_{10}$
-%% bis zum 255$_{10}$ (hex FF$_{16}$)~-- ein Byte Zeichen~--
-%% einzugeben. Ein zweite Methode erlaubt die Eingabe von zwei
-%% Byte Zeichen.
-
-%% Methode 1:~zweimal die %
-%% \Esc\Esc{}$\langle$\texttt {dreistellige Dezimalzahl}$\rangle$
-
-%% Methode 2:~\Alt$+$\keystroke{V}$\langle$\texttt {sechsstellige Hexadezimalzahl}$\rangle$%
 
 \minisec{Eingabe direkt mit der Tastatur}
 
