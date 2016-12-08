@@ -123,7 +123,8 @@ wird dies über die Abfrage \cs{ifdef} erledigt.
 Der Inhalt der Kategorie \cs{house} wird als \cs{section}-Titel verwendet und, wenn vorhanden, mit einem \cs{label} versehen.
 Die weiteren Kategorien sollen in einer {labeling}-Umgebung aufgelistet werden.
 Die Definition wird mit \cs{endgroup} geschlossen.
-\begin{lstlisting}[caption={Definition der Katalogeinträge, Fortsetzung},label={lis:cat-2}]
+%[caption={Definition der Katalogeinträge, Fortsetzung},label={lis:cat-2}]
+\begin{lfgwcode}{label={lis:cat-2}}
 ...
 \ifdef{\KVhouse}{\section{\KVhouse
   \ifdef{\KVlabel}{\label{\KVlabel}}{}}}{}
@@ -141,7 +142,7 @@ Die Definition wird mit \cs{endgroup} geschlossen.
 \end{labeling}
 \endgroup
 }
-\end{lstlisting}
+\end{lfgwcode}
 
 Mit dieser Einstellung lassen sich die Katalogeinträge schon sehr gut darstellen.
 Im Fließtext des Hauptdokuments kann man an gewünschter Stelle mit \cs{catalogueentry} einen Katalogeintrag eintragen.
@@ -160,7 +161,7 @@ So wird aus den folgenden Angaben ein Katalogeintrag, der so aussieht:
     }
 \end{lstlisting}
 
-\begin{bsp}
+\begin{lfgwprint}{house1}
 \catalogueentry{%
 	house={Haus des M. Fabius Rufus},
 	label={haus:M-Fabius-Rufus},
@@ -172,7 +173,7 @@ So wird aus den folgenden Angaben ein Katalogeintrag, der so aussieht:
 	interiorW={Dionysius mit einer Mänade, Narzissus und ein Cupido, Hercules und Deinira etc.},
 	interiorS={Bronzene Statue eines Epheben.},
 }
-\end{bsp}
+\end{lfgwprint}
 Wie man bei diesem Beispiel sieht, ist die Reihenfolge, in der die Kategorien
  angegeben werden, irrelevant, da die Definition in der Präambel entscheidend ist.
 Der Wert bei \cs{size} wird intern sogleich an das vordefinierte \cs{SI}-Makro mit entsprechender Einheit (\si{\meter\squared}) übergeben.

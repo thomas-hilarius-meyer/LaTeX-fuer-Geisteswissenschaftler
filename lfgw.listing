@@ -1,10 +1,11 @@
-\begin{enumerate}[%
-  label={\bfseries \arabic{*}. Fall:\ },
-  ref={\arabic{*}. Fall}]
-\item Nominativ \label{fall:1}
-\item Genitiv\label{fall:2}
-\item Dativ\label{fall:3}
-\item Akkusativ\label{fall:4}
-\end{enumerate}
-Der \ref{fall:1} wird auch Werfall gennant,
-der \ref{fall:4} hingegen Wenfall.
+\catalogueentry{%
+	house={Haus des M. Fabius Rufus},
+	label={haus:M-Fabius-Rufus},
+	size={172},
+	description={Haus besteht aus mehreren Einzelgebäuden.},
+	location={Regio VII, Insula 16, Eingang 17--22.},
+	interior={Reicher Fundkomplex.},
+	interiorM={S/W-Mosaik.},
+	interiorW={Dionysius mit einer Mänade, Narzissus und ein Cupido, Hercules und Deinira etc.},
+	interiorS={Bronzene Statue eines Epheben.},
+}

@@ -61,25 +61,47 @@ ibycus,polutonikogreek,english,french,ngerman,%global definiert!
   listings,%
   breakable,%
 ]{tcolorbox}
+\tcbset{lfgwstyle/.style={%
+    before skip=\baselineskip,
+    boxrule=0pt,
+    %bottomrule=2pt,
+    %toprule=2pt,
+    %colframe=black,
+    colback=black!5,
+    coltitle=white,
+    bicolor,
+    sharp corners,
+    colbacklower=white,
+    fonttitle=\sffamily\bfseries,
+    breakable,
+    label=#1,
+}}
 
-\newtcblisting{example}{%
-before skip=\baselineskip,
-boxrule=0pt,
-%bottomrule=2pt,
-%toprule=2pt,
-%colframe=black,
-colback=black!5,
-coltitle=gray!5,
-bicolor,
-sharp corners,
-fontupper=\small\ttfamily,
-colbacklower=white,
-fonttitle=\sffamily\bfseries,
-breakable,
+
+\newtcblisting[auto counter]{lfgwexample}[1]{%
+  lfgwstyle,
+  fontupper=\small\ttfamily,
   sidebyside,
-listing and text,
+  listing and text,
+  title=Vollständiges Bsp. \thechapter.\thetcbcounter,
 %text and listing,
 }
+
+\newtcblisting[auto counter]{lfgwcode}[1]{%
+  fontupper=\small\ttfamily,
+  lfgwstyle,
+  listing only,
+  title=Codebsp. \thechapter.\thetcbcounter,
+}
+
+\newtcblisting[auto counter]{lfgwprint}[1]{%
+    fontupper=\small,
+    lfgwstyle,
+    text only,
+    title=Bsp. \thechapter.\thetcbcounter,
+}
+
+
 \usepackage{showexpl}
 
 \usepackage[pagewise]{lineno}
