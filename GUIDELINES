@@ -10,14 +10,21 @@ Alle Zwischenstände sollten immer lauffähig sein, d.h. mit einem (aktuellen) T
 – Nutzung von labeling-Umgebung statt description-Umgebung
  
  
- 3. Dkomentation von Code
+3. Dokumentation von Code
  
 – Keine Leerzeichen zwischen Makroname und Argumenten
 – Inline-Codeschnipsel sollten immer \cs für das Makro, \marg für obligatorische (mandatory) Argumente und \oarg für optionale Argumente nutzen:
   \cs{beispiel\marg{Argument}}
 
 
- 4. Kurzanleitung git für dummies und solche, die noch nicht einmal das sind
+4. TeXstudio als Referenz-Editor (vgl. #26)
+
+- Jeder kann mit dem Editor arbeiten, der ihm paßt
+- Wir werden mehrere Editoren kurz vorstellen
+- Falls wir im Laufe des Scripts in Beispielen o.ä. auf einen Editor Bezug nehmen, so sollte das TeXstudio sein
+
+
+5. Kurzanleitung git für dummies und solche, die noch nicht einmal das sind
  
  Repository auf einen neuen Computer laden:
  git clone https://github.com/thomas-hilarius-meyer/latex-fuer-geisteswissenschaftler.git
@@ -27,3 +34,5 @@ Alle Zwischenstände sollten immer lauffähig sein, d.h. mit einem (aktuellen) T
  
  Eigene Änderungen hochladen:
  git -u -m "Kommentar"
+ 
+ Weitere Hinweise: https://rogerdudler.github.io/git-guide/index.de.html
