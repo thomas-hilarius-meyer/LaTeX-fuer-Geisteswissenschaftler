@@ -19,4 +19,11 @@ Alle Zwischenstände sollten immer lauffähig sein, d.h. mit einem (aktuellen) T
 
  4. Kurzanleitung git für dummies und solche, die noch nicht einmal das sind
  
- ...
+ Repository auf einen neuen Computer laden:
+ git clone https://github.com/thomas-hilarius-meyer/latex-fuer-geisteswissenschaftler.git
+ 
+ Repository auf den neuesten Stand bringen:
+ git pull
+ 
+ Eigene Änderungen hochladen:
+ git -u -m "Kommentar"
