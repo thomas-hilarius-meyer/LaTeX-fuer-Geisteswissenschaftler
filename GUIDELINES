@@ -1,6 +1,6 @@
 1. Arbeitsgrundsätze
 
-Alle Zwischenstände sollten immer lauffähig sein, d.h. mit einem (aktuellen) TeX Live bzw. MiKTeX übersetzbar sein!
+Alle Zwischenstände sollten immer lauffähig sein, d.h. mit einem (aktuellen) TeX Live bzw. MiKTeX übersetzbar sein! Arbeiten am TeX-Code sollten daher am besten immer lokal vorgenommen und gestestet werden.
 
 Autorwechsel mit \autor{Dagobert Duck}
 
