@@ -89,8 +89,10 @@ wohl:
 \begin{description}
  \item[german] Deutsch, alte Rechtschreibung (1901)
  \item[ngerman] Deutsch gemäß der Rechtschreibreform von 1996
- \item[greek] Neugriechisch
- \item[polutonikogreek] (XXX was ist der Unterschied)
+ \item[greek] Neugriechisch (nur Akut, keine \emph{spiritus}, wahrscheinlich auch kein \emph{Iota subscriptum})
+%von Philipp angepaßt, war vorher:
+% \item[polutonikogreek] (XXX was ist der Unterschied)
+ \item[greek.ancient oder polutonikogreek] Altgriechisch (Akut, Gravis, Zirkumflex; spiritus lenis und asper; Iota subscriptum)
 \end{description}
 
 Die als letztes genannte Sprache stellt die Standardsprache des Dokuments (die am Anfang
@@ -610,6 +612,7 @@ reflectbox
 Hier werden nur die grundlegenden Funktionen gezeigt; daneben gibt zahlreiche Möglichkeiten zur
 Modifikation.\footcite[295\psqq]{voss:einfuehrung}
 
+%Philipp schlägt vor, compactenum vorzustellen!
 
 \minisec{\enquote{Triviale} Listen ohne alles: trivlist}
 
@@ -867,6 +870,8 @@ und ab wann \paket{poemscol}?
 
 Leider nur für polyglossia\footcite[33\psqq]{rouquette:2012}
 
+%Philipp meint: Wo ist das Problem, es geht doch bei Babel auch? \foreignlanguage{sprache}{text}
+
 \section{Fußnoten}
 
 Fußnoten haben eine doppelte Funktion: 
@@ -947,6 +952,8 @@ Paket ...
 
 
 \minisec{Mehrere Fußnotenapparate: das Paket \paket{manyfoot}}
+
+%Philipp meint: hier würde ich nur nach hinten auf reledmac verweisen, denn manyfoot verträgt sich bestimmt nicht mit reledmac; und hinten werden dann die Details eh alle schon erklärt.
 
 Das Paket \paket{manyfoot} von Alexander I. Rozhenko
 erlaubt die Definition verschiedener Fußnotenapparate, um beispielsweise
@@ -1316,6 +1323,8 @@ Zur Registererstellung vgl. \fullref{Bibelstellenregister}.
 
 
 \section{Querverweise im Text}
+
+%Philipp meint: Lukas hatte vorgeschlagen, zumindest /auch/ das cleveref-Paket hier vorzustellen, das nimmt einem etwas Arbeit ab
 
 \lstinline/\label{key}/
 
