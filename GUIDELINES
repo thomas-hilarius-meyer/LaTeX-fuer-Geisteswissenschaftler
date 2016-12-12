@@ -17,6 +17,27 @@ Autorwechsel mit \autor{Dagobert Duck}
 – Keine Leerzeichen zwischen Makroname und Argumenten
 – Inline-Codeschnipsel sollten immer \cs für das Makro, \marg für obligatorische (mandatory) Argumente und \oarg für optionale Argumente nutzen:
   \cs{beispiel\marg{Argument}}
+- Für die Darstellung von Code, Code und die dazugehörende Ausgabe sowie nur die Ausgabe als Beispiel wird das Paket tcolorbox verwendet. Mit diesem Paket kann man alle drei Varianten sehr gut darstellen, da das Paket lstlisting integrierbar ist.
+
+3.1 (nur) Code:
+
+\begin{lfgwcode}
+CODE
+\end{lfgwcode}
+
+
+3.2 Code & Ausgabe:
+
+\begin{lfgwexample}
+CODE
+\end{lfwgexample}
+
+
+3.3 (nur) Ausgabe:
+
+\begin{lfgwprint}
+CODE
+\end{lfgwprint}
 
 
 4. TeXstudio als Referenz-Editor (vgl. #26)
