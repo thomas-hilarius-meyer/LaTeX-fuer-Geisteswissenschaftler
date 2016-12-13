@@ -60,6 +60,8 @@ CODE
  git pull
  
  Eigene Änderungen hochladen:
- git -u -m "Kommentar"
+ git commit -a -m "Kommitbeschreibung" lädt aktuelle Änderungen im Arbeitsverzeichnis in das
+ lokale Repository
+ "git push" lädt das lokale Repos. auf den Server
  
  Weitere Hinweise: https://rogerdudler.github.io/git-guide/index.de.html
