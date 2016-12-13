@@ -23,9 +23,19 @@ Grundlegend ist der Artikel von Axel Kielhorn in der DTK.%
 \section{Eingabe von Unicode-Sonderzeichen}
 \label{unicodeeingabe}\index{Unicode}
 
+% Die Unicode Codepoint 2021 ist: Double Dagger, und sieht so aus: ``‡''
+% Die Unicode Codepoint 2022 ist: Bullet, und sieht so aus: ``•''
+% Die Unicode Codepoint 2045 ist: Left Square Bracket With Quill, und sieht so aus: ``⁅''
+% Die Unicode Codepoint 2046 ist: Right Square Bracket With Quill, und sieht so aus: ``⁆''
+% Die Unicode Codepoint 2e3f ist: Capitulum, und sieht so aus: ``⸿''
+% Die Unicode Codepoint 02ad ist: Latin Letter Bidental Percussive, und sieht so aus: ``ʭ''
+% Die Unicode Codepoint 169b ist: Ogham Feather Mark, und sieht so aus: ``᚛''
+% Die Unicode Codepoint 169c ist: Ogham Reversed Feather Mark, und sieht so aus: ``᚜''
+%
 \subsection{Eingabe von Unicode-Zeichen in
 einem \Program{Emacs} Buffer}
 \label{unicodeviaemacs}\index{Unicode und Emacs}
+\autor{Craig Parker-Feldmann}
 
 Zwei Methoden ermöglichen die Eingabe von
 Unicode-Zeichen in \Program{Emacs}:
@@ -41,7 +51,6 @@ um den Vorgang zu beschreiben: man druckt die Tastenkombination
 In diesem Fall heisst das: %
 \texttt{C-x 8}\meta{Eingabe}\meta{Unicode Codepoint}\meta{Eingabe}
 ermöglicht die direkte Eingabe einer Unicode Zeichen.
-
 %% In diesem Fall heisst das: %
 %% \Ctrl$+$\keystroke{X}\keystroke{8}%
 %% \Return{}%
@@ -57,16 +66,8 @@ Um einem \enquote{Capitulum} einzugeben: %
 %% \Return{}%
 %% \keystroke{2}\keystroke{E}\keystroke{3}\keystroke{F}%
 %% \Return{}%
+.
 
-
-% Die Unicode Codepoint 2021 ist: Double Dagger, und sieht so aus: ``‡''
-% Die Unicode Codepoint 2045 ist: Left Square Bracket With Quill, und sieht so aus: ``⁅''
-% Die Unicode Codepoint 2046 ist: Right Square Bracket With Quill, und sieht so aus: ``⁆''
-% Die Unicode Codepoint 2e3f ist: Capitulum, und sieht so aus: ``⸿''
-% Die Unicode Codepoint 02ad ist: Latin Letter Bidental Percussive, und sieht so aus: ``ʭ''
-% Die Unicode Codepoint 169b ist: Ogham Feather Mark, und sieht so aus: ``᚛''
-% Die Unicode Codepoint 169c ist: Ogham Reversed Feather Mark, und sieht so aus: ``᚜''
-%
 \subsubsection*{Methode 2:\enspace \Program{Emacs}-Aliase Benutzen}
 \Program{Emacs} hat eine lange Liste vorgefertigte Aliase%
 \footnote{Ein \enquote{Alias} ist eine Aufruf, mit der
@@ -77,8 +78,8 @@ drei Tastendrücke: um eine \enquote{no-break space} einzugeben: %
 \texttt{C-x 8}\meta{Leertaste}
 %% \hbox{\Ctrl$+$\keystroke{X}}%
 %% \keystroke{8}%
-%% \Spacebar .
-
+%% \Spacebar
+.
 
 Einige Aliase sind erst nach drei Tastendrücke fertig. Andere
 benötigen vier Tastendrücke. Ich möchte das Wort \enquote{Français}
@@ -100,16 +101,15 @@ Es gibt auch Aliase für drei verschiedene Bruchzahlen. Aber
 \TeX{}-Benutzer haben nie Probleme damit gehabt, Bruchzahlen
 zu setzen.
 
-%% \subsection{Eingabe von Unicode-Zeichen in \Program{gedit}}
-%% \label{unicodeviagedit}
-%% \Program{gedit} ermöglicht auch die direkt Eingabe einer Unicode
-%% Zeichen durch Tastendruck-Folge %
+%% \subsection{Eingabe von Unicode-Zeichen in Linux-GNOME Programme}
+%% \label{unicodeviagnome}
+%% Einige Anwendungen in den Linux GNOME-Oberfläche
+%% (z.\,B.\ \Program{gnome-terminal} und \Program{gedit})
+%% ermöglichen die direkt Eingabe von Unicode Zeichen durch
+%% Tastendruck-Folge %
 %% \hbox{\Shift$+$\Ctrl$+$\keystroke{U}}%
 %% \meta{Unicode Codepoint}%
-%% \Return{}%
-%% \space%
-%% ermöglicht die direkte Eingabe einer Unicode
-%% Zeichen.
+%% \Return{}.
 
 %% Mit %
 %% \hbox{\Shift$+$\Ctrl$+$\keystroke{U}}%
