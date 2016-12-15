@@ -1,6 +1,7 @@
 1. Arbeitsgrundsätze
 
-Alle Zwischenstände sollten immer lauffähig sein, d.h. mit einem (aktuellen) TeX Live bzw. MiKTeX übersetzbar sein! Arbeiten am TeX-Code sollten daher am besten immer lokal vorgenommen und gestestet werden.
+Alle Zwischenstände sollten immer lauffähig sein, d.h. mit einem (aktuellen) TeX Live bzw. MiKTeX übersetzbar sein! 
+Arbeiten am TeX-Code sollten daher am besten immer lokal vorgenommen und gestestet werden.
 
 Autorwechsel mit \autor{Dagobert Duck}
 
@@ -15,9 +16,12 @@ Autorwechsel mit \autor{Dagobert Duck}
 3. Dokumentation von Code
  
 – Keine Leerzeichen zwischen Makroname und Argumenten
-– Inline-Codeschnipsel sollten immer \cs für das Makro, \marg für obligatorische (mandatory) Argumente und \oarg für optionale Argumente nutzen:
+– Inline-Codeschnipsel sollten immer \cs für das Makro, \marg für obligatorische (mandatory) Argumente und \oarg 
+  für optionale Argumente nutzen:
   \cs{beispiel\marg{Argument}}
-- Für die Darstellung von Code, Code und die dazugehörende Ausgabe sowie nur die Ausgabe als Beispiel wird das Paket tcolorbox verwendet. Mit diesem Paket kann man alle drei Varianten sehr gut darstellen, da das Paket lstlisting integrierbar ist.
+- Für die Darstellung von Code, Code und die dazugehörende Ausgabe sowie nur die Ausgabe als Beispiel wird das 
+  Paket tcolorbox verwendet. Mit diesem Paket kann man alle drei Varianten sehr gut darstellen, da das Paket lstlisting 
+  integrierbar ist.
 
 3.1 (nur) Code:
 
@@ -56,6 +60,8 @@ CODE
  git pull
  
  Eigene Änderungen hochladen:
- git -u -m "Kommentar"
+ git commit -a -m "Kommitbeschreibung" lädt aktuelle Änderungen im Arbeitsverzeichnis in das
+ lokale Repository
+ "git push" lädt das lokale Repos. auf den Server
  
  Weitere Hinweise: https://rogerdudler.github.io/git-guide/index.de.html
