@@ -19,7 +19,7 @@ ibycus,polutonikogreek,english,french,ngerman,%global definiert!
    raised=-.13em]% match XHeight of libertine
    {superiors}
 \usepackage[scaled=0.8]{beramono}
-\usepackage{textcomp}
+%%%\usepackage{textcomp} %nicht notwendig, wenn man XeLaTeX oder LuaLateX nutzt
 %\usepackage{euler}
 \usepackage{yfonts}
 \usepackage{textgreek}
@@ -61,7 +61,8 @@ ibycus,polutonikogreek,english,french,ngerman,%global definiert!
   listings,%
   breakable,%
 ]{tcolorbox}
-\tcbset{lfgwstyle/.style={%
+\tcbset{%
+lfgwstyle/.style={%
     before skip=\baselineskip,
     boxrule=0pt,
     %bottomrule=2pt,
