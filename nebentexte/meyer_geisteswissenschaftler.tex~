@@ -1,0 +1,204 @@
+\documentclass[ngerman]{dtk}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+%\usepackage[a4,center,cross]{crop}
+\usepackage{url}
+\usepackage{graphicx}
+
+
+\begin{document}
+	
+	
+\title{\LaTeX\ für Geisteswissenschaftler -- 
+    Ein Projekt zur zielgruppenspezifischen Dokumentation von \TeX\ und co.}
+\Author{Thomas Hilarius}{Meyer}%
+	{Jahnstraße~7\\
+	66453~Rubenheim\\
+	\Email{thomas.hilarius.meyer@gmail.com}}
+\maketitle
+
+
+\begin{abstract}
+Seit November 2016 arbeitet eine kleine Arbeitsgruppe 
+-- Lukas C. Bossert, Craig Parker-Feldmann, Martin Sievers, Thomas H. Meyer, Philipp Pilhofer und Uwe Ziegenhagen --
+an der Erstellung eines Einführungsbuches zu \LaTeX ,
+das sich besonders an den spezifischen Bedürfnissen von Geisteswissenschaftlern orientiert.
+Was sind diese besonderen Bedürfnisse?
+Wie ist der aktuelle Stand des Projektes?
+In welchen Bereichen wird noch Unterstützung benötigt?
+Ein Überblick\ldots 
+\end{abstract}
+
+\section{Wie kam es dazu?}
+
+Auf der vereinseigenen Mailingliste flammt immer wieder das Thema auf, ob die Gemeinde der \LaTeX\-Nutzer
+sich stärker um das Thema \enquote{Öffentlichkeitsarbeit} bemühen müsste.
+Dabei stellte sich heraus, dass es sich bei \TeX\ und co. um Minderheiten- und Spartensoftware handelt, die
+wahrscheinlich immer nur von einer Minderheit aller Computernutzer eingesetzt werden.
+Dabei ist ausschlaggebend, dass \LaTeX\ eine Reihe von Möglichkeiten bietet, die den nicht ganz leichten Einstieg
+und Lernaufwand rechtfertigen. 
+Im Bereich der Mathematik und Naturwissenschaften ist dieses Potential weitgehend bekannt und die Software
+dementsprechend eher verbreitet.
+Allerdings hat die \TeX -Welt auch Vertretern der Geisteswissenschaften einiges zu bieten, was sich mit 
+Mainstream-Programmen nur mit sehr viel Handarbeit und unter deutlichen Qualitätseinbußen bewerkstelligen lässt.
+
+Allerdings ist \TeX\ im Bereich der Geisteswissenschaften \emph{noch} weniger verbreitet, als im Bereich der
+sog. \emph{hard sciences}.
+
+Dies liegt m.E. auch daran, dass es an einer Übersichtsdarstellung fehlt, die dem mit einer gewissen 
+computerischen Offenheit ausgestatteten Philologen, Historiker oder Theologin deutlich machen würde,
+welche Möglichkeiten die Softwarewelt um \LaTeX\ zu bieten hat. 
+Gleichzeitig sollte die Publikation einen gangbaren Weg zeigen, wie sich die jeweiligen Wünsche verwirklichen
+lassen. Wer dann Blut geleckt hat und spezifischere Sonderwünsche verwirklichen will, kann sich dann anhand
+der meistens vorzüglichen Paketdokumentationen weiter einarbeiten. 
+Aus dem gewünschten Einführungsskript wäre er dann herausgewachsen\ldots 
+
+Im ersten Eifer habe ich eine Gliederung zusammengestellt und auch begonnen, Einzelpunkte auszuführen.
+Dabei ist mir aufgefallen \emph{wie} viele Möglichkeiten \LaTeX\ bietet -- und auf wievielen Gebieten ich nichts
+zu sagen hätte.
+
+An diesem Punkt ist die Diskussion über Öffentlichkeitsarbeit auf der Dante-ev-Mailingliste wieder aufgekommen
+und ich habe meine Projekt-bau-ruine öffentlich angesprochen. Und siehe da: Innerhalb von wenigen Tagen
+ist ein hoch motiviertes Team zusammengekommen, noch viel mehr \TeX nische Möglichkeiten und ein
+massiver Motivationsschub.
+
+
+\section{Was ist geplant?}
+
+Zielvorstellung ist im Moment ein Handbuch von überschaubarem Umfang (ca. 240 Seiten?), das evtl. in der 
+Dante-Reihe erscheinen könnte.
+
+Beim Leser werden keine \LaTeX -Kenntnisse vorausgesetzt; als mögliche Zielgruppe kommen zwei Arten von Lesern
+in Betracht:
+
+\begin{itemize}
+    \item (Künftige) \LaTeX -Nutzer mit geisteswissenschaftlichem Hintergrund, die sich zunächst dafür
+         interessieren, ob sich \LaTeX\ für ihre spezifischen Bedürfnisse und Anforderungen eignet und
+         wie sie diese mit einfachen Mitteln und überschaubarem Aufwand befriedigen können.
+    \item Erfahrene \TeX niker, die in geisteswissenschaftlichen Projektzusammenhängen ihre Hilfe angeboten
+         haben und jetzt etwas genauer wissen möchten, was auf sie zukommt -- und wie sie die in sie
+         gesetzten Hoffnungen und Erwartungen erfüllen können.
+\end{itemize}
+
+Diese Zielsetzung bestimmt Breite und Tiefe der Darstellung: 
+
+Die Bandbreite der behandelten Themen und Lösungsmöglichkeiten soll möglichst groß sein.
+Mit den skizzierten Paketen sollte es möglich sein, eine kritische Ausgabe eines griechischen Textes in Versen mit
+arabischen Glossen durch ein rückläufig sortiertes Reimverzeichnis zu erschließen.
+Wer nur Teilmengen davon realisieren muss, hat Glück gehabt\ldots
+
+Hinsichtlich der Tiefe der Behandlung der verschiedenen Klassen und Pakete ist klar, dass mehr als ein
+ganz oberflächlicher Blick nicht realisiert werden kann. Das ist auch nicht nötig, da in allen Fällen bereits
+gute Paketdokumentationen existieren, die bei Spezialproblemen konsultiert werden können -- wenn man erstmal
+weiß, wo man suchen muss.
+
+Im folgenden werden die Einzelpunkte, die in dem Einführungsshandbuch \enquote{\LaTeX\ für Geisteswissenschaftler}
+erklärt werden sollen, kurz vorgestellt.
+
+
+\section{Was sind die Themen?}
+
+
+\minisec{Kap. 1 -- Grundsätzliches}
+
+Neben einer kurzen Geschichte von \TeX\ und co. geht es um die Frage der Installation sowie die Benutzung 
+geeigneter Editoren.
+
+\minisec{Kap. 2 -- Texte schreiben}
+
+Im ersten Schritt wird gezeigt, wie mit \LaTeX\ wissenschaftliche Texte mit ihren zahlreichen Bestandteilen
+verfassen kann: mit Textgliederungen, Schriftauszeichnungen, besonderen Schriftarten (z.B. Fraktur- und
+Schreibschriften), Sonderzeichen, Listen und Aufzählungen, Zitaten, Fußnoten, Marginalien, mehrspaltigen
+Einschüben, Grafiken und Gleitumgebungen, Tabellen, einheitlich formatierten Bibelstellen (vgl. den Aufsatz
+in diesem Heft), Querverweisen, Einschüben mit Lyrik oder ganze Dramen.  
+
+\minisec{Kap. 3 -- Diagramme zeichnen}
+
+Hier geht es darum, die Möglichkeiten von TikZ und PSTricks für spezifisch geisteswissenschaftliche
+Bedürfnisse anzuwenden: Zeitschienen, Handschriften-Stemmata, Stammbäume, linguistische Strukturen etc.
+(Hier wäre wir noch für fachkundige Hilfe dankbar!)
+
+\minisec{Kap. 4 -- Textpassagen in nicht-lateinischen Alphabeten einbetten}
+
+Die Zahl der mit \LaTeX\ verarbeitbaren Schriftsysteme, die im Bereich der Geisteswissenschaften von besonderem 
+Interesse sind, ist enorm:
+Griechisch,
+Hebräisch,
+Russisch,
+Koptisch,
+Altkirchenslawisch,
+Arabisch,
+Texte in Hieroglyphen,
+Keilschriften,
+Runen,
+phonetischen Alphabete,
+verschiedene Kurzschriften\ldots
+
+(Auch hier wären wir noch für kompetente Mitarbeiter, die mit den Sprachpaketen wirklich produktiv 
+arbeiten, dankbar. Die Autoren haben nur für Griechisch und Hebräisch Erfahrung.)
+
+\minisec{Kap. 5 -- Zusammenhängende Texte parallelisieren}
+
+Hier geht es v.a. um das Nebeneinanderstellen von Original und Übersetzung auf verschiedenen Ebenen:
+als Interlinearglosse oder spalten- bzw. seitenweise.
+
+\minisec{Kap. 6 -- Kritische Apparate setzen}
+
+Die Erstellung kritischer Apparate mit \Paket{Reledmac} von Ma\"{\i}eul Roquette allein kann schon den
+Einsatz von \LaTeX\ rechtfertigen. (Einziger dem Autor bekannter Konkurrent für diese \enquote{Königsklasse} 
+geisteswissenschaftlichen Computereinsatzes ist das wesentlich schwerer
+zugängliche TUSTEP vom Zentrum für Datenverarbeitung der Universität Tübingen.)
+
+\minisec{Kap. 7 -- Literatur und Zitate automatisch verwalten}
+
+Auch die Übertragung der Zitatverwaltung an \Paket{biblatex} spart nach erfolgter Einarbeitung eine erhebliche
+Menge Lebenszeit. Es existieren eine Reihe von Zitierstile speziell für geisteswissenschaftliche Bedürfnisse.
+
+\minisec{Kap. 8 -- Texte durch Register erschließen}
+
+Neben den üblichen Anforderungen an den alphabetischen Index sowie der Möglichkeit, mehrere Register
+automatisch zu erstellen, geht es auch um Spezialregister, z.B. einen Bibelstellenindex.
+
+\minisec{Kap. 9 -- Prüfungen erstellen mit \Paket{exam}}
+
+Die Erstellung von Prüfungen mithilfe des Paketes \Paket{exam} bietet auch im geisteswissenschaftlichen
+Kontext Vorzüge.
+
+\minisec{Kap. 10 -- Präsentationen gestalten mit \Paket{beamer}}
+
+Dasselbe gilt für die Benutzung von \Paket{beamer}, das -- etwas Fingerfertigkeit mit \LaTeX\ vorausgesetzt --
+Präsentationen effizienter gestalten lässt, als Powerpoint.
+
+\minisec{Kap. 11 -- Versionen verwalten mit Subversion und Git}
+
+Geisteswissenschaftliche Projekte als Teamwork können -- ebenso wie Programmierprojekte -- erheblich von
+der Benutzung von Versionsverwaltungssystemen profitieren.
+In diesem Kontext ist es besonders von Vorteil, dass \LaTeX\ mit bloßen Textdateien arbeitet, die die
+Versionierung erheblich besser ermöglichen, als geschlossene Dateiformate wie bei Word.
+
+\minisec{Kap. 12 -- Einbetten von \LaTeX\ in heterogene Projekte}
+
+\LaTeX\ steht nicht allein in der Welt, sondern lässt sich wundervoll z.B. mit Skriptsprachen wie Perl oder
+Python kombinieren. Und mit Lua steht in Lua\LaTeX\ eine eigene eingebaute Skriptsprache zur Verfügung.
+(Um deren Vorzüge überzeugend herauszuarbeiten, wären wir ebenfalls für kompetente Mithilfe dankbar.
+Wie lassen sich Dinge wie Worthäufigkeitslisten oder rückwärtig sortierte Indices m.H. von Lua elegant
+realisieren?)
+
+
+\section{Wie kann ich helfen?}
+
+Die Mitglieder des \enquote{\LaTeX\ für Geisteswissenschaftler}-Projektes wären für zahlreiche Formen von
+Hilfen dankbar:
+
+\begin{itemize}
+    \item Vielleicht kennen Sie sich mit einem bestimmten Paket besonders gut aus und können seine Bedeutung
+        für geisteswissenschaftliche Projekte erklären?
+    \item Vielleicht ist Lua Ihre zweite Muttersprache und Sie könnten bestimmte \enquote{Wünsche} erfüllen?
+    \item Vielleicht vermissen Sie in dieser Übersicht ein Thema, das sie für wichtig halten?
+\end{itemize} 
+
+In allen diesen -- und vielen anderen Fällen -- sollten Sie mit uns Kontakt aufnehmen\ldots
+
+Das Projekt ist zugänglich unter \url{http://github.com/thomas-hilarius-meyer/latex-fuer-geisteswissenschaftler}
+
+\end{document}
