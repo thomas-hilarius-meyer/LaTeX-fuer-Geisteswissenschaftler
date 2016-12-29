@@ -144,3 +144,5 @@ emisa.rel
 *~
 
 *.tmp
+
+*.lb
