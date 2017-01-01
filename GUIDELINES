@@ -22,24 +22,26 @@ Autorwechsel mit \autor{Dagobert Duck}
 - Für die Darstellung von Code, Code und die dazugehörende Ausgabe sowie nur die Ausgabe als Beispiel wird das 
   Paket tcolorbox verwendet. Mit diesem Paket kann man alle drei Varianten sehr gut darstellen, da das Paket lstlisting 
   integrierbar ist.
+- Die folgenden Befehle erwarten ein Argument, hier kann z.B. ein label definiert werden, um später auf das Listing zu verweisen.
+  Das Argument darf auch leer bleiben.
 
 3.1 (nur) Code:
 
-\begin{lfgwcode}
+\begin{lfgwcode}{label={lis:xxx}}
 CODE
 \end{lfgwcode}
 
 
 3.2 Code & Ausgabe:
 
-\begin{lfgwexample}
+\begin{lfgwexample}{label={lis:xxx}}
 CODE
 \end{lfgwexample}
 
 
 3.3 (nur) Ausgabe:
 
-\begin{lfgwprint}
+\begin{lfgwprint}{label={lis:xxx}}
 CODE
 \end{lfgwprint}
 
