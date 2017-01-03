@@ -2,7 +2,7 @@
 \chapter{Literatur und Zitate automatisch verwalten}
 \dictum[U. Eco, Name der Rose]{...}
 \label{biblatex}
-
+\autor{Lukas C. Bossert}
 
 \section{Der (neue) Standard: biblatex und biber}
 
@@ -22,13 +22,13 @@ Vgl.\footcite[79\psqq]{rouquette:2012}
 
 \subsection{Publikationstypen und ihre Datenfelder}
 
-\subsubsection{Bücher}
+\subsubsection{Bücher (Monografie, Sammmelband)}
 
-\subsubsection{Zeitschriften}
+\subsubsection{Zeitschriften (Artikel, Rezensionen)}
 
-\subsubsection{Artikel}
+\subsubsection{Lexika, Handbücher}
 
-\subsubsection{Internet-Resourcen}
+\subsubsection{Internet-Ressourcen}
 
 \subsubsection{Übersicht: Publikationstypen und Datenfelder}
 
@@ -37,11 +37,208 @@ alle auflisten....
 
 \section{Zitate}
 
-\lstinline/\cite{key}/
+Normale Zitate werden mit dem Befehl \cs{cite} ausgeführt:
+\begin{lfgwcode}{label={lis:XXX}}
+\cite*@\oarg{Präfix}\oarg{Suffix}\marg{Schlüssel}%@*
+\end{lfgwcode}
 
-\lstinline/\footcite{key}/
+Während \meta{Präfix}  eine kurze Anmerkung \emph{vor} die Ztation (z.\,B. \enquote{Vgl.}) setzt, 
+wird  \meta{Suffix} für gewöhnlich für Seitenzahlen verwendet.
+Ist nur ein optionales Argument definiert, 
+dann wird es als \oarg{Suffix} behandelt.
+\begin{lfgwcode}{label={lis:XXX}}
+\cite*@\oarg{Suffix}\marg{Schlüssel}%@*
+\end{lfgwcode}
+Der \meta{Schlüssel} korrespondiert mit dem Schlüssel der Bibliografie-Datei.
 
-\lstinline/\nocite{key}/
+\begin{lfgwexample}{label={lis:xxx}}
+	„Beware of bugs in the above code; I have only proved it correct, not tried it.“ Donald Knuth
+Der öffentliche Raum ist Teil einer Stadt \cite{Osland2016}.
+\end{lfgwexample}
+
+\minisec{\cs{cites}}
+Möchte man hingegen mehrere Autoren oder Werke zitieren, 
+gibt es zwei Möglichkeiten:
+Entweder kann man dies durch die Kommagetrennte Reihung der \marg{Schlüssel} machen,
+was jedoch den Nachteil hat, dass man für die einzelnen \marg{Schlüssel} keine \oarg{Präfixe} oder \oarg{Suffixe} definieren kann.
+
+Die andere Möglichkeit sieht vor, den Befehl \cs{cites} zu verwenden, 
+bei dem für jeden Autor/ jedes Werk sowohl \oarg{Präfixe} als \oarg{Suffixe} definiert werden kann.
+Zudem lässt sich für die gesamte Reihung ein \oarg{Präfix} und ein \oarg{Suffix} festlegen:
+\begin{lfgwcode}{label={lis:XXX}}
+\cites(Prä-Präfix)(Suf-Suffix)
+  *@\oarg{Präfix}\oarg{Suffix}\marg{Schlüssel}@*%
+  *@\oarg{Präfix}\oarg{Suffix}\marg{Schlüssel}@*%
+  *@\oarg{Präfix}\oarg{Suffix}\marg{Schlüssel}\ldots@*
+\end{lfgwcode}
+\begin{lfgwexample}{label={lis:xxx}}
+Der öffentliche Raum ist Teil einer Stadt \cites(vgl.)(){Osland2016}{Evangelidis2014}.
+\end{lfgwexample}
+ 
+\minisec{\cs{parencite}}
+Manchmal soll die Zitation in Klammern stehen.
+Um dies nicht händisch in runde Klammern setzen zu müssen (und ggf. die ›Klammerschachtelregel‹ zu verletzen),
+kann dafür der Befehl  \cs{parencite} verwendet werden:
+\begin{lfgwcode}{label={lis:XXX}}
+\parencite*@\oarg{Suffix}\marg{Schlüssel}%@*
+\end{lfgwcode} 
+Mit diesem Zitationsbefehl wird die korrekte Ordnung von korrespondierenden Klammern berücksichtigt.
+\begin{lfgwexample}{label={lis:xxx}}
+\enquote{Der öffentliche Raum ist Teil einer Stadt.} \parencite{Osland2016}
+\end{lfgwexample}
+
+\minisec{\cs{parencites}}
+Ebenso lassen sich auch mehrere Zitationen mit Klammern umschließen.
+Dies wird mittels \cs{parencites} umgesetzt:
+\begin{lfgwcode}{label={lis:XXX}}
+\parencites(Prä-Präfix)(Suf-Suffix)%
+*@\oarg{Präfix}\oarg{Suffix}\marg{Schlüssel}@*%
+*@\oarg{Präfix}\oarg{Suffix}\marg{Schlüssel}@*%
+*@\oarg{Präfix}\oarg{Suffix}\marg{Schlüssel}\ldots@*
+\end{lfgwcode}
+\begin{lfgwexample}{label={lis:xxx}}
+Der öffentliche Raum ist Teil einer Stadt.\parencites(s.)(){Osland2016}%
+[vgl.][]{Evangelidis2014}.
+\end{lfgwexample}
+
+\minisec{\cs{textcite}}
+Neben den bereits angeführen \cs{cite}- Befehlen gibt es eine dritte Möglichkeit der Zitationsangabe:
+\cs{textcite} ist vor allem für die Fälle zu nutzen, 
+bei denen der Autor/ das Werk im Fließtext genannt sein soll, 
+aber die weiteren Angaben (Publikationsjahr, Seitenangabe) nur in runden Klammern dahinter.
+\begin{lfgwcode}{label={lis:XXX}}
+\textcite*@\oarg{Suffix}\marg{Schlüssel}%@*
+\end{lfgwcode} 
+
+\begin{lfgwexample}{label={lis:xxx}}
+Der öffentliche Raum ist Teil einer Stadt, sagt \textcite{Osland2016}.
+\end{lfgwexample}
+
+\minisec{\cs{textcites}}
+Wiederum können mehrere Autoren/ Werke mittels  \cs{textcites} gelistet werden:
+\begin{lfgwcode}{label={lis:XXX}}
+\textcites(Prä-Präfix)(Suf-Suffix)%
+  *@\oarg{Präfix}\oarg{Suffix}\marg{Schlüssel}@*%
+  *@\oarg{Präfix}\oarg{Suffix}\marg{Schlüssel}@*%
+  *@\oarg{Präfix}\oarg{Suffix}\marg{Schlüssel}\ldots@*
+\end{lfgwcode}
+\begin{lfgwexample}{label={lis:xxx}}
+Der öffentliche Raum ist Teil einer Stadt, sagen \textcites{Osland2016}%
+[vgl.][]{Evangelidis2014}.
+\end{lfgwexample}
+
+
+\minisec{\cs{footcite}}
+Darüberhinaus gibt es weitere \cs{cite}-Befehle, 
+die die Einbettung der Zitation beeinflussen. 
+Zunächst kann man mit \cs{footcite} die Zitation direkt als eigene Fußnote setzen:
+ \begin{lfgwcode}{label={lis:XXX}}
+\footcite*@\oarg{Präfix}\oarg{Suffix}\marg{Schlüssel}@*
+\end{lfgwcode}
+\begin{lfgwexample}{label={lis:xxx}}
+\enquote{Der öffentliche Raum ist Teil einer Stadt.}\footcite{Osland2016}
+\end{lfgwexample}
+\cs{footcite} ist das Äquivalent zu \lstinline/\footnote{\cite{Osland2016}.}/
+was jedoch manche (überflüssige) Tipparbeit spart.
+
+\minisec{\cs{footcites} }
+Für mehrere Autoren/ Werke in einer Fußnote gibt es auch \cs{footcites}:
+\begin{lfgwexample}{label={lis:xxx}}
+\enquote{Der öffentliche Raum ist Teil einer Stadt.}\footcites(s.)(){Osland2016}%
+[vgl.][]{Evangelidis2014}
+\end{lfgwexample}
+ 
+ 
+\minisec{\cs{smartcite}}
+Eine klevere Art und Weise Zitationen als Fußnote zu setzen,
+bitete der Befehl \cs{smartcite}.
+ \cs{smartcite} reagiert auf die Umgebung des Befehls:
+ Befindet sich \cs{smartcite} innerhalb des Fließtexts wird es wie \cs{footcite} behandelt 
+ und die Zitation in eine Fußnote setzen. 
+Wird die Zitation allerdings in einer Fußnote aufgerufen,
+erfolgt die Ausgabe nach dem Schema von \cs{cite}. 
+ is a clever 
+\begin{lfgwcode}{label={lis:XXX}}
+\smartcite*@\oarg{Suffix}\marg{Schlüssel}%@*
+\end{lfgwcode} 
+
+\begin{lfgwexample}{label={lis:xxx}}
+Der öffentliche Raum ist Teil einer Stadt.\smartcite{Osland2016} 
+Eventuell aber zugangsbeschränkt.\footnote{\smartcite[vgl.][]{Evangelidis2014}.}
+\end{lfgwexample}
+
+
+\minisec{\cs{smartcites}}
+Wiederumg gibt es analog auch den Befehl \cs{textcites}, 
+um mehrere Autoren/ Werke klever zu zitieren:
+\begin{lfgwcode}{label={lis:XXX}}
+\smartcites(Prä-Präfix)(Suf-Suffix)%
+  *@\oarg{Präfix}\oarg{Suffix}\marg{Schlüssel}@*%
+  *@\oarg{Präfix}\oarg{Suffix}\marg{Schlüssel}@*%
+  *@\oarg{Präfix}\oarg{Suffix}\marg{Schlüssel}\ldots@*
+\end{lfgwcode}
+\begin{lfgwexample}{label={lis:xxx}}
+Der öffentliche Raum ist Teil einer Stadt.\smartcites{Osland2016}{Evangelidis2014} 
+Eventuell aber zugangsbeschränkt.\footnote{\smartcites{Osland2016}%
+[cf.][]{Evangelidis2014}.}
+\end{lfgwexample}
+
+\minisec{\cs{autocite}}
+Mit  \cs{autocite} ist eine individuelle und flexible Zitationsangabe möglich,
+indem man in der Präambel steuert,
+wie \cs{autocite} ausgegben werden soll.
+Für gewöhnlich stehen folgende Optionen zur Verfügung:
+\begin{labeling}{XXXXX}
+	\item[plain] Ausgabe wie \cs{cite}
+	\item[inline]Ausgabe wie \cs{parencite}
+	\item[footnote]Ausgabe wie \cs{footcite}
+\end{labeling}
+\begin{lfgwcode}{label={lis:XXX}}
+\autocite*@\oarg{Präfix}\oarg{Suffix}\marg{Schlüssel}%@*
+\end{lfgwcode} 
+
+\begin{lfgwexample}{label={lis:xxx}}
+Der öffentliche Raum ist Teil einer Stadt \autocite{Osland2016} 
+\end{lfgwexample}
+
+\minisec{\cs{fullcite} \cs{footfullcite}}
+Mit den Befehlen \cs{fullcite} und \cs{footfullcite} werden zwei Möglichkeiten gegeben,
+mit denen man den kompletten Bibliographie-Eintrag in den Fließtext bzw. in die Fußnote schreiben kann.
+\begin{lfgwcode}{label={lis:XXX}}
+\fullcite*@\oarg{Präfix}\oarg{Suffix}\marg{Schlüssel}@*
+\footfullcite*@\oarg{Präfix}\oarg{Suffix}\marg{Schlüssel}@*
+\end{lfgwcode} 
+
+\begin{lfgwexample}{label={lis:xxx}}
+Der öffentliche Raum ist Teil einer Stadt.\footfullcite{Osland2016}
+Das steht auch geschrieben bei \fullcite{Evangelidis2014}
+\end{lfgwexample}
+
+
+
+\minisec{\cs{citeauthor} \cs{citetitle}}
+Neben den ›geläufigen‹  \cs{cite}-Befehlen kann man auch nur den oder die Autoren zitieren 
+und ebenso nur den Werktitel.
+Dies funktioniert für den Fließtext und für Fußnoten gleichermaßen:
+\begin{lfgwcode}{label={lis:XXX}}
+\citeauthor*@\oarg{Präfix}\oarg{Suffix}\marg{Schlüssel}%@*
+\end{lfgwcode} 
+  and for the works 
+\begin{lfgwcode}{label={lis:XXX}}
+\citetitle*@\oarg{Präfix}\oarg{Suffix}\marg{Schlüssel}%@*
+\end{lfgwcode} 
+
+\begin{lfgwexample}{label={lis:xxx}}
+Der öffentliche Raum ist Teil einer Stadt sagt \citeauthor{Osland2016} in \citetitle{Osland2016}.
+\footnote{Der öffentliche Raum ist Teil einer Stadt sagt \citeauthor{Osland2016} in \citetitle{Osland2016}.}
+\end{lfgwexample}
+
+
+\minisec{\cs{nocite}}
+Möchte man einen Eintrag nicht als Zitation im Text haben, 
+aber auf die Auflistung in der Bibliographie nicht verzichten,
+dann kann man \cs{nocite}\marg{Schlüssel} verwenden.
+Die Zitation wird damit ›unsichtbar‹ zitieren, sodass sie dennoch in der Bibliographie auftaucht.
 
 
 
@@ -49,7 +246,14 @@ alle auflisten....
 \section{Bibliographiestile}
 
 \minisec{Standardstile von biblatex}
-
+biblatex (--> verschiedene biblatex-Stile mit deren Optionen erläutern, die für Geisteswissenschaftler relevant sind)
+-- biblatex-dw (sehr viele Optionen)\\
+-- archaeologie (sehr viele Optionen)\\
+-- geschichtsfrkl (viele Optionen)\\
+-- historische-zeitschrift\\
+-- apa\\
+-- historian\\
+-- biblatex-fiwi\\
 
 \minisec{Nützliche Bibliografiestile, die nachinstalliert werden müssen}
 
@@ -63,3 +267,34 @@ Installation als Paket nötig:
 \index{Bibliographie}
 \index{Literaturverzeichnis}
 \index{Sekundärliteratur}
+
+
+\begin{lfgwecode}
+\printbibheading[%
+  heading=bibliography,
+  %heading=bibnumbered,% if you want it numbered
+  title={Bibliographie}]% Überschrift für Bibliographie
+\end{lfgwecode}
+
+
+\begin{lfgwecode}
+\printbibliography[%
+  heading=subbibliography,
+  %heading=subbibnumbered,% if you want it numbered
+  keyword=ancient,%
+  title={Antike Quellen}]
+\end{lfgwecode}
+
+\begin{lfgwecode}
+\printbibliography[%
+  heading=subbibliography,
+  keyword=corpus,%
+  title={Abkürzungen und Sigel}]
+
+\printbibliography[%
+  heading=subbibliography,
+  notkeyword=ancient,%
+  notkeyword=corpus,%
+  title={Sekundärliteratur}]
+\end{lfgwecode}
+
