@@ -50,6 +50,7 @@ ibycus,polutonikogreek,english,french,ngerman,%global definiert!
   %frame=tlrb,
   breaklines=true,
   postbreak=\mbox{$\hookrightarrow$},
+  escapeinside={{*@}{@*}},
   %showstringspace=false, 
   captionpos=b,
   literate={ä}{{\"a}}1{ö}{{\"o}}1{ü}{{\"u}}1{ß}{{\ss}}1
@@ -163,8 +164,12 @@ lfgwstyle/.style={%
 \makeindex[                title = {Allgemeiner Index}]
 \makeindex[name = pakete,  title = {Verzeichnis der Paketnamen}]
 
-\usepackage[style=verbose-inote,pageref=true,backend=biber]{biblatex}
-%\usepackage[style=historische-zeitschrift]{biblatex}
+\usepackage[%
+  style=historische-zeitschrift,
+%	style=archaeologie,
+  pageref=true,
+	backend=biber
+	]{biblatex}
 \addbibresource{lfgw-bibliographie.bib}
 \defbibheading{bibliography}{\chapter{#1}} %%%Besser bei \addchap bleiben
 
