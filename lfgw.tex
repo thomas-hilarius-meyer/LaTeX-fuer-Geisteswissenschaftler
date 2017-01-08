@@ -1,7 +1,9 @@
 % !TeX document-id = {2164abf0-f3bb-4662-915c-1c222a3ba254}
-% !TEX TS-program = lualatex
+% !TEX TS-program = lualatex  -- äh, das stimmt aber nicht, oder? thm
 % !BIB TS-program = biber
+
 \input{vorspann}
+
 \begin{document}
 \frontmatter
 \include{titelei}
@@ -11,6 +13,7 @@
 \include{grundlagen}
 \include{typographie}
 \include{texte}
+\include{diagramme_zeichnen}
 \include{texteUnicode}
 \include{interlinearglossierung}
 \include{paralleleTexte}
@@ -28,7 +31,9 @@
 \include{katalog}
 
 \include{anhang}
+
 \printbibliography
+
 \chapter{Register} %%%MS: Besser \addchap
 \printindex          % der "allgemeine" Index
 \printindex[pakete]
@@ -37,9 +42,7 @@
 \vfill
 \minisec{Kolophon}
 
-opensuse 13.2 auf lenovo ideapad s10e von 2008
-
-kile
+Texstudio
 
 pdflatex mit \KOMAScript 
 
