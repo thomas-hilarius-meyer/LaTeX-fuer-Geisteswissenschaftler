@@ -1,0 +1,60 @@
+% !TEX root = lfgw.tex
+\chapter{Die gute Nachricht}
+%% Alternativtitel: Migrationshintergrund
+\autor{Axel Kielhorn}
+
+\noindent Am Anfang war \Program{Word}\footnote{Frei nach Johannes 1:1}.
+Obwohl es eine große Auswahl an Textverarbeitungsprogrammen gibt
+(\Program{Word Perfect}\footnote{Ja, das gibt es noch.}, \Program{LibreOffice Writer}, \Program{Textmaker}, \Program{Pages}, \dots),
+ist für viele Textverarbeitung ein Synonym für \Program{MS Word}.
+In der freien Welt hat \Program{Libre Office} noch eine gewisse Verbreitung.
+
+Für den Anfang reicht das sicherlich auch aus, aber irgendwann kommt der Punkt an dem die Anforderungen die Fähigkeiten von \Program{MS Word} überschreiten.
+Wie bekomme ich die paar Dutzend Seiten nun ohne viel Aufwand nach \LaTeX{{}?
+
+\section{Hilfe ist nah!}
+\dictum[Initiative Safer Text]{Ich mach's mit \LaTeX}
+
+\subsection{Der interaktive Weg}
+
+Interaktiv ist ein modernes Wort für manuell, d.\,h. ich mache die ganze Arbeit selbst. 
+Im letzten Jahrhundert gab es dazu keine Alternative, daher als erstes ein kurzer Rückblick:
+
+\begin{itemize}
+\item Gesamten Text im Quellprogramm markieren und kopieren.
+\item Text im Editor der Wahl einfügen.
+\item \LaTeX{}-Befehle ergänzen.
+\item Fertig!
+\end{itemize}
+
+Alternativ kann man den Text auch als reinen Text speichern, wenn möglich sollte man hier als Kodierung UTF-8 verwenden.
+
+\subsection{Writer2LaTeX}
+
+Es gibt eine Erweiterung für \Program{LibreOffice} mit der man ein Dokument nach \LaTeX{} exportieren kann.
+Diese kann man unter \url{http://writer2latex.sourceforge.net} herunterladen.
+Zusätzlich wird noch \Program{Java} benötigt.
+Unter \texttt{Exportieren \dots} kann man jetzt das Format \LaTeX{} auswählen.
+
+Beim Export sollte man die Einstellung \enquote{Sehr aufgeräumter Artikel} wählen, als Encoding \enquote{Unicode (UTF8)}.
+Das Ergebnis ist ein \LaTeX{}-Dokument in dem Aufzählungen und Tabellen erhalten bleiben, jegliche Formatierung jedoch verloren geht.
+
+\subsection{Pandoc}
+
+Pandoc \url{http://pandoc.org} ist ein universeller Dokumentenkonvertierer, sozusagen der GraphicConverter für Texte.
+Das Programm kann \texttt{.docx}, \texttt{.odt} und \texttt{.tex} Dateien lesen und schreiben.
+Hier darf man aber keine Wunder erwarten, bei \LaTeX{}-Dateien werden nur relativ einfache Dokumente erfolgreich verarbeitet.
+
+Die Option \texttt{.docx} und \texttt{.odt} zu lesen ist relativ neu.
+In diversen Linux-Distributionen befinden sich noch alte Versionen ohne diese Fähigkeit.
+Beim Erscheinen dieses Buches war die Version 1.19 aktuell und 2.0 in der Entwicklung.
+
+\subsection{\TeX{}-Stammtisch}
+
+In vielen Städten gibt es einen \TeX{}-Stammtisch mit mehr oder weniger erfahrenen \LaTeX{}-Nutzern.
+Evtl. trifft man hier jemanden, der bereit ist für ein Bier oder ein Abendessen bei der Konvertierung zu helfen.
+Außerdem hat man so einen Experten vor Ort.
+
+\section{intern}
+
+Hat jemand nicht-triviale Textdokumente damit ich mal beide Konvertierer vergleichen kann?
