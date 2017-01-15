@@ -39,15 +39,23 @@ Unter \texttt{Exportieren \dots} kann man jetzt das Format \LaTeX{} auswählen.
 Beim Export sollte man die Einstellung \enquote{Sehr aufgeräumter Artikel} wählen, als Encoding \enquote{Unicode (UTF8)}.
 Das Ergebnis ist ein \LaTeX{}-Dokument in dem Aufzählungen und Tabellen erhalten bleiben, jegliche Formatierung jedoch verloren geht.
 
+Normalerweise werden Bilder aus dem Dokument automatisch extrahiert.
+Funktioniert dies nicht, kann es helfen, die Option \enquote{Float Abbildungen} auszuschalten.
+
 \subsection{Pandoc}
 
 Pandoc \url{http://pandoc.org} ist ein universeller Dokumentenkonvertierer, sozusagen der GraphicConverter für Texte.
 Das Programm kann \texttt{.docx}, \texttt{.odt} und \texttt{.tex} Dateien lesen und schreiben.
 Hier darf man aber keine Wunder erwarten, bei \LaTeX{}-Dateien werden nur relativ einfache Dokumente erfolgreich verarbeitet.
 
+\Program{Pandoc} ließt keine Dateien im alten \texttt{.doc} Format.
+
 Die Option \texttt{.docx} und \texttt{.odt} zu lesen ist relativ neu.
 In diversen Linux-Distributionen befinden sich noch alte Versionen ohne diese Fähigkeit.
 Beim Erscheinen dieses Buches war die Version 1.19 aktuell und 2.0 in der Entwicklung.
+
+Auch Pandoc hat manchmal Probleme mit eingebundenen Bildern.
+Da man beim eigenen Werk in der Regel die Originalbilder zur Verfügung hat, ist dies nicht unbedingt ein Problem.
 
 \subsection{\TeX{}-Stammtisch}
 
@@ -55,6 +63,24 @@ In vielen Städten gibt es einen \TeX{}-Stammtisch mit mehr oder weniger erfahre
 Evtl. trifft man hier jemanden, der bereit ist für ein Bier oder ein Abendessen bei der Konvertierung zu helfen.
 Außerdem hat man so einen Experten vor Ort.
 
+\section{Nacharbeit}
+
+Die konvertierten Texte sind eine Rohfassung.
+Auch wenn das Dokument fehlerfrei übersetzt wird, sind noch ein paar Anpassungen erforderlich:
+
+\begin{itemize}
+\item Die verwendete Schrift muss angepasst werden. 
+Normalerweise verwendet \LaTeX{} die Schrift Latin Modern.
+Diese Schrift enthält keine griechischen oder kyrillischen Zeichen.
+Siehe Kapitel Normale Schriften \marginpar{Kapitel normale Schriften}
+\item Bilder müssen mit einer \cs{caption} versehen und evtl. skaliert werden.
+Siehe Kapitel Bilder\marginpar{Kapitel Bilder?}
+\end{itemize}
+
 \section{intern}
 
 Hat jemand nicht-triviale Textdokumente damit ich mal beide Konvertierer vergleichen kann?
+
+\begin{itemize}
+\item Ein Dokument mit Bildern und griechisch konvertiert.
+\end{itemize}
