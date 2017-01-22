@@ -39,6 +39,39 @@ twoside,%
    raised=-.13em]% match XHeight of libertine
    {superiors}
 \usepackage[scaled=0.8]{beramono}
+%
+% Einheiten konsistent darstellen
+%
+\usepackage{xfrac,siunitx}
+\sisetup{%
+    tight-spacing=true, %
+    %math-rm=\mathsf, 
+    %		text-rm=\sffamily,
+    detect-all, %Zahlen werden in der aktuellen Schrift angezeigt
+    detect-family,
+    exponent-to-prefix  	= true,%
+    round-mode          	= places,% 
+    round-precision     	= 2, %
+    %  zero-decimal-to-integer,  %aus "2.0" wird "2"
+    group-minimum-digits 	= 4, % Für "Tausenderpunkt" --> 1.234 anstatt 1234
+    group-separator			={.},% für "12.345" statt "12 345"
+    %  scientific-notation = engineering, % Use multiples of 3 as exponent
+    locale					=DE, % Typeset numbers and units the German way
+    %  range-phrase 			={$\times$},%
+    range-units				=single,  % --> 2 x 2 m, - auskommentieren für 2 m x 2 m
+    %  quotient-mode=fraction,% 	slash für inline Brüche a/b
+    %  per-mode=fraction,%			Bruch statt ^-1
+    %  fraction-function=\sfrac % Schönere Brüche
+    %  unit-color=myred,
+}
+% \num{12345,67890}
+% \si{\meter\squared}
+% \si{\kilogram\per\meter\cubed}
+% \SI{1.23}{\joule\per\mol\per\kelvin}
+% \numrange[range-phrase = {\,--\,}]{10}{20} => 10 -- 20
+% \numrange[range-phrase = { bis }]{10}{20} => 10 bis 20
+% \numrange[range-phrase = { $\times$}]{10}{20} => 10 x 20
+% \SIrange{0.13}{0.67}{\milli\metre}
 
 %\usepackage[a4,center,cross]{crop}
 
