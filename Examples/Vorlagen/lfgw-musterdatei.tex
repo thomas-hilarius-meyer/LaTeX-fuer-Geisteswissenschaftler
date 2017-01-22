@@ -40,6 +40,40 @@ twoside,%
 %\makeindex[name = person, title = Personenverzeichnis]
 %\makeindex[name = bibel,  title = Verzeichnis der Bibelstellen]
 
+%
+% Aktive Links im Inhaltsverzeichnis, Index, usw.
+%
+\usepackage{cmap,hyperxmp,hyperref}	% Immer zuletzt laden
+\hypersetup{					% setup the hyperref-package options
+	pdftitle={LaTeX für Geisteswissenschaftler},	% 	- title (PDF meta)
+	pdfsubject={Handbuch},% 	- subject (PDF meta)
+	pdfauthor={varia},	% 	- author (PDF meta)
+	pdfauthortitle={},
+	pdfcopyright={Copyright (c) \the\year\. All rights reserved.},
+	pdfhighlight=/N,
+	pdfdisplaydoctitle=true,
+	pdfdate={\the\year-\the\month-\the\day}
+	pdflang={de},
+	pdfcaptionwriter={varia},
+	pdfkeywords={{LaTeX}, {Geisteswissenschaften}},
+%	pdfproducer={XeLaTeX},
+	pdflicenseurl={http://creativecommons.org/licenses/by-nc-nd/4.0/},
+	plainpages=false,			% 	- 
+    colorlinks   = true, %Colours links instead of ugly boxes
+    urlcolor     =  blue!50!black, %Colour for external hyperlinks
+    linkcolor    = blue, %Colour of internal links
+    citecolor   = green!50!black, %Colour of citations
+    linktoc=page,
+  	pdfborder={0 0 0},			% 	-
+	breaklinks=true,			% 	- allow line break inside links
+ %  bookmarks=true,
+	bookmarksnumbered=true,		%
+	bookmarksopenlevel=2,
+	bookmarksopen=true,		%
+    bookmarksdepth=3,
+	final=true	% = true, nur bei web-Dokument!! (wichtig!!)
+}
+
 \begin{document}
  \title{khjxdkd kd}
  \maketitle
