@@ -16,7 +16,7 @@ twoside,%
 %
 % Schriftauswahl
 %
-\usepackage{lmodern}
+%\usepackage{lmodern}
 %\usepackage{tgadventor}		% Avant Garde 			*sans* font
 %\renewcommand{\rmdefault}{qag} % als Standard font verwenden
 %\usepackage{tgbonum}			% Bookman 				*serif* font
@@ -30,6 +30,15 @@ twoside,%
 %\usepackage{tgschola}			% Century Schoolbook 	*serif* font
 %\usepackage{iwona}				% Iwona					*serif* font
 %\usepackage{anttor}			% Antykwa Torunska		*serif* font
+%
+% Schriften aus dem Buch
+%
+\usepackage{libertine}
+\usepackage[supstfm=libertinesups,%
+   supscaled=1.2,%
+   raised=-.13em]% match XHeight of libertine
+   {superiors}
+\usepackage[scaled=0.8]{beramono}
 
 %\usepackage[a4,center,cross]{crop}
 
@@ -42,6 +51,7 @@ twoside,%
 
 %
 % Aktive Links im Inhaltsverzeichnis, Index, usw.
+% PDF-Metadaten
 %
 \usepackage{cmap,hyperxmp,hyperref}	% Immer zuletzt laden
 \hypersetup{					% setup the hyperref-package options
