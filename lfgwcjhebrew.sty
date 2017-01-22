@@ -1,0 +1,58 @@
+%
+% lgfwcjhebrew is subject to the LaTeX Project Public License (LPPL).
+% A copy of the LPPL can be found in lppl.txt.
+% For the most recent version of this license have a look at
+%
+%    http://www.latex-project.org/lppl.txt
+%
+
+% Modified to work with LuaTeX via lfgwluabidi.
+% Based on cjhebrew.
+% modification send to the author of cjhebrew in January 2017.
+
+\ProvidesPackage{lgfwcjhebrew}
+                    [2017/01/22 v. 0.2 lgfwcjhebrew Hebrew Typesetting System]
+
+\DeclareFontFamily{U}{cjheb}{}
+
+\DeclareFontShape{U}{cjheb}{m}{n}{%
+                     <-7>sfixed*[7]cjhblsm%
+                     <7-11>cjhblsm%
+                     <11->cjhbltx%
+                     }%
+                     {}
+
+\newcommand{\cjhebfamily}{\fontencoding{U}\fontfamily{cjheb}\selectfont}
+
+\DeclareTextFontCommand{\textcjheb}{\cjhebfamily}
+
+\chardef\endofword=33
+\chardef\zeronojoin=124
+\chardef\dottedcircle=203
+
+\RequirePackage{ifluatex}
+
+\ifluatex
+    \RequirePackage{lfgwluabidi}
+    \newcommand{\cjRL}[1]{\RLE{\textcjheb{#1\endofword}}}
+    \newcommand{\cjLR}[1]{\LRE{\textcjheb{\endofword#1}}}
+    \newenvironment{cjhebrew}{\parindent=0pt\cjhebfamily\setRTL}{\unsetRTL}
+\else
+  \@ifundefined{eTeXrevision}%
+      {%
+          \PackageWarningNoLine{cjhebrew}{\MessageBreak
+              Hebrew text will be typeset from left to right!\MessageBreak
+              You really should use e-TeX}
+          \newcommand{\cjRL}[1]{\bgroup\textcjheb{#1\endofword}\egroup}
+          \newcommand{\cjLR}[1]{\bgroup\endofword#1\egroup}
+          \newenvironment{cjhebrew}{\cjhebfamily}{}
+      }%
+      {%
+          \TeXXeTstate=1
+          \newcommand{\cjRL}[1]{\bgroup\beginR\textcjheb{#1\endofword}\endR\egroup}
+          \newcommand{\cjLR}[1]{\bgroup\beginL\endofword#1\endL\egroup}
+          \newenvironment{cjhebrew}{\parindent=0pt\cjhebfamily\everypar{\beginR}}{}
+      }
+\fi
+
+\def\<#1>{\cjRL{#1}}
