@@ -1,5 +1,5 @@
-% !TeX root = lfgw.tex
-\RequirePackage[ngerman=ngerman-x-latest]{hyphsubst}
+% !TEX root = lfgw.tex
+%\RequirePackage[ngerman=ngerman-x-latest]{hyphsubst} % Für LuaLaTeX auskommentieren.
 \documentclass[%
 ibycus,polutonikogreek,english,french,ngerman,%global definiert!
    %%%draft=false,%
@@ -9,8 +9,19 @@ ibycus,polutonikogreek,english,french,ngerman,%global definiert!
    pagesize%
    ]{scrbook}
 
-\usepackage[utf8]{inputenc}
-\usepackage[OT1,T1]{fontenc}
+\usepackage{ifluatex}
+
+\ifluatex
+  \usepackage{luatex85}
+  \usepackage{fontspec}
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+  \usepackage{lfgwcjhebrew}
+\else
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{cjhebrew}
+\fi
+
 \usepackage[]{babel}
 \usepackage{libertine}
 %\RequirePackage{libertinegc}
@@ -125,7 +136,6 @@ lfgwstyle/.style={%
 
 \usepackage{parallel}
 
-\usepackage{cjhebrew}
 
 \usepackage{runic}
 
