@@ -12,14 +12,19 @@ ibycus,polutonikogreek,english,french,ngerman,%global definiert!
 \usepackage{ifluatex}
 
 \ifluatex
-  \usepackage{luatex85}
-  \usepackage{fontspec}
-  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
-  \usepackage{lfgwcjhebrew}
+	\usepackage{luatex85}
+	\usepackage{fontspec}
+	\defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+	\usepackage{lfgwcjhebrew}
+%	\newfontfamily\GFSDidot{GFS Didot}
+	\newcommand\gkk[1]{%{\GFSDidot
+	#1%}
+	}
 \else
-  \usepackage[T1]{fontenc}
-  \usepackage[utf8]{inputenc}
-  \usepackage{cjhebrew}
+	\usepackage[T1]{fontenc}
+	\usepackage[utf8]{inputenc}
+	\usepackage{cjhebrew}
+	\newcommand{\gkk}[1]{\foreignlanguage{polutonikogreek}{#1}}
 \fi
 
 \usepackage[]{babel}
@@ -32,6 +37,12 @@ ibycus,polutonikogreek,english,french,ngerman,%global definiert!
 \usepackage[scaled=0.8]{beramono}
 %%%\usepackage{textcomp} %nicht notwendig, wenn man XeLaTeX oder LuaLateX nutzt
 %\usepackage{euler}
+
+\ifluatex
+	\setmonofont[Scale=MatchLowercase,FakeStretch=0.85]{DejaVu Sans}%das wird für Griechisch in Codebeispielen gebraucht
+\else
+\fi
+
 \usepackage{yfonts}
 \usepackage{textgreek}
 \usepackage[%
@@ -217,6 +228,15 @@ lfgwstyle/.style={%
 	final=true	% = true, nur bei web-Dokument!! (wichtig!!)
 }
 \usepackage{bookmark}%advanced bookmarks
+
+\usepackage{fancyvrb}
+\usepackage[%
+  series={A,B,C},%nur die Apparate A B C aktivieren
+  noend,%keine Endotenapparate
+  noeledsec%keine eledsections et al.
+  %noledgroup%keine ledgroups -- das muss hier auskommentiert werden, damit die minipages funktionieren!
+]{reledmac}%
+\usepackage{reledpar}
 
 \usepackage[
   sort,
