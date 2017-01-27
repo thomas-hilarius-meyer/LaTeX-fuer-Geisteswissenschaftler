@@ -1,12 +1,137 @@
 % !TeX root = lfgw.tex
 %\chapter{Texte parallel setzen}
+
+\newcommand\reledpar{\mbox{\Package{reledpar}}\xspace}
+
+\section{Spalten- oder seitenweise parallelisierte Texte}
 \autor{Philipp Pilhofer}
 
-Das hier wird auf \paket{reledpar} umgestellt ...
+\DefineShortVerb{\+}
 
-\section{Spaltenweise}
+Es gibt mehrere \LaTeX-Pakete, mit denen man Texte spalten- oder seitenweise parallel setzen kann. Hier wird das Paket \reledpar vorgestellt, weil es gut funktioniert, viele Möglichkeiten bietet und auch aktuell noch gewartet wird. Dieses Paket arbeitet eng mit dem im vorangegangenen Kapitel vorgestellten \reledmac-Paket zusammen; daher werden einige der hier besprochenen Befehle und Einstellungen in der \reledmac-Dokumentation erklärt.
+
+Um Texte vertikal zu parallelisieren, ist nicht viel zu tun. Ich gehe hier erst auf die spaltenweise Parallelisierung ein, danach komme ich zur seitenweisen Parallelisierung.
+
+Wie schon für \reledmac gezeigt,%
+\footnote{Im folgenden beziehe ich mich öfters auf den Abschnitt zu den \reledmac-Grundlagen, \cref{apparate-grundlagen-anfang}, \cpagerefrange{apparate-grundlagen-anfang}{apparate-grundlagen-ende}.}
+muß der Text für die linken und rechten Spalten jeweils mit +\beginnumbering+ und +\endnumbering+ eingefasst werden.%
+
+Der Einfachheit halber lassen wir hier die Paragraphen-Einteilung durch +\autopar+ erledigen;
+die Paragraphen werden dann automatisch erkannt und jeweils auf derselben Höhe begonnen. Damit dies auch funktioniert, müssen vor und nach den Paragraphen Leerzeilen stehen.
+
+Die Textabschnitte für die linke Spalte müssen nun noch in eine +Leftside+-Umgebung eingefügt werden, analog die rechte Spalte in eine +Rightside+-Umgebung.
+Diese beiden Umgebungen selbst müssen von einer +pairs+-Umgebung (man beachte die jeweilige Groß-/Kleinschreibung) umfaßt werden.
+
+Die Spalten werden nun mit +\Columns+ ausgegeben. Hier ein Beispiel:
 
 
+%das hier steht hier nur, um die im vorigen Kapitel vorgenommenen Einstellungen zurückzunehmen
+\firstlinenum{5}
+\linenumincrement{5}
+
+\begin{lfgwcode}{}
+\begin{pairs}
+\begin{Leftside}
+\beginnumbering
+\autopar
+\selectlanguage{latin}
+
+Gallia est omnis divisa in partes tres, 
+    quarum unam incolunt Belgae,
+    aliam Aquitani,
+    tertiam, qui ipsorum lingua Celtae, nostra Galli appellantur.
+
+Hi omnes lingua institutis legibus inter se differunt.
+
+\endnumbering
+\end{Leftside}
+
+\begin{Rightside}
+\beginnumbering
+%\pstart
+\autopar
+
+Gallien als ganzes ist in drei Teile gegliedert,
+    deren erster die Belger bewohnen,
+    den zweiten die Aquitanier,
+    den dritten jene, die in ihrer eigenen Sprache Kelten, in der unseren Gallier genannt werden.
+
+Sie alle unterscheiden sich hinsichtlich der Sprache, 
+    der (staatlichen) Einrichtungen und der Gesetze von einander.
+    
+\endnumbering
+\end{Rightside}
+\end{pairs}
+
+\Columns
+\end{lfgwcode}
+
+Dieser Code wird so ausgegeben:
+
+\begin{lfgwprint}{}
+\begin{pairs}
+\begin{Leftside}
+\beginnumbering
+\autopar
+\selectlanguage{latin}
+
+Gallia est omnis divisa in partes tres, 
+    quarum unam incolunt Belgae,
+    aliam Aquitani,
+    tertiam, qui ipsorum lingua Celtae, nostra Galli appellantur.
+
+Hi omnes lingua institutis legibus inter se differunt.
+
+\endnumbering
+\end{Leftside}
+
+\begin{Rightside}
+\beginnumbering
+%\pstart
+\autopar
+
+Gallien als ganzes ist in drei Teile gegliedert,
+    deren erster die Belger bewohnen,
+    den zweiten die Aquitanier,
+    den dritten jene, die in ihrer eigenen Sprache Kelten, in der unseren Gallier genannt werden.
+
+Sie alle unterscheiden sich hinsichtlich der Sprache, 
+    der (staatlichen) Einrichtungen und der Gesetze von einander.
+    
+\endnumbering
+\end{Rightside}
+\end{pairs}
+
+\Columns
+\end{lfgwprint}
+
+Analog zu den oben für \reledmac vorgestellten Optionen gibt es nun für die rechten Spalten analoge Befehle. Für die Zeilenzähler sind dies beispielsweise +\firstlinenumR{<num>}+ und +\linenumincrementR{<num>}+. Bemerkenswert ist vielleicht noch die Paket-Option +movecolumnspositiononrightpage+ für Bücher: Ist diese gesetzt, werden die \enquote{rechten} Spalten auf rechten Seiten links gesetzt, d.h. die \enquote{rechten} Spalten stehen immer auf der Innenseite.
+
+Hier geht's noch weiter ...
+%diverse Optionen besprechen
+%
+%pages-Umgebung, ziemlich einfach machbar ...
+
+%%\begin{lfgwprint}
+%\begin{pages}
+%\begin{Leftside}
+%\beginnumbering
+%der Text für die linken Spalten/Seiten
+%\endnumbering
+%\end{Leftside}
+%
+%\begin{Rightside}
+%\beginnumbering
+%der Text für die rechten Spalten/Seiten
+%\endnumbering
+%\end{Rightside}
+%\end{pages}
+%
+%\Pages
+%%\end{lfgwprint}
+\UndefineShortVerb{\+}
+
+%%%das war früher einmal:
 %Das Paket \paket{parallel} von Matthias Eckermann stellt eine Umgebung 
 %\lstinline/Parallel/ zur Verfügung, in der mit den Befehlen 
 %\lstinline/\ParallelLText{...}/ und 
@@ -56,8 +181,3 @@ Das hier wird auf \paket{reledpar} umgestellt ...
 %\minisec{Das Paket \paket{paracol}}
 %
 %\paket{paracol}
-
-\section{Seitenweise}
-
-%\paket{ledpar}\footcite[175\psqq]{rouquette:2012}
-
