@@ -1,6 +1,8 @@
 % !TeX root = lfgw.tex
-\chapter{Kritische Apparate setzen}
-\dictum[?]{Kritik ist überall, zumal in Deutschland, nötig.}
+
+\chapter[Mehrere Apparate setzen: Erstellen einer kritischen Edition]{Mehrere Apparate setzen:\\Erstellen einer kritischen Edition}
+
+%\dictum[?]{Kritik ist überall, zumal in Deutschland, nötig.}
 
 \autor{Philipp Pilhofer}
 
@@ -114,7 +116,7 @@ erläutert; zudem liegen dem Paket 40 Beispieldateien bei, die viele der
 Konfigurationsmöglichkeiten vorführen.
 
 
-\section{Das Setzen einer Edition mit \LaTeX{} und \reledmac}
+\section{Die Grundlagen}
 
 Auf den folgenden Seiten will ich nicht alle dieser Funktionen vorstellen, sondern nur eine kurze Einführung geben und eine mögliche Grundkonfiguration für eine den Anforderungen entsprechende kritische Edition vorstellen. 
 Davon ausgehend sollte es dann einfach sein, eventuelle Sonderwünsche mit Hilfe der Dokumentation umzusetzen.
@@ -136,7 +138,7 @@ unten eine Zeilenangabe gemacht und das Lemma wiederholt, bevor der Text der Fu�
 
 Der Text der Edition muss zwingend von +\beginnumbering+ \dots{} +\endnumbering+ 
 eingefasst werden. Jeder Paragraph muss mit +\pstart+ begonnen und mit +\pend+ beendet 
-werden. Alternativ kann dies mit \ autopar vereinfacht werden. \cite[17]{reledmac} Die Paragraphen-Nummer kann man automatisch ausgeben lassen, wenn man dies 
+werden. Alternativ kann dies mit +\autopar+ vereinfacht werden. \cite[17]{reledmac} Die Paragraphen-Nummer kann man automatisch ausgeben lassen, wenn man dies 
 möchte.\footnote{Dafür gibt es die Befehle +\numberpstarttrue+ und +\sidepstartnumtrue+. 
   Der erste fügt zu Beginn des Paragraphen die Nummer ein, der zweite schreibt die Nummer an 
 den Rand und schaltet den sichtbaren Zeilenzähler ab.} 
@@ -202,11 +204,13 @@ Mit den nun neu eingeführten Befehlen sieht der Beispielcode so aus:
 
 Das Ergebnis hat sich damit auch verändert und sähe nun folgendermaßen aus:
 
-
 \begin{reledmacbsp}{\bsplineenum}
 \gkk{Τῆς Κιλικίας δὲ τῆς ἔξω τοῦ Ταύρου ἡ μὲν λέγεται τραχεῖα ἡ δὲ πεδιάς;
 τραχεῖα μέν, ἧς ἡ παραλία \alteSeite{} στενή ἐστι καὶ οὐδὲν ἢ σπανίως ἔχει \dots{}}
 \end{reledmacbsp}
+
+
+\section{Die Apparate}
 
 Ich hatte oben drei Apparate erwähnt, die wir für unser Beispiel verwenden wollen: 
 Zeugen-Apparat, Quellen-Apparat und textkritischer Apparat (siehe Seite~\pageref{pil:apparat}). 
@@ -214,6 +218,9 @@ Die letzten beiden haben eine ähnliche Funktionsweise:
 Ein Wort (oder einige Wörter) aus dem Text, das Lemma, soll unten im Apparat mit Zeilenangabe wiedergegeben werden, dahinter folgt eine Art von Kommentar oder Anmerkung 
 zum Lemma. Der erstgenannte Apparat hingegen soll zeilenweise angeben, 
 bei welchen Handschriften (den »Zeugen«) die jeweiligen Zeilen nachgewiesen werden können.
+
+
+\subsection{Quellen- und textkritischer Apparat}
 
 Ich gehe zuerst auf den Quellen-Apparat und den textkritischen Apparat ein. Diese Apparate lassen sich 
 mit dem Befehl +\edtext{<lemma>}{<befehl>}+ ansprechen. +lemma+ ist dabei das Wort (oder die Wörter), 
@@ -247,7 +254,7 @@ nämlich: +\vari[<lemma_kurz>]{<lemma>}{<anm>}+ (die Angabe des abgekürzten Lem
 
 \begin{lfgwcode}{}
 \newcommand\vari[3][]{%
-  \edtext{#2}{\if$#1$\lemma{#2}\else\lemma{#1}\fi
+  \edtext{#2}{\if$#1$#2\else\lemma{#1}\fi
     \Cfootnote{#3}}}
 \end{lfgwcode}
 
@@ -267,7 +274,7 @@ Für den Quellenapparat wählen wir Apparat B und definieren entsprechend den Be
 
 \begin{lfgwcode}{}
 \newcommand\quell[3][]{%
-  \edtext{#2}{\if$#1$\lemma{#2}\else\lemma{#1}\fi
+  \edtext{#2}{\if$#1$#2\else\lemma{#1}\fi
     \Bfootnote{#3}}}
 \end{lfgwcode}
 
@@ -284,14 +291,15 @@ Lemmas und zudem mit einer weiteren Lesart: Handschrift G bietet das \gkk{ἔξ�
 
 Mit beiden Apparaten kommen wir zu diesem Zwischenergebnis:
 
-
-
 \begin{reledmacbsp}{\bsplineenum}
 \gkk{Τῆς \vari{Κιλικίας}{\gkk{Πισιδίας} V} δὲ τῆς \vari{ἔξω}{\emph{del.} G} 
 τοῦ Ταύρου ἡ μὲν λέγεται τραχεῖα ἡ δὲ πεδιάς;
 τραχεῖα μέν, ἧς \quell[\gkk{ἡ \dots{} ἐστι}]{ἡ παραλία \alteSeite{} στενή ἐστι}%
 {Konon Paraliotes, \gkk{Κοσμογραφία} VI 7} καὶ οὐδὲν ἢ σπανίως ἔχει \dots{}}
 \end{reledmacbsp}
+
+
+\subsection{Der Zeugenapparat}
 
 Jetzt benötigen wir nur noch den Zeugen-Apparat. Dieser funktioniert etwas anders als die beiden bisher beschriebenen 
 Apparate. Standardmäßig verwendet \reledmac dafür den Apparat A.\footnote{Dies lässt sich über +\setmsdataseries{<app>}+ ändern.} 
@@ -311,8 +319,7 @@ in V und T sind nur die ersten Zeilen erhalten, in U und G der komplette Text. D
 προσβόρρων πλευρῶν τῶν περὶ Ἴσαυρα καὶ τοὺς Ὁμοναδέας μέχρι τῆς Πισιδίας;
 \end{lfgwcode}
 
-Noch nicht sonderlich schön, aber immerhin technisch vollständig, sieht der Zwischenstand so aus, wie
-auf der nächsten Seite gezeigt.
+Noch nicht sonderlich schön, aber immerhin technisch vollständig, sieht der Zwischenstand so aus:
 
 \label{Pilhofer-Beispiel-Lemma-kurz}%
 \begin{reledmacbsp}{\bsplineenum}
@@ -326,6 +333,9 @@ auf der nächsten Seite gezeigt.
 ἐπίπεδον, καὶ ἔτι ἧς ὑπέρκειται ὁ Ταῦρος οἰκούμενος κακῶς μέχρι καὶ τῶν
 προσβόρρων πλευρῶν τῶν περὶ Ἴσαυρα καὶ τοὺς Ὁμοναδέας μέχρι τῆς Πισιδίας;}
 \end{reledmacbsp}
+
+
+\section{Die satztechnischen Feinheiten}
 
 Nun wollen wir noch einige optische Feinheiten anpassen und die Anmerkungen platzsparender organisieren. 
 Ich stelle hier einige der Möglichkeiten vor. Es kommen nun zahlreiche verschiedene Befehle vor, 
@@ -462,15 +472,6 @@ Man kann sich also die Seite, die Zeile oder die Paragraphennummer eines Labels 
 dies ist eine sehr praktische Funktion, solange der Seiten- und Zeilenumbruch noch nicht 
 feststeht. Eine Reihe weiterer Befehle ermöglicht automatische Querverweise auf Anmerkungen im Apparat, Zeilenenden u.\,v.\,m.
 
-... noch nicht fertig ...
-
-%
-%%\clearpage
-%%\label{kritischeApparate-ergebnis}%
-%%\frame{\includegraphics[page=2,angle=-90,width=\textwidth]{\jobname/XXX.pdf}}
-%%
-%%\vfill
-%%\frame{\includegraphics[page=3,angle=-90,width=\textwidth]{\jobname/XXX.pdf}}
-%
+Viele weitere Einstellungsmöglichkeiten bietet das ausführliche Benutzerhandbuch von +reledmac+. Die wichtigsten Funktionen des Paketes sind hier jedoch schon vorgestellt worden, genug jedenfalls, um eine den technischen und wissenschaftlichen Ansprüchen genügende, sehr schön anzusehende Edition zu erstellen.
 
 \UndefineShortVerb{\+}
