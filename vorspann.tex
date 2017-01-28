@@ -98,31 +98,34 @@ lfgwstyle/.style={%
     colbacklower=white,
     fonttitle=\sffamily\bfseries,
     breakable,
-    label=#1,
+    %label=#1,
 }}
 
 
-\newtcblisting[auto counter]{lfgwexample}[1]{%
-  lfgwstyle,
-  fontupper=\small\ttfamily,
-  sidebyside,
-  listing and text,
-  title=Vollständiges Bsp. \thechapter.\thetcbcounter,
+\newtcblisting[auto counter,number within=chapter]{lfgwexample}[1]{%
+    lfgwstyle,
+    fontupper=\small\ttfamily,
+    sidebyside,
+    listing and text,
+    title=Vollständiges Bsp. \thetcbcounter,
+    #1,
 %text and listing,
 }
 
-\newtcblisting[auto counter]{lfgwcode}[1]{%
-  fontupper=\small\ttfamily,
-  lfgwstyle,
-  listing only,
-  title=Codebsp. \thechapter.\thetcbcounter,
+\newtcblisting[auto counter,number within=chapter]{lfgwcode}[1]{%
+    fontupper=\small\ttfamily,
+    lfgwstyle,
+    listing only,
+    title=Codebsp. \thetcbcounter,
+    #1,
 }
 
-\newtcblisting[auto counter]{lfgwprint}[1]{%
+\newtcblisting[auto counter,number within=chapter]{lfgwprint}[1]{%
     fontupper=\small,
     lfgwstyle,
     text only,
-    title=Bsp. \thechapter.\thetcbcounter,
+    title=Bsp. \thetcbcounter,
+    #1,
 }
 
 
