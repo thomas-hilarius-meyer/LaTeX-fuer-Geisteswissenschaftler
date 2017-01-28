@@ -10,7 +10,7 @@
 
 Es gibt mehrere \LaTeX-Pakete, mit denen man Texte spalten- oder seitenweise parallel setzen kann. Hier wird das Paket \reledpar vorgestellt, weil es gut funktioniert, viele Möglichkeiten bietet und auch aktuell noch gewartet wird. Dieses Paket arbeitet eng mit dem im vorangegangenen Kapitel vorgestellten \reledmac-Paket zusammen; daher werden einige der hier besprochenen Befehle und Einstellungen in der \reledmac-Dokumentation erklärt.
 
-Um Texte vertikal zu parallelisieren, ist nicht viel zu tun. Ich gehe hier erst auf die spaltenweise Parallelisierung ein, danach komme ich zur seitenweisen Parallelisierung.
+Um Texte vertikal zu parallelisieren, ist nicht viel zu tun. Ich gehe hier erst auf die spaltenweise Parallelisierung ein, danach komme ich zur seitenweisen Parallelisierung. Zuerst muß das Paket geladen werden: +\usepackage{reledpar}+.
 
 
 \subsection{Spaltenweise parallelisierte Texte}
@@ -131,9 +131,9 @@ Bemerkenswert ist vielleicht noch die Paket-Option +movecolumnspositiononrightpa
 
 Nach der Lektüre des vorangegangenen Abschnittes ist es sehr einfach, Texte seitenweise zu parallelisieren, was sich vor allem bei Editionen mit Übersetzung anbietet: So kann auf den linken Seiten der Originaltext gedruckt werden, auf der rechten Seite die Übersetzung; die einzelnen Paragraphen stehen, wie im spaltenweise parallelisierten Satz, auf derselben Höhe.
 
-Die Texte müssen, wie im Spaltensatz, in +\beginnumbering+/+\endnumbering+ und +\autopar+ sowie die +Leftside+-/+Rightside+-Umgebung eingefaßt werden. Anders sind hier nur die Namen der äußeren Umgebung, die heißt +pages+, und der Befehl, um alles auszugeben, der lautet +\Pages+
+Die Texte müssen, wie im Spaltensatz, in +\beginnumbering+/+\endnumbering+ und +\autopar+ sowie die +Leftside+-/+Rightside+-Umgebung eingefaßt werden. Anders sind hier nur die Namen der äußeren Umgebung, die heißt statt +pairs+ in diesem Fall +pages+, und der Befehl, um alles auszugeben, lautet statt +\Columns+ +\Pages+.
 
-... und immernoch nicht fertig ...
+
 
 %%\begin{lfgwprint}
 %\begin{pages}
