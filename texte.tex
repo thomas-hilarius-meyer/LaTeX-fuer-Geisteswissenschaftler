@@ -1,4 +1,4 @@
-% !TeX root = lfgw.tex
+% !TEX root = lfgw.tex
 \chapter{Texte schreiben}
 \autor{Thomas H. Meyer}
 
@@ -243,6 +243,168 @@ Texte lassen sich in \LaTeX{} m.\,H. eines hierarchischen Systems von Überschri
  \lstinline/\scriptsize{}/	&	\scriptsize{für Kleingedrucktes} \\
  \lstinline/\tiny{}/		&	\tiny{wirklich winzig} \\
 \end{tabular}
+
+\ifluatex
+
+\section{Normale Schriftarten}
+\label{sec:normale-schriften}
+
+In den 90er Jahren konnte man ein \LaTeX-Dokument sofort an der Schrift erkennen.
+Die meisten Dokumente wurden in der \TeX-Schrift \texttt{Computer Modern Roman} erstellt.
+Man konnte auch andere Schriften installieren, das war aber mit einigem Aufwand verbunden.
+
+Dank \LuaLaTeX{} ist es heutzutage möglich beliebige TrueType oder OpenType Schriften zu benutzen.
+Gleichzeitig nahm die Zahl der qualitativ hochwertigen freien Schriften zu.
+Viele dieser Schriften sind Bestandteil von \TeXLive{} und können so ohne Aufwand benutzt werden.
+
+Ein weiterer Vorteil der OpenType Schriften ist die Verwendung von erweiterten Attributen, 
+so lassen sich z.\,B. unterschiedliche Ziffern auswählen.
+
+\newfontfamily\LIMOfont[Ligatures=TeX,Numbers={Monospaced,OldStyle}]{Linux Libertine O}
+\newfontfamily\LIVOfont[Ligatures=TeX,Numbers={Proportional,OldStyle}]{Linux Libertine O}
+\newfontfamily\LIMLfont[Ligatures=TeX,Numbers={Monospaced,Lining}]{Linux Libertine O}
+\newfontfamily\LIVLfont[Ligatures=TeX,Numbers={Proportional,Lining}]{Linux Libertine O}
+
+  \begin{tabular}{ll}
+    {\LIMOfont 0123456789} &\verb+Numbers={Monospaced,OldStyle}+\\
+    {\LIMLfont 0123456789} &\verb+Numbers={Monospaced,Lining}+\\
+    {\LIVOfont 0123456789} &\verb+Numbers={Proportional,OldStyle}+\\
+    {\LIVLfont 0123456789} &\verb+Numbers={Proportional,Lining}+
+  \end{tabular}
+
+
+\subsection{Die \TeX-User-Group-Schriften}
+
+Verschiedene \TeX-User-Gruppen haben sich zusammengetan um die Weiterentwicklung der 
+\texttt{Computer Modern Roman} zur \texttt{Latin Modern Roman} zu finanzieren.
+Diese Schrift sollte alle Lateinischen Schriftzeichen und Akzente umfassen und 
+somit auch für komplizierte Schriften wie Vietnamesisch geeignet sein.
+
+Nach dem Erfolg dieser Erweiterung wurden dann auch die klassischen PostScript-Schriften überarbeitet.
+Da die Namen rechtlich geschützt sind, wurden ähnlich klingende Namen gewählt,
+die mit etwas Fantasie den Rückschluss auf die Originalnamen zulassen.
+Diese Schriften wurden in der \texttt{TeX Gyre} Familie zusammengefasst.
+
+Im Jahre 2007 wurde von MircoSoft \Program{Office 2007} eingeführt und damit eine 
+Kodierung für mathematische Zeichensätze definiert.
+In der Folge entstand ein Mathematikzeichensatz für \texttt{Latin Modern Roman} sowie etwas später 
+entsprechende Zeichensätze für die weiteren Schriften.
+
+\newfontfamily\LMRfont[Ligatures=TeX,Numbers={Proportional,OldStyle}]{Latin Modern Roman}
+\newfontfamily\ADfont[Ligatures=TeX,Numbers={Proportional,OldStyle}]{TeX Gyre Adventor}
+\newfontfamily\BOfont[Ligatures=TeX,Numbers={Proportional,OldStyle}]{TeX Gyre Bonum}
+\newfontfamily\CHfont[Ligatures=TeX,Numbers={Proportional,OldStyle}]{TeX Gyre Chorus}
+\newfontfamily\CUfont[Ligatures=TeX,Numbers={Proportional,OldStyle}]{TeX Gyre Cursor}
+\newfontfamily\HEfont[Ligatures=TeX,Numbers={Proportional,OldStyle}]{TeX Gyre Heros}
+\newfontfamily\PAfont[Ligatures=TeX,Numbers={Proportional,OldStyle}]{TeX Gyre Pagella}
+\newfontfamily\SCfont[Ligatures=TeX,Numbers={Proportional,OldStyle}]{TeX Gyre Schola}
+\newfontfamily\TEfont[Ligatures=TeX,Numbers={Proportional,OldStyle}]{TeX Gyre Termes}
+
+\begin{tabular}{llll}
+Schriftname & Buchstaben & Textziffern \\\hline
+\LMRfont Latin Modern Roman	&\LMRfont abcdef ABCDEF 	&\LMRfont 1234567890 \\
+\ADfont TeX Gyre Adventor	&\ADfont abcdef ABCDEF 	&\ADfont 1234567890 \\
+\BOfont TeX Gyre Bonum		&\BOfont abcdef ABCDEF 	&\BOfont 1234567890 \\
+\CHfont TeX Gyre Chorus		&\CHfont abcdef ABCDEF 	&\CHfont 1234567890 \\
+\CUfont TeX Gyre Cursor		&\CUfont abcdef ABCDEF 	&\CUfont 1234567890 \\
+\HEfont TeX Gyre Heros		&\HEfont abcdef ABCDEF 	&\HEfont 1234567890 \\
+\PAfont TeX Gyre Pagella	&\PAfont abcdef ABCDEF 	&\PAfont 1234567890 \\
+\SCfont TeX Gyre Schola		&\SCfont abcdef ABCDEF 	&\SCfont 1234567890 \\
+\TEfont TeX Gyre Termes		&\TEfont abcdef ABCDEF 	&\TEfont 1234567890 \\
+\end{tabular} 
+
+\subsection{Weitere \TeXLive-Schriften}
+
+\TeXLive{} bringt bereits eine große Auswahl an Schriften mit.
+Der Unterbaum \texttt{fonts} ist mit knapp 2 GigaByte das zweitgrößte Verzeichnis.
+Hier lohnt sich der Blick in die Unterverzeichnisse \texttt{truetype} und \texttt{opentype}.
+ 
+\newfontfamily\LLfont[Ligatures=TeX,Scale=0.9,Numbers={Proportional,OldStyle}]{Linux Libertine O}
+\newfontfamily\LBfont[Ligatures=TeX,Scale=0.9,Numbers={Proportional,OldStyle}]{Linux Biolinum O}
+\newfontfamily\OSfont[Ligatures=TeX,Scale=0.9,Numbers={Proportional,OldStyle}]{Old Standard TT}
+\newfontfamily\APfont[Ligatures=TeX,Scale=0.9,Numbers={Proportional,OldStyle}]{Antykwa Poltawskiego}
+\newfontfamily\ATfont[Ligatures=TeX,Scale=0.9,Numbers={Proportional,OldStyle}]{Antykwa Torunska}
+\newfontfamily\FSEfont[Ligatures=TeX,Scale=0.9,Numbers={Proportional,OldStyle}]{FreeSerif}
+\newfontfamily\FSAfont[Ligatures=TeX,Scale=0.9,Numbers={Proportional,OldStyle}]{FreeSans}	
+\newfontfamily\FMfont[Ligatures=TeX,Scale=0.9,Numbers={Proportional,OldStyle}]{FreeMono}
+\newfontfamily\PSEfont[Ligatures=TeX,Scale=0.9,Numbers={Proportional,OldStyle}]{PT Serif}
+\newfontfamily\PSAfont[Ligatures=TeX,Scale=0.9,Numbers={Proportional,OldStyle}]{PT Sans}	
+\newfontfamily\PMfont[Ligatures=TeX,Scale=0.9,Numbers={Proportional,OldStyle}]{PT Mono}
+\newfontfamily\DVSEfont[Ligatures=TeX,Scale=0.8,Numbers={Proportional,OldStyle}]{DejaVu Serif}
+\newfontfamily\DVSAfont[Ligatures=TeX,Scale=0.8,Numbers={Proportional,OldStyle}]{DejaVu Sans}
+\newfontfamily\DVSMfont[Ligatures=TeX,Scale=0.8,Numbers={Proportional,OldStyle}]{DejaVu Sans Mono}
+\newfontfamily\Junicodefont[Ligatures=TeX,Scale=0.9,Numbers={Proportional,OldStyle}]{Junicode}
+\newfontfamily\Gentiumfont[Ligatures=TeX,Scale=0.9,Numbers={Proportional,OldStyle}]{Gentium Basic}
+
+\noindent
+\begin{tabular}{lllll}
+Schriftname & Buchstaben & Griechisch & Kyrillisch & Textziffern \\\hline
+\LLfont Linux Libertine O	&\LLfont abce ABCD 	&\LLfont αβγδΑΒΓ	&\LLfont абвгдАБВГ &\LLfont 1234567890 \\
+\LBfont Linux Biolinum O	&\LBfont abce ABCD 	&\LBfont αβγδΑΒΓ	&\LBfont абвгдАБВГ &\LBfont 1234567890 \\
+\OSfont Old Standard TT		&\OSfont abce ABCD 	&\OSfont αβγδΑΒΓ	&\OSfont абвгдАБВГ &\OSfont 1234567890 \\
+\ATfont Antykwa Torunska 	&\ATfont abce ABCD 	&\ATfont αβγδΑΒΓ	&\ATfont абвгдАБВГ &\ATfont 1234567890 \\
+\FSEfont FreeSerif 		&\FSEfont abce ABCD 	&\FSEfont αβγδΑΒΓ	&\FSEfont абвгдАБВГ &\FSEfont 1234567890 \\
+\FSAfont FreeSans 		&\FSAfont abce ABCD 	&\FSAfont αβγδΑΒΓ	&\FSAfont абвгдАБВГ &\FSAfont 1234567890 \\
+\FMfont FreeMono 		&\FMfont abce ABCD 		&\FMfont αβγδΑΒΓ	&\FMfont абвгдАБВГ &\FMfont 1234567890 \\
+\DVSEfont DejaVu Serif 	&\DVSEfont abce ABCD 	&\DVSEfont αβγδΑΒΓ	&\DVSEfont абвгдАБВГ &\DVSEfont 1234567890 \\
+\DVSAfont DejaVu Sans 	&\DVSAfont abce ABCD 	&\DVSAfont αβγδΑΒΓ	&\DVSAfont абвгдАБВГ &\DVSAfont 1234567890 \\
+\DVSMfont DejaVu Sans Mono &\DVSMfont abce ABCD	&\DVSMfont αβγδΑΒΓ	&\DVSMfont абвгдАБВГ &\DVSMfont 1234567890 \\
+\PSEfont PT Serif 		&\PSEfont abce ABCD 	&\PSEfont			&\PSEfont абвгдАБВГ &\PSEfont 1234567890 \\
+\PSAfont PT Sans 		&\PSAfont abce ABCD 	&\PSAfont			&\PSAfont абвгдАБВГ &\PSAfont 1234567890 \\
+\PMfont PT Mono 		&\PMfont abce ABCD 		&\PMfont			&\PMfont абвгдАБВГ &\PMfont 1234567890 \\
+\APfont Antykwa Poltawskiego &\APfont abce ABCD	&\APfont αβγδΑΒΓ	&\APfont            &\APfont 1234567890 \\
+\Junicodefont Junicode 	&\Junicodefont abce ABCD	&\Junicodefont αβγδΑΒΓ &\Junicodefont	&\Junicodefont 1234567890 \\
+\Gentiumfont Gentium Basic &\Gentiumfont abce ABCD	&\Gentiumfont		&\Gentiumfont       &\Gentiumfont 1234567890 \\
+\end{tabular}
+
+\iffalse
+\subsection{Freie Schriften aus dem Internet}
+
+\newfontfamily\CHAfont[Ligatures=TeX,Numbers={Proportional,OldStyle},Renderer=ICU]{Charis SIL}
+\newfontfamily\ABfont[Ligatures=TeX,Numbers={Proportional,OldStyle}]{Andika}
+\newfontfamily\Gentiumplusfont[Ligatures=TeX,Numbers={Proportional,OldStyle}]{Gentium Plus}
+\newfontfamily\Cardofont[Ligatures=TeX,Numbers={Proportional,OldStyle}]{Cardo}
+\newfontfamily\VKfont[Ligatures=TeX,Numbers={Proportional,OldStyle}]{Vollkorn}
+
+Es gibt eine große Auswahl an Schriften im Internet.
+Bei der Verwendung ist unbedingt vorher die Lizenz zu überprüfen.
+
+Viele Schriften werden unter der Open Font License veröffentlicht, diese kann man problemlos benutzen.
+SIL \url{http://software.sil.org/products/} bietet eine große Auswahl an Schriften mit einem großen Zeichenumfang.
+Hier finden sich auch Spezialschriften für Griechische und Hebräische Texte.
+Die ersten drei Schriften stammen von SIL.
+
+Hier ein paar Beispiele:
+
+\begin{labeling}{Gentium Plus}
+\item[Gentium Plus] Die Gentium Basic aus \TeXLive{} enthält nur lateinische Zeichen, 
+	die Plus Version hat ein deutlich größeres Repertoire.
+\item[Charis SIL] Eine gut lesbare Schrift mit einem umfangreichen Zeichenvorrat, 
+	es fehlen allerdings ein paar griechische Buchstaben. 
+\item[Andika] Diese Schrift wurde für Leseanfänger entwickelt. 
+	Hier wurde großen Wert auf unterschiedliche Formen ähnlicher Buchstaben geachtet.
+	Andika: {\ABfont Il1 bd qp} Heros: {\HEfont Il1 bd qp}.
+	Auch hier sind die griechischen Buchstaben nicht komplett.
+\item[Cardo] Diese Schrift wurde speziell für Mediävisten entwickelt. 
+ Download unter: \url{http://scholarsfonts.net/index.html}
+\item[Vollkorn] Eine Brotschrift, also eine Schrift mit der ein Sätzer sein Brot verdient. 
+	In diesem Fall ist es das Vollkornbrot des Schriftdesigners Friedrich Althausen.
+	Auch diese Schrift hat in der Version 3 einen großen Zeichenvorrat. 
+	Download unter \url{http://vollkorn-typeface.com/}
+\end{labeling}
+
+\noindent
+\begin{tabular}{lllll}
+Schriftname & Buchstaben & Griechisch & Kyrillisch & Textziffern \\\hline
+\Gentiumplusfont Gentium Plus		&\Gentiumplusfont abce ABCD &\Gentiumplusfont αβγδΑΒΓ	&\Gentiumplusfont абвгдАБВГ &\Gentiumplusfont 1234567890 \\
+\CHAfont Charis SIL	&\CHAfont abcde ABCD &\CHAfont αβγδΑΒΓ &\CHAfont абвгдАБВГ &\CHAfont 1234567890 \\
+\ABfont Andika		&\ABfont abcde ABCD 	&\ABfont αβγδΑΒΓ &\ABfont абвгдАБВГ &\ABfont 1234567890 \\
+\Cardofont Cardo 	&\Cardofont abcde ABCD 	&\Cardofont αβγδΑΒΓ	&\Cardofont абвгдАБВГ &\Cardofont 1234567890 \\
+\VKfont Vollkorn	&\VKfont abcde ABCD 	&\VKfont αβγδΑΒΓ &\VKfont абвгдАБВГ &\VKfont 1234567890 \\
+\end{tabular}
+\fi
+
+\fi
 
 
 \section{Besondere Schriftarten}
