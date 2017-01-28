@@ -272,10 +272,52 @@ so lassen sich z.\,B. unterschiedliche Ziffern auswählen.
     {\LIVLfont 0123456789} &\verb+Numbers={Proportional,Lining}+
   \end{tabular}
 
+\LuaLaTeX{} kennt drei verschiedene Schriften, siehe \ref{lst:luatex-schriften}.
+Diese werde von \LaTeX{} für die entsprechenden Befehle benutzt.
+Der Befehl \cs{setsansfont} definiert die Schrift für \cs{textsf},
+\cs{setmonofont} die Schrift für \cs{texttt} und \cs{setromanfont} die normale Textschrift.
+
+Die Option \texttt{[Ligature=TeX]} aktiviert ein paar Ligaturen, 
+die die Eingabe von Text erleichtern und bei den Standard \LaTeX{}-Schriften ebenfalls definiert waren.
+Aus der Eingabe \verb+--+ wird ein \enquote{--}, aus der Eingabe \verb+---+ wird ein \enquote{---}.
+Diese Definition sorg manchmal für Überraschungen, 
+da auch \verb+!`+ zu \enquote{!`} und \verb+?`+ zu \enquote{?`} gewandelt wird.
+Gibt man den Text direkt in Unicode ein, kann man auf die Ligaturen verzichten.
+In vielen alten Texten werden sie jedoch verwendet, daher diese Option.
+
+Außerdem ist es möglich zusätzliche Schriftfamilien zu definieren, 
+diese können dann für andere Sprachen benutzt werden, 
+wenn die Hauptschrift nicht über die benötigten Zeichen verfügt.
+Oder man definiert für Tabellen eine eigene Schrift, 
+damit alle Ziffern die gleiche Breite haben. 
+
+\begin{lfgwcode}{label={lst:luatex-schriften}}
+  \setromanfont[Ligatures=TeX]{Linux Libertine}
+  \setsansfont[Ligatures=TeX]{Linux Libertine}
+  \setmonofont[Ligatures=TeX]{Linux Libertine}
+  \newfontfamily\LITABfont[Ligatures=TeX,Numbers={Monospaced,Lining}]{Linux Libertine}
+\end{lfgwcode}
+
+Benötigt man nur eine Schrift, weil es z.\,B. keine kursive oder fette Variante der Schrift gibt,
+so reicht der \cs{newfonface}-Befehl.
+Für arabische, hebräische oder chinesische Schriften gibt es normalerweise nur eine Variante.
+Gleiches gilt für Symbolschriften wir im Beispiel \ref{lst:luatex-schriften-einzel}.
+In diesem Fall wäre es aber besser gewesen das \paket{fontawesome} Paket zu verwenden, 
+mit diesem kann man die Symbole mit ihrem Namen ansprechen.
+
+\begin{lfgwcode}{label={lst:luatex-schriften-einzel}}
+ \newfontface\AWsome{FontAwesome}
+\end{lfgwcode}
+
 Für viele der hier vorgestellten Schriften gibt es auch \LaTeX-Pakete, 
-die die Verwendung mit \pdfLaTeX{} ermöglichen. 
+die die Verwendung mit \pdfLaTeX{} ermöglichen (siehe \ref{lst:pdflatex-schriften}). 
 Dann stehen aber weniger Optionen zur Verfügung.
 So fehlen z.\,B. die nichtlateinischen Buchstaben und es gibt nur eine Art Ziffern.
+
+\begin{lfgwcode}{label={lst:pdflatex-schriften}}
+  \usepackage{libertine}
+\end{lfgwcode}
+
 
 \subsection{Die \TeX-User-Group-Schriften}
 
