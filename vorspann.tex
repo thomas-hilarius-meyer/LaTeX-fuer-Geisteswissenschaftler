@@ -238,6 +238,15 @@ lfgwstyle/.style={%
 ]{reledmac}%
 \usepackage{reledpar}
 
+%
+% Definition in vorspann.tex damit es in 
+% paralleleTexte und kritischeApparate verfügbar ist.
+%
+% Solche Abkürzungen sind aber kein guter Stil und führen
+% leicht zu Problemen, wie man im vorherigen Commit sehen kann.
+%
+\newcommand\reledmac{\mbox{\Package{reledmac}}\xspace}
+
 \usepackage[
   sort,
   nameinlink
