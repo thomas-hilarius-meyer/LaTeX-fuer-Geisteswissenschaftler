@@ -15,6 +15,15 @@ der Satz von komplexen mathematischen Formeln und Gleichungen.
 
 \dictum[Louis Sullivan]{Form follows function.}
 
+Der Grundgedanke bei der Benutzung von \LaTeX\ ist, dass sich der Autor um die inhaltliche Seite seines
+Textes kümmert, und die typographische Aufbereitung den Algorithmen der Software überlässt, 
+die aus der ihr mitgeteilten logischen Struktur anhand der traditionellen Regeln funktionaler Setzerkunst 
+eine schön -- im Sinne funtionaler Ästhetik -- aufbereitete Druckfassung erstellt.
+
+Dieser Ansatz widerspricht der der weitverbreiteten Do-it-yourself-Mentalität der Typographie des
+PC-Zeitalters, die im sehr lesenswerten Leitfaden \enquote{Erste Hilfe Typographie} der Setzer-Koryphäen
+Hans Peter Willberg und Friedrich Forssmann karikiert wird:
+
 \begin{quote}
  Das Selbermachen ist längst üblich, die Ergebnisse sind oft fragwürdig,
  weil die Laien-Typografen nicht sehen, was nicht stimmt und nicht wissen
@@ -33,8 +42,14 @@ der Satz von komplexen mathematischen Formeln und Gleichungen.
  \footcite[86]{erste_hilfe}
 \end{quotation}
 
+Natürlich beinhaltet auch eine moderne \LaTeX -Installation keine künstliche Intelligenz mit 
+vollständiger Setzerlehre und vor allem sind die Spezialanforderungen gerade an die Satzerstellung im
+humanwissenschaftlichen Bereich so speziell und individuell, dass es gelegentlich nicht ohne 
+\enquote{Selbermachen} und \enquote{Basteln} geht, aber dennoch ist es wichtig, sich den Grundsatz
+klarzumachen: In einem \LaTeX -Dokument wird primär der \emph{Inhalt} ausgezeichnet, und erst sekundär
+die Repräsentation der inhaltlichen Struktur in ein Druckbild.
 
-Längeres Zitat aus Erste Hilfe Typographie o.\,ä.
+Um was geht es im einzelnen beim Erstellen von Texten mit \LaTeX ? 
 
 
 \section{Wahl der Dokumentklasse}
@@ -45,7 +60,7 @@ Welche Gliederungsebenen sind vorgesehen, wie ist die grundsätzliche Formatieru
 
 Es existiert eine sehr große Vielzahl von verschiedenen Dokumentklassen;
 so gibt es für Hausarbeiten oder Dissertationen zahlreicher Universitäten eine eigene
-Dokumentklasse. Existiert eine solche, sollte man sie i.\,d.R. auch benutzen.
+Dokumentklasse. Existiert eine solche, sollte man sie i.\,d.\,R. auch benutzen.
 
 Die folgende Einführung beschränkt sich auf die Klassen des \KOMAScript-Paketes von
 Markus Kohm, weil diese eine überragende typographische Qualität sowie zahllose Möglichkeiten
@@ -67,11 +82,32 @@ Prüfungen.
 \end{labeling}
 
 
-\minisec{Zum Unterschied zwischen KLASSE und Paket}
+\minisec{Zum Unterschied zwischen \enquote{Klasse} und \enquote{Paket}}
 
-Eine \textbf{Dokumentklasse} ...
+\dictum[Goethe, Faust 1337]{Was ist mit diesem Rätselwort gemeint?}
 
-\textbf{Pakete} ...
+In \LaTeX -Kreisen ebenso wie innerhalb dieser Anleitung ist häufig von \enquote{Paketen} die Rede,
+die \enquote{geladen} werden müssen, um eine bestimmte Funktionalität zu gewährleisten.
+Andererseits stellen zahlreiche \enquote{Klassen} bereits Features zur Verfügung etc. 
+-- wie sind diese Begriffe zu verstehen?
+
+Eine \textbf{Dokumentklasse} definiert die grundlegende Struktur zur Bearbeitung einer Textgattung
+mit Hilfe von \LaTeX . Das kann ganz allgemein sein -- wie die ursprünglichen Standardklassen book, report, 
+article -- oder sehr speziell -- wie die Vorlage einer Dissertation in Elektrotechnik an einer ganz
+bestimmten Technischen Hochschule.
+
+Grundsätzlich gilt: Je spezieller eine Dokumentklasse ist, desto genauer passt sie zu einer spezifischen
+Aufgabenstellung und desto eher wird sie spezifische Sonderanforderungen befriedigen -- bis hin zur
+Integration des Universitätslogos etc.
+Je allgemeiner eine Klasse ist, desto eher wird man bei Spezialbedürfnissen darauf angewiesen sein,
+diese auf anderem Wege zu implementieren.
+Jetzt kommen die sog. Pakete ins Spiel:
+
+\textbf{Pakete} erweitern die Funktionalität einer beliebigen Dokumentklasse um einzelne, meist
+thematisch zusammenhängende Features. Beispiele sind etwa die Möglichkeit zur Einbindung von
+Grafiken, die Erstellung von Registern, bessere Möglichkeiten zur Erstellung von komplexen Tabellen etc.
+Die meisten in dieser Anleitung vorgestellten Möglichkeiten basieren auf besonderen Paketen, die
+oftmals von und für Geisteswissenschaftler[n] entwickelt wurden.
 
 
 \section{Nationale Besonderheiten -- das Paket \paket{babel}}
@@ -682,6 +718,11 @@ Man beachte den Unterschied:
  Wort3%
  Wort4
 \end{LTXexample}
+
+
+\minisec{Spatiierung bei Abkürzungen}
+
+\cs{\,} setzt ein...
 
 
 \minisec{Sonderzeichen für Germanisten}
