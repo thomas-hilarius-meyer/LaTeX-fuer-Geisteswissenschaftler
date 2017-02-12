@@ -1,4 +1,5 @@
 % !TEX root = lfgw.tex
+
 \chapter{Texte schreiben}
 \autor{Thomas H. Meyer}
 
@@ -96,6 +97,9 @@ mit Hilfe von \LaTeX . Das kann ganz allgemein sein -- wie die ursprünglichen S
 article -- oder sehr speziell -- wie die Vorlage einer Dissertation in Elektrotechnik an einer ganz
 bestimmten Technischen Hochschule.
 
+Die gewünsche Dokumentklasse wird ganz am Anfang angegeben durch das Kommando
+\lstinline/\documentclass[Optionen]{NAME}/.
+
 Grundsätzlich gilt: Je spezieller eine Dokumentklasse ist, desto genauer passt sie zu einer spezifischen
 Aufgabenstellung und desto eher wird sie spezifische Sonderanforderungen befriedigen -- bis hin zur
 Integration des Universitätslogos etc.
@@ -109,27 +113,35 @@ Grafiken, die Erstellung von Registern, bessere Möglichkeiten zur Erstellung vo
 Die meisten in dieser Anleitung vorgestellten Möglichkeiten basieren auf besonderen Paketen, die
 oftmals von und für Geisteswissenschaftler[n] entwickelt wurden.
 
+Das \enquote{Laden} eines Paketes erfolgt durch den Befehl \lstinline/\usepackage[Optionen]{<PAKETNAME>}/
 
-\section{Nationale Besonderheiten -- das Paket \paket{babel}}
+
+\section{Nationale Besonderheiten -- das Paket babel}
 \label{babel}
 
-\dictum[HPW 104]{Wenn ich nur das Wort Europa höre, entsichere ich meine Dicke Bertha.}
+\dictum[Gen 11,7]{Wohlan, lasst uns hinabfahren und daselbst ihre Sprache verwirren, dass keiner mehr 
+    des anderen Sprache verstehe.}
 
-\paket{babel}
+Das vielleicht wichtigste Paket, das in praktisch jedem Dokument zu laden heißt \paket{babel}.
+Es sorgt dafür, dass \LaTeX\ an die verschiedenen nationalsprachlichen Besonderheiten angepasst wird.
+Das betrifft auch automatisch eingesetzte Begriffe wie \enquote{Kapitel} statt \enquote{chapter} sowie
+sprachspezifische typographische Regelungen.
 
-Aufruf: \lstinline/\usepackage[<Liste mit benutzen Sprachen>]{babel}/ 
+Der Aufruf des Paketes \paket{babel} erfolgt wie bei allen Paketen: 
+\lstinline/\usepackage[<Liste mit benutzen Sprachen>]{babel}/ 
 
 Babel unterstützt eine ganze Reihe von Sprachen; für Geisteswissenschaftler am wichtigsten sind
 wohl:
 
-\begin{description}
+\begin{labeling}{polutonikogreek}
  \item[german] Deutsch, alte Rechtschreibung (1901)
  \item[ngerman] Deutsch gemäß der Rechtschreibreform von 1996
  \item[greek] Neugriechisch (nur Akut, keine \emph{spiritus}, wahrscheinlich auch kein \emph{Iota subscriptum})
 %von Philipp angepaßt, war vorher:
 % \item[polutonikogreek] (XXX was ist der Unterschied)
- \item[greek.ancient oder polutonikogreek] Altgriechisch (Akut, Gravis, Zirkumflex; spiritus lenis und asper; Iota subscriptum)
-\end{description}
+ \item[greek.ancient] oder \ldots 
+ \item[polutonikogreek] Altgriechisch (Akut, Gravis, Zirkumflex; spiritus lenis und asper; Iota subscriptum)
+\end{labeling}
 
 Die als letztes genannte Sprache stellt die Standardsprache des Dokuments (die am Anfang
 eingestellt ist) dar.
@@ -138,26 +150,29 @@ Auch der Dokumentklasse sollte man die Standardsprache des Dokumentes bekanntgeb
 Denn zahlreiche Pakete , die später geladen werden, werten diese Sprachoption aus und 
 passen sich an (z.\,B. \paket{varioref}).
 
-Somit ergibt sich folgender Typische Dokumentbeginn:
+Somit ergibt sich folgender typische Dokumentbeginn:
 
-\begin{lstlisting}
+\begin{lfgwcode}{label={lis:dokumentbeginn}}
  \documentclass[ngerman]{scrreprt}
  \usepackage[polutonikogreek,ngerman]{babel}
-\end{lstlisting}
+\end{lfgwcode}
+
+(Wenn keine griechischen Einschübe benutzt werden, kann die Angabe von \lstinline/polutonikogreek/
+natürlich wegbleiben.)
+
 
 \minisec{Wechsel zu einer anderen Sprache}
 
 Im laufenden Dokument kann auf eine der im Paketaufruf angegebenen Sprachen umgeschaltet werden:
 
-\begin{lstlisting} 
+\begin{lfgwcode}{label={lis:sprachumschaltung}}
  \selectlanguage{polutonikogreek}
-\end{lstlisting}
+\end{lfgwcode}
 
 
-
-\minisec{Alternative: Das Paket \paket{polyglossia}}
-
-\paket{polyglossia}
+%\minisec{Alternative: Das Paket \paket{polyglossia}}
+%
+%\paket{polyglossia}
 
 
 \section{Seitengestaltung und Seitenspiegel}
@@ -165,16 +180,29 @@ Im laufenden Dokument kann auf eine der im Paketaufruf angegebenen Sprachen umge
 \index{Seitenspiegel} \index{Goldener Schnitt}
 
 Die folgenden Angaben sind nur von Interesse, wenn man als Papierformat nicht Din"~A4-Papier 
-nutzen will.
+nutzen will und/oder nicht die eingebauten Satzspiegelkonstruktionen verwenden kann.
+In den allermeisten Fällen empfiehlt es sich, den Vorgaben insbesondere der Dokumentklassen von
+\KOMAScript{} zu überlassen, wie das Verhältnis von bedrucktem Bereich und Rändern aufzuteilen ist,
+da der Klassenautor Markus Kohm sehr viel Aufwand in die Definition des Satzspiegels gesteckt hat und
+klassische Ideale wie den Goldenen Schnitt berücksichtigt.
 
-\KOMAScript{}
+Dazu reicht es, bei der Angabe der Dokumentklasse das Papierformat als Option \lstinline/paper=.../ anzugeben.
+Vordefiniert sind: letter, legal, executive, a0, a1, a2, a3, a4, a5, a6, a7, a8, b0 bis b8, c0 bis c8 und
+d0 bis d8. 
 
+Außerdem ist es möglich, die Breite und Höhe des Papiers direkt anzugeben:
+\lstinline/paper=200mm:200mm/.
 
-\minisec{Einstellen des Papierformats}
+Lediglich, wenn z.\,B. spezielle Vorgaben des Verlages es erforderlich machen, empfiehlt es sich
+die Einstellungen der Seitenränder sowie ihrer zahlreichen Bestandteile (Marginalspalten, Bereiche
+für Fußnoten und Seitenzahlen, Kolumnentitel usw.) direkt zu verändern.
+ 
 
-\paket{geometry}
-\index{Papierformat}
+\minisec{Direktes Einstellen des Papierformats und Satzsspiegels}
 
+Dies lässt sich am einfachsten mit Hilfe des Paketes \paket{geometry} von Hideo Umeki erreichen.
+Mit seiner Hilfe ist es problemlos möglich, besondere Wünsche des Verlages hinsichtlich der Satzspiegelgestaltung zu erfüllen. Das Paket übergibt dem Nutzer die volle Kontrolle über die
+Randeinstellungen -- überlässt ihm aber auch die ganze Verantwortung in ästhetischer Hinsicht.
 
 \minisec{Beschnittmarken}
 \index{Beschnittmarken}
@@ -186,31 +214,25 @@ nutzen will.
 
 \section{Textgliederung}
 
-\begin{lstlisting}
+\begin{lfgwcode}{}
+ \begin{document}
  \part{Ein Teil des Teils}
- 
  \chapter{Ein Kapitel}
- 
  \section{Ein Abschnitt}
- 
  \subsection{Ein Unterabschnitt}
- 
  \subsubsection{Ein kleiner Unterabschnitt}
  
  \chapter*{Ein Kapitel ohne Eintrag im Inhaltsverzeichnis}
- 
  \section*{Ein Abschnitt ohne Eintr. im Inhaltsverz.}
- 
  \subsection*{Ein Unterabs. o. E. im Iv.}
- 
  \subsubsection*{Ein kleiner Unterabschnitt o.\,E.i.\,I.}
  
  \chapter[Kurzfssg. f. d. Kolumnentitel]{Ein Kapitel}
- 
  \section[Kurzfssg. f. d. Kolumnentitel]{Ein Abschnitt}
- 
  \subsection[Kurzfssg. f. d. Kolumnentitel]{Ein Unterabschnitt}
-\end{lstlisting}
+ 
+ \end{document}
+\end{lfgwcode}
 
 Texte lassen sich in \LaTeX{} m.\,H. eines hierarchischen Systems von Überschriften gliedern:
 
