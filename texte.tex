@@ -115,6 +115,11 @@ oftmals von und für Geisteswissenschaftler[n] entwickelt wurden.
 
 Das \enquote{Laden} eines Paketes erfolgt durch den Befehl \lstinline/\usepackage[Optionen]{<PAKETNAME>}/
 
+Dokumentklassen und Pakete enthalten in der Regel eine ziemlich gute Dokumentation, die man
+ggf. zu Rate ziehen sollte, um ihren vollen Funktionsumfang ausnutzen zu können.%
+\footnote{Wie kann man die Paketdokumentation aufrufen? 
+    Vgl. hierzu \ref{paketdoku} auf S. \pageref{paketdoku} }
+
 
 \section{Nationale Besonderheiten -- das Paket babel}
 \label{babel}
@@ -206,10 +211,27 @@ Randeinstellungen -- überlässt ihm aber auch die ganze Verantwortung in ästhe
 
 \minisec{Beschnittmarken}
 \index{Beschnittmarken}
-\paket{crop}
+
+Wenn man eine Druckvorlage für ein besonders Papierformat erzeugt, aber seine Korrekturausdrucke
+auf üblichen Din-A-4-Papier erstellt, kann man sich die \enquote{wirklichen} Größenverhältnisse von
+Textblöcken und Rändern oft nicht gut vorstellen.
+
+Hier hilft das Paket \paket{crop}, das Randmarkierungen, sog. Beschnittmarken, in verschiedener
+Ausprägung erzeugt, wie sie auch von manchen Buchbindereien gewünscht werden, um den Buchblock
+präzise auf das endgültige Maß zuschneiden zu können.
 
 
 \minisec{Ein- oder zweiseitiges Layout}
+
+Bei der Einstellung der Dokumentklasse kann durch die Optionen \lstinline/oneside/ bzw.
+\lstinline/twoside/ ein- bzw. zweiseitiges Layout verlangt werden.
+
+Beim einseitigen Layout sind alle Seiten gleich gestaltet, während beim zweiseitigen Layout zwischen
+linken und rechten Seiten unterschieden wird. Definitionsgemäß haben \enquote{linke} Seiten gerade
+Seitenzahlen und \enquote{rechte} Seiten ungerade.
+
+Die Unterscheidung hat z.\,B. auf die Positionierung der Seitenzahlen (mittig oder außen), 
+Kolumnentitel und Marginalien Einfluss.
 
 
 \section{Textgliederung}
@@ -236,8 +258,8 @@ Randeinstellungen -- überlässt ihm aber auch die ganze Verantwortung in ästhe
 
 Texte lassen sich in \LaTeX{} m.\,H. eines hierarchischen Systems von Überschriften gliedern:
 
-\begin{description}
- \item[1-9] Texte der Kategorien 
+\begin{labeling}{Hummel}
+ \item[2-6] Texte der Kategorien 
     \lstinline/book/, 
     \lstinline/scrbook/, 
     \lstinline/report/ und 
@@ -253,10 +275,12 @@ Texte lassen sich in \LaTeX{} m.\,H. eines hierarchischen Systems von Überschri
  gliedern.
  Jede Überschrift beeinflusst die Kolumnentitel (s.\,u.) und erzeugt automatisch einen Eintrag
  im Inhaltsverzeichnis.
- \item[1-9] Die sog. \enquote{Sternvarianten} der Gliederungsbefehle erzeugen die gleiche
+ 
+ \item[8-11] Die sog. \enquote{Sternvarianten} der Gliederungsbefehle erzeugen die gleiche
  Formatierung der Überschriften, hinterlassen aber keinen Eintrag im Inhaltsverzeichnis.
  Außerdem werden die Überschriften nicht nummeriert.
- \item[19-23] Die Kapitel und ggf. Abschnittsüberschriften werden auch als lebende Kolumnentitel
+ 
+ \item[13-15] Die Kapitel und ggf. Abschnittsüberschriften werden auch als lebende Kolumnentitel
  verwendet. Wenn sie dafür zu lang sind, kann man in eckigen Klammern einen alternativen
  Kurztitel zur Verwendung als Kolumnentitel angeben. \index{Kolumnentitel}
 \end{description}
@@ -264,11 +288,17 @@ Texte lassen sich in \LaTeX{} m.\,H. eines hierarchischen Systems von Überschri
 
 
 \section{Schriftauszeichnungen}
-\index{Auzeichnungsschriften}
+\index{Auszeichnungsschriften}
 
 \dictum[Mies van der Rohe]{Weniger ist mehr.}
 
-\minisec{Auszeichnung über Schriftschnitt}
+Innerhalb gedruckter Texte lassen sich auf drei Weisen verschiedene Passagen typographisch voneinander
+absetzen:
+durch eine Veränderung des Schriftschnittes,
+der Schriftgröße und
+der Schriftart.
+
+\subsection{Auszeichnung über Schriftschnitt}
 \index{Schriftschnitt}
 \index{kursiv}
 \index{Kapitälchen}
@@ -286,7 +316,7 @@ Texte lassen sich in \LaTeX{} m.\,H. eines hierarchischen Systems von Überschri
  \end{tabular} 
 
 
-\minisec{Veränderung der Schriftgröße}
+\subsection{Veränderung der Schriftgröße}
 \index{Schriftgröße}
 
 \begin{tabular}{ll}
@@ -304,7 +334,9 @@ Texte lassen sich in \LaTeX{} m.\,H. eines hierarchischen Systems von Überschri
 
 \ifluatex
 
-\section{Normale Schriftarten}
+\subsection{Verschiedene Schriftarten}
+
+\minisec{Normale Schriften}
 \label{sec:normale-schriften}
 
 In den 90er Jahren konnte man ein \LaTeX-Dokument sofort an der Schrift erkennen.
@@ -377,7 +409,7 @@ So fehlen z.\,B. die nichtlateinischen Buchstaben und es gibt nur eine Art Ziffe
 \end{lfgwcode}
 
 
-\subsection{Die \TeX-User-Group-Schriften}
+\minisec{Die \TeX-User-Group-Schriften}
 
 Verschiedene \TeX-User-Gruppen haben sich zusammengetan um die Weiterentwicklung der 
 \texttt{Computer Modern Roman} zur \texttt{Latin Modern Roman} zu finanzieren.
@@ -417,7 +449,7 @@ Schriftname & Buchstaben & Textziffern \\\hline
 \TEfont TeX Gyre Termes		&\TEfont abcdef ABCDEF 	&\TEfont 1234567890 \\
 \end{tabular} 
 
-\subsection{Weitere \TeXLive-Schriften}
+\minisec{Weitere \TeXLive-Schriften}
 
 \TeXLive{} bringt bereits eine große Auswahl an Schriften mit.
 Der Unterbaum \texttt{fonts} ist mit knapp 2 GigaByte das zweitgrößte Verzeichnis.
@@ -462,7 +494,7 @@ Schriftname & Buchstaben & Griechisch & Kyrillisch & Textziffern \\\hline
 \end{tabular}
 
 \iffalse
-\subsection{Freie Schriften aus dem Internet}
+\minisec{Freie Schriften aus dem Internet}
 
 \newfontfamily\CHAfont[Ligatures=TeX,Numbers={Proportional,OldStyle},Renderer=ICU]{Charis SIL}
 \newfontfamily\ABfont[Ligatures=TeX,Numbers={Proportional,OldStyle}]{Andika}
@@ -511,7 +543,7 @@ Schriftname & Buchstaben & Griechisch & Kyrillisch & Textziffern \\\hline
 \fi
 
 
-\section{Besondere Schriftarten}
+\subsection{Schriftarten mit besonderen Anforderungen}
 
 Am bequemsten lassen sich in \LaTeX{} Schriften verwenden, für die bereits ein fertiges
 Paket existiert, dass lediglich in der Präambel eingebunden werden muss.
