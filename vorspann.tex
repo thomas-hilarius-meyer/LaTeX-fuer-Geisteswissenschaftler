@@ -71,7 +71,7 @@ ibycus,polutonikogreek,english,french,latin,ngerman,%global definiert!
   basicstyle=\footnotesize\ttfamily,
   %frame=tlrb,
   breaklines=true,
-  postbreak=\mbox{$\hookrightarrow$},
+  %postbreak=\mbox{$\hookrightarrow$},
   escapeinside={{*@}{@*}},
   %showstringspace=false, 
   captionpos=b,
@@ -107,7 +107,7 @@ lfgwstyle/.style={%
     fontupper=\small\ttfamily,
     sidebyside,
     listing and text,
-    title=Vollständiges Bsp. \thetcbcounter,
+    title=Bsp. \thetcbcounter,
     #1,
 %text and listing,
 }
@@ -155,6 +155,9 @@ lfgwstyle/.style={%
 
 \usepackage{hieroglf}
 
+\usepackage[normalem]{ulem}
+\usepackage{letterspace}
+
 \usepackage[hyphens]{url}
 
 \usepackage{hologo}
@@ -189,8 +192,9 @@ lfgwstyle/.style={%
 \makeindex[name = pakete,  title = {Verzeichnis der Paketnamen}]
 
 \usepackage[%
-%  style=historische-zeitschrift,
-%	style=archaeologie,
+    style=authoryear,  
+%  style=historische-zeitschrift, % das am liebsten - aber der geht (bei mir?) nicht!
+%  style=archaeologie,
 %  pageref=true,
 	backend=biber
 	]{biblatex}
@@ -211,6 +215,7 @@ lfgwstyle/.style={%
 	pdfdisplaydoctitle=true,
 	pdfdate={\the\year-\the\month-\the\day}
 	pdflang={de},
+    pdfencoding=unicode,   % Sorgt für korrekte Umlaute in den pdf-Lesezeichen - thm
 	pdfcaptionwriter={varia},
 	pdfkeywords={{LaTeX}, {Geisteswissenschaften}},
 %	pdfproducer={XeLaTeX},

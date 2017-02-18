@@ -305,21 +305,69 @@ der Schriftart.
 \index{fett}
 \index{Unterstreichung}
 
+Standardmäßig erlaubt \LaTeX\ die typischen Auszeichnungen:
+
+\begin{center}
 \begin{tabular}{lll}
+      Befehl &		Beschreibung & typograph. Bewertung \\
+      \hline
  \lstinline/\emph{}/ 		&	\emph{hervorgehoben} (z.\,B. kursiv in recte-Texten) 		&	+ \\
- \lstinline/\textit{}/		&	\textsl{kursiv} &	-- -- \\
- \lstinline/\textsl{}/		&	\textsl{schräggestellt} &	-- -- \\
- \lstinline/\textsc{}/		&	\textsc{Kapitälchen}	&	+ \\
- \lstinline/\textbf{}/ 		&	\textbf{fett} 		&	+/- \\
- \lstinline/\underline{}/ 	&	\underline{unterstrichen} &	-- \\
- \lstinline/\texttt{}/		&	\texttt{Schreibmaschinenschrift} &	? \\ 
+ \lstinline/\textit{}/		&		\textsl{kursiv} &	-- -- \\
+ \lstinline/\textsl{}/		&		\textsl{schräggestellt} &	-- -- \\
+ \lstinline/\textsc{}/		&		\textsc{Kapitälchen}	&	+ \\
+ \lstinline/\textbf{}/ 		&		\textbf{fett} 		&	+/- \\
+ \lstinline/\underline{}/ 	&		\underline{unterstrichen} &	-- \\
+ \lstinline/\texttt{}/		&		\texttt{Schreibmaschinenschrift} &	? \\
+ \lstinline/\testsuperscript{}/ &	Text\textsuperscript{hochgestellt} &	\\
+ \lstinline/\textsubscript{}/ &		Text\textsubscript{tiefgestellt} & \\
  \end{tabular} 
+\end{center}
+
+\minisec{Unterstreichungen}
+
+In der anspruchsvolleren Typographie gelten Unterstreichungen als verpöntes Überbleibsel
+aus der Schreibmaschinenzeit. Im klassischen Bleisatz wurde nicht mit Unterstreichungen
+gearbeitet.
+
+Dennoch können Unterstreichungen in Sonderfällen sinnvoll sein.
+
+Oftmals wünscht man sich dann sogar eine größere Auswahl an verschiedenen 
+Unterstreichungsarten, um etwa verschiedene Textherkünfte o.ä. markieren zu können.
+
+Abhilfe schafft das Paket \paket{ulem}, das verschiedene Arten der Unterstreichung
+ermöglicht:
+
+\begin{center}
+  \begin{tabular}{ll}
+      Befehl &		Beschreibung \\
+      \hline
+      \lstinline/\uline{text}/ &	\uline{einfaches Unterstreichen} \\
+      \lstinline/\uuline{text}/ &	\uuline{doppeltes Unterstreichen}\\
+      \lstinline/\uwave{text}/ &	\uwave{wellenförmiges Unterstreichen}\\
+      \lstinline/\sout{text}/ &		\sout{Durchstreichen} \\
+      \lstinline/\xout{text}/ &		\xout{Ausschraffieren von Text} \\
+  \end{tabular}    
+\end{center} 
+
+
+\minisec{Texte sperren}
+
+Eine sehr elegant-konservative typographische Möglichkeit zur aktiven Auszeichnung ist das 
+\textls{Sperren}  
+von Textpassagen. Hierzu stellt das Paket \paket{microtype} den Befehl
+\lstinline/\textls{Text}/ zur Verfügung.
 
 
 \subsection{Veränderung der Schriftgröße}
 \index{Schriftgröße}
 
+Die Schriftgröße lässt sich sehr leicht verändern, wobei anzumerken ist, dass
+die konkrete Bedeutung der Größenangaben von der Dokumentklasse vorgenommen werden:
+
+\begin{center} 
 \begin{tabular}{ll}
+          Befehl &		Beschreibung \\
+          \hline
  \lstinline/\Huge{}/		&	\Huge{Riesig!} \\
  \lstinline/\huge{}/		&	\Huge{riesig} \\
  \lstinline/\LARGE{}/		&	\LARGE{sehr, sehr groß} \\
@@ -331,6 +379,7 @@ der Schriftart.
  \lstinline/\scriptsize{}/	&	\scriptsize{für Kleingedrucktes} \\
  \lstinline/\tiny{}/		&	\tiny{wirklich winzig} \\
 \end{tabular}
+\end{center}
 
 \ifluatex
 
@@ -549,10 +598,11 @@ Am bequemsten lassen sich in \LaTeX{} Schriften verwenden, für die bereits ein 
 Paket existiert, dass lediglich in der Präambel eingebunden werden muss.
 
 
-\minisec{Alte deutsche Schriften: Fraktur-Schriften}
+\minisec{Alte deutsche Schriften: Gothic, Fraktur und Schwabacher}
 
 {\frakfamily
-Mit \LaTeX{} lassen sich drei ältere deutsche Schriftarten sehr komfortabel und mit 
+Mit} \LaTeX{} 
+{\frakfamily lassen sich drei ältere deutsche Schriftarten sehr komfortabel und mit 
 professionellem Anspruch verwenden:}
 
 \begin{enumerate}
@@ -567,8 +617,9 @@ professionellem Anspruch verwenden:}
 {\frakfamily
 Alle drei Schriftarten werden durch das: Paket}
 \paket{yfonts}
-{\frakfamily
-von Yannis Haralambous: zugänglich gemacht.
+{\frakfamily von}
+Yannis Haralambous 
+{\frakfamily zugänglich gemacht.
 
 (Das: ältere Paket \enquote{oldgerm}, das: dieselbe Aufgabe erfüllt hat, sollte nicht mehr 
 verwendet werden, da es: sich schlecht mit dem modernen Font-Encoding verträgt, was: sich
@@ -577,7 +628,7 @@ an Problemen mit Zeichen wie ä, ö, ü, ß zeigt.)
 Abweichende Schriftschnitte wie kursiv, geneigt oder (halb-)fett stehen nicht zur 
 Verfügung.
 
-Doch dabei lauert eine Stolperfalle:
+Doch bei der Verwendung des Paketes  lauert eine Stolperfalle:
 Das: Paket bietet nur die Unterstützung für die Fonts:, das: heißt zahlreiche Erleichterungen
 zur Eingabe etc., enthält aber nicht selbst die Fonts:.
 Diese müssen separat installiert werden, sonst lässt sich}
@@ -588,14 +639,14 @@ statt hübscher Frakturschrift stehen in der PDF-Datei nur leere Flächen.
 
 Das: Paket stellt sechs: Befehle zur Verfügung:}
 
-\begin{itemize}
+\begin{lfgwcode}{}
  \item \lstinline/\frakfamily/
  \item \lstinline/\textfrak{...}/
  \item \lstinline/\gothfamily/
  \item \lstinline/\textgoth{...}/
  \item \lstinline/\swabfamily/
  \item \lstinline/\textswab{...}/
-\end{itemize}
+\end{lfgwcode}
 
 {\frakfamily
 Der jeweils: erste Befehl stellt die Schrift dauerhaft auf Fraktur, Gotisch oder
@@ -696,56 +747,58 @@ vgl. \ref{makros} auf S.~\pageref{makros}.
 
 \section{Sonderzeichen}
 
-\cite{voss:dtk20011/1}
-
 \minisec{Der Wortzwischenraum}
 
-Der übliche Wortzwischenraum (Fachbezeichnung: Spatium (NEIN, das Spatium ist nur eine Ergänzungmöglichkeit. Heute bei LaTeX als \, bekannt)) wird von \LaTeX{} beim Absatzumbruch innerhalb einer Zeile
+Der übliche Wortzwischenraum (Fachbezeichnung: Spatium 
+\marginpar{??? (NEIN, das Spatium ist nur eine Ergänzungmöglichkeit. Heute bei LaTeX als \, bekannt))}
+ wird von \LaTeX{} beim Absatzumbruch innerhalb einer Zeile
 gleichmäßig verteilt. Die Eingabe erfolgt in Form von normalen Leerzeichen oder als 
 einfacher Zeilenwechsel.
 
 Folgende beiden Eingaben sind also gleichwertig:
 
-\begin{LTXexample}
- superbia avaritia invidia ZORN UNKEUSCHHEIT UNMAESSIGKEIT acedia
+\begin{lfgwexample}{}
+ superbia avaritia invidia ira luxuria gula acedia
  
- Wort1
- Wort2
- Wort3
- Wort4
- Wort5
- Wort6
- Wort7
-\end{LTXexample}
+ Hochmut
+ Geiz
+ Neid
+ Zorn 
+ Genusssucht
+ Völlerei
+ Trägheit
+\end{lfgwexample}
 
 Ein sog. \enquote{fester Ausschuss} ist in der Setzersprache ein Wortzwischenraum, an dem 
 kein Zeilenwechsel durchgeführt werden darf. Er wird mit dem Zeichen \lstinline/~/
 codiert:
 
-\begin{LTXexample}
+\begin{lfgwexample}{}
  Kunst und Kultur im 19.~Jahrhundert
-\end{LTXexample}
+\end{lfgwexample}
 
 Manchmal ist es nötig, an einzelnen Stellen längere Spatien zu werden, etwa um Halbverse 
 in epischen Dichtungen zu markieren. Dazu kann man mehrere feste Ausschüsse verbinden:
 
-\begin{lstlisting}
+\begin{lfgwcode}{}
  \begin{verse}
  Uns ist in alten maeren ~ wunders vil geseit\\
  von heleden lobebaeren ~ von von grozer arebeit\\
  von fröuden, hochgeziten, ~ von weinen und von klagen,\\
  von küener recken striten ~ muget ir nu wunders hoeren sagen.
  \end{verse}
-\end{lstlisting}
+\end{lfgwcode}
 
 Daraus wird:
 
+\begin{lfgwprint}{}
  \begin{verse}
  Uns ist in alten maeren ~ wunders vil geseit\\
  von heleden lobebaeren ~ von von grozer arebeit\\
  von fröuden, hochgeziten, ~ von weinen und von klagen,\\
  von küener recken striten ~ muget ir nu wunders hoeren sagen.
  \end{verse}
+\end{lfgwprint}
 
 
 \minisec{Leerzeichen vermeiden -- das Zeichen \%}
@@ -756,7 +809,7 @@ Wortzwischenraum. Dies kann unerwünscht sein:
 
 Besonders bei komplexeren \LaTeX -Strukturen kann es sinnvoll sein, Zeilenwechsel einzufügen,
 z.\,B. zwischen einzelnen Befehlen oder einem Wort und einer folgenden Fußnote.
-An diesen Stellen soll aber kein Wortzischenraum -- womöglich sogar ein sich ergebender 
+An diesen Stellen soll aber kein Wortzwischenraum -- womöglich sogar ein sich ergebender 
 Zeilenwechsel -- eingefügt werden.
 
 Dazu kann man das Kommentarzeichen \% an das Zeilenende setzen. Der Zeilenwechsel wird auf diese 
@@ -765,19 +818,27 @@ verschwindet er vollständig.
 
 Man beachte den Unterschied:
 
-\begin{LTXexample}
- Wort1
- Wort2
+\begin{lfgwexample}{}
+ Matthäus
+ Markus
  
- Wort3%
- Wort4
-\end{LTXexample}
+ Lukas%
+ Johannes
+\end{lfgwexample}
 
 
-\minisec{Spatiierung bei Abkürzungen}
+\minisec{Spatiierung bei Abkürzungen und andere Sonderfälle}
 
-\cs{\,} setzt ein...
+Wortzwischenräume lassen hinsichtlich Breite und Verhalten beim Zeilenumbruch noch 
+weitere Differenzierungen zu:
 
+\begin{enter} 
+\begin{tabular}{ccc}
+    Code &		Darstellung &		Bedeutung\\
+    \hline
+    xx &		yy &				zz \\
+\end{tabular}
+\end{center}
 
 \minisec{Sonderzeichen für Germanisten}
 
@@ -888,7 +949,7 @@ Das Paket erkennt, welche Sprache für das Dokument (mittels \paket{babel} oder 
 eingestellt worden ist, und ersetzt die codierung \lstinline/\enquote{}/ durch die 
 jeweils korrekte Form -- auch bei geschachtelt auftretenden Anführungszeichen:
 
-\begin{LTXexample}
+\begin{lfgwexample}{}
 Er sprach: \enquote{Hast du den \enquote{Faust} gelesen?} 
 
 \selectlanguage{french}
@@ -896,7 +957,7 @@ Er sprach: \enquote{Hast du den \enquote{Faust} gelesen?}
 
 \selectlanguage{english}
 He asked, \enquote{Have you read \enquote{On The Road} yet?} 
-\end{LTXexample}
+\end{lfgwexample}
 
 Die Verwendung von \paket{csquotes} hat noch einen zweiten Vorteil:
 Man kann an einer Stelle, nämlich bei den Optionen des Paketes, auch andere Anführungszeichen 
@@ -906,9 +967,15 @@ Arbeitsumgebungen wie kile lassen sich übrigens so einstellen, dass die Eingabe
 automatisch \lstinline/\enquote{/ oder \lstinline/}/ erzeugt.
 
 
-rotatebox
+%rotatebox
 
-reflectbox
+%reflectbox
+
+
+\minisec{Sonderzeichen nach Ähnlichkeit finden}
+
+\cite{voss:dtk2011/1}
+
 
 
 \section{Listen und Aufzählungen}
@@ -1574,7 +1641,7 @@ Zur Registererstellung vgl. \fullref{Bibelstellenregister}.
 \footcite[xxx]{lesetypografie}
 
 
-\section{Linmguistische Beispiele}
+\section{Linguistische Beispiele}
 
 Mithilfe des Paketes \paket{gb4} lassen sich spezielle Bedürfnisse für Linguisten erfüllen: BLUPP
 
