@@ -112,15 +112,15 @@ lfgwstyle/.style={%
 %text and listing,
 }
 
-\newtcblisting[auto counter,number within=chapter]{lfgwcode}[1]{%
-    fontupper=\small\ttfamily,
+\newtcblisting[use counter from=lfgwexample,number within=chapter]{lfgwcode}[1]{%
     lfgwstyle,
+    fontupper=\small\ttfamily,
     listing only,
     title=Codebsp. \thetcbcounter,
     #1,
 }
 
-\newtcblisting[auto counter,number within=chapter]{lfgwprint}[1]{%
+\newtcblisting[use counter from=lfgwexample,number within=chapter]{lfgwprint}[1]{%
     fontupper=\small,
     lfgwstyle,
     text only,
