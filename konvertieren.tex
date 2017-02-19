@@ -6,8 +6,10 @@
 \noindent Am Anfang war \Program{Word}\footnote{Frei nach Johannes 1:1}.
 Obwohl es eine große Auswahl an Textverarbeitungsprogrammen gibt
 (\Program{Word Perfect}\footnote{Ja, das gibt es noch.}, \Program{LibreOffice Writer}, \Program{Textmaker}, \Program{Pages}, \dots),
-ist für viele Textverarbeitung ein Synonym für \Program{MS Word}.
-In der freien Welt hat \Program{Libre Office} noch eine gewisse Verbreitung.
+ist für viele Textverarbeitung ein Synonym für \Program{MS Word}%
+\footnote{Im Süden der Republik gab es bis vor kurzem noch ein kleines Dorf 
+das sich gegen die Omnipräsenz von MicroSoft gewehrt hat,
+aber auch diese Aufständischen haben inzwischen aufgegeben.}.
 
 Für den Anfang reicht das sicherlich auch aus, aber irgendwann kommt der Punkt an dem die Anforderungen die Fähigkeiten von \Program{MS Word} überschreiten.
 Wie bekomme ich die paar Dutzend Seiten nun ohne viel Aufwand nach \LaTeX{{}?
@@ -56,6 +58,18 @@ Pandoc \url{http://pandoc.org} ist ein universeller Dokumentenkonvertierer, sozu
 Das Programm kann \texttt{.docx}, \texttt{.odt} und \texttt{.tex} Dateien lesen und schreiben.
 Hier darf man aber keine Wunder erwarten, bei \LaTeX{}-Dateien werden nur relativ einfache Dokumente erfolgreich verarbeitet.
 
+\begin{lfgwcode}{label={lst:pandoc-befehlszeile}}
+pandoc Dokument.docx --extract-media=. -s -o Dokument.tex
+\end{lfgwcode}
+
+Die Option \texttt{-{}-extract-media=.} wählt das aktuelle Verzeichnis \enquote{.} als Ablageort für Bilddateien.
+Ohne diese Option werden keine Bilder extrahiert.
+Die Dateien werden in einen Ordner \texttt{media} verpackt.
+Die Option \texttt{-s} erzeugt ein \enquote{standalone} Dokument, also eine komplette \LaTeX{}-Datei die direkt
+mit \Program{pdflatex} oder \Program{lualatex} übersetzt werden kann.
+Wenn im Dokument nicht-lateinische Buchstaben verwendet werden, muss noch ein passender Zeichensatz gewählt werden.
+Der Standard-Zeichensatz Latin Modern enthält nur lateinische Buchstaben.
+
 \Program{Pandoc} ließt keine Dateien im alten \texttt{.doc} Format.
 
 Die Option \texttt{.docx} und \texttt{.odt} zu lesen ist relativ neu.
@@ -71,6 +85,14 @@ In vielen Städten gibt es einen \TeX{}-Stammtisch mit mehr oder weniger erfahre
 Evtl. trifft man hier jemanden, der bereit ist für ein Bier oder ein Abendessen bei der Konvertierung zu helfen.
 Außerdem hat man so einen Experten vor Ort.
 
+\subsection{Empfehlung}
+
+Beide Programme liefern gute Ergebnisse. 
+Wer keine Probleme mit der Kommandozeile hat, 
+erhält mit \Program{pandoc} ein brauchbares Werkzeug und erspart sich den Download von einigen hundert MB. 
+Wer bereits \Program{LibreOffice} installiert hat, kann mit dem Plugin \Program{Writer2 Latex} die Texte exportieren
+und spart sich den Weg zur Kommandozeile.
+
 \section{Nacharbeit}
 
 Die konvertierten Texte sind eine Rohfassung.
@@ -80,16 +102,9 @@ Auch wenn das Dokument fehlerfrei übersetzt wird, sind noch ein paar Anpassunge
 \item Die verwendete Schrift muss angepasst werden. 
 Normalerweise verwendet \LaTeX{} die Schrift Latin Modern.
 Diese Schrift enthält keine griechischen oder kyrillischen Zeichen.
-Siehe Kapitel Normale Schriften \marginpar{Kapitel normale Schriften}
+Das Kapitel \ref{sec:normale-schriften} enthält eine Übersicht über freie Schriften und deren Zeichenumfang.
+
 \item Bilder müssen mit einer \cs{caption} versehen und evtl. skaliert werden.
 Siehe Kapitel Bilder\marginpar{Kapitel Bilder?}
 \end{itemize}
 
-\section{intern}
-
-Hat jemand nicht-triviale Textdokumente damit ich mal beide Konvertierer vergleichen kann?
-
-\begin{itemize}
-\item Ein Dokument mit Bildern und griechisch konvertiert.
-\item Zweites Dokument konvertiert, einiges über LibreOffice Formatvorlagen gelernt\texttt{:-)}
-\end{itemize}
