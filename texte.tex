@@ -236,6 +236,18 @@ Kolumnentitel und Marginalien Einfluss.
 
 \section{Textgliederung}
 
+\minisec{Automatischer Zeilenumbruch und Absatzwechsel}
+
+\TeX\ führt den Zeilenumbruch automatisch durch.
+
+Die Absatzgrenze wird durch eine Leerzeile markiert. 
+
+Alternativ kann durch \lstinline/\\/ ein Zeilenwechsel erzwungen werden.%
+\footnote{Ganz so einfach ist es nicht: ...........}
+
+
+\minisec{Gliederung durch Zwischenüberschriften}
+
 \begin{lfgwcode}{}
  \begin{document}
  \part{Ein Teil des Teils}
@@ -777,7 +789,7 @@ codiert:
  Kunst und Kultur im 19.~Jahrhundert
 \end{lfgwexample}
 
-Manchmal ist es nötig, an einzelnen Stellen längere Spatien zu werden, etwa um Halbverse 
+Manchmal ist es nötig, an einzelnen Stellen längere Spatien zu verwenden, etwa um Halbverse 
 in epischen Dichtungen zu markieren. Dazu kann man mehrere feste Ausschüsse verbinden:
 
 \begin{lfgwcode}{}
@@ -799,6 +811,25 @@ Daraus wird:
  von küener recken striten ~ muget ir nu wunders hoeren sagen.
  \end{verse}
 \end{lfgwprint}
+
+Auch kürzere Spatien sind möglich, z.\,B. um den Wortzwischenraum bei Abkürzungen zu verringern.
+Dazu kann man die Codierung \lstinline/\,/ verwenden.
+
+Außerdem sind mit \lstinline/\quad/ und \lstinline/\qquad/ Geviert- und Doppel-Geviert-Abstände
+möglich.
+Schließlich gibt es die Möglichkeit, mit dem Befehl \lstinline/\hspace{}/ einen beliebigen
+horizontalen Abstand zu definieren.
+
+Zusammengefasst:
+
+\begin{lfgwexample}{}
+Wort Wort\\	            % normales Leerzeichen
+Wort~Wort\\             % kein Zeilenumbruch
+z.\,B.\\		          % kleinerer Zwischenraum
+Wort\quad Wort\\        % Breite eines m
+Wort\qquad Wort\\       % das Doppelte
+Wort\hspace{20mm}Wort\\ % explizite Angabe
+\end{lfgwexample}    
 
 
 \minisec{Leerzeichen vermeiden -- das Zeichen \%}
