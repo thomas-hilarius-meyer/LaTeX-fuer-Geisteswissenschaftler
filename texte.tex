@@ -825,7 +825,7 @@ Zusammengefasst:
 \begin{lfgwexample}{}
 Wort Wort\\	            % normales Leerzeichen
 Wort~Wort\\             % kein Zeilenumbruch
-z.\,B.\\		          % kleinerer Zwischenraum
+z.\,B.\\		        % kleinerer Zwischenraum
 Wort\quad Wort\\        % Breite eines m
 Wort\qquad Wort\\       % das Doppelte
 Wort\hspace{20mm}Wort\\ % explizite Angabe
@@ -857,19 +857,6 @@ Man beachte den Unterschied:
  Johannes
 \end{lfgwexample}
 
-
-\minisec{Spatiierung bei Abkürzungen und andere Sonderfälle}
-
-Wortzwischenräume lassen hinsichtlich Breite und Verhalten beim Zeilenumbruch noch 
-weitere Differenzierungen zu:
-
-\begin{center} 
-\begin{tabular}{ccc}
-    Code &		Darstellung &		Bedeutung\\
-    \hline
-    xx &		yy &				zz \\
-\end{tabular}
-\end{center}
 
 \minisec{Sonderzeichen für Germanisten}
 
@@ -1019,51 +1006,51 @@ Modifikation.\footcite[295\psqq]{voss:einfuehrung}
 
 \minisec{\enquote{Triviale} Listen ohne alles: trivlist}
 
-Am anspruchlosesten ist die einfache Auflistung ohne irgendwelche Formatierung:
+Am anspruchslosesten ist die einfache Auflistung ohne irgendwelche Formatierung:
 
-\begin{LTXexample}
+\begin{lfgwexample}{}
 \begin{trivlist}
  \item der erste Punkt,
  \item der zweite Punkt,
  \item der dritte Punkt.
 \end{trivlist} 
-\end{LTXexample}
+\end{lfgwexample}
 
 
 \minisec{\enquote{Normale} Liste mit Aufzählungszeichen: itemize}
 
-\begin{LTXexample}
+\begin{lfgwexample}{}
 \begin{itemize}
  \item der erste Punkt,
  \item der zweite Punkt,
  \item der dritte Punkt.
 \end{itemize} 
-\end{LTXexample}
+\end{lfgwexample}
 
 XXX Erklären: Verändern des Aufzählungszeichens für einen einzelnen Punkt und generell.
 
 
 \minisec{Durchnumerierte Aufzählung: enumerate}
 
-\begin{LTXexample}
+\begin{lfgwexample}{}
 \begin{enumerate}
  \item der erste Punkt,
  \item der zweite Punkt,
  \item der dritte Punkt.
 \end{enumerate} 
-\end{LTXexample}
+\end{lfgwexample}
 
 Durch Verändern des Zählers \lstinline/enumi/ kann man den Startpunkt der 
 Aufzählung verändern:
 
-\begin{LTXexample}
+\begin{lfgwexample}{}
 \begin{enumerate}
  \setcounter{enumi}{123}
  \item der erste Punkt,
  \item der zweite Punkt,
  \item der dritte Punkt.
 \end{enumerate} 
-\end{LTXexample}
+\end{lfgwexample}
 
 
 \minisec{Erweiterte Möglichkeiten: das Paket \paket{enumitem}}
@@ -1074,7 +1061,7 @@ Die Umgebung \lstinline/enumerate/  kann dahingehend modifiziert werden, sodass 
 die durchnummerierten Label selbst zu definieren
 und auf diese im Fließtext zu verweisen:
 
-\begin{example}
+\begin{lfgwexample}{}
 \begin{enumerate}[%
   label={\bfseries \arabic{*}. Fall:\ },
   ref={\arabic{*}. Fall}]
@@ -1085,7 +1072,7 @@ und auf diese im Fließtext zu verweisen:
 \end{enumerate}
 Der \ref{fall:1} wird auch Werfall gennant,
 der \ref{fall:4} hingegen Wenfall.
-\end{example}
+\end{lfgwexample}
 
 \begin{description}
  \item[2] Modifikation des Zählers: 
@@ -1109,34 +1096,35 @@ der \ref{fall:4} hingegen Wenfall.
 Der \ref{fall:1} wird auch Werfall gennant,
 der \ref{fall:4} hingegen Wenfall.
  \fi
+ 
 \minisec{Worterklärung, Glossar I: description}
 \index{Glossar}
 
 Besonders für Worterklärungen o.\,ä. eignet sich die Umgebung \lstinline/description/,
 die zu jedem \lstinline/\item/  eine Angabe in eckigen Klammern erwartet:
 
-\begin{LTXexample}
+\begin{lfgwexample}{}
 \begin{description}
  \item[AT] das Alte Testament
  \item[NT] das Neue Testament 
 \end{description} 
-\end{LTXexample}
+\end{lfgwexample}
 
 
 \minisec{Worterklärung, Glossar II: labeling}
 Die Dokumentklassen von \KOMAScript\ stellen eine weitere Umgebung bereit, die die 
 Formatierung von Schlagwortlisten noch weiter verfeinert:
 
-\begin{lstlisting}
+\begin{lfgwcode}{}
  \begin{labeling}[Trennzeichen]{Musterlänge}
   \item[Schlagwort] Text
  \end{labeling}
-\end{lstlisting}
+\end{lfgwcode}
 
 Das Trennzeichen steht zwischen den Schlagwörtern und der Erklärung und die Musterlänge definiert
 die Breite der linken Spalte:
 
-\begin{LTXexample}
+\begin{lfgwexample}{}
  \begin{labeling}[=]{NSDAP}
   \item[DDP] Deutsche Demokratische Partei
   \item[DNVP] Deutschnationale Volkspartei
@@ -1144,7 +1132,7 @@ die Breite der linken Spalte:
   \item[NSDAP] Nationalszozialistische Deutsche Arbeiterpartei
   \item[SPD] Sozialdemokratische Partei Deutschlands
  \end{labeling}
-\end{LTXexample}
+\end{lfgwexample}
 
 Wie alle Teile von \KOMAScript\ gibt es zahlreiche Möglichkeiten, die Gestaltung zu
 beeiflussen. Um diese Möglichkeiten auszuschöpfen, muss man sich mit der Dokumentation 
@@ -1156,7 +1144,7 @@ beschäftigen.
 Ein besonderer Reiz besteht darin, dass ich die verschiedenen Listenumgebungen praktisch
 beliebig komplex verschachteln lassen:
 
-\begin{LTXexample}
+\begin{lfgwexample}{}
 \begin{itemize}
  \item Sieben freie Künste:
  \begin{itemize}
@@ -1181,7 +1169,7 @@ beliebig komplex verschachteln lassen:
    \item Jura
  \end{itemize}
 \end{itemize}
-\end{LTXexample}
+\end{lfgwexample}
 
 
 
