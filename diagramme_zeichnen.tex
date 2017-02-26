@@ -4,12 +4,14 @@
 
 allgemeine vs. spezielle Lösungen
 
-\section{Der unsaubere Weg: Open Office und co. benutzen}
+\section{Der unsaubere Weg: Externe Programme benutzen}
 
 Einbinden der fertigen Abb. als Grafik
 
 
-\section{Die beiden wichtigsten Pakete: pstricks und tikz}
+\section{Die drei wichtigsten allgemeinen Pakete: pstricks und tikz}
+
+\minisec{Metapost}
 
 \minisec{pstricks}
 \paket{pstricks}
@@ -22,6 +24,7 @@ Einbinden der fertigen Abb. als Grafik
 
 \subsection{Linguistische Strukturen}
 \index{Linguistik} \index{x-bar-Schema} \index{Phrasenstruktur}
+
 \paket{covington}
 \footcite{roemer:dtk2008}
 \footcite{roemer:dtk2016}
@@ -45,6 +48,7 @@ Das Paket \paket{forest} von Saso Zivanovic erlaubt einfache und sehr komplexe B
 \end{lfgwexample}
 
 \subsection{Stammbäume}
+\index{Stammbaum} \index{Genealogie}
 
 Mit \paket{forest} und den zahlreichen anderen Paketen zum Zeichnen mathematisch/linguistischer
 Baumstrukturen stoßen Geisteswissenschaftler bei einem häufigen Anwendungsfall schnell an eine
@@ -137,7 +141,12 @@ der Merowinger
 }
 \end{tikzpicture}
 
+
+\subsection{Verfassungsschemata}
+
+
 \subsection{Zeitschienen}
+\index{Zeitschiene}
 
 Das kleine Paket \paket{chronology} von Levi Wiseman eignet sich hervorragend, um ohne großen
 Aufwand eine Zeitschiene zu erstellen.
@@ -153,24 +162,233 @@ Aufwand eine Zeitschiene zu erstellen.
 
 \subsection{Statistiken visualisieren}
 
-Torten- und Balkendiagramme... 
+Statistische Auswertungen und die Repräsentation komplexer und umfangreichen Zahlenmaterials
+gehören nur bedingt zu den Bedürfnissen von Geisteswissenschaftlern.
+Deshalb wird auf Pakete wie \paket{datatool} von Nicola Talbot nur hingewiesen; mit seiner Hilfe
+ist es möglich, umfangreiche Datensammlungen auf \LaTeX -Ebene zu verarbeiten und zu analysieren.
+Ein typischer Anwendungsfall wäre etwa die Darstellung großer Mengen von physikalischen Messwerten etc.
 
-\paket{datatool} ?
+Geisteswissenschaftler kommen in ihrem Arbeitsalltag wohl in drei Kontexten in die Lage,
+Zahlenmaterial in Diagrammform darstellen zu wollen:
+
+\begin{itemize}
+    \item Wenn es darum geht, die Aufteilung eines gegebenen Ganzen zu einem bestimmten Zeitpunkt
+        auf verschiedene Teile aufzuzeigen, eignen sich besonders \emph{Tortendiagramme}.
+        Typisches Anwendungsbeispiel wäre die Verteilung von Parlamentssitzen auf die Fraktionen.
+    \item \emph{Säulen-} bzw \emph{Balkendiagramme} eignen sich eher, wenn es darum geht, die
+        Größenunterschiede einer -- prinzipiell nach oben offenen -- Messgröße sichtbar zu machen.
+        Typischer Anwendungsfall wäre etwa die Größe des Nuklearwaffenbestandes der einzelnen
+        Atommächte zu einem bestimmten Zeitpunkt. Die einzelnen Säulen werden miteinander verglichen;
+        sie bilden zusammen aber kein Ganzes; die Verkleinerung des Einen bedingt keine Vergrößerung
+        des Anderen. 
+    \item Wenn die Entwicklung einer Messgröße im Zeitverlauf dargestellt werden soll, empfehlen
+        sich in erster Linie \emph{Liniendiagramme}.
+        Typisches Beispiel wäre die Entwicklung der Wahlergebnisse einer politischen Partei. 
+\end{itemize}
+
+\minisec{Tortendiagramme}
+\index{Tortendiagramm}
 
 \paket{pgf-pie} ist nur in Miktex enthalten; ansonsten problemlos nachinstallierbar von 
 www.ctan.org (und Abspeichern im Arbeitsverzeichnis).
+
+Die Verteilung der Abgeordnetenmandate in der Nationalversammlung 1919:
 
 \begin{lfgwexample}{}
     \begin{tikzpicture}
        \pie[text=inside, sum=auto, after number=,]
            {44/DNVP, 
-            4/Wirtschaftspartei,  
             19/DVP, 
             91/Zentrum,
             75/DDP,
             163/SPD,
             22/USPD,
-            2/Sonstige}
+            6/Sonstige}
     \end{tikzpicture}
 \end{lfgwexample}
 
+
+\minisec{Säulen- bzw. Balkendiagramme}
+\index{Säulendiagramm} \index{Balkendiagramm}
+
+Während für die Erzeugung von Tortendiagrammen ein sehr kleines und handliches Paket existiert,
+müssen wir für Säulen- und Liniendiagramme auf ein wesentlich umfangreicheres System zurückgreifen:
+\paket{pgfplots} von Christian Feuersänger bietet einen riesigen Funktionsumfang für die 
+grafische Aufbereitung von Zahlen und mathematischen Funktionen. Seine hervorragende Dokumentation
+umfasst  561 Seiten -- leider nur auf Englisch.
+
+\paket{pgfplots} erlaubt nicht nur die Erzeugung von sehr komplexen Diagrammen, sondern auch die
+Beeinflussung des Aussehens bis ins letzte Detail.
+
+Wer öfter oder intensiver mit der Darstellung von statistischem Material zu tun hat, dem kann
+man nur empfehlen, sich intensiv mit diesem Paket -- ebenso wie evtl. den PSTricks-Paketen --
+zu beschäftigen.
+
+Die folgenden Beispiele haben auch die Funktion, zu zeigen, dass trotz des riesigen Umfangs des 
+Paketes mit sehr wenig Aufwand typische Anforderungen etwa im Kontext von Geschichte und Politik
+erfüllt werden können.
+
+Als erster Schritt ist in der Dokumentspräambel das Paket zu laden:
+\lstinline/\usepackage{pgfplots}/.
+
+Betrachten wir zuerst eine Übersicht über große mittelalterliche Büchersammlungen:
+
+\begin{lfgwcode}{}
+        \begin{tikzpicture}
+        \begin{axis}[title=Die größten Deutschen Bibliotheken,
+        ybar,
+        width=12cm,
+        height=5cm,
+        symbolic x coords={Deutsche Nationalbibliothek,
+            Staatsbibliothek zu Berlin,
+            Bayerische Staatsbibliothek,
+            Universitätsbibliothek Frankfurt am Main,
+            Technische Informationsbibliothek Hannover,
+            Universitätsbibliothek Göttingen},
+        xtick=data,
+        x tick label style={rotate=45, anchor=east}
+        ylabel={in Mio.},
+        ]
+        \addplot coordinates{(Deutsche Nationalbibliothek,            30.9)
+            (Staatsbibliothek zu Berlin,             23.1)
+            (Bayerische Staatsbibliothek,            10.4)
+            (Universitätsbibliothek Frankfurt am Main,9.4)
+            (Technische Informationsbibliothek Hannover,9)
+            (Universitätsbibliothek Göttingen, 8)};
+        \end{axis}
+        \end{tikzpicture}
+\end{lfgwcode}
+
+\begin{tikzpicture}
+    \begin{axis}[title=Die größten Deutschen Bibliotheken,
+    ybar,
+    width=12cm,
+    height=5cm,
+    symbolic x coords={Deutsche Nationalbibliothek,
+        Staatsbibliothek zu Berlin,
+        Bayerische Staatsbibliothek,
+        Universitätsbibliothek Frankfurt am Main,
+        Technische Informationsbibliothek Hannover,
+        Universitätsbibliothek Göttingen},
+    xtick=data,
+    x tick label style={rotate=45, anchor=east},
+    ylabel={in Mio.},
+    ]
+    \addplot coordinates{(Deutsche Nationalbibliothek,            30.9)
+        (Staatsbibliothek zu Berlin,             23.1)
+        (Bayerische Staatsbibliothek,            10.4)
+        (Universitätsbibliothek Frankfurt am Main,9.4)
+        (Technische Informationsbibliothek Hannover,9)
+        (Universitätsbibliothek Göttingen, 8)};
+    \end{axis}
+    \end{tikzpicture}
+
+
+Säulendiagramme lassen sich immer dann gut verwenden, wenn Größen verglichen werden können;
+das gilt z.\,B. auch für Regierungszeiten:
+
+\begin{lfgwcode}{}
+\begin{tikzpicture}
+ \begin{axis}[title=Die ersten Reichsregierungen der Weimarer Republik,
+              xbar,
+              width=10cm,
+              height=5cm,
+              enlarge y limits=0.5,
+              xlabel=Regierungsdauer in Tagen,
+              symbolic y coords={Philipp Scheidemann,
+                                 Gustav Bauer,
+                                 Hermann Müller,
+                                 Konstantin Fehrenbach},
+              ytick=data,
+              ]
+        \addplot coordinates{(130,Philipp Scheidemann)
+                             (277,Gustav Bauer)
+                             (72,Hermann Müller)
+                             (317,Konstantin Fehrenbach)};
+ \end{axis}
+\end{tikzpicture}
+\end{lfgwcode}
+
+\begin{tikzpicture}
+    \begin{axis}[title=Die ersten Reichsregierungen der Weimarer Republik,
+    xbar,
+    width=10cm,
+    height=5cm,
+    enlarge y limits=0.5,
+    xlabel=Regierungsdauer in Tagen,
+    symbolic y coords={Philipp Scheidemann,
+        Gustav Bauer,
+        Hermann Müller,
+        Konstantin Fehrenbach},
+    ytick=data,
+    ]
+    \addplot coordinates{(130,Philipp Scheidemann)
+        (277,Gustav Bauer)
+        (72,Hermann Müller)
+        (317,Konstantin Fehrenbach)};
+    \end{axis}
+\end{tikzpicture}
+    
+
+\minisec{Liniendiagramme}
+\index{Liniendiagramm}
+
+Liniendiagramme eignen sich wesentlich besser, um den zeitlichen Verlauf der Entwicklung einer
+bestimmten Größe zu repräsentieren:
+z.\,B. die Entwicklung der Wahlergebnisse der NSDAP während der Zeit der Weimarer Republik:
+
+\begin{lfgwcode}{}
+\documentclass{article}
+\usepackage{pgfplots}
+\usetikzlibrary{pgfplots.dateplot}    % zur Interpretation der Kalenderdaten
+
+\begin{document}
+
+\pgfplotsset{width=12cm,
+             height=5cm}
+
+\begin{tikzpicture}
+  \begin{axis}[title=Die Wahlergebnisse der NSDAP während der Weimarer Republik,
+               date coordinates in=x, % die x-Achse enthält die Kalenderdaten!
+               xtick=data,            % nur angegebene Daten nehmen,
+               xticklabel style={rotate=90},
+               xticklabel={\day. \month. \year},  % Daten ordentlich formatieren...
+              ]
+  \addplot[mark=x]coordinates{(1924-05-04,6.5)    % Jahr-Monat-Tag, danach das Wahlergebnis
+                              (1924-12-07,3)
+                              (1928-05-20,2.6)
+                              (1930-09-14,18.3)
+                              (1932-07-31,37.3) 
+                              (1932-11-06,33.1)};
+  \end{axis}
+\end{tikzpicture}
+
+\end{document}
+\end{lfgwcode}
+
+Das ergibt kompiliert:
+
+\pgfplotsset{width=12cm,
+             height=5cm}
+
+\begin{tikzpicture}
+\begin{axis}[
+title=Die Wahlergebnisse der NSDAP während der Weimarer Republik,
+date coordinates in=x, 
+xtick=data,   % nur angegebene Daten nehmen
+xticklabel style={rotate=90},
+xticklabel={\day. \month. \year},
+]
+\addplot[mark=x]coordinates{(1924-05-04,6.5)
+    (1924-12-07,3)
+    (1928-05-20,2.6)
+    (1930-09-14,18.3)
+    (1932-07-31,37.3) 
+    (1932-11-06,33.1)};
+\end{axis}
+\end{tikzpicture}
+
+Im historischen Bereich ist das Zusatzpaket \paket{pgfplots.dateplot} von besonderem Interesse,
+das in der Präambel -- nach dem Aufruf von \lstinline/\usepackage{pgfplots}/ -- anzugeben ist: \lstinline/\usetikzlibrary{pgfplots.dateplot}/.
+
+Dank dieser Ergänzung kann \paket{pgfplots} Kalenderdaten im Format JJJJ-MM-TT verarbeiten. 
