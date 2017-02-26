@@ -157,4 +157,20 @@ Torten- und Balkendiagramme...
 
 \paket{datatool} ?
 
+\paket{pgf-pie} ist nur in Miktex enthalten; ansonsten problemlos nachinstallierbar von 
+www.ctan.org (und Abspeichern im Arbeitsverzeichnis).
+
+\begin{lfgwexample}{}
+    \begin{tikzpicture}
+       \pie[text=inside, sum=auto, after number=,]
+           {44/DNVP, 
+            4/Wirtschaftspartei,  
+            19/DVP, 
+            91/Zentrum,
+            75/DDP,
+            163/SPD,
+            22/USPD,
+            2/Sonstige}
+    \end{tikzpicture}
+\end{lfgwexample}
 
