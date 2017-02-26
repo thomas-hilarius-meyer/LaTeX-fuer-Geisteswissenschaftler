@@ -1,4 +1,5 @@
 % !TEX root = lfgw.tex
+
 %\RequirePackage[ngerman=ngerman-x-latest]{hyphsubst} % Für LuaLaTeX auskommentieren.
 \documentclass[%
 ibycus,polutonikogreek,english,french,latin,ngerman,%global definiert!
@@ -137,10 +138,14 @@ lfgwstyle/.style={%
 
 \usepackage{multicol}
 
+% Pakete im Bereich Kapitel 3 - Diagramme zeichnen
 \usepackage{forest}
 \usepackage[all]{genealogytree}
 \usepackage{chronology}
 \usepackage{pgf-pie}
+\usepackage{pgfplots}
+\usetikzlibrary{pgfplots.dateplot}
+
 
 \usepackage{covington}
 %%%\renewcommand{\it}{}
