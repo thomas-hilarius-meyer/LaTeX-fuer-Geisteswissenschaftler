@@ -1,11 +1,11 @@
-\catalogueentry{%
-	house={Haus des M. Fabius Rufus},
-	label={haus:M-Fabius-Rufus},
-	size={172},
-	description={Haus besteht aus mehreren Einzelgebäuden.},
-	location={Regio VII, Insula 16, Eingang 17--22.},
-	interior={Reicher Fundkomplex.},
-	interiorM={S/W-Mosaik.},
-	interiorW={Dionysius mit einer Mänade, Narzissus und ein Cupido, Hercules und Deinira etc.},
-	interiorS={Bronzene Statue eines Epheben.},
-}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+Die Kurzgeschichte \enquote{Cäsar und sein Legionär} von B. Brecht beginnt so:
+
+\begin{quote}
+ Seit Anfang März wusste der Diktator, dass die Tage der Diktatur gezählt waren.
+
+ Ein Fremder, aus einer der Provinzen kommend, hätte die Hauptstadt vielleicht imposanter
+ denn je gefunden...
+\end{quote}
