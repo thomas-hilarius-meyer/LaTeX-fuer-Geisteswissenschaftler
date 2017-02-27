@@ -8,7 +8,9 @@
 
 \DefineShortVerb{\+}
 
-Es gibt mehrere \LaTeX-Pakete, mit denen man Texte spalten- oder seitenweise parallel setzen kann. Hier wird das Paket \reledpar vorgestellt, weil es gut funktioniert, viele Möglichkeiten bietet und auch aktuell noch gewartet wird. Dieses Paket arbeitet eng mit dem im vorangegangenen Kapitel vorgestellten \reledmac-Paket zusammen; daher werden einige der hier besprochenen Befehle und Einstellungen in der \reledmac-Dokumentation erklärt.
+\noindent Es gibt mehrere \LaTeX-Pakete, mit denen man Texte spalten- oder seitenweise parallel setzen kann, d.h., dass die entsprechenden Paragraphen in der linken und der rechten Spalte bzw. auf der linken und der rechten Seite immer auf der jeweils gleichen Höhe beginnen.
+Hier wird das Paket \reledpar vorgestellt, weil es gut funktioniert, viele Möglichkeiten bietet und auch aktuell noch gewartet wird.
+Dieses Paket arbeitet eng mit dem im vorangegangenen Kapitel vorgestellten \reledmac-Paket zusammen; daher werden einige der hier besprochenen Befehle und Einstellungen in der \reledmac-Dokumentation erklärt.
 
 Um Texte vertikal zu parallelisieren, ist nicht viel zu tun. Ich gehe hier erst auf die spaltenweise Parallelisierung ein, danach komme ich zur seitenweisen Parallelisierung. Zuerst muß das Paket geladen werden: +\usepackage{reledpar}+.
 
@@ -20,7 +22,8 @@ Wie schon für \reledmac gezeigt,%
 muß der Text für die linken und rechten Spalten jeweils mit +\beginnumbering+ und +\endnumbering+ eingefasst werden.%
 
 Der Einfachheit halber lassen wir hier die Paragraphen-Einteilung durch +\autopar+ erledigen;
-die Paragraphen werden dann automatisch erkannt und jeweils auf derselben Höhe begonnen. Damit dies auch funktioniert, müssen vor und nach den Paragraphen Leerzeilen stehen.
+die Paragraphen werden dann automatisch erkannt und jeweils auf derselben Höhe begonnen.
+Damit dies auch funktioniert, müssen vor und nach den Paragraphen Leerzeilen stehen.
 
 Die Textabschnitte für die linke Spalte müssen nun noch in eine +Leftside+-Umgebung eingefügt werden, analog die rechte Spalte in eine +Rightside+-Umgebung.
 Diese beiden Umgebungen selbst müssen von einer +pairs+-Umgebung (man beachte die jeweilige Groß-/Kleinschreibung) umfaßt werden.
@@ -51,7 +54,6 @@ Hi omnes lingua institutis legibus inter se differunt.
 
 \begin{Rightside}
 \beginnumbering
-%\pstart
 \autopar
 
 Gallien als ganzes ist in drei Teile gegliedert,
@@ -113,7 +115,12 @@ Sie alle unterscheiden sich hinsichtlich der Sprache,
 \Columns
 \end{lfgwprint}
 
-Analog zu den oben für \reledmac vorgestellten Optionen gibt es nun für die rechten Spalten analoge Befehle. Für die Zeilenzähler sind dies beispielsweise +\firstlinenumR{<num>}+ und +\linenumincrementR{<num>}+. Hinzu kommen die für Spaltensatz erwartbaren Möglichkeiten: Mit der Länge +\columnrulewidth+ kann man einen Trennungsstrich einführen, mit +\Lcolwidth+ und +\Rcolwidth+ die Spaltenbreite verändern. Mit dem Befehl +\columnsposition{<pos>}+ läßt sich die Orientierung der Spalten ändern: Standardmäßig orientieren sie sich am rechten Rand, mit +Ĺ+ orientieren sie sich am linken Rand, mit +C+ sind sie zentriert. Alle Längen müssen mit +\setlength{<name>}{<laenge>}+ angepaßt werden, hier ein Beispiel für die vorgestellten Befehle: 
+Analog zu den oben für \reledmac vorgestellten Optionen gibt es nun für die rechten Spalten entsprechende Befehle.
+Für die Zeilenzähler sind dies beispielsweise +\firstlinenumR{<num>}+ und +\linenumincrementR{<num>}+.
+Hinzu kommen die für Spaltensatz erwartbaren Möglichkeiten:
+Mit der Länge +\columnrulewidth+ kann man einen Trennungsstrich einführen, mit +\Lcolwidth+ und +\Rcolwidth+ die Spaltenbreite verändern.
+Mit dem Befehl +\columnsposition{<pos>}+ läßt sich die Orientierung der Spalten ändern: Standardmäßig orientieren sie sich am rechten Rand, mit +Ĺ+ orientieren sie sich am linken Rand, mit +C+ sind sie zentriert.
+Alle Längen müssen mit +\setlength{<name>}{<laenge>}+ angepaßt werden, hier ein Beispiel für die vorgestellten Befehle: 
 
 \begin{lfgwcode}{}
 \firstlinenumR{2}
@@ -124,14 +131,18 @@ Analog zu den oben für \reledmac vorgestellten Optionen gibt es nun für die re
 \columnsposition{C}
 \end{lfgwcode}
 
-Bemerkenswert ist vielleicht noch die Paket-Option +movecolumnspositiononrightpage+ für Bücher: Ist diese gesetzt, werden die \enquote{rechten} Spalten auf rechten Seiten links gesetzt, d.h. die \enquote{rechten} Spalten stehen immer auf der Innenseite. Weitere Optionen bietet das \reledpar-Handbuch.
+Bemerkenswert ist vielleicht noch die Paket-Option +movecolumnspositiononrightpage+ für Bücher:
+Ist diese gesetzt, werden die \enquote{rechten} Spalten auf rechten Seiten links gesetzt, d.h. die \enquote{rechten} Spalten stehen immer auf der Innenseite.
+Weitere Optionen bietet das \reledpar-Handbuch.
 
 
 \subsection{Seitenweise parallelisierte Texte}
 
-Nach der Lektüre des vorangegangenen Abschnittes ist es sehr einfach, Texte seitenweise zu parallelisieren, was sich vor allem bei Editionen mit Übersetzung anbietet: So kann auf den linken Seiten der Originaltext gedruckt werden, auf der rechten Seite die Übersetzung; die einzelnen Paragraphen stehen, wie im spaltenweise parallelisierten Satz, auf derselben Höhe.
+Nach der Lektüre des vorangegangenen Abschnittes ist es sehr einfach, Texte seitenweise zu parallelisieren, was sich vor allem bei Editionen mit Übersetzung anbietet:
+So kann auf den linken Seiten der Originaltext gedruckt werden, auf der rechten Seite die Übersetzung; die einzelnen Paragraphen stehen, wie im spaltenweise parallelisierten Satz, auf derselben Höhe.
 
-Die Texte müssen, wie im Spaltensatz, in +\beginnumbering+/+\endnumbering+ und +\autopar+ sowie die +Leftside+-/+Rightside+-Umgebung eingefaßt werden. Anders sind hier nur die Namen der äußeren Umgebung, die heißt statt +pairs+ in diesem Fall +pages+, und der Befehl, um alles auszugeben, lautet statt +\Columns+ +\Pages+.
+Die Texte müssen, wie im Spaltensatz, in +\beginnumbering+/+\endnumbering+ und +\autopar+ sowie die +Leftside+-/+Rightside+-Umgebung eingefaßt werden.
+Anders sind hier nur die Namen der äußeren Umgebung, die heißt statt +pairs+ in diesem Fall +pages+, und der Befehl, um alles auszugeben, lautet statt +\Columns+ nun +\Pages+.
 
 
 
