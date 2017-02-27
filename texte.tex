@@ -1212,7 +1212,7 @@ Die Umgebung \lstinline/quote/ eignet sich dazu, ein Zitat von der Länge eines 
 Soll das gewünschte Zitat etwas länger ausfallen, wählt man statt dessen besser die 
 Umgebung \lstinline/quotation/:
 
-\begin{LTXexample}
+\begin{lfgwexample}{}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 
@@ -1224,7 +1224,7 @@ Die Kurzgeschichte \enquote{Cäsar und sein Legionär} von B. Brecht beginnt so:
  Ein Fremder, aus einer der Provinzen kommend, hätte die Hauptstadt vielleicht imposanter
  denn je gefunden... 
 \end{quote}
-\end{LTXexample}
+\end{lfgwexample}
 
 \minisec{Ein Gedicht zitieren: verse}
 \index{Gedicht} \index{Lyrik}
@@ -1232,7 +1232,7 @@ Die Kurzgeschichte \enquote{Cäsar und sein Legionär} von B. Brecht beginnt so:
 Das standardmäßige Umgebung \lstinline/verse/ erlaubt mit sehr wenig Mühe den Einbau von 
 Gedichtpassagen, allerdings auch mit ziemlich einfacher Typografie:
 
-\begin{LTXexample}
+\begin{lfgwexample}{}
 \minisec{Der Lorscher Bienensegen:}
 \begin{verse}
  Kirst, imbi ist hucze! \\
@@ -1248,7 +1248,7 @@ Gedichtpassagen, allerdings auch mit ziemlich einfacher Typografie:
  sizi uilu stillo, \\
  vuirki godes uuillon.
 \end{verse}
-\end{LTXexample}
+\end{lfgwexample}
 
 Strophenzwischenräume
 
@@ -1289,11 +1289,11 @@ Wenn der Fußnotenaufruf -- was sehr empfehlenswert ist, um die Quelldatei gut l
 verarbeitbar zu halten -- die Fußnote in einer eigenen Zeile steht, sollte man durch ein 
 \% -Zeichen die Umwandlung des Zeilenwechsels in ein Leerzeichen verhindern:
 
-\begin{lstlisting}
+\begin{lfgwcode}{}
  Hier steht ein Text%
  \footnote{lat. textus = Gewebe}
  mit Fußnoten.
-\end{lstlisting}
+\end{lfgwcode}
 
 
 \minisec{Fußnotenlayout mit \KOMAScript}
@@ -1307,9 +1307,9 @@ und
 Folgende Umdefinitionen erzeugen z.\,B. Fußnoten mit eingeklammerten Ziffern 
 in Grundschriftgröße; die jeweils erste Zeile jeder Fußnote ist eingerückt:
 
-\begin{lstlisting}
+\begin{lfgwcode}{}
  \deffootnote[10mm]{0mm}{0mm}{(\thefootnotemark)}
-\end{lstlisting}
+\end{lfgwcode}
 
 
 \minisec{Das Paket \paket{footmisc}}
@@ -1354,6 +1354,7 @@ Auch Lesartenapparate in kritischen Editionsprojekten ließen sich theoretisch
 mit diesem Ansatz organisieren; 
 allerdings bietet \paket{reledmac} hierzu die besseren Instrumente, vgl. hierzu \ref{reledmac}.
 
+
 \section{Zeilennummern} 
 \index{Zeilennummern}
 \paket{lineno}
@@ -1385,7 +1386,7 @@ Dokument durch den Befehl \lstinline/\linenumbers/ die Zeilennummern anschalten.
 Durch \lstinline/\nolinenumbers/ wird die Nummerierung wieder abgestellt.
 Auch das Ende der aktuellen Umgebung beendet die Zeilennummern.
 
-\begin{lstlisting}
+\begin{lfgwcode}{}
  Georg Büchners \enquote{Lenz} beginnt mit einm langen Textabschnitt:
  
  \begin{quotation}
@@ -1394,7 +1395,7 @@ Auch das Ende der aktuellen Umgebung beendet die Zeilennummern.
  Den 20. ging Lenz durchs Gebirg. Die Gipfel und hohen Bergflächen im Schnee, die Täler
  hinunter graues Gestein...
  \end{quotation}
-\end{lstlisting}
+\end{lfgwcode}
 
 Daraus wird:
 \bigskip
@@ -1446,7 +1447,7 @@ sollten mit dem Paket \paket{reledmac} erzeugt werden, vgl. hierzu \ref{reledmac
 
 Auch die Nummerierung eines Gedichtes gelingt auf diese Weise ohne Probleme:
 
-\begin{LTXexample}
+\begin{lfgwexample}{}
  \begin{verse}
   \modulolinenumbers[5]
   \linenumbers
@@ -1458,7 +1459,7 @@ Auch die Nummerierung eines Gedichtes gelingt auf diese Weise ohne Probleme:
   Im Sommer ...\\
  \end{verse}
 
-\end{LTXexample}
+\end{lfgwexample}
 
 
 
@@ -1495,12 +1496,12 @@ Bilder
 \end{marginfigure}
 (inkl. Bildunterschrift) und Tabellen auf den Rand zu platzieren:
 
-\begin{lstlisting}
+\begin{lfgwcode}{}
  \begin{marginfigure}
  \includegraphics[width=20mm]{Caesarius_von_Heisterbach_als_Novizenmeister}
  \caption{Caesarius v. Heisterbach}
 \end{marginfigure}
-\end{lstlisting}
+\end{lfgwcode}
 
 
 Eine weitere Option ist, die Beschriftung einer Gleitumgebung (Bild, Tabelle) auf den Rand zu
@@ -1583,6 +1584,10 @@ stark einschränkt.
 \minisec{Gleitumgebungen beschriften: Das Paket \paket{caption}}
 
 \section{Grafiken einbinden}
+\label{grafik-einbinden}
+\index{Grafik} 
+\index{Bilder}
+\index{Abbildungen}
 
 Voraussetzung: Paket \paket{graphicx} in Dokumentspräambel einbinden:
 \lstinline/\usepackage{graphicx}/.
@@ -1661,9 +1666,12 @@ Zur Registererstellung vgl. \fullref{Bibelstellenregister}.
 
 
 \section{Linguistische Beispiele}
+\label{linguistische-beispiele}
 
 Mithilfe des Paketes \paket{gb4} lassen sich spezielle Bedürfnisse für Linguisten erfüllen: BLUPP
 
+Für grafische Dartellungen etwa der Konstituentenstruktur vgl. den Abschnitt 
+\ref{linguistische-strukturen} auf Seite \pageref{linguistische-strukturen}.
 
 \section{Querverweise im Text}
 

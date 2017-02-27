@@ -2,28 +2,175 @@
 \chapter{Diagramme zeichnen}
 \autor{Thomas Hilarius Meyer}
 
-allgemeine vs. spezielle Lösungen
+Unter \TeX\ stehen grundsätzlich verschiedene Ansätze zur Verfügung. 
+Man kann allgemeine und spezielle Lösungen unterscheiden:
+Erstere eignen sich für verschiedenste konkrete Anwendungen, überlassen aber wegen ihrer Abstraktheit 
+und Allgemeinheit dem Benutzer viel Entscheidungsfreiheit -- und Konfigurationsaufwand. 
+Demgegenüber gibt es spezielle Lösungen für einzelne konkrete Aufgaben in Form von kleinen Paketen,
+die mit wenig Aufwand die Erstellung etwa einer Zeitleiste oder einer Mindmap ermöglichen.
+Für andere Aufgaben sind diese Pakete nicht geeignet.
+
+Weil sich diese Anleitung nicht in erster Linie an Grafiker wendet, sondern an Geisteswissenschaftler,
+die im Rahmen ihrer Arbeit eher ab und zu ein Diagramm benötigen, werden im folgenden primär
+kleine spezialisierte Pakete für konkrete Aufgaben vorgestellt: 
+für linguistische Strukturen,
+Baumdiagramme,
+genealogische Stammbäume,
+Mindmaps,
+Zeitleisten 
+und zur Visualisierung von statistischen Daten in Form von Torten-, Balken und Liniendiagrammen.
+
+Davor wird sehr kurz auf die diesen Spezialpaketen zugrunde liegenden allgemeinen Grafiklösungen
+von \TeX\ -- Metapost, PSTricks und TikZ -- eingegangen. Wer sich stark für die Erzeugung von Grafiken
+mit \TeX\ interessiert, sollte sich mit diesen näher beschäftigen.
+
+Zu Beginn wird jedoch noch eine vielleicht verpönte, im Alltag aber nich gerade seltene Möglichkeit
+der Diagrammeinbindung in \LaTeX\ eingegangen: 
 
 \section{Der unsaubere Weg: Externe Programme benutzen}
 
-Einbinden der fertigen Abb. als Grafik
+Es existieren zahlreiche Programme außerhalb der \TeX -Welt, mit denen sich Diagramme erstellen 
+lassen: Statistische Daten in Tabellen lassen sich mit Excel und Libre Office in Säulen- und 
+Tortendiagramme verwandeln, daneben gibt es Spezialprogramme zum Zeichnen von Mindmaps
+und schließlich lassen sich Organigramme, Zeitleisten etc. m.\,H. von CAD-Programmen o.\,ä.
+erstellen.
+
+Alle diese Lösungen können zur Zusammenarbeit mit \LaTeX\ genutzt werden, wenn sie nur in der 
+Lage sind, das erarbeitete Diagramm als Grafik in einem gängigen Format zu speichern.
+
+Auf der \LaTeX -Ebene bleibt dann nur noch das Einbinden der fertigen Abbildung als Grafik zu
+tun. Das Verfahren wird in Abschnitt \ref{grafik-einbinden} auf Seite \pageref{grafik-einbinden}
+beschrieben.
+
+Das Verfahren mag einem \TeX -Puristen unsauber erscheinen, wird aber häufig genutzt.
+M.\,E. ist die konzeptionelle Offenheit und Modularität von \TeX\ ein Vorzug, zu dem man stehen sollte.
 
 
-\section{Die drei wichtigsten allgemeinen Pakete: pstricks und tikz}
+\section{Die drei grundsätzlichen Wege: Metapost, PSTricks und tikz}
+
+Es gibt unter \TeX\ drei grundsätzlich verschiedene Lösungen zur Erzeugung von Grafiken;
+alle drei Ansätze haben Vorzüge und Nachteile und können auch nebeneinander verwendet werden:
+Metapost, PSTricks und tikZ. Auf diesen Methoden setzen die spezialisierten Pakte auf.
 
 \minisec{Metapost}
+Bei \hologo{METAPOST} handelt es sich um eine eigene deklarative Programmiersprache zur Definition
+von Grafiken, die aus den MP-Befehlen eine Postscript-Datei erzeugt, die in einem \LaTeX -Dokument
+eingebunden werden kann.
+Es wurden spezifische Pakete entwickelt, um diesen Zwischenschritt abzukürzen und 
+\hologo{METAPOST}-Code direkt in \LaTeX -Dokumente einbinden zu können.
 
-\minisec{pstricks}
-\paket{pstricks}
+Zu \hologo{METAPOST} existiert eine ausführliche Beschreibung in der Dante-Reihe;%
+\footcite{entenmann:metapost}
+außerdem gibt es große Mengen an online-Dokumentation.
 
-\minisec{tikz}
-\paket{tikz}
+Wer sich ausführlich mit \hologo{METAPOST} beschäftigt, erschließt sich eine ganze Welt unbegrenzter
+grafischer Möglichkeiten. Für die bescheidenen Zwecke der meisten geisteswissenschaftlichen
+\TeX -Benutzer ist jedoch der Lernaufwand im Vergleich zu den fertig vorkunfigrierten Spezialpaketen,
+die im folgenden vorgestellt werden, zu groß.
 
-\section{Konkrete Anwendungen}
+
+\minisec{PStricks}
+
+\paket{PSTricks} geht einen anderen Weg: Es handelt sich hier um eine Sammlung von Makros, die die
+Fähigkeiten von Postscript als eigenständiger Programmiersprache ausnutzt und zur komfortablen
+Nutzung aus \LaTeX{} heraus erschließt.
+
+Das hat ausgesprochene Vorteile: Postscipt hat z.\,B. wesentliche bessere Möglichkeiten zur
+effinzienten und genauen Durchführeung von Berechnungen, als \LaTeX{}.
+Somit eignet sich PSTricks v.a. zur Auswertung und grafischen Darstellung auch sehr komplexer
+mathematischer Funktionen und großer Mengen von statistischen Daten. 
+
+Der Preis der Verwendung von Postcript ist, dass dann auch eine .ps-Datei erzeugt werden muss,
+d.h. statt der direkten Ausgabe einer PDF-Datei (die ja in aller Regel das Ziel ist), muss zuerst
+eine DVI-Datei erzeugt werden, die dann mittels des Kommandozeilentools \lstinline/dvips/ in eine
+Postscript-Datei konvertiert wird. Aus dieser wird dann mittels \lstinline/ps2pdf/ die
+angezielte PDF-Datei.
+
+Naturgemäß bedingt der riesige Leistungsumfang von PSTricks eine große Komplexität; wieder handelt es sich
+um eine ganz eigene Welt, die zu erschließen ist.
+In der Dante-Reihe existiert eine umfangreiche Monographie von Herbert Voß zu PSTricks.%
+\footcite{voss:pstricks}
+
+Ähnlich wie schon bei \hologo{METAPOST} ist es auch bei PSTricks so, dass im geisteswissenschaftlichen
+Alltagseinsatz nur ein winziger Bruchteil der Funktionalität zum Einsatz kommen wird.
+
+Auch ist es nicht notwendig, das Gesamtsystem von PSTricks zu meistern, denn es exisiteren eine
+ganze Reihe von Spezialpaketen, die teilweise sehr einfach einzusetzende Lösungen für
+Spezialanwendungen anbieten.
+Tabelle 3.1 bietet eine Zusammenstellung solcher PSTricks-Pakete, die für Historiker oder
+Philologen von besonderem Interesse sein könnten.
+
+\begin{table}
+    \begin{center}
+    \begin{tabular}{ll}
+        Aufgabe &					Paket \\
+        \hline
+        Linguistische Strukturen\\
+        Stammbäume\\
+        Baumdiagramme &				\paket{pst-tree}\\
+        Organigramme\\
+        Mindmaps\\
+        Tortendiagramme\\
+        Säulendiagramme &			\paket{pst-bar}\\
+        Liniendiagramme\\
+    \end{tabular}
+    \caption{Empfehlenswerte PSTricks-Pakete für geistewissenschaftliche Bedürfnisse}
+    \end{center}
+\end{table}
+
+Neben der Monographie von Herbert Voß sei zu ihrem Einsatz auf die in der Regel sehr
+guten Paketdokumentationen verwiesen.
+
+
+\minisec{tikZ}
+
+\enquote{Mit dem Paket \paket{pgf} (portable graphic format) hat Till Tantau eine Sammlung von Makros
+    zur Verfügung gestellt, die eine Einbettung von grafischen Elementen im normalen Text erlauben,
+    bei der Übersetzung aber nicht, wie beispielsweise \hologo{METAPOST} [\ldots] oder PSTRICKS 
+    [\ldots], auf externe Zwischenschritte angewiesen ist.
+    \paket{pgf} ist eine reine PDF-Lösung, sodass eine Anwendung mit \hologo{pdfTeX} möglich ist.
+    Dies ist zum einen ein großer Vorteil bei der Erstellung von PDF-Dokumenten, aber zum anderen
+    ein großer Nachteil, denn die rechnerischen Fähigkeiten des PDF-Formats sind faktisch gleich Null.
+    Daher müssen alle Rechenoperationen auf \TeX -Ebene erfolgen, was bezüglich der Genauigkeit und der
+    Effizienz ein Problem sein kann. 
+    
+    [\ldots]
+    
+    Die Syntax von \paket{pgf} ist stark an dem Ausgabeformat PDF orientiert, weshalb Till Tantau
+    ein darauf aufbauendes Paket \paket{tikZ} (\paket{tikZ} ist kein Zeichenprogramm) entwickelt hat,
+    welches die Befehlssyntax anwenderfreundlich gestaltet.}%
+\footcite[S. 767]{voss:einfuehrung}  
+
+Ähnlich wie \hologo{METAPOST} und PSTricks ist \paket{tikZ} ungemein umfangreich und erlaubt dem
+geübten Benutzer praktisch \emph{alles}, zumal im geisteswissenschaftlichen Umfeld die Einschränkungen 
+im mathematischen Bereich wenig ins Gewicht fallen.    
+Und auch \paket{tikZ} erfordert vom Benutzer ein großes Maß an Lernbereitschaft und Einarbeitungszeit,
+um den ganzen Leistungsumfang zu erschließen.
+
+
+\section{Konkrete Lösungen}
+
+Deshalb werden im folgenden eine Reihe von Paketen aufgebaut, die -- aufbauend auf \paket{tikZ}%
+\footnote{Das ist eine willkürliche Entscheidung, die kein Qualitätsurteil über die drei Ansätze
+    aussagen soll. Maßgeblich für die Entscheidung war, dass \paket{tikZ}-Lösungen problemlos
+    mit PDF-Engines zusammenarbeiten und dass im geisteswissenschaftlichen Bereich die mangelnde
+    Präzision und Geschwindigkeit komplexer Berechnungen keine Rolle spielen.
+    Außerdem wird es in der Zukunft vermutlich so sein, dass Berechnungen innerhalb von 
+    \hologo{LuaLaTeX} auf
+    der Lua-Ebene erledigt werden, so dass diese Einschränkung immer weniger eine Rolle spielen wird.
+    Dennoch: bei intensiverer Arbeit mit Grafiken lohnt es sich auf jeden Fall, sich etwa mit den
+    in Tabelle 3.1 genannten PSTricks-Paketen genauer zu beschäftigen.}
+-- mit wenig Aufwand eine akzeptable Lösung für ausgewählte Probleme aus dem geisteswissenschaftlichen
+Aufgabenbereich anbieten.
 
 
 \subsection{Linguistische Strukturen}
+\label{linguistische-strukturen}
 \index{Linguistik} \index{x-bar-Schema} \index{Phrasenstruktur}
+
+Hier geht es um graphische Darstellungen etwa im Kontext der Kontituentenstrukturanalyse.
+Für die Wiedergabe von Beispielsätzen etc. vgl. den Abschnitt 
+\ref{linguistische-beispiele} auf Seite \pageref{linguistische-beispiele}.
 
 \paket{covington}
 \footcite{roemer:dtk2008}
@@ -143,6 +290,55 @@ der Merowinger
 
 
 \subsection{Verfassungsschemata}
+
+
+\subsection{Mindmaps}
+
+Das Paket \paket{mindmap} ist ein Ergänzungspaket zu \paket{tikZ}, d.\,h. in der Dokumentpräambel
+muss zuerst \lstinline/\usepackage{tikz}/ und danach 
+\lstinline/\usetikzlibrary{mindmap}/ angegeben werden.
+
+Mit \paket{mindmap} ist es sehr einfach möglich, Mindmaps -- bis zu einer gewissen Komplexität -- zu
+erstellen und ihr Aussehen -- in gewissen Grenzen -- zu modifizieren:
+
+\begin{lfgwcode}{}
+\begin{tikzpicture}
+\path[mindmap, concept color=yellow]
+
+node[concept] {Sieben Freie Künste} [clockwise from=125] 
+child { node[concept] {Trivium} [clockwise from=180]
+    child { node[concept] {Grammatik} }
+    child { node[concept] {Rhetorik} }
+    child { node[concept] {Logik} }
+} 
+child { node[concept] {Quadrivium} 
+    child { node[concept] {Arithmetik} }
+    child { node[concept] {Geometrie} }
+    child { node[concept] {Astronomie} }
+    child { node[concept] {Musik} }
+};
+
+\end{tikzpicture}
+\end{lfgwcode}
+
+
+\begin{tikzpicture}
+\path[mindmap, concept color=yellow]
+
+node[concept] {Sieben Freie Künste} [clockwise from=125] 
+child { node[concept] {Trivium} [clockwise from=180]
+    child { node[concept] {Grammatik} }
+    child { node[concept] {Rhetorik} }
+    child { node[concept] {Logik} }
+} 
+child { node[concept] {Quadrivium} 
+    child { node[concept] {Arithmetik} }
+    child { node[concept] {Geometrie} }
+    child { node[concept] {Astronomie} }
+    child { node[concept] {Musik} }
+};
+
+\end{tikzpicture}
 
 
 \subsection{Zeitschienen}
