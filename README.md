@@ -22,12 +22,12 @@ Die derzeitigen Kapitel sind:
 
 8. Prüfungen aufsetzen: exam --> Uwe
 
-9. Präsentationen gestalten mit beamer --> ???
+9. Präsentationen gestalten mit beamer --> Axel
 
 10. Eigene \LaTeX-"Erfindungen" dokumentieren
 
 11. Einbinden von LaTeX in heterogene Projekte (Beispiele)
--- 11.1 LaTeX, Versionsverwaltung und die Arbeit in Teams 
+-- 11.1 LaTeX, Versionsverwaltung und die Arbeit in Teams --> Uwe
 -- 11.2 Python: Kataloge erstellen
 -- 11.3 Perl: Zeugnisse 
 
