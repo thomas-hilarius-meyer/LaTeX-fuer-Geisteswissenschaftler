@@ -1,6 +1,6 @@
 % !TeX root = lfgw.tex
 \chapter{Prüfungen erstellen mit \protect\paket{exam}}
-\autor{Uwe Ziegengagen}
+\autor{Uwe Ziegenhagen}
 
 % \section{Einleitung}
 
@@ -18,7 +18,7 @@ Da dieses Kapitel nicht alle Funktionen der Klasse detailliert beschreiben kann,
 Listing \ref{lis:b01} zeigt ein Minimalbeispiel, das eine einzelne Frage in ein Dokument setzt. 
 Neben der obligatorischen Angabe der Dokumentenklasse \texttt{exam}, die intern auf \texttt{article} basiert, werden alle Fragen mittels \texttt{\textbackslash question} Befehl in eine \texttt{questions} Umgebung gesetzt. 
 
-\begin{lstlisting}[caption={Minimalbeispiel \texttt{beispiel-01.tex}},label={lis:b01}]
+\begin{lfgwcode}{label={lis:b01}}
 \documentclass[12pt]{exam}
 \begin{document}
 \begin{questions}
@@ -29,7 +29,7 @@ Wieviel wiegt Luft?
 Wieviel wiegt Blei?
 \end{questions}
 \end{document}
-\end{lstlisting}
+\end{lfgwcode}
 
 Dem  \texttt{\textbackslash question} Befehl kann noch optional die Anzahl der möglichen Punkte für diese Frage übergeben werden. 
 \paket{exam} kann -- sofern die Klassenoption \enquote{addpoints} gesetzt ist -- die Punkte zusammenaddieren und auch eine Bewertungstabelle ausgeben; eine hilfreiche Funktion, die den Dozenten vor lästigen Rechenfehlern bewahren kann.
@@ -45,7 +45,9 @@ Da ich persönlich noch am liebsten mit \texttt{pdflatex} arbeite, enthält mein
 \caption{Ergebnis von Listing \ref{lis:b01}, \texttt{beispiel-01.tex}}\label{fig:b01}
 \end{figure}
 
-\begin{lstlisting}[label={lis:pak},caption={Paketliste (pdf\LaTeX)}]
+
+
+\begin{lfgwcode}{label={lis:pak}}
 \usepackage[ngerman]{babel} % ngerman mal nicht als Klassenoption
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -55,11 +57,12 @@ Da ich persönlich noch am liebsten mit \texttt{pdflatex} arbeite, enthält mein
 \usepackage[math]{iwona} % Font mit Mathe-Support
 \usepackage{amsmath,textcomp,tikz} %diverses
 \usepackage{eso-pic} % Bilder im Hintergrund
-\end{lstlisting}
+\end{lfgwcode}
+
 
 Die Anpassung der Begriffe geschieht in \texttt{exam} über spezielle Befehle, eine Auswahl der in späteren Beispielen notwendigen finden sich in Listing \ref{lis:lang}, die Dokumentation enthält noch eine Reihe anderer entsprechender Befehle.
 
-\begin{lstlisting}[label={lis:lang},caption={Eindeutschung der Fachbegriffe}]
+\begin{lfgwcode}{label={lis:lang}}
 \pointpoints{Punkt}{Punkte}
 \bonuspointpoints{Bonuspunkt}{Bonuspunkte}
 \renewcommand{\solutiontitle}{\noindent\textbf{Lösung:}\enspace}
@@ -75,7 +78,7 @@ Die Anpassung der Begriffe geschieht in \texttt{exam} über spezielle Befehle, e
 \hsword{Ergebnis:}
 \hqword{Aufgabe:}
 \htword{Summe:}
-\end{lstlisting}
+\end{lfgwcode}
 
 Kombinieren wir nun die Paketliste aus Listing \ref{lis:pak} mit dem Minimalbeispiel aus Listing \ref{lis:b01}, so erhalten wir beim Übersetzen die Ausgabe von Abbildung \ref{fig:b02}.
 
@@ -91,7 +94,7 @@ Listing \ref{lis:headfoot} zeigt, wie \texttt{firstpageheader} und -\texttt{foot
 Horizontale Linien unter den Kopfzeilen werden durch die entsprechenden \texttt{\dots headrule} Befehle gesetzt. 
 Abbildung \ref{fig:headfoot} zeigt das entsprechende Ergebnis.
 
-\begin{lstlisting}[caption={Definition von Kopf und Fuß auf Titel- und Folgeseiten},label={lis:headfoot}]
+\begin{lfgwcode}{label={lis:headfoot}}
 \newcommand{\dozent}{Dr. Uwe Ziegenhagen}
 \newcommand{\fach}{Klausur Statistik}
  
@@ -103,8 +106,7 @@ Abbildung \ref{fig:headfoot} zeigt das entsprechende Ergebnis.
 \runningheader{}{}{\dozent \\ \fach}
 \firstpagefooter{}{}{\thepage\,/\,\numpages}
 \runningfooter{}{}{\thepage\,/\,\numpages}
-\end{lstlisting}
-
+\end{lfgwcode}
 
 \begin{figure}[b]
 \fbox{\includegraphics[trim=2cm 18cm 2cm 0.5cm,width=\textwidth]{./Examples/exam/beispiel-03}}
@@ -126,7 +128,7 @@ Einzelne Fragen, die mit \texttt{\textbackslash question} gesetzt wurden, lassen
 
 Listing \ref{lis:parts} zeigt, wie man eine Frage in zwei \texttt{\textbackslash part} Unterfragen unterteilt, Abbildung \ref{fig:allparts} die Ausgabe eines erweiterten Beispiels, das auch \texttt{\textbackslash subpart} und \texttt{\textbackslash subsubpart} nutzt.
 
-\begin{lstlisting}[caption={Beispiel für die Nutzung von \texttt{parts} und \texttt{\textbackslash part}}, label={lis:parts}]
+\begin{lfgwcode}{label={lis:parts}}
 \question[5]
 Wieviel wiegt Luft?
 
@@ -135,7 +137,7 @@ Wieviel wiegt Luft?
 
 \part[2] Geben Sie den Wert in Kilogramm pro Kubikkilometer an!
 \end{parts}
-\end{lstlisting}
+\end{lfgwcode}
 
 
 \begin{figure}[b]
@@ -160,7 +162,7 @@ Für die drei genannten Umgebungen gilt, dass die jeweils richtige Antwort bzw. 
 Setzt man die \enquote{answers} Option wie oben beschrieben als Klassenoption, so werden diese richtigen Antworten entsprechend markiert. 
 Listing \ref{lis:mchoice1} und \ref{lis:mchoice2} zeigen die entsprechenden Code-Beispiele, Abbildung \ref{fig:mchoicea} die Ausgabe mit \enquote{answers} aktiviert.
 
-\begin{lstlisting}[caption={Multiple-Choice Aufgaben 1},label={lis:mchoice1}]
+\begin{lfgwcode}{label={lis:mchoice1}}
 \question Wer war kein Beatle?
 
 \begin{choices}
@@ -180,11 +182,11 @@ Listing \ref{lis:mchoice1} und \ref{lis:mchoice2} zeigen die entsprechenden Code
 \choice Ringo
 \CorrectChoice Socrates
 \end{checkboxes}
-\end{lstlisting}
+\end{lfgwcode}
 
 \clearpage
 
-\begin{lstlisting}[caption={Multiple-Choice Aufgaben 2},label={lis:mchoice2}]
+\begin{lfgwcode}{label={lis:mchoice2}}
 
 \question Wer war kein Beatle?
 
@@ -198,7 +200,7 @@ Listing \ref{lis:mchoice1} und \ref{lis:mchoice2} zeigen die entsprechenden Code
 
 \question \fillin[James Bond] ist der coolste Superheld.
 
-\end{lstlisting}
+\end{lfgwcode}
 
 \begin{figure}
 \fbox{\includegraphics[trim=1cm 13.5cm 3cm 1cm,width=0.95\textwidth]{./Examples/exam/beispiel-06}}
@@ -212,7 +214,7 @@ Listing \ref{lis:mchoice1} und \ref{lis:mchoice2} zeigen die entsprechenden Code
 \texttt{exam} erlaubt es dem Dozenten auch, unterschiedliche Leerräume für die Antworten von Schülern und Studenten bereitzuhalten. 
 Neben einfachem Leerraum mittels \texttt{\textbackslash vspace} und umrahmten Boxen mittels (siehe Listing \ref{lis:vspace1} sowie die Ausgabe in Abbildung \ref{fig:vspace1}) stellt \texttt{exam} auch linierte und gepunktete Linien sowie karierten Platz bereit.
 
-\begin{lstlisting}[caption={Leerraum und Boxen für Antworten}, label={lis:vspace1}]
+\begin{lfgwcode}{label={lis:vspace1}}
 % einfacher Abstand
 \vspace{<Länge>}
 
@@ -226,7 +228,7 @@ Neben einfachem Leerraum mittels \texttt{\textbackslash vspace} und umrahmten Bo
 %leere umrahmte Box bis zum Seitenende
 \makeemptybox{\stretch{1}}
 \newpage
-\end{lstlisting}
+\end{lfgwcode}
 
 \begin{figure}[b]
 \fbox{\includegraphics[clip, trim=2cm 17cm 1.5cm 2.5cm,width=\textwidth]{./Examples/exam/beispiel-07}} % 
@@ -239,7 +241,7 @@ Außerdem stellt \texttt{exam} noch den \texttt{\textbackslash answerline} Befeh
 
 Beispiele für die Nutzung dieser Befehle finden sich in Listing \ref{lis:fill}, für die Ausgaben siehe die Abbildungen \ref{fig:fill1} und \ref{fig:fill2}. 
 
-\begin{lstlisting}[caption={Beispiele für Linien und Gitter},label={lis:fill}]
+\begin{lfgwcode}{label={lis:fill}}
 \fillwithlines{<Länge>} % für linierten Platz
 % Hinweis: \linefillheight für Abstand zwischen Linien
 
@@ -251,7 +253,7 @@ Beispiele für die Nutzung dieser Befehle finden sich in Listing \ref{lis:fill},
 % \setlength{\gridlinewidth}{0.1pt}
 
 \answerline[Antwort] % für kurze Antworten
-\end{lstlisting}
+\end{lfgwcode}
 
 \begin{figure}[b]
 \fbox{\includegraphics[clip, trim=2cm 16.5cm 2cm 2.5cm,width=\textwidth]{./Examples/exam/beispiel-08}} % 
@@ -269,13 +271,13 @@ Wie bereits erwähnt, steuert die globale Option \enquote{answers}, ob die hinte
 Die Hinterlegung von Lösungen bei Textaufgaben im Text erfolgt dabei über eingefügte \texttt{solution} Umgebungen, die hinter jede \texttt{\textbackslash question} gesetzt werden.
 Listing \ref{lis:sol1} zeigt ein entsprechendes Beispiel, Abbildung \ref{fig:sol2} die entsprechende Ausgabe.
 
-\begin{lstlisting}[label={lis:sol1},caption={Beispielhafte Lösung}]
+\begin{lfgwcode}{label={lis:sol1}}
 \question Was ist die Antwort auf alle Fragen?
 
 \begin{solution}
 42
 \end{solution}
-\end{lstlisting}
+\end{lfgwcode}
 
 \begin{figure}
 \fbox{\includegraphics[clip, trim=2cm 22.5cm 2cm 0.7cm,width=\textwidth]{./Examples/exam/beispiel-10}} % 
@@ -304,23 +306,16 @@ Die Abbildungen \ref{fig:solbox1} und \ref{fig:solbox2} zeigen am Beispiel von \
 \caption{Ausgabe von \texttt{\textbackslash solutionorgrid} mit gesetztem \enquote{answers}}\label{fig:solbox2}
 \end{figure}
 
-
-
-
-
-
-
-
 \section{Ausgabe von Notentabellen}
 
 Wie bereits erwähnt kann \texttt{exam} auch Bewertungstabellen setzen, vertikal und horizontal, nach Aufgaben und nach Seiten. Listing \ref{lis:bew} zeigt die entsprechenden Befehle, die Abbildungen \ref{fig:hor} und \ref{fig:ver} zeigen jeweilige Ausgaben für horizontale Tabellen nach Fragen und Seiten.
 
-\begin{lstlisting}[caption={Befehle für Bewertungstabellen},label={lis:bew}]
+\begin{lfgwcode}{label={lis:bew}}
 \gradetable[v][questions] vertikal nach Fragen
 \gradetable[h][questions] horizontal nach Fragen
 \gradetable[v][pages] vertikal nach Seiten
 \gradetable[h][pages] horizontal nach Seiten
-\end{lstlisting}
+\end{lfgwcode}
 
 \begin{figure}[b]
 \fbox{\includegraphics[clip, trim=2.5cm 15cm 2.5cm 0.7cm,width=\textwidth]{./Examples/exam/beispiel-13}} % 
