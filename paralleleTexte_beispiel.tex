@@ -1,0 +1,61 @@
+\documentclass[a5paper]{article} 
+
+\usepackage[pass]{geometry}
+
+\usepackage[latin,ngerman]{babel}
+
+\usepackage[%
+series={},%keine Apparate aktivieren
+noend,%keine Endotenapparate
+noeledsec,%keine eledsections et al.
+noledgroup%keine ledgroups
+]{reledmac}%
+
+\usepackage{reledpar}
+
+\begin{document}
+
+%%% die se\firstlinenumR{2}
+\linenumincrementR{2}
+\setlength{\columnrulewidth}{0.5pt}
+\setlength{\Lcolwidth}{0.425\textwidth}
+\setlength{\Rcolwidth}{0.425\textwidth}
+\columnsposition{C}
+
+\begin{pages}
+\begin{Leftside}
+\beginnumbering
+\autopar
+\selectlanguage{latin}
+
+Gallia est omnis divisa in partes tres, 
+    quarum unam incolunt Belgae,
+    aliam Aquitani,
+    tertiam, qui ipsorum lingua Celtae, nostra Galli appellantur.
+
+Hi omnes lingua institutis legibus inter se differunt.
+
+\endnumbering
+\end{Leftside}
+
+\begin{Rightside}
+\beginnumbering
+%\pstart
+\autopar
+
+Gallien als ganzes ist in drei Teile gegliedert,
+    deren erster die Belger bewohnen,
+    den zweiten die Aquitanier,
+    den dritten jene, die in ihrer eigenen Sprache Kelten, in der unseren Gallier genannt werden.
+
+Sie alle unterscheiden sich hinsichtlich der Sprache, 
+    der (staatlichen) Einrichtungen und der Gesetze von einander.
+    
+\endnumbering
+\end{Rightside}
+\end{pages}
+
+% hier nun alles ausspucken, linke und rechte Seiten
+\Pages
+
+\end{document}
