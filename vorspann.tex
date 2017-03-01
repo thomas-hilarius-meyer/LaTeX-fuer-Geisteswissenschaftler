@@ -1,5 +1,8 @@
 % !TEX root = lfgw.tex
 
+\RequirePackage{iftex}
+\RequireLuaTeX
+
 \documentclass[%
 ibycus,polutonikogreek,english,french,latin,ngerman,%global definiert!
    %%%draft=false,%
@@ -8,9 +11,6 @@ ibycus,polutonikogreek,english,french,latin,ngerman,%global definiert!
    DIV=13,%
    pagesize%
    ]{scrbook}
-
-\usepackage{iftex}
-\RequireLuaTeX
 
 \usepackage{luatex85} %%% MS: Wirklich nötig? Laut Doku sollte das dann aber nach ganz oben mit \RequirePackage
 \usepackage{yfonts}
