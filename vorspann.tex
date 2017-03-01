@@ -1,6 +1,5 @@
 % !TEX root = lfgw.tex
 
-%\RequirePackage[ngerman=ngerman-x-latest]{hyphsubst} % Für LuaLaTeX auskommentieren.
 \documentclass[%
 ibycus,polutonikogreek,english,french,latin,ngerman,%global definiert!
    %%%draft=false,%
@@ -10,23 +9,18 @@ ibycus,polutonikogreek,english,french,latin,ngerman,%global definiert!
    pagesize%
    ]{scrbook}
 
-\usepackage{ifluatex}
+\usepackage{iftex}
+\RequireLuaTeX
 
-\ifluatex
-	\usepackage{luatex85}
-	\usepackage{fontspec}
-	\defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
-	\usepackage{lfgwcjhebrew}
-%	\newfontfamily\GFSDidot{GFS Didot}
-	\newcommand\gkk[1]{%{\GFSDidot
-	#1%}
-	}
-\else
-	\usepackage[T1]{fontenc}
-	\usepackage[utf8]{inputenc}
-	\usepackage{cjhebrew}
-	\newcommand{\gkk}[1]{\foreignlanguage{polutonikogreek}{#1}}
-\fi
+\usepackage{luatex85} %%% MS: Wirklich nötig? Laut Doku sollte das dann aber nach ganz oben mit \RequirePackage
+\usepackage{yfonts}
+\usepackage{textgreek}
+\usepackage{fontspec}
+\defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\usepackage{lfgwcjhebrew}
+%\newfontfamily\GFSDidot{GFS Didot}
+\newcommand\gkk[1]{%{\GFSDidot
+#1}
 
 \usepackage[]{babel}
 \usepackage{libertine}
@@ -35,17 +29,7 @@ ibycus,polutonikogreek,english,french,latin,ngerman,%global definiert!
    supscaled=1.2,%
    raised=-.13em]% match XHeight of libertine
    {superiors}
-\usepackage[scaled=0.8]{beramono}
-%%%\usepackage{textcomp} %nicht notwendig, wenn man XeLaTeX oder LuaLateX nutzt
-%\usepackage{euler}
-
-\ifluatex
-	\setmonofont[Scale=MatchLowercase,FakeStretch=0.85]{DejaVu Sans}%das wird für Griechisch in Codebeispielen gebraucht
-\else
-\fi
-
-\usepackage{yfonts}
-\usepackage{textgreek}
+\setmonofont[Scale=MatchLowercase,FakeStretch=0.85]{DejaVu Sans}%das wird für Griechisch in Codebeispielen gebraucht
 \usepackage[%
    final,%
    tracking=smallcaps,%
@@ -132,7 +116,7 @@ lfgwstyle/.style={%
 
 \usepackage{showexpl}
 
-\usepackage[pagewise]{lineno}
+\usepackage[pagewise]{lineno} %%% MS: Kann man das nicht besser mit reledmac machen, da man es sowieso lädt?
 
 \usepackage{sidenotes}
 
@@ -165,8 +149,8 @@ lfgwstyle/.style={%
 
 \usepackage{hieroglf}
 
-\usepackage[normalem]{ulem}
-\usepackage{letterspace}
+\usepackage[normalem]{ulem} %%% MS: Wofür? Unterstreichungen sollten vermieden werden!
+\usepackage{letterspace} %%% MS: Wofür. Besser direkt \textls aus dem Microtypepaket
 
 \usepackage[hyphens]{url}
 
