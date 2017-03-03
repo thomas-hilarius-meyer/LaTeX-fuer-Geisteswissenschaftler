@@ -117,7 +117,7 @@ Philologen von besonderem Interesse sein könnten.
 
 Neben der Monographie von Herbert Voß sei zu ihrem Einsatz auf die in der Regel sehr
 guten Paketdokumentationen verwiesen.%
-\footcite[Außerdem immer noch lesenswert:]{roemer:dtk2008}
+\footcite[][Außerdem immer noch lesenswert:]{roemer:dtk2008}
 
 
 \minisec{tikZ}
@@ -162,23 +162,21 @@ Deshalb werden im folgenden eine Reihe von Paketen aufgebaut, die -- aufbauend a
 Aufgabenbereich anbieten.
 
 
-\subsection{Linguistische Strukturen}
+\subsection{Baumdiagramme / linguistische Strukturen}
 \label{linguistische-strukturen}
 \index{Linguistik} \index{x-bar-Schema} \index{Phrasenstruktur}
+\index{Baumdiagramm} \index{Stemma}
+
+\textfb{Autorschaft Christine Römer angefragt - thm, 2.3.2017}
 
 Hier geht es um graphische Darstellungen etwa im Kontext der Kontituentenstrukturanalyse.
 Für die Wiedergabe von Beispielsätzen etc. vgl. den Abschnitt 
 \ref{linguistische-beispiele} auf Seite \pageref{linguistische-beispiele}.
 
-\paket{covington}
-\footcite{roemer:dtk2008}
-\footcite{roemer:dtk2016}
+Das Paket \paket{forest} von Saso Zivanovic erlaubt mit sehr wenig Aufwand, einfache Baumsstrukturen
+darzustellen:%
+\footcite[][Sehr aufschlussreich ist der Artikel:]{roemer:dtk2016}
 
-
-\subsection{Baumdiagramme}
-\index{Baumdiagramm} \index{Stemma}
-
-Das Paket \paket{forest} von Saso Zivanovic erlaubt einfache und sehr komplexe Baumsstrukturen:
 
 \begin{lfgwexample}{}
  \begin{forest}
@@ -191,6 +189,12 @@ Das Paket \paket{forest} von Saso Zivanovic erlaubt einfache und sehr komplexe B
   ]
 \end{forest}
 \end{lfgwexample}
+
+Aber auch sehr komplexe Darstellungen sind möglich:
+
+...
+
+
 
 \subsection{Stammbäume}
 \index{Stammbaum} \index{Genealogie}
