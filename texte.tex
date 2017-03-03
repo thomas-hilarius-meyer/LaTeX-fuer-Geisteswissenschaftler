@@ -1642,11 +1642,350 @@ Komplexes Thema, Spezialliteratur gerechtfertigt.\footcite{voss:tabellen}
 \section{Umgang mit Bibelstellen}
 \index{Bibelstellen}
 
-\paket{bibleref}
+V.a. im Rahmen größerer Projekte empfiehlt es sich dringend, Bibelstellenangaben nicht einfach
+\enquote{frei Hand} in den Text zu schreiben, sondern diese in einer eindeutigen Form 
+-- m.H. eines \LaTeX{}-Befehls, der auszuzeichnen. 
+Dafür gibt es zwei Gründe:
 
-\paket{bibleref-german}
+\begin{itemize}
+    \item Wenn man die Bibelstellenangaben auszeichnet, kann man in seinem Editor rasch alle
+    Stellenangaben aufsuchen, etwa um sie nachzuschlagen, auf Vollständigkeit zu überprüfen etc.
+    \item Die eindeutige Auszeichnung ist Voraussetzung für eine automatische Erfassung in einem
+    Index.
+    \item Während der langen Rezeptionsgeschichte der Bibel haben sich verschiedene Standards der 
+    Bezeichnung der einzelnen biblischen Bücher herausgebildet. Stützt man seine Stellenangaben
+    auf eine eindeutig definierte maschinenlesbare Codierung, kann man den Computer automatisch 
+    dafür sorgen lassen, dass alle Bibelstellenangaben einer bestimmten Wiedergabekonvention folgen.
+    (Also, dass z.B. das erste Buch der Bibel einheitlich entweder als \enquote{Genesis} oder als \enquote{1. Buch Mose}
+    referenziert wird.
+\end{itemize}
 
-\paket{bibleref-parse}
+Im Folgenden geht es darum, für die Zitierweise von Bibelstellen eine eindeutige Codierung zu verwenden, 
+die es einerseits ermöglicht, die auftretenden Bibelstellenangaben eindeutig und automatisch 
+verarbeitbar zu erfassen. 
+Andererseits soll die Erfassung möglichst komfortabel sein, das heißt möglichst wenige 
+kryptische Steuerzeichen in den Text bringen und außerdem in gewissen Grenzen tolerant gegenüber 
+menschlicher Uneinheitlichkeit und Neigung zu Fehlern sein.
+
+Zweck dieses Codierungsaufwandes ist die einheitliche Formatierung der Bibelstellenangaben
+entsprechend etablierter Leitlinien sowie die automatische Erstellung eines Bibelstellenregisters.
+
+Zu diesem Zweck existieren auf \url{ctan} mehrere Pakete, die den Umgang 
+auch mit großen Mengen an Bibelstellenangaben sehr komfortabel machen:
+
+\begin{itemize}
+    \item \paket{bibleref} 
+    \item \paket{bibleref-german} 
+    \item \paket{bibleref-parse} 
+\end{itemize}
+
+\minisec{Das Paket \paket{bibleref}}
+
+Das Paket \paket{bibleref} von Nicola Talbot bietet die genannten Vorzüge, richtet sich aber primär
+an die Bedürfnisse englischsprachiger Nutzer. 
+Dennoch lohnt sich ein Blick auf das Paket, weil es die konzeptionelle Grundlage für
+\paket{bibleref-german} bildet, dessen Funktionsweise man verstanden haben sollte.
+
+\Paket{bibleref} stellt hauptsächlich zwei Makros bereit, die zuallererst wichtig sind:
+
+\begin{itemize}
+    \item \lstinline/\bibleref { Buch } ( Verse )/ dient zur Angabe einer Bibelstelle. 
+    Für Buch ist ein definiertes Kürzel einzugeben, dass in der Ausgabe ggf. durch eine vollständigere
+    Schreibweise einheitlich ersetzt wird. (Das lässt sich einstellen; verschiedene Stile sind vordefiniert.)
+    \item \lstinline/\ibibleref { Buch } ( Verse )/ dito, zugleich wird im Bibelstellenregister (s.u.)
+    ein Eintrag vorgenommen.
+\end{itemize}
+
+Mit diesen beiden Befehlen lassen sich Bibelstelleneingaben eindeutig bezeichnen und deshalb
+mit Programmhilfe einheitlich formatiert ausgeben und im Register erschließen. 
+Vorraussetzung ist natürlich das Einbinden des Paketes in der Präambel:
+\lstinline/\usepackage{bibleref}/
+Ein Beispiel: 
+
+\begin{lfgwcode}
+Es gibt vier Evangelien: 
+\ibibleverse{Mt}, 
+\ibibleverse{Mk}, 
+\ibibleverse{Lk} und \ibibleverse{John}.
+
+Diese Stelle kommt nicht ins Register: \bibleverse{Rev}(13:15-17), 
+während diese dort schon erscheint: \ibibleverse{John}(3:17).
+Die Bergpredigt steht übrigens in \ibibleverse{Mt}(5-7:).
+\end{lfgwcode}
+
+Die Bearbeitung mit \LaTeX\ führt dazu, dass die Bibelstellen einheitlich formatiert ausgegeben werden:
+
+\begin{quotation}
+    Es gibt vier Evangelien: Matthew, Mark, Luke und John.
+    Diese Stelle kommt nicht ins Register: Revelation 13:15–17, während diese dort schon
+    erscheint: John 3:17. Die Bergpredigt steht übrigens in Matthew 5–7.
+\end{quotation}
+
+Doch das Paket hat noch mehr zu bieten:
+\paket{bibleref} erlaubt, durch optionale Angabe eines Zitierstiles,%
+\footnote{Paketoption \lstinline|biblerefstyle|.}
+die Bibelstellen auf verschiedene
+Weise auflösen zu lassen:
+\lstinline/\usepackage[biblrefstyle=...]{bibleref}/
+
+Zur Wahl stehen angloamerikanische und international verbreitete Zitierstile:
+
+\begin{labeling}{anglosaxon}
+    \item[default] 2 Corinthians 12:1-5
+    \item[jerusalem] 2 Co 12:1-5
+    \item[anglosaxon] II Cor. XII.1-5
+    \item[JEH] 2 Cor. xii. 1-5
+    \item[NTG] 2 Cor xii, 1-5
+    \item[MLA] 2 Cor. xii.1-5
+    \item[chicago] 2 Cor. xii: 1-5
+    \item[text] Second Epistle to the Corinthians, chapter twelve verse one to five
+\end{labeling}
+
+Betrachtet man die entstandene Ausgabe unseres Beispieltextes, so fallen
+dem deutschen Leser (mindestens) vier Wünsche ein, die der unmittelbaren Verwendung von
+\paket{bibleref} in deutschsprachigen Texten im Wege stehen: 
+
+\begin{itemize}
+    \item Einzelne Kürzel sind im deutschen Sprachraum unhandlich: \enquote{John} statt \enquote{Jo}.
+    (Übrigens: Verwendet man die Abkürzung \enquote{Jo}, wird diese zu \enquote{Joel} expandiert.)
+    \item Die in der Ausgabe erzeugten Bezeichnungen der biblischen Bücher sind englisch bzw. 
+    -- je nach eingestelltem Zitierstil -- lateinisch.
+    \item Die Zeichensetzung der ausgegebenen Stellenangaben ist für deutsche Gewohnheiten ungewohnt: 
+    Wir erwarten statt Angaben wie \enquote{Gen 1:1} eher das Format \enquote{Gen 1,1}: 
+    Buch -- Kapitel -- Komma -- Vers.
+    \item Die Codierung der Versangaben im Quelltext ist etwas unhandlich.
+\end{itemize}
+
+Alle vier Einschränkungen lassen sich umgehen; 
+für die ersten drei Punkte hilft \paket{bibleref-german}, 
+für die letzte Einschränkung wurde \paket{bibleref-parse} entwickelt.
+Es ist besonders praktisch, dass sich beide Pakete kombinieren lassen.
+
+
+\minisec{Das Paket \Paket{bibleref-german}}
+
+Das Paket \paket{bibleref-german} wurde von Dr. Dominik Waßenhoven entwickelt und bietet die Leistungen von \paket{bibleref} 
+angepasst an die Bedürfnisse deutscher Nutzer.
+
+Es stellt im deutschsprachigen Raum das Standardwerkzeug zum Umgang mit Bibelreferenzen dar,
+deshabl soll seine Funktionalität etwas genauer demonstriert werden.
+
+Mit Hilfe von \paket{bibleref} erstellte Dokumente sind unverändert lauffähig, wenn man nur
+den Paketaufruf austauscht. (Übrigens stehen auch die englischsprachigen Ausgabeformate von
+\paket{bibleref} unter \paket{bibleref-german} zur Verfügung.)
+
+Das Ergebnis desselben Eingabetextes wie oben entspricht weit mehr deutschen Erwartungen, wenn man
+nur den Paketaufruf in der Präambel ersetzt 
+(\lstinline/\usepackage{bibleref-german}/): XXXX
+
+\begin{quotation}
+    Es gibt vier Evangelien: Matthäus, Markus, Lukas und Johannes.
+    Diese Stelle kommt nicht ins Register: Offenbarung 13,15–17, während diese dort schon
+    erscheint: Johannes 3,17. Die Bergpredigt steht übrigens in Matthäus 5–7.
+\end{quotation}
+
+%\begin{figure}
+%\includegraphics[scale=.5]{listing_bibleref-german}
+%\caption{Das Ergebnis von Listing 2.}
+%\end{figure}
+
+Das Ersetzen von \Paket{bibleref} durch \Paket{bibleref-german} hat 
+drei Dinge zur Folge:
+
+\begin{itemize}
+    \item Das Paket \enquote{versteht} als Eingabe sowohl die im deutschsprachigen Raum üblichen Kürzel -- übrigens
+    auch die englischen -- als auch die ausgeschriebenen Buchnamen. Man braucht keine Namenskonventionen
+    zu \enquote{lernen}, meistens versteht biblref-german, welches Buch man meint. 
+    Teilweise sind mehrere Bezeichnungen für das gleiche Buch definiert -- z.B. sind Numeri, Num, 4Mos und
+    IVMos gleichbedeutend.
+    (Selbstverständlich enthält die Paketdokumentation eine vollständige Auflistung der Buchbezeichnungen.)%
+    \footnote{Achtung! Die Eingabecodierung \enquote{Jo} wird zum Buch Joel aufgelöst; das Johannes-Evangelium
+        ist als \enquote{Joh} einzugeben, was dann bei Verwendung des Vulgata-Stils zu Io interpoliert wird. 
+        So kompliziert kann die Welt sein\ldots }
+    \item In der Ausgabe erscheinen deutsche Buchtitel.
+    \item Die Zeichensetzung entspricht deutschen Gewohnheiten.
+\end{itemize}
+
+Über die Konfigurationsmöglichkeiten des englisschsprachigen \Paket{bibleref} lässt sich das Ausgabeformat der Bibelstellenangaben bei \Paket{bibleref-german} in
+zweierlei Weise modifizieren:
+
+\begin{itemize}
+    \item Zitierstil:
+    Durch die Angabe als Paketoption oder alternativ mit \lstinline/\biblerefstyle{<Stil>}/ lässt sich die Ausgabekonvention verändern.
+    Mögliche Werte sind die im deutschsprachigen Raum meist verwendeten Standards: 
+    \begin{itemize}
+        \item \lstinline/Einheitsübersetzung/ (der voreingestellte Standardwert),
+        \item \lstinline/Lutherbibel/ (in der Form von 1984),
+        \item \lstinline/LThK/ (die Konventionen des Lexikons für Theologie und Kirche),
+        \item \lstinline/RGG/ (Religion in Geschichte und Gegenwart),
+        \item \lstinline/TRE/ (Theologische Realenzyklopädie) und 
+        \item \lstinline/Vulgata/ (die lateinischen Bezeichnungen der Vulgata).
+    \end{itemize}
+    
+    \item Format:
+    Für jeden dieser Zitierstile definiert \Paket{bibleref-german} noch vier Formate, die die Wiedergabe der
+    Stellenangaben definieren und durch den Befehl \lstinline/\biblerefformat{<Format>}/ eingestellt
+    werden können:
+    
+    \begin{itemize}
+        \item kurz -- Offb 13,17
+        \item lang -- Offenbarung 13,17
+        \item Terminus -- Die Offenbarung des Johannes 13,17
+        \item Zahlwort -- Die Offenbarung des Johannes, Kapitel dreizehn, Vers siebzehn
+    \end{itemize}
+    
+\end{itemize}
+
+Mit beiden Angaben lässt sich die Ausgabe der Belege sehr differenziert an die eigenen Bedürfnisse 
+anpassen:
+
+%\lstinputlisting[caption=Beispiel 3: Die selbe Stelle in verschiedenen Formaten und Stilen]
+%    {listing_bibleref-german_stile}
+
+\begin{lstlisting}
+\documentclass{scrartcl} 
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+
+\usepackage{bibleref-german}
+
+\begin{document}
+\bibleverse{Jo}(1:1)
+
+\bibleverse{Joh}(3:17) 
+
+\biblerefstyle{Vulgata}
+\bibleverse{Offb}(1:1)
+
+\biblerefformat{lang}
+\bibleverse{Offb}(1:1)
+
+\biblerefstyle{LThK}
+\bibleverse{Joh}(3:17) 
+
+\biblerefformat{Terminus} 
+\bibleverse{Joh}(3:17) 
+
+\biblerefformat{Zahlwort}
+\bibleverse{Joh}(3:17)
+
+\biblerefstyle{Vulgata} 
+\biblerefformat{kurz}
+\bibleverse{Joh}(1:1)
+\end{document}
+\end{lstlisting}
+
+Es ergibt sich eine erstaunliche Variationsbreite an Zitiermöglichkeiten:
+
+\begin{quotation}
+    Joël 1,1 
+    
+    Johannes 3,17
+    
+    Apc 1,1
+    
+    Apocalypsis 1,1
+    
+    Johannes 3,17
+    
+    Das Evangelium nach Johannes 3,17
+    
+    Das Evangelium nach Johannes, Kapitel drei, Vers siebzehn
+    
+    Io 1,1
+\end{quotation}
+
+
+Die Formate Terminus und Zahlwort sind im Deutschen wegen der notwendigen Flexion der bestimmten Artikel 
+problematischer als die englischsprachigen \texttt{text}-Variante des Paketes \Paket{bibleref}. 
+Ihre Benutzung ist wahrscheinlich eher die Ausnahme.
+Anzumerken ist, dass der Stil Zahlwort ausgaben wie ``Kapitel one'' ergibt, wenn nicht mit babel
+die Sprache auf german (oder ngerman) eingestellt wurde. Das Babel-Paket muss vor bibleref-german
+eingebunden werden.
+
+Selbstverständlich muss der verantwortungsbewusste Textautor selbst entscheiden, in welchem Maße
+das Vermischen verschiedener Formate und insbesondere Stile innerhalb eines Dokumentes sinnvoll ist.
+
+Mit \Paket{bibleref-german} lassen sich die deutschsprachigen Gepflogenheiten bei der Formatierung von
+Bibelstellenangaben sehr präzise abbilden. Wenn jetzt noch das Eingabeformat (hinsichtlich Kapitel- und
+Versangabe) etwas handlicher wäre...
+
+
+\subsection{Das Paket \Paket{bibleref-parse}}
+
+Genau dies ist das Ziel des Paketes \Paket{bibleref-parse} von Sebastian Kuhnert:
+\enquote{The bibleref-parse package parses Bible passages that are given in a human readable format.}
+\footnote{Sebastian Kuhnert, The bibleref-parse Package, S. 1}
+Die beiden wichtigsten Befehle, die von dem Paket definiert werden, lauten analog zu
+\Paket{bibleref} und \Paket{bibleref-german}:
+
+\begin{itemize}
+    \item\lstinline/\pbibleref { Buch mit Kapitel- u. Versangabe } / (Man beachte das \textbf{p}!) 
+    \footnote{Die Umbenennung der beiden Befehle ist deshalb nötig, weil innerhalb desselben 
+        Dokuments sowohl Bibelstellen im Eingabeformat von \Paket{bibleref} bzw. \Paket{bibleref-german} als auch 
+        im Format von \Paket{bibleref-parse} möglich sind. Wahrscheinlich ist es empfehlenswert, bei einer größeren
+        Arbeit sich auf \Paket{bibleref-parse} festzulegen und eine eigene Abkürzung zu definieren, z.B. 
+        \lstinline/bibel/ für normale Stellen und \lstinline/bibelx/ für Stellen, die im Index
+        erfasst werden sollen.}
+    definiert einen Bibelstellenverweis.
+    \item\lstinline/\pbibleref { Buch mit Kapitel- u. Versangabe } / (nicht vergessen: \textbf{p}!) dito, zugleich wird im Bibelstellenregister (s.u.)
+    ein Eintrag vorgenommen.
+\end{itemize}
+
+Mit ihnen ist es möglich, Bibelstellen so zu zitieren, wie es der deutschsprachige Nutzer gewohnt ist.
+Dabei stellt sich der Parser sehr weitgehend auf die vielen Sonderfälle ein, die in Bibelstellen 
+auftreten können. Deshalb ist die hauptregel ganz einfach:
+\enquote{The  basic message is: Just use your intuition. This is what this package was created for.}%
+\footnote{ebd. S. 3.}
+
+Diese Erklärung verspricht nicht zuviel, wie das folgende Listing zeigt:
+bibleref-parse in Zusammenspiel mit biblref-german:
+Bequemer geht's nicht. Nur das \enquote{p} am Beginn der Bibelstellen-Kennungen darf man nicht vergessen\ldots
+
+%\lstinputlisting[caption=Beispiel 4: bibleref-parse in Zusammenspiel mit biblref-german:
+%    Bequemer geht's nicht. Nur das ``p'' am Beginn der Bibelstellen-Kennungen darf man nicht vergessen...]
+%    {listing_bibleref-german-parse}
+
+\begin{lstlisting}
+\documentclass{scrartcl} 
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{bibleref-german} % Ausgabe: deutsche Gepflogenheiten
+\usepackage{bibleref-parse}  % Eingabe: quasi künstliche Intelligenz ;-)
+
+
+\begin{document}
+Es gibt vier Evangelien: 
+\pibibleverse{Mt}, 
+\pibibleverse{Markus}, 
+\pibibleverse{Luke} 
+und \pibibleverse{Joh}. 
+Diese Stelle kommt nicht ins Register: \pbibleverse{Offb 13,15-17}, 
+während diese dort erscheint: \pibibleverse{Joh 3,17}. 
+Die Bergpredigt steht übrigens in \pibibleverse{Mt 5-7}.
+\end{document}
+\end{lstlisting}
+
+%\begin{figure}
+%\includegraphics[scale=.5]{listing_bibleref-german-parse}
+%\caption{Das Ergebnis von Listing 4.}
+%\end{figure}
+
+Nur der Vollständigkeit halber die \enquote{Auflösung} durch \LaTeX\ldots
+
+\begin{quotation}
+    Es gibt vier Evangelien: Matthäus, Markus, Lukas und Johannes. Diese Stelle kommt
+    nicht ins Register: Offenbarung 13,15–17, während diese dort erscheint: Johannes 3,17.
+    Die Bergpredigt steht übrigens in Matthäus 5–7.
+\end{quotation}
+
+Die Aufgabenstellung, unter Benutzung einer leicht handhabbaren, \enquote{menschenfreundlichen} Codierung
+Bibelstellenangaben mit computerischer Einheitlichkeit auszugeben -- und das auch noch in verschiedenen
+vordefinierten Stilen -- ist m.H. von \Paket{bibleref-german} und \Paket{bibleref-parse} gelöst.
+
+Damit ist zugleich die Voraussetzung für die ebenso mühelose Erstellung eines Bibelstellenindex geschaffen.
 
 Zur Registererstellung vgl. \fullref{Bibelstellenregister}.
 
