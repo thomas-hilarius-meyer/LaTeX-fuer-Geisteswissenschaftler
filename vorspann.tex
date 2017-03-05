@@ -257,7 +257,7 @@ lfgwstyle/.style={%
 \providecommand*{\prog}[1]{\texttt{#1}}
 \let\Program\prog
 
-\providecommand*{\paket}[1]{\textsf{#1}\index[pakete]{#1}}
+\providecommand*{\paket}[2][]{\textsf{#2}\index[pakete]{\if$#1$#2\else#1\fi}}
 \let\Package\paket%zwecks kompatibilität mit DTK
 \let\Paket\paket
 
