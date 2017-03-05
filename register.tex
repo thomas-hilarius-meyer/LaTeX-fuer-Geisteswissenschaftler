@@ -6,35 +6,202 @@
 
 \section{Allgemeines}
 
-Sortierproblem bei Umlauten
+Um die einfachste Methode anzuwenden, ein \LaTeX{}-Dokument mit einem Index zu versehen, lädt man
+in der Dokumentpräambel das Paket \paket{imakeidx} und ergänzt direkt danach den Befehl 
+\lstinline/makeindex/.
+
+Einzelne Index-Einträge werden durch den Befehl \lstinline/\index{Eintrag}/ ergänzt. 
+Der Eintrag erscheint im Index, ergänzt durch die Seitenzahl der Fundstelle.
+
+Achtung! Der im \lstinline/\index{}/-Befehl angegebene Registereintrag erschient \emph{nicht} selbst
+im Text, sondern \emph{nur} im Register!
+
+Das kann man sowohl als Vor, als auch als Nachteil ansehen:
+Zwar ergeben sich auf diese Weise im Quelltext oft quasi Doppelungen, andererseits ist es so ganz 
+leicht, notwendige Normalisierungen an den Indexeinträgen vorzunehmen:
+
+\begin{lfgwcode}{}
+    Der erste Reichspräsindent der Weimarer Republik hieß Friedrich Ebert\index{Ebert, Friedich}.
+    Sein Nachfolger wurde Paul von Hindenburg\index{Hindenburg, Paul von}.
+\end{lfgwcode}
+
+(Um eventuelle Probleme mit dem Seitenumbruch zu vermeiden, sollte das Index-Kommando stets ohne
+ein Leerzeichen an dem zu indizierenden Wort hängen.)
+
+Damit der auf diese Weise erzeugte Wortindex nicht nur intern gespeichert, sondern auch gedruckt
+wird, muss an der Stelle im Dokument, an der er erscheinen soll, der Befehl \cs{printindex}
+eingesetzt werden. 
+
+\minisec{Registereinträge gruppieren}
+
+Manchmal kann es sinnvoll sein, Registereinträge, die zusammengehören, zu gruppieren,
+das ist durch die Notation \cs{index\marg{Oberbegriff!Unterbegriff}} möglich:
+    
+\begin{lfgwcode}{}
+    Die Päpste waren 
+    Pius~XII.\index{Papst!Pius~XII.}
+    Johannes~XXIII.\index{Papst!Johannes~XXIII.}
+    Paul~VI.\index{Papst!Paul~VI.}
+\end{lfgwcode}    
+
+
+\minisec{Querverweise im Register}
+
+Besonders im Falle solcher umfangreicher, gegliederter Register ist es manchmal nötig,
+von einem Registereintrag auf einen anderen zu verweisen, etwa so: \enquote{Pius, siehe Papst}.
+
+Um einen Querverweis einzurichten, gibt es die Notation:
+
+\begin{lfgwcode}{}
+    \index{Pius|see{Papst}}
+\end{lfgwcode}
+
+Was genau an Stelle des \cs{see}-Kommandos eingesetzt wird, ist durch die Spracheinstellung des 
+Paketes \paket{babel} festgelegt.
+
+\minisec{Seitenbereiche angeben}
+
+Kommt ein Registereintrag in einer Passage des Werkes immer wieder vor, ist es nicht üblich, die
+zahlreichen, je um 1 ansteigenden Seitenzahlen nacheinander aufzulisten. Statt dessen will man
+eine Angabe wie \enquote{67-73} erzielen. Das wird durch folgende Angabe erreicht:
+
+\begin{lfgwcode}{}
+    \chapter{Karl der Große}
+    \index{Karl|(}
+    ... Text mit vielen Erwähnungen Karls ...
+    \index{Karl|)}
+\end{lfgwcode}
+
+\minisec{Einzelne Fundstellen hervorheben}
+
+Sollen einzelne Seitenzahlen innerhalb der Belegwüste durch Fett- oder Kursivdruck hervorgehoben
+werden, etwa weil dort die Begriffsdefinition o.\,ä. zu finden ist, gibt es die beiden Befehle
+\lstinline/\index{Eintrag|textbf}/ und 
+\lstinline/\index{Eintrag|textit}/%
+\footnote{Achtung! Bei der Eingabe darauf achten, dass es tatsächlich 
+    \lstinline/|textbf/ heißen muss, und \emph{nicht} 
+    \lstinline/\textbf/.}
+
+\minisec{Das Aussehen des Registers beeinflussen}
+
+
+\minisec{Sortierreihenfolge verändern}
+
+Anwendungsfall v und f in mediävistischen Werken
+
+%Sortierproblem bei Umlauten
 
 
 \section{Mehrere Register zu einem Dokument}
 
-\minisec{Problem und grundsätzliche Strategie}
-\cite{voss:einfuehrung}
+Bei den meisten Projekten ist es mit einem einfachen Wortindex nicht getan.
+Häufig braucht man mehrere Register, etwa ein Namens-, Orts- und Sachregister.
 
-\minisec{Lösungsansatz I: imakeidx}
-\paket{imakeidx} 
+Mit \LaTeX{} und dem Paket \paket{imakeidx} ist das kein Problem:
 
-\minisec{Lösungsansatz II: splitidx}
-\paket{splitidx}
+%\minisec{Problem und grundsätzliche Strategie}
+%\cite{voss:einfuehrung}
+
+%\minisec{Lösungsansatz I: imakeidx}
+%\paket{imakeidx} 
+
+%\minisec{Lösungsansatz II: splitidx}
+%\paket{splitidx}
 
 
-\section{Sortierreihenfolge verändern}
+\section{Sonderfälle von Registern}
 
-Anwendungsfall v und f in mediävistischen Werken
-
-
-\section{Bibelstellenregister}
-
+\subsection{Bibelstellenregister}
 \label{Bibelstellenregister}
 \index{Bibelstellenregister}
-\paket{bibleref-german}
 
-\section{Worthäufigkeit}
+Die automatische Erstellung eines Verzeichnisses aller Bibelstellen -- in vielen Editionsprojekten
+eine lästige und fehlerträchtige Handarbeit, die meist unter massivem Zeitdruck ganz am Ende ausgeführt
+wird (wenn der Seitenumbruch des Hauptteils schon feststeht) -- gestaltet sich mit \LaTeX\ völlig
+entspannt und ist jederzeit während der Arbeit möglich:
+
+Im Prinzip muss zunächst einmal nur das Paket \paket{imakeidx} eingebunden werden.
+Mit der Angabe \lstinline/\makeindex[title = Verzeichnis der Bibelstellen]/
+lässt sich der Titel des Verzeichnisses festlegen.
+Schließlich muss der Computer durch den Befehl von \lstinline/\printindex/ dazu gebracht werden,
+das Register an der entsprechenden Stelle auszugeben.
+Es sei noch darauf hingewiesen, dass mehrere \LaTeX -Läufe nötig sind, bis alle Seitenverweise
+verlässlich stimmen.
+
+\begin{lfgwcode}{}
+% in der Präambel: 
+...
+
+\usepackage{bibleref-german} 
+\biblerefstyle{Einheitsuebersetzung}
+\biblerefformat{kurz}
+
+\usepackage{bibleref-parse}
+
+\usepackage{imakeidx}
+
+\makeindex[title = Verzeichnis der Bibelstellen]
+
+\biblerefmap{Gen}{01}   % cave: muss identisch der Auflösung sein!
+\biblerefmap{Ex}{02}
+\biblerefmap{Lev}{03}
+\biblerefmap{Num}{04}
+\biblerefmap{Dtn}{05}
+% ...
+\biblerefmap{Mt}{80}
+\biblerefmap{Mk}{81}
+\biblerefmap{Lk}{82}
+\biblerefmap{Joh}{83}
+\biblerefmap{Apoc}{99}
+
+\begin{document}
+\pibibleverse{Mk} ist das kürzeste Evangelium.
+
+Die fünf ersten Bücher heißen:
+\pibibleverse{Gen}, \pibibleverse{Ex}, \pibibleverse{Lev}, \pibibleverse{Num}, \pibibleverse{Dtn}
+
+Diese Stelle kommt nicht ins Register: \pbibleverse{Rev 13,15-17}, 
+während diese dort schon erscheint: \pibibleverse{Rev 12,15-17}
+
+Das erste Evangelium: \pibibleverse{Mt}
+
+Ganz am Anfang: \pibibleverse{Gen 1,4}
+
+Das vierte Evangelium ist \pibibleverse{Joh}.
+
+\printindex
+\end{document}  
+\end{lfgwcode}
+
+Das Ergebnis ist ein einwandfreies Bibelstellenregister 
+(Die Wiedergabe ist um den Text gekürzt sowie für den Satz der DTK modifiziert.):
+
+\begin{quotation}
+    \section*{Verzeichnis der Bibelstellen}
+    Gen, 1\\
+    \makebox[7mm]{} 1,4, 1\\
+    Ex, 1\\
+    Lev, 1\\
+    Num, 1\\
+    Dtn, 1\\
+    Mt, 1\\
+    Mk, 1\\
+    Joh, 1\\
+    Offb\\
+    \makebox[7mm]{} 12,15–17, 1    
+\end{quotation}
+
+
+Eine Besonderheit stellen die Befehle wie \lstinline/\biblerefmap{Gen}{01}/ dar.
+Ohne sie würde das Bibelstellenregister alphabetisch sortiert werden, was in aller Regel unerwünscht ist.
+Achtung: Die Angaben, die hier gemacht werden, müssen mit der späteren Auflösung identisch sein,
+damit die Sortierung wirklich passt.
+
+XXX Das soll noch anders werden !!!
+
+\subsection{Worthäufigkeit}
 \index{Häufigkeit (von Wörtern)}
 
-\section{Reimwörter}
+\subsection{Reimwörter}
 \index{Reimwörterbuch}
 
