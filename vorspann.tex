@@ -2,9 +2,10 @@
 
 \RequirePackage{iftex}
 \RequireLuaTeX
+\RequirePackage{luatex85}
 
 \documentclass[%
-ibycus,polutonikogreek,english,french,latin,ngerman,%global definiert!
+   ibycus,polutonikogreek,english,french,latin,ngerman,%global definiert!
    %%%draft=false,%
    fontsize=11pt,%
    paper=17cm:24cm,%
@@ -12,7 +13,6 @@ ibycus,polutonikogreek,english,french,latin,ngerman,%global definiert!
    pagesize%
    ]{scrbook}
 
-\usepackage{luatex85} %%% MS: Wirklich nötig? Laut Doku sollte das dann aber nach ganz oben mit \RequirePackage
 \usepackage{yfonts}
 \usepackage{textgreek}
 \usepackage{fontspec}
@@ -47,19 +47,41 @@ ibycus,polutonikogreek,english,french,latin,ngerman,%global definiert!
 \usepackage[a4,center,cross]{crop}
 
 \usepackage{listings}
-\lstset{inputencoding=utf8,
+\lstdefinestyle{listinglfgw}{%
+  inputencoding=utf8,
+  extendedchars=true,
   language=[LaTeX]{TeX},
   numbers=left, 
-  %stepnumber=3, 
+  %stepnumber=3,
+  numbersep=3pt, 
   numberfirstline=false,  
   numberstyle=\tiny\textsf,
   basicstyle=\footnotesize\ttfamily,
+  keywordstyle=\bfseries,%
   %frame=tlrb,
   breaklines=true,
   %postbreak=\mbox{$\hookrightarrow$},
   escapeinside={{*@}{@*}},
   %showstringspace=false, 
   captionpos=b,
+  upquote=true,
+  %%%classoffset=0,
+  morekeywords={%
+  %b
+  bonuspointpoints,
+  %c
+  chbpword,chpword,chpgword,chqword,chsword,chtword,
+  %f
+  firstpageheadrule,
+  %h
+  hpword,hqword,hsword,htword,  
+  %p
+  pointpoints,   
+  %q
+  question,
+  %s
+  solutiontitle,
+  },   
   literate={ä}{{\"a}}1{ö}{{\"o}}1{ü}{{\"u}}1{ß}{{\ss}}1
   }
 
@@ -93,6 +115,7 @@ lfgwstyle/.style={%
     sidebyside,
     listing and text,
     title=Beispiel \thetcbcounter,
+    listing options={style=listinglfgw},
     #1,
 %text and listing,
 }
@@ -102,6 +125,7 @@ lfgwstyle/.style={%
     fontupper=\small\ttfamily,
     listing only,
     title=Beispiel \thetcbcounter,
+    listing options={style=listinglfgw},
     #1,
 }
 
@@ -110,6 +134,7 @@ lfgwstyle/.style={%
     lfgwstyle,
     text only,
     title=Beispiel \thetcbcounter,
+    listing options={style=listinglfgw},
     #1,
 }
 
@@ -137,7 +162,7 @@ lfgwstyle/.style={%
 %%%\renewcommand{\it}{}
 %%%\renewcommand{\rm}{}
 
-\usepackage[hang]{footmisc} %%%MS: Evtl. besser direkt \deffootnote
+\deffootnote[1.5em]{1.5em}{1.5em}{\makebox[1.5em][l]{\textsuperscript{\thefootnotemark\ }}}
 
 \usepackage{enumitem}			% for simple list modifications
 \setlist{leftmargin=*,before=\setlength{\rightmargin}{\leftmargin}}
@@ -257,7 +282,7 @@ lfgwstyle/.style={%
 \providecommand*{\prog}[1]{\texttt{#1}}
 \let\Program\prog
 
-\providecommand*{\paket}[1]{\textsf{#1}\index[pakete]{#1}}
+\providerobustcmd*{\paket}[1]{\textsf{#1}\index[pakete]{#1}}
 \let\Package\paket%zwecks kompatibilität mit DTK
 \let\Paket\paket
 
