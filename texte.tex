@@ -113,7 +113,7 @@ Grafiken, die Erstellung von Registern, bessere Möglichkeiten zur Erstellung vo
 Die meisten in dieser Anleitung vorgestellten Möglichkeiten basieren auf besonderen Paketen, die
 oftmals von und für Geisteswissenschaftler[n] entwickelt wurden.
 
-Das \enquote{Laden} eines Paketes erfolgt durch den Befehl \lstinline/\usepackage[Optionen]{<PAKETNAME>}/
+Das \enquote{Laden} eines Paketes erfolgt durch den Befehl \cs{usepackage\oarg{Optionen}\marg{PAKETNAME}}
 
 Dokumentklassen und Pakete enthalten in der Regel eine ziemlich gute Dokumentation, die man
 ggf. zu Rate ziehen sollte, um ihren vollen Funktionsumfang ausnutzen zu können.%
@@ -133,7 +133,7 @@ Das betrifft auch automatisch eingesetzte Begriffe wie \enquote{Kapitel} statt \
 sprachspezifische typographische Regelungen.
 
 Der Aufruf des Paketes \paket{babel} erfolgt wie bei allen Paketen: 
-\lstinline/\usepackage[<Liste mit benutzen Sprachen>]{babel}/ 
+\cs{usepackage\oarg{Liste mit benutzen Sprachen}\marg{babel}}
 
 Babel unterstützt eine ganze Reihe von Sprachen; für Geisteswissenschaftler am wichtigsten sind
 wohl:
@@ -1811,7 +1811,7 @@ zweierlei Weise modifizieren:
 
 \begin{itemize}
     \item Zitierstil:
-    Durch die Angabe als Paketoption oder alternativ mit \lstinline/\biblerefstyle{<Stil>}/ lässt sich die Ausgabekonvention verändern.
+    Durch die Angabe als Paketoption oder alternativ mit \cs{biblerefstyle\marg{Stil}} lässt sich die Ausgabekonvention verändern.
     Mögliche Werte sind die im deutschsprachigen Raum meist verwendeten Standards: 
     \begin{itemize}
         \item \lstinline/Einheitsübersetzung/ (der voreingestellte Standardwert),
