@@ -1,0 +1,110 @@
+%!TEX TS-program = pdflatex
+%!TEX encoding = UTF-8 Unicode
+\documentclass[ignorenonframetext,%
+utf8,
+%draft,
+%11pt, % 8pt, 9pt, 10pt, 11pt, 12pt, 14pt, 17pt
+%aspectratio=169, % 16:9 (160 x 90 mm) default is 4:3 (128 x 96 mm)
+%xcolor=dvipsnames, svgnames, x11names, 
+]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+\uselanguage{German}
+
+\usepackage{tikz}
+
+\mode<presentation>
+{
+  %\usetheme{CambridgeUS}		% rot
+  %\usetheme{EastLansing}		% grün einfach
+  %\usetheme{Copenhagen}		% blau mit section / subsection im Kopf
+  %\usetheme{Montpellier}		% blau mit Navigationsbaum im Kopf (dezent)
+  %\usetheme{Antibes}			% blau mit Navigationsbaum im Kopf
+  %\usetheme{JuanLesPins}		% blau mit Navigationsbaum im Kopf mit Schatten
+  %\usetheme{Ilmenau} 			% blau mit Fortschrittsanzeige
+  %\usetheme{Bergen} 			% blau mit Seitenleiste
+  %  \def\insertauthorindicator{Wer\,?}		% Who
+  %  \def\insertinstituteindicator{Vom\,?}	% From
+  %  \def\insertdateindicator{Wo\,?}			% When
+  %  \setbeamercolor{description item}{use=structure,bg=white,fg=structure.fg!75!black}
+  %  \setbeamercolor{description item}{use=structure,bg=white,fg=structure.fg}
+  %\usetheme[width=20mm]{Berkeley} % blau mit Inhaltsverzeichnis
+  \usetheme[width=20mm]{PaloAlto} % blau mit Inhaltsverzeichnis abgerundet
+  %\usetheme{PaloAlto} % blau mit Inhaltsverzeichnis abgerundet
+  %\usetheme[width=20mm]{Hannover} 	% hellblau mit Inhaltsverzeichnis rechtsbündig
+  %
+  \pgfdeclareimage[width=16mm]{logo}{lfgw}
+  \logo{\pgfuseimage{logo}}
+
+  %
+  % Farbschema
+  %
+  %\usecolortheme{spruce}		% grün
+  %\usecolortheme[named=MSUgreen]{structure}
+  %\usecolortheme{albatross}		% blau bunt
+  %\usecolortheme[overlystylish]{albatross}		% blau bunt
+  %\usecolortheme{beetle}			% blau grau
+  %\usecolortheme{crane}  			% gelb orange
+  %\usecolortheme{dove}				% grau
+  \usecolortheme{seagull}			% grauer
+  %\setbeamercolor*{palette primary}{fg=yellow!80,bg=black!20}
+  \definecolor{dantegelb}{Hsb}{60,.8,1}
+  \setbeamercolor*{palette primary}{fg=dantegelb,bg=black!30}
+  %
+}
+
+% Eine Übersicht aller themes und color themes findet sich auf
+% http://www.hartwork.org/beamer-theme-matrix/
+
+% Welche Optionen gibt es:
+% http://www.cpt.univ-mrs.fr/~masson/latex/Beamer-appearance-cheat-sheet.pdf
+
+\mode<presentation>
+{
+% Falls Aufzählungen immer schrittweise gezeigt werden sollen, kann
+% folgendes Kommando benutzt werden:
+  %\beamerdefaultoverlayspecification{<+->}
+% Aufzählungen mit Vorschau zeigen
+  %\setbeamercovered{transparent}
+% Navigationssymbole
+  %\setbeamertemplate{navigation symbols}[default]  % horizontal
+  %\setbeamertemplate{navigation symbols}[vertical] % vertikal
+  %\setbeamertemplate{navigation symbols}[only frame symbol]
+  \setbeamertemplate{navigation symbols}{}         % keine
+}
+
+\subject{Präsentationen mit Beamer}
+
+\date{LaTeX für Geisteswissenschaftler}
+
+%\includeonlyframes{current%
+%,mitmachen%
+%,titel%
+%,vorspiel%
+%,theme%
+%,farbe%
+%,schrift%
+%,rahmen1%
+%,rahmen2%
+%%,inhalt%
+%%%,inkrementell1%
+%%%,inkrementell2%
+%%%,inkrementell3%
+%%%%,inkrementell4%
+%%%%,inkrementell5%
+%%%%,inkrementell6%
+%%%%%,trans%
+%%%%%,bilder1%
+%%%%%,bilder2%
+%%%%%,bilder3%
+%%%%%%,tikz%
+%}
+\mode<presentation>{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth,height=\paperheight]{{Caesarius_von_Heisterbach_als_Novizenmeister}}}
+}
+
+\input{lfgw-text}
+
+\endinput
+\begin{document}
+\end{document}
