@@ -1,5 +1,5 @@
 % !TeX root = lfgw.tex
-\chapter[Prüfungen erstellen mit \protect{\paket{exam}}]{Prüfungen erstellen mit \paket{exam}}
+\chapter[Prüfungen erstellen mit exam]{Prüfungen erstellen mit \paket{exam}}
 \autor{Uwe Ziegenhagen}
 
 % \section{Einleitung}
@@ -7,9 +7,9 @@
 CTAN%
 \footcite[Vgl.][]{ziegenhagen:dtk2016/2} 
 hält eine Reihe von Paketen bereit, um Klausuren und Übungsblätter zu setzen, neben \paket{exam} sind hier \paket{eqexam}, \paket{exercise} und \paket{exsheets} zu nennen. 
-Im folgenden möchte ich nur auf \texttt{exam} weiter eingehen, dem geneigten Leser sei die Lektüre der Dokumentationen für die anderen Pakete ans Herz gelegt.
+Im folgenden möchte ich nur auf \paket{exam} weiter eingehen, dem geneigten Leser sei die Lektüre der Dokumentationen für die anderen Pakete ans Herz gelegt.
 
-\texttt{exam} wird von Philip Hirschhorn (Wellesley College, USA) betreut, das Paket kann auf eine Geschichte zurückblicken, die bis ins Jahr 1994 reicht. 
+\paket{exam} wird von Philip Hirschhorn (Wellesley College, USA) betreut, das Paket kann auf eine Geschichte zurückblicken, die bis ins Jahr 1994 reicht. 
 Die aktuelle Version, die als Grundlage für diesen Artikel dient, datiert auf Mai 2015. 
 Da dieses Kapitel nicht alle Funktionen der Klasse detailliert beschreiben kann, sei an dieser Stelle ein Hinweis auf die exzellente Dokumentation erlaubt, die auf mehr als 100 Seiten den Umgang mit \paket{exam} erläutert.
 
@@ -31,14 +31,14 @@ Wieviel wiegt Blei?
 \end{document}
 \end{lfgwcode}
 
-Dem  \texttt{\textbackslash question} Befehl kann noch optional die Anzahl der möglichen Punkte für diese Frage übergeben werden. 
+Dem  \cs{question} Befehl kann noch optional die Anzahl der möglichen Punkte für diese Frage übergeben werden. 
 \paket{exam} kann -- sofern die Klassenoption \enquote{addpoints} gesetzt ist -- die Punkte zusammenaddieren und auch eine Bewertungstabelle ausgeben; eine hilfreiche Funktion, die den Dozenten vor lästigen Rechenfehlern bewahren kann.
 
 Neben \enquote{addpoints} gibt es noch eine weitere Klassenoption, die an dieser Stelle nicht unerwähnt bleiben soll: \enquote{answers}. Sie steuert, ob die Antworten auf eine Frage unter die Frage gesetzt werden sollen oder nicht, dazu später mehr.
 
-Betrachten wir uns das Ergebnis von \ref{lis:b01} in Abbildung \ref{fig:b01}, so fällt auf dass statt \enquote{Punkte} \enquote{points} gesetzt wurde. 
+Betrachten wir uns das Ergebnis von \ref{lis:b01} in \cref{fig:b01}, so fällt auf dass statt \enquote{Punkte} \enquote{points} gesetzt wurde. 
 Dies liegt daran, dass das Paket standardmäßig mit englischen Begriffen arbeitet, die erst eingedeutscht werden müssen. Außerdem war das Minimalbeispiel so minimal, dass eine Reihe von nützlichen oder notwendigen Paketen noch nicht eingebunden ist. 
-Da ich persönlich noch am liebsten mit \texttt{pdflatex} arbeite, enthält meine Paketliste (siehe Listing \ref{lis:pak}) noch Pakete, die bei der Nutzung von xe\LaTeX\ oder lua\LaTeX\ nicht unbedingt notwendig sind.
+Da ich persönlich noch am liebsten mit \prog{pdflatex} arbeite, enthält meine Paketliste (siehe Listing \ref{lis:pak}) noch Pakete, die bei der Nutzung von \XeLaTeX\ oder \LuaLaTeX\ nicht unbedingt notwendig sind.
 
 \begin{figure}
 \fbox{\includegraphics[clip,trim=2cm 25cm 6cm 1cm,width=\textwidth]{./Examples/exam/beispiel-01}}

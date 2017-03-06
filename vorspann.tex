@@ -279,13 +279,6 @@ lfgwstyle/.style={%
   nameinlink
   ]{cleveref}%nach hyperref laden
 
-\providecommand*{\prog}[1]{\texttt{#1}}
-\let\Program\prog
-
-\providerobustcmd*{\paket}[2][]{\textsf{#2}\index[pakete]{\if$#1$#2\else#1\fi}}
-\let\Package\paket%zwecks kompatibilität mit DTK
-\let\Paket\paket
-
 \providecommand*{\LaTeXTeX}{\hologo{(La)TeX}}
 \providecommand*{\AmSLaTeX}{\hologo{AmSLaTeX}}
 \providecommand*{\AmSTeX}{\hologo{AmSTeX}}
@@ -361,6 +354,14 @@ lfgwstyle/.style={%
 \def\BibLaTeX{Bib\hologo{LaTeX}}
 \let\biblatex\BibLaTeX
 \providecommand*{\CTAN}{\texttt{CTAN}\xspace}
+
+\providecommand*{\prog}[1]{\texttt{#1}}
+\let\Program\prog
+
+\providerobustcmd*{\paket}[2][]{{\textsf{#2}\index[pakete]{\if$#1$#2\else#1\fi}}}
+\let\Package\paket%zwecks kompatibilität mit DTK
+\let\Paket\paket
+\newcommand*{\opt}[1]{\texttt{#1}}
 
 \makeatletter
 \DeclareRobustCommand\cs[1]{\texttt{\char`\\#1}}
