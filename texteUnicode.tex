@@ -15,10 +15,89 @@ Hinweis von Lukas C. Bossert:
 Für einzelne Wörter kann man auch \url{http://www.perseus.tufts.edu/hopper/morph} nutzen.
 bzw. für antike Texte auch hieraus (\url{http://www.perseus.tufts.edu/hopper/collection?collection=Perseus:collection:Greco-Roman}) kopieren.
 
-\section{Allgemeines:\enspace babel, Unicode}
+\section{Unicode}
+\autor{Axel Kielhorn}\footcite{kielhorn:dtk2014}
 
-Grundlegend ist der Artikel von Axel Kielhorn in der DTK.%
-\footcite{kielhorn:dtk2014}
+
+\noindent Es war einmal \dots
+
+Als \TeX{} in den 70er Jahren entwickelt wurde, war die Kodierung nach 
+ASCII\footnote{Altertümlicher Standard Code Inzwischen Irrelevant} \emph{eine}
+gängige Form Texte im Computer einzugeben. 
+Die ersten 32 Zeichen waren Steuerzeichen, so blieben weniger als 100 druckbare Buchstaben.
+Da dieser Standard aus den USA kam, gab es keine Umlaute oder sonstige europäische
+Sonderzeichen.
+
+Mit dem Erscheinen von \TeX{} 3.0 konnte \TeX{} auch 8-bit Kodierungen verarbeiten.
+Ja, Kodierungen in der Mehrzahl, inzwischen hatten alle Computerhersteller den Zeichensatz
+auf 8 bit erweitert, jeder nach seiner Art. Außerdem wurden in Mitteleuropa andere Buchstaben
+benötigt als in Westeuropa.
+
+\begin{labeling}{Mitteleuropa}
+    \item[Westeuropa:]
+      \emph{ISO-latin-1}, \emph{macroman}, \emph{hproman8}, \emph{CP850} und \emph{CP1252}
+    \item[Mitteleuropa:]
+      \emph{ISO-latin-2}, \emph{macromanCE}, \emph{CP852} und \emph{CP1250}
+\end{labeling}
+
+Je nach verwendetem System musste man auf einige Zeichen verzichten:
+
+\begin{tabular}{lccccc}
+    Latin-1		& «» 	& 		&	&	&	\\
+    Latin-9		& «» 	&		& œ\,Œ	& €	&	\\
+    CP1252		& «» 	& „“”	& œ\,Œ	& €	&	\\
+    macroman	& «» 	& „“”	& œ\,Œ	& €(¤)	& ﬁ\,ﬂ	\\
+    hproman		& «» 	& 		&	&	&	\\
+\end{tabular}
+
+Noch heute ist es bei einigen Betriebssystemen schwierig einige dieser 
+\emph{exotischen} Zeichen direkt über die Tastatur einzugeben.
+
+Bereits Anfang der 90er wurde eine Universelle Kodierung definiert,
+die alle wichtigen Zeichen abdecken sollte.
+
+Unicode wurde als 16-bit Kodierung entworfen, aber sehr schnell hat man festgestellt,
+das 65tausend Zeichen nicht ausreichen und so wurde der Standard 1996
+erweitert und umfasst jetzt 17 Ebenen (Planes) mit jeweils 65tausend
+Zeichen. Somit ist es möglich auch Zeichen älterer Schriftsysteme
+(Hieroglyphen, mittelalterliche Texte) und Fantasieschriften (Klingonisch,
+Tengwar) in Unicode darzustellen.
+
+Mit UTF-8 wurde eine platzsparende Kodierung entwickelt, die bei lateinischen Buchstaben
+nur minimal mehr Platz benötigt als die alten 8-bit Systeme.
+
+UFT-8 erfordert nicht zwingend ein unicodefähiges \TeX{}, solange man sich auf
+lateinische Buchstaben beschränkt, funktioniert es auch mit \pdfTeX{}.
+
+Heutzutage können alle Editoren mit Unicode umgehen, in Verbindung mit einem geeigneten
+Zeichensatz lassen sich Zeichen wie {\FSEfont asdf άβγδἔ БГДЙ अऐक אשב ܚܤܜܗ} direkt eingeben.%
+\footnote{Der in diesem Buch verwendetet Zeichensatz enthält nicht alle hier dargestellten Buchstaben.
+Das Beispiel wurde daher in GNU FreeSerif \url{http://savannah.gnu.org/projects/freefont/} gesetzt.}
+
+\section{Babel und Polyglossia}
+
+Es gibt zwei Pakete, die sich um sprachspezifische Besonderheiten kümmern.
+Außerdem gibt es noch den \paket{german.sty}, der spezielle Anpassungen für deutsche Texte
+zur Verfügung stellt. Er sollte für neue Texte nicht mehr verwendet werden.
+
+Das Paket \paket{Babel} ist die international Weiterentwicklung des \paket{german.sty}.
+Es bietet Unterstützung für mehr als 40 Sprachen und definiert neben den Trennmustern 
+auch sprachabhängige Texte für das Datum (\cs{today}) sowie Überschriften für die Verzeichnisse 
+(Inhaltsverzeichnis, Abbildungsverzeichnis, Literaturverzeichnis etc.).
+
+Lange Zeit sah es so aus, als würde Babel nicht mehr weiterentwickelt.
+In dieser Zeit entstand \paket{polyglossia} (Πολυγλωσσια), um die unicodefähigen \TeX{}-Versionen zu unterstützen.
+Polyglossia bietet zusätzlich Unterstützung für Arabisch, Bengalisch, Farsi (Persisch), Hindi, Kannada, Khmer,
+Koreanisch, Sanskrit, Syrisch, Tamil, Telugu, Thailändisch, Tibetisch und Urdu.
+Für einige dieser Sprachen werden Funktionen benötigt, die in \LuaLaTeX{} nicht vorhanden sind.
+Hier wird das Program \XeLaTeX{} benötigt, das spezielle Unterstützung für Sprachen bietet,
+die von Rechts nach Links geschrieben werden. Abgesehen davon gilt alles in diesem Buch über
+\LuaLaTeX{} gesagte auch für \XeLaTeX{}.
+
+Seit Herbst 2013 bietet Babel Unterstützung für die Unicode basierten Engines.
+Abhängig von der verwendeten Sprache kann entweder das eine oder as andere System besser sein.
+Da sich beide Systeme weiterentwickeln ist dies für den konkreten Einsatzfall zu prüfen.
+
 
 \section{Eingabe von Unicode-Sonderzeichen}
 \label{unicodeeingabe}\index{Unicode}
