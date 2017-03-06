@@ -11,7 +11,9 @@ Autorwechsel mit \autor{Dagobert Duck}
 – Abkürzungen werden mit Spatium gesetzt: z.\,B.
 – Anführungszeichen stets als \enquote{} angeben
 – Nutzung von labeling-Umgebung statt description-Umgebung
- 
+– Für Programme, Pakete und einige andere Strukturen gibt es eigene Befehle, die genutzt werden sollen.
+ACHTUNG: Wenn in Überschriften der Befehl \paket benutzt werden soll, so muss ein optionales Argument ohne diesen Befehl verwendet werden. Bsp:
+\chapter[Prüfungen erstellen mit exam]{Prüfungen erstellen mit \paket{exam}}
  
 3. Dokumentation von Code
  
@@ -19,10 +21,10 @@ Autorwechsel mit \autor{Dagobert Duck}
 – Inline-Codeschnipsel sollten immer \cs für das Makro, \marg für obligatorische (mandatory) Argumente und \oarg 
   für optionale Argumente nutzen:
   \cs{beispiel\marg{Argument}}
-- Für die Darstellung von Code, Code und die dazugehörende Ausgabe sowie nur die Ausgabe als Beispiel wird das 
-  Paket tcolorbox verwendet. Mit diesem Paket kann man alle drei Varianten sehr gut darstellen, da das Paket lstlisting 
-  integrierbar ist.
-- Die folgenden Befehle erwarten ein Argument, hier kann z.B. ein label definiert werden, um später auf das Listing zu verweisen.
+  Soll ein Argument nicht in <...> gesetzt werden, so kann \marg* bzw. \oarg* genutzt werden.
+  Bitte *nicht* \lstinline oder \texttt{\textbackslash} nutzen!
+– Für die Darstellung von Code, Code und die dazugehörende Ausgabe sowie nur die Ausgabe als Beispiel wird das Paket tcolorbox verwendet. Mit diesem Paket kann man alle drei Varianten sehr gut darstellen, da das Paket lstlisting integrierbar ist.
+– Die folgenden Befehle erwarten ein Argument, hier kann z.B. ein label definiert werden, um später auf das Listing zu verweisen.
   Das Argument darf auch leer bleiben.
 
 3.1 (nur) Code:
@@ -46,11 +48,13 @@ CODE
 \end{lfgwprint}
 
 
+Makronamen, die nicht hervorgehoben werden, können im Vorspann über die Liste "morekeywords" bekannt gemacht werden.
+
 4. TeXstudio als Referenz-Editor (vgl. #26)
 
-- Jeder kann mit dem Editor arbeiten, der ihm paßt
-- Wir werden mehrere Editoren kurz vorstellen
-- Falls wir im Laufe des Scripts in Beispielen o.ä. auf einen Editor Bezug nehmen, so sollte das TeXstudio sein
+– Jeder kann mit dem Editor arbeiten, der ihm paßt
+– Wir werden mehrere Editoren kurz vorstellen
+– Falls wir im Laufe des Scripts in Beispielen o.ä. auf einen Editor Bezug nehmen, so sollte das TeXstudio sein
 
 
 5. Kurzanleitung git für dummies und solche, die noch nicht einmal das sind
