@@ -43,6 +43,8 @@
 \usepackage[newcommands]{ragged2e}
 
 \usepackage{graphicx}
+\graphicspath{{bilder/}}
+
 \usepackage{grffile}
 \usepackage[a4,center,cross]{crop}
 
@@ -168,6 +170,18 @@ lfgwstyle/.style={%
 \setlist{leftmargin=*,before=\setlength{\rightmargin}{\leftmargin}}
 
 \usepackage{parallel}
+
+
+%- Für Lyrik-Satz, Christine Römer:
+\usepackage{verse}
+\newcommand\He{\textbackslash\xspace}
+\newcommand\Se{$\cup$\xspace} 
+\newcommand*{\Zr}{\unskip\textunderscore}
+\newcommand\daktylus{$\textbackslash\cup\cup$\xspace} 
+\newcommand\anapaest{$\cup\cup\textbackslash$\xspace}
+\makeatother
+
+% ------------
 
 
 \usepackage{runic}
