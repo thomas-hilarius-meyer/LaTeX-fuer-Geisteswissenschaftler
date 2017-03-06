@@ -1,0 +1,483 @@
+%% lfgw: 2.19 Lyrik-Satz
+
+
+%\input{vorspann}
+
+
+%\usepackage{verse}
+%\newcommand\He{\textbackslash\xspace}
+%\newcommand\Se{$\cup$\xspace} 
+%\newcommand*{\Zr}{\unskip\textunderscore}
+%\newcommand\daktylus{$\textbackslash\cup\cup$\xspace} 
+%\newcommand\anapaest{$\cup\cup\textbackslash$\xspace}
+%\makeatother
+
+%\begin{document}
+%\author{Christine Römer}
+
+%\chapter{Lyrik-Satz}
+
+\section{Lyrik-Satz}
+\index{Gedicht} \index{Lyrik}
+\autor{Christine Römer}
+
+\subsection{Einführung}
+
+Lyrische Texte wurden früher nach strengen Regeln gedichtet. Deshalb ist für 
+die Literaturwissenschaft "`für
+die Lyrikinterpretation [\ldots] die Kenntnis der Metrik, der Reimformen, der
+wichtigsten Strophen- und Gedichtformen"' grundlegend. (\cite[S.\,8]{Neuhaus})
+Heutige Lyrik lehnt jedoch oftmals Formregeln ab, dass es sich um Lyrik handeln
+soll, wird nur noch durch die Einteilung in Verse angezeigt. Diese Entwicklung ist
+jedoch noch nicht in das allgemeine Wissen eingegangen. In einer aktuellen Diskussion 
+zu einem Gedicht wurde dies kürzlich sichtbar. Der nachfolgende 
+Limerick \cite{Svoboda} aus einer Satirezeitschrift nimmt dies auch auf die Schippe.
+\poemtitle{Was gesagt werden muss}
+\settowidth{\versewidth}{und das hat sich nicht mal gereimt.}
+\begin{verse}[\versewidth]
+Es gab mal zwei Staaten in Nahost\\
+die war`n über`nander erbost.\\
+\vin Da kam Günter Grass\\
+\vin \vin und dichtete was,\\
+und das hat sich nicht mal gereimt.\\
+\end{verse}
+
+Mit \TeX{} und seinen Verwandten kann man Gedichte nicht nur typografisch
+ansprechend setzen  und ihre Form der Sprache individuell anpassen, sondern auch die 
+formalen Merkmale von Gedichten anzeigen. 
+
+\subsection{Gedichte setzen}
+
+In \cite[S.\,94]{Willberg} wird das Setzen von Gedichten als etwas Schwieriges
+charakterisiert, dass "`vom Typografen äußerstes Feingefühl"` erfordert. "`Schriftcharakter, Schriftgrößen, Zeilenabstände, Laufweite und Wortzwischenraum [\ldots] müssen aufs Sorgfältigste der Sprache angepasst werden."'
+
+Innerhalb der KOMA-Textklassen gibt es die Umgebung \verb|\begin{verse} ... \end{verse}|.
+In ihr werden die Zeilen links und rechts eingezogen.\footnote{Siehe \texttt{scrguide.pdf},
+S.~126}
+Mit dem Einfügen des Befehls \verb|\nopagebreak| kann ein Seitenumbruch verhindert werden. 
+
+Zum Setzen von Gedichten wird in den \LaTeX -Nachschlagewerken in der Regel
+auf die Umgebung "`verse"' aus dem gleichnamigen  Paket ("`Typesetting simple 
+verse with \LaTeX "') verwiesen. 
+
+\begin{lstlisting}
+\usepackage{verse}
+
+\begin{verse}  Gedicht  \end{verse}
+\end{lstlisting}
+
+In dieser Umgebung werden die Verse als eine Art von Liste eingerückt und zentriert
+ausgegeben und Strophen mit einer Leerzeile beendet. Für die
+Strukturierung eines Gedichtes gibt es grundlegende Befehle, einige werden
+nachfolgend aufgeführt, weitere können in \cite[S.\,5\,f.]{Wilson} nachgelesen
+werden:
+
+~\\
+\begin{tabular}{ll}
+\verb|\\| & neuer Vers (Zeile) \\
+\verb|\\!|& leere Zwischenzeile vor neuer Strophe \\
+\verb|\poemtitle{TITEL}| & Gedichttitel \\
+\verb|\vin| & Einrücken des Verses um 1,5 em \\
+\verb|\poemlines{ZAHL}| & entsprechend der Zahl werden die Verse nummeriert\\
+\verb|\poemtitlefont| & spezifiziert den Font und die Position des Titels\\
+\verb|\verselinebreak| & Versumbrechen \\
+\verb|\\>| & Abkürzung für \verb|\verselinebreak|\\
+\end{tabular}
+
+~\\
+\LaTeX\ benötigt zur korrekten Berechnung der Ausrichtung des Gedichtes und
+eventuellen Zeilenumbrüchen eine Referenzzeile. Nach dieser richtet sich dann die 
+genaue Position des Gedichtes. Diese Referenzzeile muss nicht der längste Vers des 
+Gedichtes sein, sondern kann und sollte in der Regel dem Mittelwert entsprechen.
+Weiterhin werden Verse, die länger als die Referenzzeile sind,
+automatisch umgebrochen und in der nächsten Zeile 
+passend weitergeführt. \cite{wilson} 
+\begin{lstlisting}
+\settowidth{\versewidth}{Referenzvers}
+\begin{verse}[\versewidth] Gedicht \end{verse}
+\end{lstlisting}
+
+\newcommand{\attrib}[1]{\nopagebreak{\raggedleft\footnotesize #1\par}}
+\def\poemtitlefont#1\par{%
+\normalfont\large\centering\MakeUppercase{#1}\par}
+\poemtitle{Fortschritt}
+ \settowidth{\versewidth}{Immer verwandter werden mir die Dinge}
+ \poemlines{4} %  Alle 4 Zeilen erscheint die Nummerierung 
+ 
+ \begin{verse}[\versewidth]
+ %\textsc{Und} wieder rauscht mein tiefes Leben lauter,\\
+ als ob es jetzt in breitern Ufern ginge.\\
+ Immer verwandter werden mir die Dinge\\
+ und alle Bilder immer angeschauter.\\
+ Dem Namenlosen fühl ich mich vertrauter:\\
+ Mit meinen Sinnen, wie mit Vögeln, reiche\\
+ ich in die windigen Himmel aus der Eiche\\
+ und in den abgebrochnen Tag der Teiche\\
+ sinkt, wie auf Fischen stehend, mein Gefühl.
+ \end{verse}
+ \attrib{Rainer Maria Rilke}
+
+\begin{lstlisting}
+\newcommand{\attrib}[1]{\nopagebreak{\raggedleft\footnotesize #1\par}}
+% Erstellen des Kommandos, um den Autor anzeigen lassen zu können
+
+\def\poemtitlefont#1\par{%
+\normalfont\large\centering\MakeUppercase{#1}\par}
+% von R. Niepraschk (Meinews.de, 1.3.2010), voreingestellt Normalfont
+	 
+\poemtitle{Fortschritt}
+% Titel des Gedichtes
+\settowidth{\versewidth}{Immer verwandter werden mir die Dinge}
+% Referenzzeile
+\poemlines{4}
+% Alle 4 Zeilen erscheint die Nummerierung 
+ 
+\begin{verse}[\versewidth]
+  UND wieder rauscht mein tiefes Leben lauter,\\
+  als ob es jetzt in breitern Ufern ginge.\\
+  Immer verwandter werden mir die Dinge\\
+  und alle Bilder immer angeschauter.\\
+  Dem Namenlosen fühl ich mich vertrauter:\\
+  Mit meinen Sinnen, wie mit Vögeln, reiche\\
+  ich in die windigen Himmel aus der Eiche\\
+  und in den abgebrochnen Tag der Teiche\\
+  sinkt, wie auf Fischen stehend, mein Gefühl.
+\end{verse}
+\attrib{Rainer Maria Rilke}
+\end{lstlisting}
+
+Dichter benutzen öfters auch den Einzug von Versen für lyrische Ef\/fekte.
+Dies ist beispielsweise in dem Gedicht "`Zwei Städte"' von Jewgeni Jewtuschenko
+(deutscher Nachdichter Volker Braun) der Fall, wo sich das beschriebene 
+Hin und Her in der Verstypografie der ersten Strophe reflektiert. 
+
+In der Umgebung \texttt{verse} können variable Einzüge mit 
+\verb|\hspace{ABSTAND}| eingefügt werden. 
+\renewcommand{\poemtitlefont}{%
+\normalfont\large\itshape\centering}
+
+\poemtitle{Zwei Städte}
+
+ \settowidth{\versewidth}{zwischen der Stadt Ja und zwischen der Stadt Nein}
+ \poemlines{0}   
+
+\begin{verse}[\versewidth]
+Ich bin ein Zug,\\
+\hspace{2.3cm} der fährt jahraus -- jahrein\\
+ zwischen der Stadt Ja\\
+\hspace{3.2cm}                          und der Stadt Nein.\\
+ Meine Nerven sind gespannt\\
+\hspace{4.3cm}                            aus Eisendraht\\
+ zwischen der Stadt Nein\\
+ \hspace{3.7cm}  und der Stadt Ja.\\!
+ Alles ist tot, alles bang in der Stadt Nein.\\
+ Sie ist ein Zimmer tapeziert mit Pein.\\
+ \relax [\ldots]\\
+\end{verse}
+ \attrib{Jewgeni Jewtuschenko}
+
+\begin{lstlisting}
+\renewcommand{\poemtitlefont}{%
+\normalfont\large\itshape\centering}
+\poemtitle{Zwei Städte}
+\settowidth{\versewidth}{zwischen der Stadt Nein und der Stadt Ja}
+% lange Zeile für mittige Gedichtpositionierung
+\poemlines{0}   
+
+\begin{verse}[\versewidth]
+  Ich bin ein Zug,\\
+  \hspace{2.3cm} der fährt jahraus -- jahrein\\
+  zwischen der Stadt Ja\\
+  \hspace{3.2cm} und der Stadt Nein.\\
+  Meine Nerven sind gespannt\\
+  \hspace{4.3cm} aus Eisendraht\\
+  zwischen der Stadt Nein\\
+  \hspace{3.7cm} und der Stadt Ja.\\!
+  Alles ist tot, alles bang in der Stadt Nein.\\
+  Sie ist ein Zimmer tapeziert mit Pein.\\
+  \relax [\ldots]\\
+\end{verse}
+\attrib{Jewgeni Jewtuschenko}
+\end{lstlisting}
+
+
+In "`memoir"' hat der Paketautor von "`verse"' weitere Befehle
+zur Verfügung gestellt \cite[Kap.\,14]{wilson}, beispielsweise nachfolgende:
+
+\begin{tabular}{ll}
+ \verb|\PoemTitle*| & für  \verb|\poemtitle|\\
+ \verb|\PoemTitle|  & dem Titel wird eine Nummer vorangestellt\\
+ \verb|\PlainPoemTitle| & ohne Titel \\
+\verb|\vinphantom| & simuliert Text, Vers rückt um Größe TEXT ein \\
+\end{tabular}
+
+Da, wie man oben an dem Jewtuschenko-Gedicht zu sehen ist, es mit 
+\verb|\hspace{ABSTAND}| ziemlich schwierig ist, Versteile bündig untereinander 
+zu setzen und bei Schriftwechsel müssen die Abstände neu eingerichtet werden. Dies
+kann nun 
+mit \verb|\vinphantom| exakt erfolgen:
+
+\begin{lstlisting}
+Ich bin ein Zug,\\*
+\vinphantom{Ich bin ein Zug,}
+der fährt jahraus -- jahrein
+\end{lstlisting}
+
+Mit den neuen Makros \verb|\brokenline| und \verb|\brokenlinethree|
+von H. Oberdiek, die \verb|\vinphantom| 
+mit \verb|\providecommand| in \texttt{verse} umdefinieren, kann die doppelte
+Tipparbeit eingespart werden, die \verb|\vinphantom| verlangt. Diese Makros 
+funktionieren auch in \texttt{memoir}.
+Mit ihnen kann alternativ auch \verb|\vinphantom| ignoriert werden und gleich 
+\verb|\leavevmode\phantom| in den Definitionen von \verb|\brokenline| und 
+\verb|\brokenlinethree| verwendet werden.
+
+In einem kleinen Ausschnitt aus dem Gedicht "`Einsamkeit"' von Jewgeni Jewtuschenko
+kommen beide neuen Makros zum Einsatz.
+
+
+\begin{lstlisting}
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+
+\usepackage{tgpagella}
+\usepackage{verse}
+\pagestyle{empty}
+\begin{document}
+
+\newcommand{\attrib}[1]{\nopagebreak{\raggedleft\footnotesize #1\par}}
+% Erstellen des Kommandos, um den Autor anzeigen lassen zu können
+
+\renewcommand{\poemtitlefont}{\normalfont\large\itshape\centering}
+\poemtitle{Zwei Städte}
+\settowidth{\versewidth}{uns den erstbesten Kumpels in die Arme wirft}
+% lange Zeile für mittige Gedichtpositionierung
+\poemlines{0}
+
+\providecommand*{\vinphantom}[1]{\leavevmode\phantom{#1}}
+\newcommand*{\brokenline}[2]{#1\\\vinphantom{#1}#2}
+\newcommand*{\brokenlinethree}[3]{%
+  #1\\%
+  \vinphantom{#1}#2\\%
+  \vinphantom{#1}\vinphantom{#2}#3%
+}
+
+\begin{verse}[\versewidth]
+  [\ldots]\\ 
+  \brokenlinethree{Wir,}{schämen uns, und Angst vor solcher}{Einsamkeit}\\
+  uns den erstbesten Kumpels in die Arme wirft,\\
+  \relax [\ldots]\\
+  Wie sinnlos trifft man, schüttelt man die Hände sich --\\
+  \brokenline{hier säuft und säuft man bloß,}{und find$'$t ein Ende nicht.}\\
+  \relax [\ldots]\\
+\end{verse}
+\attrib{Jewgeni Jewtuschenko}
+
+\end{document}
+\end{lstlisting}
+
+\begin{center}
+\includegraphics{Roemer-Beispiel3-crop}
+\end{center}
+
+Mit der Umgebung \texttt{altverse} können individuell gestaltete Strophen gesetzt werden; sie hat den Effekt, dass z.\,B. bei den paarweise 
+strukturierten
+Strophen die 2., 4. etc. Zeile um die Länge \verb|\vgap| einrückt.
+Als Alternative wird für die \texttt{verse}-Umgebung der Einschluss einzelner
+Verse in die \texttt{patverse}-Umgebung angeboten.
+
+\begin{center}
+\includegraphics{Roemer-Beispiel-crop}
+\end{center}
+
+\begin{lstlisting}
+\documentclass[ngerman,a4paper,article]{memoir}
+[...]
+\settowidth{\versewidth}{Das Lied, das du am letzten Abend sangst}
+\PoemTitle*{Dieser Weg}
+\begin{verse}[\versewidth]
+\linenumberfrequency{2}
+\begin{altverse}
+  Also ging ich diese Straße lang\\
+  und die Straße führte zu mir\\
+  Das Lied, das du am letzten Abend sangst\\
+  Spielte nun in mir\\
+  Noch ein paar Schritte\\
+  Und dann war ich da mit dem Schlüssel zu dieser Tür\\!
+\end{altverse}
+
+\begin{altverse}
+\flagverse{\textsc{Refrain}\quad} Dieser Weg wird kein leichter sein\\
+  Dieser Weg wird steinig und schwer\\
+  Nicht mit vielen wirst du dir einig sein\\
+  Doch dieser Leben bietet so viel mehr\\
+\end{altverse}
+\linenumberfrequency{0}
+\end{verse}
+\end{lstlisting}
+
+Das neue poetrytex-Paket von Sam Whited (Juli 2012) ist primär für das Setzen
+von poetischen Anthologien geschaffen worden. Die verse-Umgebung wurde darin
+etwas modifiziert und in eine \texttt{poem}-Umgebung umgebaut.
+
+
+\subsection{Darstellen von Reim, Rhythmus und Metrum}
+
+Klassische Gedichte reimen nach bestimmten Schemata. So nennt man beispielsweise
+ein Gedicht aus Vierzeilern Quartett. Wenn sich die ersten und die beiden letzten
+Zeilen jeweils beim Aussprechen reimen, wird dies als Paarreim bezeichnet. 
+Wenn sich das Ende von Verszeilen reimt, ist dies ein Endreim, den es wieder in
+verschiedenen Ausprägungen gibt. Veranschaulicht wird dies in der Regel mit
+Kleinbuchstaben:
+
+\begin{tabular}{cl}
+aabb & Paarreim \\
+abab & Kreuzreim \\
+abba & umarmender Reim \\
+\ldots & \ldots \\
+\end{tabular}
+
+Rhythmus und Metrum werden auch Versmaß genannt. Die regelmäßige Abfolge von betonten
+und unbetonten Silben ist der Rhythmus, der in der lyrischen Sprache nach einem sich 
+wiederholenden Takt (Metrum) aufgebaut sein kann. Eine metrisch gebundene Verszeile 
+umfasst mehrere Takte und wird damit als zwei-, drei- oder vierhebig bezeichnet. Man
+unterscheidet traditionell nach den Metren verschiedene Rhythmen in den Wortsilben:
+den Jambus (unbetont, betont) et cetera. Um mehr Übersichtlichkeit bei der Vermittlung und
+Bestimmung des Versmaßes zu bekommen wird die Abfolge von Hebungen und Senkungen auch
+graphisch dargestellt. Das übliche Modell nimmt dafür den Backslash (\verb|\|) für eine 
+Hebung und "`ein kleines breites U"' ($\cup$) für die Senkung \cite[S.\,17]{Neuhaus}.
+
+Beispielsweise wurde der Daktylus, der schon in der griechischen Ilias Verwendung fand,
+während der Klassikepoche in der deutschen Verslehre als Abfolge einer 
+betonten und zweier unbetonten Silben definiert.
+
+\begin{tabular}{ll}
+betont - unbetont - unbetont: &  \verb|\| $\cup$ $\cup$ \\
+\end{tabular}
+
+\begin{lstlisting}
+ \verb|\| $\cup$ $\cup$ 
+\end{lstlisting}
+
+Um sich die Arbeit etwas zu erleichtern, ist es sinnvoll, Befehle zu definieren.
+Es dürfen dafür aber keine Befehle genommen werden, die es schon gibt:
+\begin{lstlisting}
+\usepackage{xspace}
+
+\newcommand\He{\textbackslash\xspace}%  Hebung
+\newcommand\Se{$\cup$\xspace}%  Senkung 
+\end{lstlisting}
+
+Der Daktylus tritt in dem folgenden Beispiel auf:
+
+\poemtitle{\textbf{Wür}de der \textbf{Frau}en}
+\settowidth{\versewidth}{Ehret die Frauen! sie flechten und weben}
+ \poemlines{1} 
+\begin{verse}[\versewidth]
+\textbf{Eh}ret die \textbf{Frau}en! sie \textbf{flech}ten und \textbf{we}ben\\
+\textbf{Himm}lische \textbf{Ro}sen ins \textbf{ir}dische \textbf{Le}ben,\\
+\textbf{Flech}ten der \textbf{Lie}be be\textbf{glüc}kendes \textbf{Band},\\
+\textbf{Und} in der \textbf{Gra}zie \textbf{züch}tigem \textbf{Schlei}er\\
+\textbf{Näh}ren sie \textbf{wach}sam das \textbf{e}wige \textbf{Feu}er\\
+\textbf{Schö}ner Ge\textbf{füh}le mit \textbf{hei}liger \textbf{Hand}.\\
+\end{verse}
+\attrib{Friedrich Schiller}
+
+Das Schema dazu:
+
+\begin{center}
+
+\begin{tabular}{@{}clc@{}}
+Vers & Metrum & Reim \\ 
+\hline 
+  & \He\Se \Se \He\Se \\
+1 & \He\Se \Se  \He\Se \Se \He\Se \Se \He\Se  & a\\
+2 & \He\Se\Se \He\Se \Se \He\Se\Se \He\Se  & a\\
+3 & \He\Se \Se \He\Se \Se\He\Se\Se \He & b\\
+4 & \He \Se \Se \He\Se \He\Se\Se \He\Se & c\\
+5 & \He\Se \Se \He\Se \Se \He\Se\Se \He\Se & c\\
+6 & \He\Se \Se\He\Se \Se \He\Se\Se \He & b\\
+\end{tabular}
+
+\end{center}
+
+\begin{lstlisting}
+\begin{tabular}{@{}clc@{}}
+Vers & Metrum & Reim \\ 
+\hline 
+ & \He\Se \Se \He\Se \\
+1 & \He\Se \Se  \He\Se \Se \He\Se \Se \He\Se  & a\\
+2 & \He\Se\Se \He\Se \Se \He\Se\Se \He\Se  & a\\
+3 & \He\Se \Se \He\Se \Se\He\Se\Se \He & b\\
+4 & \He \Se \Se \He\Se \He\Se\Se \He\Se & c\\
+5 & \He\Se \Se \He\Se \Se \He\Se\Se \He\Se & d\\
+6 & \He\Se \Se\He\Se \Se \He\Se\Se \He & d\\
+\end{tabular}
+\end{lstlisting}
+
+
+Wie zu sehen ist, unterscheiden sich die Verse bei der Betonung der letzten 
+Silbe; ist die letzte Silbe im Vers betont, liegt eine männliche, ist sie unbetont
+eine weibliche Kadenz
+vor. Der Titel, Vers 1, 2, 4, 5 haben weibliche und Vers 3 und 6 haben 
+männliche Kadenz.
+
+Wenn man sehen will, wie sich die Hebungen und Senkungen auf die
+einzelnen Wörter verteilen, kann der Wortzwischenraum beispielsweise
+durch einen Unterstrich markiert werden. Damit keine uneinheitlichen Abstände 
+um den Unterstrich entstehen, kann man ein Makro für
+den Wortzwischenraum (\verb|Zr|) verwenden:
+
+\verb|\newcommand*{\Zr}{\unskip\textunderscore}|
+
+Würde der Frauen: \He\Se\Zr\Se\Zr\He\Se =\verb|\He\Se\Zr\Se\Zr\He\Se|
+
+%\He\Se\_\Se\_\He\Se \quad = \verb|\He\Se\_\Se\_\He\Se| 
+
+
+Es ist auch möglich komplexe "`Bausteine"' zu definieren. Beispielsweise
+\verb|\daktylus|: \daktylus{} (Daktylus) oder \verb|\anapaest| (Anapäst) 
+\anapaest.
+
+\begin{lstlisting}
+\newcommand\daktylus{$\textbackslash\cup\cup$\xspace} 
+\newcommand\anapaest{$\cup\cup\textbackslash$\xspace} 
+\end{lstlisting}
+
+\small
+\begin{thebibliography}{1000}
+\bibitem
+{Neuhaus} Stefan Neuhaus:
+\textsl{Grundriss der Literaturwissenschaft}. 
+A. Francke Verlag: Tübingen und Basel, 3. überarbeitete und erweiterte Auf\/lage, 
+2009.
+
+\bibitem
+{Svoboda} Atze Svoboda:
+\textsl{Was gesagt werden muss}.
+In: Eulenspiegel, Heft 5/2012, S.\,14.
+
+\bibitem
+{Willberg} Hans Peter Willberg /Friedrich Forsman:
+\textsl{Lesetypografie.}
+Verlag Hermann Schmidt: Mainz 2010.
+
+\bibitem
+{wilson} Peter R. Wilson/Lars Madsen:
+\textsl{The Memoir Class for Configurable Typesetting. User Guide.}
+The Herries Press, Normandy Park, WA 2011.
+\url{macros/latex/contrib/memoir/memman.pdf}.
+
+\bibitem
+{Wilson} Peter R. Wilson:
+\textsl{Typesetting simple verse with \LaTeX }. 2004.
+\url{macros/latex/contrib/verse/verse.pdf}
+\end{thebibliography}
+
+%\end{document}
+
+
+
+%\end{document}
