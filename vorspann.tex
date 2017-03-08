@@ -58,10 +58,12 @@
   numbersep=3pt, 
   numberfirstline=false,  
   numberstyle=\tiny\textsf,
-  basicstyle=\footnotesize\ttfamily,
+  basicstyle=\ttfamily\footnotesize,
   keywordstyle=\bfseries,%
+  texcsstyle=*\ttfamily\footnotesize\bfseries,%
   %frame=tlrb,
   breaklines=true,
+  breakatwhitespace=true,
   %postbreak=\mbox{$\hookrightarrow$},
   escapeinside={{*@}{@*}},
   %showstringspace=false, 
@@ -70,15 +72,15 @@
   %%%classoffset=0,
   morekeywords={%
   %b
-  bonuspointpoints,
+  biblerefformat,biblerefmap,biblerefstyle,bonuspointpoints,
   %c
-  chbpword,chpword,chpgword,chqword,chsword,chtword,
+  chapter,chbpword,chpword,chpgword,chqword,chsword,chtword,
   %f
   firstpageheadrule,
   %h
   hpword,hqword,hsword,htword,  
   %p
-  pointpoints,   
+  pibibleverse,pointpoints,printbibliography,printindex,   
   %q
   question,
   %s
@@ -143,7 +145,7 @@ lfgwstyle/.style={%
 
 \usepackage{showexpl}
 
-\usepackage[pagewise]{lineno} %%% MS: Kann man das nicht besser mit reledmac machen, da man es sowieso lädt?
+\usepackage[pagewise]{lineno}
 
 \usepackage{sidenotes}
 
@@ -158,11 +160,6 @@ lfgwstyle/.style={%
 \usepackage{pgfplots}
 \usetikzlibrary{pgfplots.dateplot}
 \usetikzlibrary{mindmap}
-
-
-\usepackage{covington}
-%%%\renewcommand{\it}{}
-%%%\renewcommand{\rm}{}
 
 \deffootnote[1.5em]{1.5em}{1.5em}{\makebox[1.5em][l]{\textsuperscript{\thefootnotemark\ }}}
 
@@ -194,7 +191,8 @@ lfgwstyle/.style={%
 \usepackage[hyphens]{url}
 
 \usepackage{hologo}
-
+\usepackage{philex}
+\def\fg{}
 \usepackage{siunitx} %Supreme typesetting of units
 \sisetup{%
     tight-spacing=true, %
@@ -372,13 +370,13 @@ lfgwstyle/.style={%
 \providecommand*{\prog}[1]{\texttt{#1}}
 \let\Program\prog
 
-\providerobustcmd*{\paket}[2][]{{\textsf{#2}\index[pakete]{\if$#1$#2\else#1\fi}}}
+\providerobustcmd*{\paket}[2][]{\textsf{#2}\index[pakete]{\if$#1$#2\else#1\fi}}
 \let\Package\paket%zwecks kompatibilität mit DTK
 \let\Paket\paket
 \newcommand*{\opt}[1]{\texttt{#1}}
 
 \makeatletter
-\DeclareRobustCommand\cs[1]{\texttt{\char`\\#1}}
+\DeclareRobustCommand\cs[1]{\texttt{\bfseries\char`\\#1}}
 \DeclareRobustCommand\meta[1]{%
    \ensuremath\langle
    \ifmmode \expandafter \nfss@text \fi
@@ -394,17 +392,17 @@ lfgwstyle/.style={%
 }
 \def\marg{\@ifstar{\@@marg}{\@marg}}
 \providecommand\@marg[1]{%
-   {\ttfamily\char`\{}\meta{#1}{\ttfamily\char`\}}}
+   {\ttfamily\mdseries\char`\{}\meta{#1}{\ttfamily\mdseries\char`\}}}
 \providecommand\@@marg[1]{%
-   {\ttfamily\char`\{}{#1}{\ttfamily\char`\}}}
+   {\ttfamily\mdseries\char`\{}{\mdseries #1}{\ttfamily\mdseries\char`\}}}
 \def\oarg{\@ifstar{\@@oarg}{\@oarg}}
 \providecommand\@oarg[1]{%
-   {\ttfamily[}\meta{#1}{\ttfamily]}}
+   {\ttfamily\mdseries[}\meta{#1}{\ttfamily\mdseries]}}
 \providecommand\@@oarg[1]{%
-   {\ttfamily[}{#1}{\ttfamily]}}
+   {\ttfamily\mdseries[}{#1}{\ttfamily\mdseries]}}
 \providecommand\parg[1]{%
-   {\ttfamily(}\meta{#1}{\ttfamily)}}
-\def\meta@font@select{\itshape}
+   {\ttfamily\mdseries(}\meta{#1}{\ttfamily\mdseries)}}
+\def\meta@font@select{\itshape\mdseries}
 \makeatother
 
 \tolerance 1414

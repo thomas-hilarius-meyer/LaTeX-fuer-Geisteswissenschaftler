@@ -93,7 +93,7 @@ Andererseits stellen zahlreiche \enquote{Klassen} bereits Features zur Verfügun
 -- wie sind diese Begriffe zu verstehen?
 
 Eine \textbf{Dokumentklasse} definiert die grundlegende Struktur zur Bearbeitung einer Textgattung
-mit Hilfe von \LaTeX . Das kann ganz allgemein sein -- wie die ursprünglichen Standardklassen book, report, 
+mit Hilfe von \LaTeX. Das kann ganz allgemein sein -- wie die ursprünglichen Standardklassen book, report, 
 article -- oder sehr speziell -- wie die Vorlage einer Dissertation in Elektrotechnik an einer ganz
 bestimmten Technischen Hochschule.
 
@@ -118,7 +118,7 @@ Das \enquote{Laden} eines Paketes erfolgt durch den Befehl \cs{usepackage\oarg{O
 Dokumentklassen und Pakete enthalten in der Regel eine ziemlich gute Dokumentation, die man
 ggf. zu Rate ziehen sollte, um ihren vollen Funktionsumfang ausnutzen zu können.%
 \footnote{Wie kann man die Paketdokumentation aufrufen? 
-    Vgl. hierzu \ref{paketdoku} auf S. \pageref{paketdoku} }
+    Vgl. hierzu \ref{paketdoku} auf S.~\pageref{paketdoku} }
 
 
 \section{Nationale Besonderheiten -- das Paket babel}
@@ -213,7 +213,7 @@ Randeinstellungen -- überlässt ihm aber auch die ganze Verantwortung in ästhe
 \index{Beschnittmarken}
 
 Wenn man eine Druckvorlage für ein besonders Papierformat erzeugt, aber seine Korrekturausdrucke
-auf üblichen Din-A-4-Papier erstellt, kann man sich die \enquote{wirklichen} Größenverhältnisse von
+auf üblichen Din"~A4-Papier erstellt, kann man sich die \enquote{wirklichen} Größenverhältnisse von
 Textblöcken und Rändern oft nicht gut vorstellen.
 
 Hier hilft das Paket \paket{crop}, das Randmarkierungen, sog. Beschnittmarken, in verschiedener
@@ -223,7 +223,7 @@ präzise auf das endgültige Maß zuschneiden zu können.
 
 \minisec{Ein- oder zweiseitiges Layout}
 
-Bei der Einstellung der Dokumentklasse kann durch die Optionen \lstinline/oneside/ bzw.
+Bei der Einstellung der Dokumentklasse kann durch die Optionen \opt{oneside} bzw.
 \lstinline/twoside/ ein- bzw. zweiseitiges Layout verlangt werden.
 
 Beim einseitigen Layout sind alle Seiten gleich gestaltet, während beim zweiseitigen Layout zwischen
@@ -330,7 +330,7 @@ Standardmäßig erlaubt \LaTeX\ die typischen Auszeichnungen:
  \lstinline/\textbf{}/ 		&		\textbf{fett} 		&	+/- \\
  \lstinline/\underline{}/ 	&		\underline{unterstrichen} &	-- \\
  \lstinline/\texttt{}/		&		\texttt{Schreibmaschinenschrift} &	? \\
- \lstinline/\testsuperscript{}/ &	Text\textsuperscript{hochgestellt} &	\\
+ \lstinline/\textsuperscript{}/ &	Text\textsuperscript{hochgestellt} &	\\
  \lstinline/\textsubscript{}/ &		Text\textsubscript{tiefgestellt} & \\
  \end{tabular} 
 \end{center}
@@ -1367,7 +1367,7 @@ Es gibt zwei grundsätzlich verschiedene Szenarien, in denen man Zeilennummern v
 kann. 
 
 \begin{itemize}
- \item Einfach einen Text(abschnitt) durchnumerieren, z.\,B. auf einem Arbeitsblatt oder in
+ \item Einfach einen Text(abschnitt) durchnummerieren, z.\,B. auf einem Arbeitsblatt oder in
  einem Lehrbuch.
  \item einen Text mit Zeilennummern versehen, auf die später Bezug genommen wird, 
  z.\,B. im Rahmen einer großen Textausgabe. 
@@ -1385,8 +1385,8 @@ versehen.
 \minisec{Einen einzelnen Textabschnitt mit Zeilennummern versehen}
 
 Wenn das Paket \paket{lineno} in der Präambel geladen worden ist, kann man im
-Dokument durch den Befehl \lstinline/\linenumbers/ die Zeilennummern anschalten.
-Durch \lstinline/\nolinenumbers/ wird die Nummerierung wieder abgestellt.
+Dokument durch den Befehl \cs{linenumbers} die Zeilennummern anschalten.
+Durch \cs{nolinenumbers} wird die Nummerierung wieder abgestellt.
 Auch das Ende der aktuellen Umgebung beendet die Zeilennummern.
 
 \begin{lfgwcode}{}
