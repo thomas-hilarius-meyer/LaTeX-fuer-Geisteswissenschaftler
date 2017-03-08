@@ -8,9 +8,9 @@
 
 Um die einfachste Methode anzuwenden, ein \LaTeX{}-Dokument mit einem Index zu versehen, lädt man
 in der Dokumentpräambel das Paket \paket{imakeidx} und ergänzt direkt danach den Befehl 
-\lstinline/makeindex/.
+\cs{makeindex}.
 
-Einzelne Index-Einträge werden durch den Befehl \lstinline/\index{Eintrag}/ ergänzt. 
+Einzelne Index-Einträge werden durch den Befehl \cs{index\marg{Eintrag}} ergänzt. 
 Der Eintrag erscheint im Index, ergänzt durch die Seitenzahl der Fundstelle.
 
 Achtung! Der im \lstinline/\index{}/-Befehl angegebene Registereintrag erschient \emph{nicht} selbst
