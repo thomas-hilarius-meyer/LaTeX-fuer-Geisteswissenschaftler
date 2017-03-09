@@ -1,0 +1,105 @@
+%% lfgw: 2.21 Linguistische Beispiele
+
+\input{vorspann}
+
+\begin{document}
+
+\chapter{Linguistische Beispiele}
+
+%Mithilfe des Paketes gb4 lassen sich spezielle Bedürfnisse für Linguisten %erfüllen:
+%BLUPP
+\section{Belege einfügen mit \texttt{philex}}
+\label{belege} \index{Belege}
+\author{Christine Römer}
+
+Die neuerliche Hinwendung der Linguistik zur Empirie hat es mit sich gebracht, dass eigentlich keine Feststellung ohne reale sprachliche Belege
+auskommt. Dies geschieht in der Regel durch eingezogene, durchnummerierte Belege, die mit Grammatikalitätsurteilen in Form von festgelegten Abkürzungen (beispielsweise * =ungrammatisch, ? = fraglich) versehen werden können.
+Im laufenden Text wird sich dann auf diese Beispiele bezogen. Im Unterschied zu mathematischen Texten steht die Beispielnummer links und nicht rechts.
+
+Mit dem neueren Paket \paket{philex} ist dies einfach zu bewerkstelligen.
+Es wird mit \verb|\usepackage[<package options>]{philex}|\footnote{Paketdokumentation: texdoc philex} in die Präambel eingebunden, es lädt dabei automatisch \paket{linguex}, auf dem es aufbaut, sowie \paket{xspace} und \paket{cgloss4e}. Die möglichen Paketoptionen sind \texttt{hyper, draft, oldpunkt}.
+
+Der Befehl für die Basisumgebung ist  \verb|lb{}{}|, er hat also
+zwei obligatorische Argumente: Das erste ist für das Label, den Anker und das zweite für den Inhalt (Beispiel~\ref{example:1}):
+
+\begin{lfgwexample}{label={example:1}}
+So wurde in der SDZ am 21.02.\,2017 der Neologismus \emph{Bierpreispremse} geprägt (siehe Beispiel \ref{bier}).
+
+\lb{bier}{Die Bierpreisbremse soll im Zuge einer kompletten Neuorganisation der Wiesn-Finanzierung umgesetzt werden .}
+
+und von weiteren Preisbremsen wird geschrieben, bspw. bei Reuters am 11.04.\,2016 von einer \enquote{Arznei-Preisbremse} (siehe \ref{arznei}).
+
+\lb{arznei}{Pharmaindustrie kritisiert Pläne für Arznei-Preisbremse} 
+
+\end{lfgwexample}
+
+An Stelle einer Nummer kann der Zähler auch auf Buchstaben o.\,ä. mit dem Befehl \verb|\bpaformat{1}{(Beleg~}{)}| umgestellt werden
+(wie in \ref{example:2}):
+
+\begin{lfgwexample}{label={example:2}}
+\bpaformat{1}{(Beleg~}{)}
+\lbpa{kno}{Mietpreisbremse}
+\lbpa{hu}{Preisbremse im Grundstückverkauf}
+\end{lfgwexample}
+
+Untergliederungen bei den Belegen sind auch möglich (wie in \ref{example:3}/\ref{example:4}):
+
+\begin{lfgwcode}{label={example:3}}
+\lbp{clauses}{AdvP}{Adverbiengebrauch:
+\lba{first}{Die erste Klasse
+\lba{firstnew}{adverbiell: Sie wohnt \emph{hier}.}
+\lbb{lastnew}{prädikativ: Sie ist \emph{hier}.}
+\lbz{attr}{attributiv: Die \emph{dort} wohnt hier.}}
+\lbb{second}{Die zweite Klasse
+\lba{adverb}{nur adverbial: Sie liest \emph{gern}.}}}
+\end{lfgwcode}
+
+\begin{lfgwprint}{label={example:4}}
+\lbp{clauses}{AdvP}{Adverbiengebrauch:
+\lba{first}{Die erste Klasse
+\lba{firstnew}{adverbiell: Sie wohnt \emph{hier}.}
+\lbb{lastnew}{prädikativ: Sie ist \emph{hier}.}
+\lbz{attr}{attributiv: Die \emph{dort} wohnt hier.}}
+\lbb{second}{Die zweite Klasse
+\lba{adverb}{nur adverbial: Sie liest \emph{gern}.}}}
+\end{lfgwprint}
+
+
+Grammatikalitätsurteile mit dem Befehl \verb|\oddity{ }| einfügen (wie in \ref{example:5}/\ref{example:6}):
+
+\begin{lfgwcode}{label={example:5}}
+Genitiv-s für Eigennamen?
+\lb{gram}{
+\lba{grama}{\oddity{*}die Entwicklung Friedrich Schiller}
+\lbb{gramb}{\oddity{?}die Entwicklung Friedrich Schiller-s}
+\lbc{grama}{\oddity{*}die Entwicklung Friedrich Schiller}
+}
+\end{lfgwcode}
+
+\begin{lfgwprint}{label={example:6}}
+Genitiv-s für Eigennamen:
+\lb{gram}{
+\lba{grama}{\oddity{*}die Entwicklung Friedrich Schiller}
+\lbb{gramb}{\oddity{??}die Entwicklung Friedrich Schiller-s}
+\lbz{gramz}{\oddity{}die Entwicklung Friedrich Schiller}
+}
+\end{lfgwprint}
+
+Auch für Glossierungen kann das Paket eingesetzt werden 
+(wie in dem Beispiel \ref{example:7}/\ref{example:6} aus der Paketdokumentation):
+
+\begin{lfgwcode}{label={example:7}}
+\lb{gloss}{\gll Wenn jemand in die Wüste zieht ... \\
+If someone in the desert draws and lives ... \\
+\trans ‘if one retreats to the desert and ... ’}
+\end{lfgwcode}
+
+\begin{lfgwprint}{label={example:8}}
+\lb{gloss}{\gll Wenn jemand in die Wüste zieht ... \\
+If someone in the desert draws and lives ... \\
+\trans ‘if one retreats to the desert and ... ’}
+\end{lfgwprint}
+
+
+
+\end{document}
