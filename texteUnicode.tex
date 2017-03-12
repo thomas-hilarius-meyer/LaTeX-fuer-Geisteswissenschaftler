@@ -1,4 +1,4 @@
-% !TeX root = lfgw.tex
+% !TEX root = lfgw.tex
 \chapter{Textpassagen in nicht-lateinischen Alphabeten einbetten}
 %% \dictum[Donald E.\ Knuth, Professor Emeritus of The Art
 %%   of Computer Programming, Stanford University]%
@@ -85,7 +85,65 @@ Es bietet Unterstützung für mehr als 40 Sprachen und Dialekte und definiert ne
 auch sprachabhängige Texte für das Datum (\cs{today}) sowie Überschriften für die Verzeichnisse 
 (Inhaltsverzeichnis, Abbildungsverzeichnis, Literaturverzeichnis etc.).
 
+<<<<<<< HEAD
 Lange Zeit sah es so aus, als würde \paket{babel} nicht mehr weiterentwickelt.
+=======
+\begin{lfgwcode}{label={babel-preamble}}
+ \documentclass{scrartcl}
+ \usepackage[utf8]{inputenc} % nur bei pdflatex
+ \usepackage[main=german,french]{babel}
+
+ \begin{document}
+ Text in Deutsch.
+ Heute ist der \today.
+ 
+ \begin{otherlanguage}{french}
+ Aujourd'hui ce le \today.
+ Ceci est en française!
+ \end{otherlanguage}
+ 
+ Und jetzt wieder ein Text in Deutsch!
+ 
+ Beachte den Abstand vor dem Ausrufezeichen.
+ Wörter oder kurze Sätze, 
+ wie \foreignlanguage{french}{résistance} oder \foreignlanguage{french}{courant}
+ werden nach den Regeln der Fremdsprache getrennt.
+ 
+ Ganz schön spannend.
+ 
+ \end{document}
+\end{lfgwcode}
+
+\begin{lfgwprint}{}
+ Text in Deutsch.
+ Heute ist der \today.
+ 
+ \begin{otherlanguage}{french}
+ Aujourd'hui ce le \today.
+ Ceci est en française!
+ \end{otherlanguage}
+ 
+ Und jetzt wieder ein Text in Deutsch!
+ 
+ Beachte den Abstand vor dem Ausrufezeichen.
+ Wörter oder kurze Sätze, 
+ wie \foreignlanguage{french}{résistance} oder \foreignlanguage{french}{courant}
+ werden nach den Regeln der Fremdsprache getrennt.
+ 
+ Ganz schön spannend.
+\end{lfgwprint}
+
+Im Beispiel \ref{babel-preamble} wird \paket{Babel} mit zwei Sprachen benutzt.
+Die Hauptsprache wird mit der Option \texttt{main=} festgelegt.
+Ohne diese Option ist die \emph{letzte} angegebene Sprache die Hauptsprache.
+Im französischen Text wird ein kleiner Abstand vor dem \enquote{!} eingefügt.
+Das passiert dank \paket{Babel} automatisch.
+
+Fremdwörter werden am Zeilenende nach den Regeln der Fremdsprache getrennt,
+wenn man sie entsprechend markiert.
+
+Lange Zeit sah es so aus, als würde Babel nicht mehr weiterentwickelt.
+
 In dieser Zeit entstand \paket{polyglossia} (Πολυγλωσσια), um die unicodefähigen \TeX{}-Versionen zu unterstützen.
 Polyglossia bietet zusätzlich Unterstützung für Arabisch, Bengalisch, Farsi (Persisch), Hindi, Kannada, Khmer,
 Koreanisch, Sanskrit, Syrisch, Tamil, Telugu, Thailändisch, Tibetisch und Urdu.
@@ -94,9 +152,47 @@ Hier wird das Programm \XeLaTeX{} benötigt, das spezielle Unterstützung für S
 die von Rechts nach Links geschrieben werden. Abgesehen davon gilt alles in diesem Buch über
 \LuaLaTeX{} gesagte auch für \XeLaTeX{}.
 
-Seit Herbst 2013 bietet \paket{babel} Unterstützung für die Unicode-basierten Engines.
-Abhängig von der verwendeten Sprache kann entweder das eine oder das andere System besser sein.
+Das Beispiel \ref{polyglossia-preamble} zeigt den Aufruf von \paket{Polyglossia}.
+Obwohl Polyglossia eigene Befehle für die Sprachumschaltung verwendet, 
+funktionieren die Babel Befehle weiterhin.
+
+In der aktuellen Version (März 2017) hat \paket{Polyglossia} einen Fehler in Verbindung mit \LuaLaTeX{}.
+Wenn einmal auf französische Zeichensetzung umgeschaltet wurde, bleibt das für den Rest des Dokumentes bestehen.
+
+Seit Herbst 2013 bietet Babel Unterstützung für die Unicode basierten Engines.
+Abhängig von der verwendeten Sprache kann entweder das eine oder as andere System besser sein.
+
 Da sich beide Systeme weiterentwickeln ist dies für den konkreten Einsatzfall zu prüfen.
+
+\begin{lfgwcode}{label={polyglossia-preamble}}
+ \documentclass{scrartcl}
+  \usepackage{polyglossia}
+  \setmainlanguage[%
+  	spelling=new,%old
+  	latesthyphen=true,%false
+	babelshorthands=true,%false
+	]{german}
+ \setotherlanguage{french}	
+	
+ \begin{document}
+ Text in Deutsch.
+ Heute ist der \today.
+
+ \begin{french}
+ Aujourd'hui ce le \today.
+ Ceci est en française!
+ \end{french}
+ 
+ Und wieder in Deutsch!
+ Beachte das Ausrufezeichen.
+ Einzelne Wörter oder kurze Sätze, 
+ wie \textfrench{résistance} oder \textfrench{courant}
+ werden nach den Regeln der Fremdsprache getrennt.
+ 
+ Ganz schön spannend.
+ 
+ \end{document}
+\end{lfgwcode}
 
 
 \section{Eingabe von Unicode-Sonderzeichen}
@@ -200,6 +296,12 @@ zu setzen.
 
 Lohnend besonders bei den modernen Fremdsprachen: Anschaffen einer Tastatur in der jeweiligen
 Sprache.
+
+Dabei muss es sich nicht um eine physikalische Tastatur handeln.
+Oft reicht es, die entsprechende Tastatur im Betriebssystem zu aktivieren und sich das
+Tastaturlayout auszudrucken.
+So kann man die Zeichen direkt eingeben, auch wenn auf den Tasten etwas anderes steht.
+Alternativ kann man eine Bildschirmtastatur benutzen.
 
 Problem im altphilologischen Bereich: Akzente und (bei Hebräisch) Vokalzeichen sind heute
 nicht mehr verwendet und fehlen deshalb auf den heutigen Tastaturen.
