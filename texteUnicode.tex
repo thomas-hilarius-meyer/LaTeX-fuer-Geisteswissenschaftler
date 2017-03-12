@@ -80,22 +80,22 @@ Es gibt zwei Pakete, die sich um sprachspezifische Besonderheiten kümmern.
 Außerdem gibt es noch den \paket{german.sty}, der spezielle Anpassungen für deutsche Texte
 zur Verfügung stellt. Er sollte für neue Texte nicht mehr verwendet werden.
 
-Das Paket \paket{Babel} ist die international Weiterentwicklung des \paket{german.sty}.
-Es bietet Unterstützung für mehr als 40 Sprachen und definiert neben den Trennmustern 
+Das Paket \paket{babel} ist die international Weiterentwicklung des \paket{german.sty}.
+Es bietet Unterstützung für mehr als 40 Sprachen und Dialekte und definiert neben den Trennmustern 
 auch sprachabhängige Texte für das Datum (\cs{today}) sowie Überschriften für die Verzeichnisse 
 (Inhaltsverzeichnis, Abbildungsverzeichnis, Literaturverzeichnis etc.).
 
-Lange Zeit sah es so aus, als würde Babel nicht mehr weiterentwickelt.
+Lange Zeit sah es so aus, als würde \paket{babel} nicht mehr weiterentwickelt.
 In dieser Zeit entstand \paket{polyglossia} (Πολυγλωσσια), um die unicodefähigen \TeX{}-Versionen zu unterstützen.
 Polyglossia bietet zusätzlich Unterstützung für Arabisch, Bengalisch, Farsi (Persisch), Hindi, Kannada, Khmer,
 Koreanisch, Sanskrit, Syrisch, Tamil, Telugu, Thailändisch, Tibetisch und Urdu.
 Für einige dieser Sprachen werden Funktionen benötigt, die in \LuaLaTeX{} nicht vorhanden sind.
-Hier wird das Program \XeLaTeX{} benötigt, das spezielle Unterstützung für Sprachen bietet,
+Hier wird das Programm \XeLaTeX{} benötigt, das spezielle Unterstützung für Sprachen bietet,
 die von Rechts nach Links geschrieben werden. Abgesehen davon gilt alles in diesem Buch über
 \LuaLaTeX{} gesagte auch für \XeLaTeX{}.
 
-Seit Herbst 2013 bietet Babel Unterstützung für die Unicode basierten Engines.
-Abhängig von der verwendeten Sprache kann entweder das eine oder as andere System besser sein.
+Seit Herbst 2013 bietet \paket{babel} Unterstützung für die Unicode-basierten Engines.
+Abhängig von der verwendeten Sprache kann entweder das eine oder das andere System besser sein.
 Da sich beide Systeme weiterentwickeln ist dies für den konkreten Einsatzfall zu prüfen.
 
 
@@ -221,12 +221,12 @@ Vgl.\ Abschnitt \ref{utf8codes} auf Seite \pageref{utf8codes}.
 \index{Griechisch}
 
 Es gibt (mindestens...) drei verschiedene Möglichkeiten, griechische Textpassagen einzubinden;
-je nach Aufgabenbreich sind diese verschieden gut geeignet:
+je nach Aufgabenberich sind diese verschieden gut geeignet:
 
 
 \minisec{Möglichkeit I: Einzelbuchstaben}
 
-Die erste Möglichkeit besteht in der Eingabe m.\,H. der Einzelnbuchstaben-Symbole des Paketes
+Die erste Möglichkeit besteht in der Eingabe m.\,H. der Einzelbuchstaben-Symbole des Paketes
 \paket{textgreek}; das Verfahren ist in  \fullref{griechEinzelbuchstaben} beschrieben.
 
 Dieses Verfahren eignet sich eigentlich nur für ganz kurze Einsprengsel im Umfang von
@@ -243,7 +243,7 @@ Dabei wird für die griechischen Buchstaben eine Art Transkription in lateinisch
 vorgenommen, die sich bei etwas Übung sehr leicht benutzen lässt.
 
 Das Paket \paket{ibycus}%
-\footnote{Paketdokumentation: texdoc ibycus-babel}
+\footnote{Paketdokumentation: \file{texdoc ibycus-babel}}
 definiert dabei eine Art Pseudosprache für \paket{babel},
 in der Dokumenpräambel ist also anzugeben:
 
@@ -251,7 +251,7 @@ in der Dokumenpräambel ist also anzugeben:
  \usepackage[ibycus,ngerman]{babel}
 \end{lstlisting}
 
-Im Dokument stehen dann eine Umgebung \lstinline/ibycus/ sowie ein Befehl \lstinline/\ibygr{}/
+Im Dokument stehen dann eine Umgebung \env{ibycus} sowie ein Befehl \cs{ibygr\{\}}
 zur Verfügung:
 
 
@@ -273,16 +273,16 @@ Das wird zu:
 
 Die dritte Möglichkeit besteht darin, die griechischen Schriftzeichen direkt als Unicode-Zeichen
 in das \LaTeX -Dokument einzufügen. Dazu reicht es aus, dem Paket \paket{babel} die
-(alt-)griechische Sprache als zusätzliche Option anzugeben:
-\lstinline/\usepackage[polutonikogreek,ngerman]{babel}/.
-\footnote{Achtung! Bei den meisten \LaTeX -Installationen im Rahmen von Linux-Distributionen muss
+(alt"~)""griechische Sprache als zusätzliche Option anzugeben:
+\cs{usepackage\oarg*{polutonikogreek,ngerman}\marg*{babel}}.
+\footnote{Achtung! Bei den meisten \LaTeX-Installationen im Rahmen von Linux-Distributionen muss
 man Pakete nachinstallieren!}
 Damit \LaTeX{} den griechischen Font richtig ansprechen kann, braucht auch das Paket \paket{fontenc}
-eine Modifikation: \lstinline/\usepackage[OT1,T1]{fontenc}/.
+eine Modifikation: \cs{usepackage\oarg*{OT1,T1}\marg*{fontenc}}.
 
-Dann kann mit \lstinline/\selectlanguage{polutonikogreek}/ auf Griechisch umgeschaltet werden.
+Dann kann mit \cs{selectlanguage\marg*{polutonikogreek}} auf Griechisch umgeschaltet werden.
 
-Der folgende Bibelvers wurde aus dem Internet unverändert in das \LaTeX -Dokument
+Der folgende Bibelvers wurde aus dem Internet unverändert in das \LaTeX-Dokument
 kopiert. Derzeit werden nicht alle Zeichen in meinem KDE-Editor (kile) korrekt dargestellt (vgl. Abb.);
 dennoch gibt \LaTeX{} alle Zeichen richtig wider:
 
@@ -304,7 +304,7 @@ Diese Methode dürfte sich in der Praxis am ehesten eignen, wenn bereits ein Tex
 ohne Veränderungen übernommen werden sollen~-- so wie z.\,B. bei Zitaten aus der Bibel oder
 der klassischen Literatur.
 
-Will man selbst (alt-)griechische Textpassagen schreiben, scheint das Ibykus-Verfahren
+Will man selbst (alt"~)""griechische Textpassagen schreiben, scheint das Ibykus-Verfahren
 wesentlich angenehmer und effizienter.
 
 
@@ -317,9 +317,9 @@ von Akzenten. Auch das Problem der rechts- bzw. linksläufigen Schriften wird se
 Anwenderfreundlich~-- im Sinne von Anwendern an einem westlichen PC mit ansonsten
 lateinischen Alphabet~-- gelöst:
 
-Nach \lstinline/\usepackage{cjhebrew}/%
+Nach \cs{usepackage\marg*{cjhebrew}}%
 \footnote{Eine besondere Angabe z.\,B. bei \paket{babel} ist nicht nötig.}
-steht v.\,a. der Befehl \lstinline/\cjRL{}/
+steht v.\,a. der Befehl \cs{cjRL\{\}}
 -- für hebräische Einzelworte im laufenden Absatz~-- sowie die
 Umgebung \lstinline/cjhebrew/
 -- für ganze Absätze in Hebräisch~-- zur Verfügung.
@@ -328,7 +328,7 @@ Beide drehen die Folge der Schriftzeichen automatisch um, so dass hebräische Te
 ganz gewohnt eingegeben werden können. Dabei sind für die einzelnen Zeichen sehr leicht
 merkbare Codes definiert worden:
 
-Der Beginn des biblischen Buches Genesis~-- \enquote{Im Anfang schuf Gott Himmel und Erde...} --
+Der Beginn des biblischen Buches Genesis~-- \enquote{Im Anfang schuf Gott Himmel und Erde\dots} --
 wird so eingegeben:
 
 \begin{lstlisting}
