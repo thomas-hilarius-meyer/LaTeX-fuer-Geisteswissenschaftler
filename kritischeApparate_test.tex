@@ -1,0 +1,480 @@
+% !TEX root = lfgw.tex
+
+\chapter[Mehrere Apparate setzen: Erstellen einer kritischen Edition]{Mehrere Apparate setzen:\\Erstellen einer kritischen Edition}
+
+%\dictum[?]{Kritik ist überall, zumal in Deutschland, nötig.}
+
+\autor{Philipp Pilhofer}
+
+\index{Apparat} \index{Varianten}%TODO %das geht noch more sophisticated
+\index{reledmac|(}
+
+\label{reledmac}
+
+%\enquote{Edieren ist eine Erziehung zur Bescheidenheit [...] Es ist ferner eine Erziehung zur 
+%Genauigkeit, wie alle Philologie.}%
+%\footnote{Erich Trunz, Ein Tag aus Goethes Leben. Acht Studien zu Leben und Werk, München 1999, S.~213.}
+
+\newcommand\vari[3][]{%
+\edtext{#2}{%
+  \if$#1$\lemma{\gkk{#2}}\else\lemma{\gkk{#1}}\fi
+  \Cfootnote{#3}}}
+
+\newcommand\quell[3][]{%
+\edtext{#2}{%
+  \if$#1$\lemma{\gkk{#2}}\else\lemma{\gkk{#1}}\fi
+  \Bfootnote{#3}}}
+
+\newsavebox\bspbox
+\newenvironment{reledmacbsp}[1]{%
+%  \begin{lfgwprint}{}%
+%  \begin{lrbox}{\bspbox}
+  \begin{minipage}[t]{0.95\linewidth}
+  \beginnumbering
+  #1%
+  \pstart[\subsubsection*{Strabons Geographika XIV 5,1}]%
+}%
+{%
+  \pend
+  \stopmsdata
+  \endnumbering
+  \end{minipage}%
+%  \end{lrbox}%
+%  \par
+%  \end{lfgwprint}%
+}
+
+\newcommand\bsplineenum{\firstlinenum{2}\linenumincrement{2}}
+
+\newcounter{alteSeite}
+\setcounter{alteSeite}{269}
+\newcommand\alteSeite{{|\ledsidenote{\emph{T}~\thealteSeite}}}%stepcounter machen wir hier nicht, sonst zählt er ja immer weiter ...
+
+\VerbatimFootnotes
+\DefineShortVerb{\+}
+
+\section{Zur Geschichte des Problems}
+
+In diesem Kapitel stelle ich einen Weg vor, mit \LaTeX\ eine wissenschaftlich-kritische Edition eines Textes zu setzen. Eine solche Edition stellt hohe Anforderungen an das Satzprogramm: weil mehrere voneinander unabhängige kritische Apparate unterstützt werden müssen. Diese können verschiedene Aufgaben haben, im vorgestellten Beispiel sind dies:
+
+\begin{enumerate}\label{pil:apparat}
+\item Der Zeugen-Apparat: Dieser zeigt zeilengenau an, auf Basis welcher Handschriften die entsprechenden Bereiche des Textes erstellt wurden.
+
+\item Der Quellen-Apparat: In diesem Apparat wird auf Parallelstellen in anderen Texten verwiesen, die dem Autor/der Autorin 
+möglicherweise als Vorlage dienten, oder auf die er/sie anspielt.
+
+\item Der textkritische Apparat: Dieser ist das Kernstück der kritischen Edition. Hier werden Text-Varianten der einzelnen Handschriften angezeigt, die von dem oben gedruckten Text 
+abweichen. 
+Dabei wird die Zeile und das 
+Wort (oder die Wörter) aus dem Haupttext (das »Lemma«) angegeben, dahinter die 
+abweichenden Varianten mit den jeweiligen Handschriften.
+\end{enumerate}
+
+In Zeiten des Bleisatzes wurden einfach so viele Korrekturdurchgänge absolviert, 
+bis das satztechnische Ergebnis zufriedenstellend war. In den Zeiten des beginnenden 
+Computersatzes wurde die Lage unübersichtlicher, es gibt Berichte der 
+Benutzung von Microsoft Word unter 
+Zuhilfenahme von Schere und Kleber.~\cite[34]{stockhausen:mde2016/2} Heute wird meistens 
+ein Word-ähnliches Programm namens \Program{Classical Text Editor (CTE)} verwendet, 
+das die verschiedenen Apparate in vielen kleinen Fenstern organisiert. 
+Der \Program{CTE} erfüllt also die technischen Grundbedingungen, dennoch liegen die 
+Nachteile auf der Hand: Die entstehenden Dateien liegen in einem binären Format 
+vor und können nur mit dem \Program{CTE} bearbeitet werden. 
+Man ist also für alle Zeiten auf einen lauffähigen \Program{CTE} angewiesen, 
+die Entwicklung des proprietären Codes hängt jedoch seit 20 Jahren an einer einzigen Person.
+Eine spätere Weiterverarbeitung der druckfertigen Edition ist aus den binären Dateien 
+fast nicht möglich; für eine digitale Edition beispielsweise müsste man wieder ganz von vorne beginnen.
+In Zeiten schmaler werdender Budgets sind auch die Lizenzkosten nicht zu vernachlässigen.
+
+Bei der Nutzung von \LaTeX{} stellen sich diese Probleme nicht, Darüber hinaus bieten sich 
+weitere Vorteile wie der überlegene Textsatz. Mit \Package{ednotes} und \reledmac 
+liegen zwei Pakete vor, die allen Anforderungen einer kritischen Edition gerecht 
+werden.\footnote{Auf das Paket \Package{ednotes} von Uwe Lück gehe ich 
+hier nicht weiter ein, ein ausführlicher \TUGboat-Artikel liegt diesem Paket bei. 
+Eine Arbeit, die mit diesem Paket erstellt wurde, ist~\cite{mariev:joh_ant}.} 
+\reledmac befindet sich seit Ende der 80er Jahren in mehr oder weniger steter Fortentwicklung. 
+Der aktuelle Maintainer Maïeul Rouquette arbeitet Fehlerberichte oder Feature-Wünsche 
+freundlich und effizient ab.%
+\footnote{%
+	Das Paket \reledmac geht 
+	ursprünglich auf das \plainTeX{}-Paket \Package[reledmac]{edmac} von John Lavagnino und 
+	Dominik Wujastyk zurück. Dieses wurde ab 2003 von Peter Wilson für \LaTeX{} 
+	als \Package[reledmac]{ledmac} portiert und weiterentwickelt. Im Jahr 2011 hat Maïeul 
+	Rouquette das Paket übernommen und erst als \Package[reledmac]{eledmac}, später als \reledmac fortgeführt. 
+	Als Beispiel für die Effizienz mag hier erwähnt sein, dass ein Fehler im Paket 
+	\reledmac, der beim Schreiben dieser Zeilen aufgefallen ist, ganze zwölf Minuten nach 
+	Absenden des Bug-Reports gefixt war.}
+Das Paket hat sich in mehreren publizierten 
+Editions(groß)projekten als gleichermaßen stabil und flexibel erwiesen. %\footnote{
+Beispielsweise verwendet die Erlanger Athanasius"=Arbeitsstelle %verwendet 
+seit zehn Jahren 
+\Package[reledmac]{(re)ledmac} und hat damit bereits mehrere Bände publiziert, unter anderem%beispielsweise 
+~\cite{athanasius_3_1_4}. Zu den technischen und insbesondere \TeX{}nischen 
+Hintergründen vgl.~\cite{stockhausen:mde2016/2}. Eine unvollständige Liste der Editionen in den unterschiedlichsten 
+Sprachen, die auf \Package[reledmac]{(rel)edmac} basieren, findet sich unter~\cite{reledmac-benutzung}. 
+\reledmac ist 
+ausführlich dokumentiert, die verschiedenen Funktionen werden auf 70 Seiten 
+erläutert; zudem liegen dem Paket 40 Beispieldateien bei, die viele der 
+Konfigurationsmöglichkeiten vorführen.\footnote{Neben der Dokumentation des Paketes selbst beschäftigt sich weitere Literatur mit den Funktionen von \Package{reledmac}: \cite{reledmac-literatur}.}
+
+
+\section{Die Grundlagen}\label{apparate-grundlagen-anfang}
+
+Auf den folgenden Seiten will ich nicht alle dieser Funktionen vorstellen, sondern nur eine kurze Einführung geben und eine mögliche Grundkonfiguration für eine den Anforderungen entsprechende kritische Edition vorstellen. 
+Davon ausgehend sollte es dann einfach sein, eventuelle Sonderwünsche mit Hilfe der Dokumentation umzusetzen.
+
+Das Paket wird mit +\usepackage[<opt>]{reledmac}+ geladen. Da \reledmac ein sehr mächtiges Paket ist, kann es den \TeX-Durchlauf spürbar verlangsamen. Je nach Anforderungsszenario und verwendeter Hardware kann es sinnvoll sein, die nicht benötigten Funktionen des Paketes abzuschalten. Standardmäßig ermöglicht \reledmac je fünf Endnoten-, »kritische« Fußnoten- und »normale« Fußnoten-Apparate 
+(jeweils mit A bis E bezeichnet). Es lassen sich auch weitere Apparate hinzufügen. Mit »normalen« Fußnoten bezeichne ich die üblichen Fußnoten, die oben im Text eine Zahl setzen 
+und unten hinter der Zahl den Text der Fußnote. Bei einer »kritischen« Fußnote findet sich keine Markierung im Text, dafür wird 
+unten eine Zeilenangabe gemacht und das Lemma wiederholt, bevor der Text der Fußnote folgt. In unserem Beispiel gehe ich nur auf die Fußnoten-Apparate ein, und wie oben erwähnt, brauchen wir nur drei dieser Apparate, der Rest 
+(inklusive einiger weiterer hier nicht besprochener Möglichkeiten) wird also abgeschaltet:
+
+\begin{lfgwcode}{}
+\usepackage[%
+  series={A,B,C},% nur die Apparate A B C aktivieren
+  noend,         % keine Endotenapparate
+  noeledsec,     % keine eledsections et al.
+  noledgroup     % keine ledgroups
+]{reledmac}
+\end{lfgwcode}
+
+Der Text der Edition muss zwingend von +\beginnumbering+ \dots{} +\endnumbering+ 
+eingefasst werden. Jeder Paragraph muss mit +\pstart+ begonnen und mit +\pend+ beendet 
+werden. Alternativ kann dies mit +\autopar+ vereinfacht werden. \cite[17]{reledmac} Die Paragraphen-Nummer kann man automatisch ausgeben lassen, wenn man dies 
+möchte.\footnote{Dafür gibt es die Befehle +\numberpstarttrue+ und +\sidepstartnumtrue+. 
+  Der erste fügt zu Beginn des Paragraphen die Nummer ein, der zweite schreibt die Nummer an 
+den Rand und schaltet den sichtbaren Zeilenzähler ab.} 
+Hier ein Beispiel der bisher eingeführten Befehle:\footnote{Der Beispieltext ist Strabons Geographika XIV 5,1. 
+Text und Übersetzung folgen dabei mit Abweichungen der Radtschen Ausgabe (\cite[96\psq]{radt:strabon4}). 
+Die hier verwendeten Text-Varianten, Handschriftenzeugen und Quellen-Belege sind rein 
+fiktiv und nur gewählt, um die Funktionsweise des Paketes \reledmac einfach zu veranschaulichen.}
+
+\begin{lfgwcode}{}
+\beginnumbering
+\pstart[\subsubsection{Strabons Geographika XIV 5,1}]
+§\null§Τῆς§~§Κιλικίας§~§δὲ§~§τῆς§~§ἔξω§~§τοῦ§~§Ταύρου§~§ἡ§~§μὲν§~§λέγεται§~§τραχεῖα§~§ἡ§~§δὲ§~§πεδιάς;
+§\null§τραχεῖα§~§μέν,§~§ἧς§~§ἡ§~§παραλία§~§στενή§~§ἐστι§~§καὶ§~§οὐδὲν§~§ἢ§~§σπανίως§~§ἔχει§~§\dots{}
+\pend
+\endnumbering
+\end{lfgwcode}
+
+Das Ergebnis sähe bisher folgendermaßen aus:
+
+\bigskip\bigskip%warum sich die Abstände hier anders verhalten ...?
+
+\begin{reledmacbsp}{}
+\gkk{Τῆς Κιλικίας δὲ τῆς ἔξω τοῦ Ταύρου ἡ μὲν λέγεται τραχεῖα ἡ δὲ πεδιάς;
+τραχεῖα μέν, ἧς ἡ παραλία στενή ἐστι καὶ οὐδὲν ἢ σπανίως ἔχει \dots{}}
+\end{reledmacbsp}
+
+Die Zeilen zwischen den +numbering+-Befehlen werden fortlaufend gezählt. Schon bei der Zeilenzählung gibt es viele Einstellungsmöglichkeiten. 
+Mit dem Befehl +\lineation{<arg>}+ lässt sich erreichen, dass der Zeilenzähler auf jeder Seite (+page+) oder mit jedem Paragraphen 
+(+pstart+) zurückgesetzt wird. Normalerweise wird der Stand des Zeilenzählers in jeder fünften Zeile angezeigt. 
+Dies lässt sich mit +\linenumincrement{<num>}+ ändern: Um die Funktionalität auf möglichst wenig 
+Raum erklären zu können, wollen wir hier mit +\linenumincrement{2}+ den Zählerstand in 
+jeder zweiten Zeile anzeigen lassen. Mit +\firstlinenum{2}+ wird eingestellt, dass der Zeilenzähler in der 2. Zeile auch zum ersten Mal steht.
+
+Für Zwischenüberschriften, die keine Zeilennummern (und also auch keinen Apparat) erhalten sollen, kann man die üblichen Befehle verwenden: 
++\chapter+, +\section+ usw. Zu beachten ist dabei, dass diese als optionales Argument des +\pstart+"=Befehles 
+mitgegeben werden müssen. Möglich sind auch Überschriften mit Zeilenzählung und Apparat, dazu sind die Befehle +\eledchapter+, +\eledsection+, usw. zu verwenden 
+(diese können innerhalb eines Paragraphen ohne Beschränkungen verwendet werden).\footnote{Da wir diese Art von Überschriften im vorliegenden Beispiel nicht brauchen, haben wir sie in der Präambel mit +noeledsec+ abgeschaltet.}
+
+Neben dem Text sind Randbemerkungen durch verschiedene Befehle möglich, beispielsweise über +\ledsidenote{<anm>}+. 
+Diese Randbemerkungen lassen sich etwa dazu verwenden, den Seitenumbruch einer älteren Edition desselben Textes anzuzeigen. Dazu definiert man am besten einen Befehl, der einerseits an der richtigen Stelle der Zeile ein entsprechendes Zeichen 
+(hier: +|+) setzt und gleichzeitig am Rand die neue Seite ausgibt.
+Durch einen eingebauten Zähler wird die ausgegebene Seitenzahl bei jeder Benutzung automatisch um eins erhöht.
+Dieses Beispiel gibt am Rand den Buchstaben \emph{T} (der für die alte Edition steht) mit der Seitenzahl 269 aus:
+
+\begin{lfgwcode}{}
+\newcounter{alteSeite}
+\setcounter{alteSeite}{269}
+\newcommand\alteSeite{{|\ledsidenote{\emph{T}~\thealteSeite\stepcounter{alteSeite}}}}
+\end{lfgwcode}
+
+Mit den nun neu eingeführten Befehlen sieht der Beispielcode so aus:
+
+\begin{lfgwcode}{}
+\firstlinenum{2}% ab der zweiten Zeile die Nummern anzeigen
+\linenumincrement{2}% ... und zwar jede zweite Zeile
+\beginnumbering
+\pstart[\subsubsection{Strabons Geographika XIV 5,1}]
+§\null§Τῆς§~§Κιλικίας§~§δὲ§~§τῆς§~§ἔξω§~§τοῦ§~§Ταύρου§~§ἡ§~§μὲν§~§λέγεται§~§τραχεῖα§~§ἡ§~§δὲ§~§πεδιάς;
+§\null§τραχεῖα§~§μέν,§~§ἧς§~§ἡ§~§παραλία§~§\alteSeite{}§~§στενή§~§ἐστι§~§καὶ§~§οὐδὲν§~§ἢ§~§σπανίως§~§ἔχει§~§\dots{}
+\pend
+\endnumbering
+\end{lfgwcode}
+
+Das Ergebnis hat sich damit auch verändert und sähe nun folgendermaßen aus:
+
+\begin{reledmacbsp}{\bsplineenum}
+\gkk{Τῆς Κιλικίας δὲ τῆς ἔξω τοῦ Ταύρου ἡ μὲν λέγεται τραχεῖα ἡ δὲ πεδιάς;
+τραχεῖα μέν, ἧς ἡ παραλία \alteSeite{} στενή ἐστι καὶ οὐδὲν ἢ σπανίως ἔχει \dots{}}
+\end{reledmacbsp}
+
+\label{apparate-grundlagen-ende}
+
+
+\section{Die Apparate}
+
+Ich hatte oben drei Apparate erwähnt, die wir für unser Beispiel verwenden wollen: 
+Zeugen-Apparat, Quellen-Apparat und textkritischer Apparat (siehe Seite~\pageref{pil:apparat}). 
+Die letzten beiden haben eine ähnliche Funktionsweise: 
+Ein Wort (oder einige Wörter) aus dem Text, das Lemma, soll unten im Apparat mit Zeilenangabe wiedergegeben werden, dahinter folgt eine Art von Kommentar oder Anmerkung 
+zum Lemma. Der erstgenannte Apparat hingegen soll zeilenweise angeben, 
+bei welchen Handschriften (den »Zeugen«) die jeweiligen Zeilen nachgewiesen werden können.
+
+
+\subsection{Quellen- und textkritischer Apparat}
+
+Ich gehe zuerst auf den Quellen-Apparat und den textkritischen Apparat ein. Diese Apparate lassen sich 
+mit dem Befehl +\edtext{<lemma>}{<befehl>}+ ansprechen. +lemma+ ist dabei das Wort (oder die Wörter), 
+zu dem im Apparat eine Anmerkung gemacht werden soll:\footnote{In dem Fall, dass ein Wort mehrfach 
+innerhalb einer Zeile vorkommt, ist der Befehl +\sameword{<lemma>}+ anzuwenden. Es ist zu beachten, dass 
+der unten eingeführte Befehl +\vari+ auf den Befehl +\lemma+ zurückgreift: Dieser Tatsache muss 
+bei der Benutzung von +\sameword+ Rechnung getragen werden. Näheres ist der Dokumentation von 
+\reledmac zu entnehmen.} Das +lemma+ wird einmal normal oben im Text ausgegeben und einmal im Apparat mit Zeilenangabe. Bei +befehl+ ist einzutragen, 
+in welchen Apparat die Anmerkung mit 
+dem +lemma+ aufgenommen werden soll, 
+dazu existieren die Befehle +\Afootnote{<anm>}+, +\Bfootnote{<anm>}+ usw. Für den textkritischen Apparat, der ganz unten stehen soll, wählen wir Apparat C. Eine textkritische Bemerkung zum Wort \gkk{Κιλικίας} sähe also so aus, wenn die Handschrift V dort \gkk{Πισιδίας} liest 
+(es ist zu beachten, dass \reledmac bis zu drei \LaTeX"=Durchläufe braucht, bis die Zeilennummern im Apparat richtig sind):
+
+\begin{lfgwcode}{}
+§\null§Τῆς§~§\edtext{§\null§Κιλικίας}{\Afootnote{§\null§Πισιδίας§~§V}}§~§δὲ§~§τῆς§~§ἔξω§~§τοῦ§~§Ταύρου§~§\dots{}
+\end{lfgwcode}
+
+Wenn das +lemma+ etwas länger ist, kann es sinnvoll sein, es nicht vollständig im Apparat wiederzugeben, sondern es
+stattdessen abzukürzen. 
+Dafür existiert der Befehl +\lemma{<lemma_kurz>}+, der auch im +befehl+-Feld von +\edtext+ zu verwenden ist.
+Die Verwendung ist auch dann sinnvoll, wenn der Text des Lemmas andere Befehle enthält, die unten im Apparat nicht noch einmal wiederholt werden sollen, wie +\alteSeite+ oder verschachtelte +\edtext+-Befehle.
+Hier ein Anwendungsbeispiel (unten auf Seite~\pageref{Pilhofer-Beispiel-Lemma-kurz} wird dies auch noch anschaulich gemacht):
+
+\begin{lfgwcode}{}
+\dots{},§~§ἧς§~§\edtext{§\null§ἡ§~§παραλία§~§\alteSeite{}§~§στενή§~§ἐστι}{\lemma{§\null§ἡ§~§\dots{}
+§\null§ἐστι}\Bfootnote{Anmerkungstext}}§~§καὶ§~§οὐδὲν§~§ἢ§~§σπανίως§~§ἔχει§~§\dots{}
+\end{lfgwcode}
+
+Da dies schnell etwas unübersichtlich wird, führen wir einen Befehl für Text-Varianten ein, 
+nämlich: +\vari[<lemma_kurz>]{<lemma>}{<anm>}+ (die Angabe des abgekürzten Lemmas ist optional). Dieser erledigt alle genannten Aufgaben auf einmal:
+
+\begin{lfgwcode}{}
+\newcommand\vari[3][]{%
+  \edtext{#2}{\if$#1$#2\else\lemma{#1}\fi
+    \Cfootnote{#3}}}
+\end{lfgwcode}
+
+Der neue Befehl sieht im Beispieltext dann so aus:
+
+\begin{lfgwcode}{}
+§\null§Τῆς§~§\vari{§\null§Κιλικίας}{§\null§Πισιδίας§~§V}§~§δὲ§~§τῆς§~§ἔξω§~§τοῦ§~§Ταύρου§~§\dots{}
+\end{lfgwcode}
+
+Der angegebene Code führt nach genügend vielen Durchläufen zu diesem Ergebnis:
+
+\begin{reledmacbsp}{\bsplineenum}
+\gkk{Τῆς \vari{Κιλικίας}{\gkk{Πισιδίας} V} δὲ τῆς ἔξω τοῦ Ταύρου \dots{}}
+\end{reledmacbsp}
+
+Für den Quellenapparat wählen wir Apparat B und definieren entsprechend den Befehl +\quell[<lemma_kurz>]{<lemma>}{<anm>}+:
+
+\begin{lfgwcode}{}
+\newcommand\quell[3][]{%
+  \edtext{#2}{\if$#1$#2\else\lemma{#1}\fi
+    \Bfootnote{#3}}}
+\end{lfgwcode}
+
+Gehen wir hier einmal davon aus, dass die Wörter \gkk{ἡ παραλία στενή ἐστι} schon bei einem fiktiven 
+älteren Autor namens Konon Paraliotes stehen, in seinem ebenso fiktiven Werk \gkk{Κοσμογραφία} VI 7. Dann würde der Beispielcode so aussehen (nun auch unter Verwendung des abgekürzten 
+Lemmas und zudem mit einer weiteren Lesart: Handschrift G bietet das \gkk{ἔξω} nicht):
+
+\begin{lfgwcode}{}
+§\null§Τῆς§~§\vari{§\null§Κιλικίας}{§\null§Πισιδίας§~§V}§~§δὲ§~§τῆς§~§\vari{§\null§ἔξω}{\emph{del.}§~§G}
+§\null§τοῦ§~§Ταύρου§~§ἡ§~§μὲν§~§λέγεται§~§τραχεῖα§~§ἡ§~§δὲ§~§πεδιάς;
+§\null§τραχεῖα§~§μέν,§~§ἧς§~§\quell[§\null§ἡ§~§\dots{}§~§ἐστι]{§\null§ἡ§~§παραλία§~§\alteSeite{}§~§στενή§~§ἐστι}%
+{Konon§~§Paraliotes,§~§Κοσμογραφία§~§VI§~§7}§~§καὶ§~§οὐδὲν§~§ἢ§~§σπανίως§~§ἔχει§~§\dots{}
+\end{lfgwcode}
+
+Mit beiden Apparaten kommen wir zu diesem Zwischenergebnis:
+
+\begin{reledmacbsp}{\bsplineenum}
+\gkk{Τῆς \vari{Κιλικίας}{\gkk{Πισιδίας} V} δὲ τῆς \vari{ἔξω}{\emph{del.} G} 
+τοῦ Ταύρου ἡ μὲν λέγεται τραχεῖα ἡ δὲ πεδιάς;
+τραχεῖα μέν, ἧς \quell[\gkk{ἡ \dots{} ἐστι}]{ἡ παραλία \alteSeite{} στενή ἐστι}%
+{Konon Paraliotes, \gkk{Κοσμογραφία} VI 7} καὶ οὐδὲν ἢ σπανίως ἔχει \dots{}}
+\end{reledmacbsp}
+
+
+\subsection{Der Zeugenapparat}
+
+Jetzt benötigen wir nur noch den Zeugen-Apparat. Dieser funktioniert etwas anders als die beiden bisher beschriebenen 
+Apparate. Standardmäßig verwendet \reledmac dafür den Apparat A.\footnote{Dies lässt sich über +\setmsdataseries{<app>}+ ändern.} 
+Mit dem Befehl +\msdata{<zeugen>}+ werden die ab dieser Stelle herangezogenen Handschriften angegeben. Diese Angabe ist gültig bis 
+zur nächsten Angabe über +\msdata{<zeugen>}+ oder bis zu einem +\stopmsdata+.
+
+Nehmen wir an, unser Text sei in insgesamt vier Handschriften V, U, G und T belegt; 
+in V und T sind nur die ersten Zeilen erhalten, in U und G der komplette Text. Dann sähe unser Beispiel so aus:
+
+\begin{lfgwcode}{}
+\msdata{G§~§T§~§U§~§V}§\null§Τῆς§~§\vari{§\null§Κιλικίας}{§\null§Πισιδίας§~§V}§~§δὲ§~§τῆς§~§\vari{§\null§ἔξω}{\emph{del.}§~§G}
+§\null§τοῦ§~§Ταύρου§~§ἡ§~§μὲν§~§λέγεται§~§τραχεῖα§~§ἡ§~§δὲ§~§πεδιάς;
+§\null§τραχεῖα§~§μέν,§~§ἧς§~§\quell[§\null§ἡ§~§\dots{}§~§ἐστι]{§\null§ἡ§~§παραλία§~§\alteSeite{}§~§στενή§~§ἐστι}%
+{Konon§~§Paraliotes,§~§Κοσμογραφία§~§VI§~§7}§~§καὶ§~§οὐδὲν
+\vari{§\null§ἢ§~§σπανίως}{§\null§ἢ§~§σπανιαίτερον§~§V§~§U;§~§\emph{del.}§~§T}§~§ἔχει§~§τι§~§χωρίον
+\msdata{G§~§U}§\null§ἐπίπεδον,§~§καὶ§~§ἔτι§~§ἧς§~§ὑπέρκειται§~§ὁ§~§Ταῦρος§~§οἰκούμενος§~§κακῶς§~§μέχρι§~§καὶ§~§τῶν
+§\null§προσβόρρων§~§πλευρῶν§~§τῶν§~§περὶ§~§Ἴσαυρα§~§καὶ§~§τοὺς§~§Ὁμοναδέας§~§μέχρι§~§τῆς§~§Πισιδίας;
+\end{lfgwcode}
+
+Noch nicht sonderlich schön, aber immerhin technisch vollständig, sieht der Zwischenstand so aus:
+
+\label{Pilhofer-Beispiel-Lemma-kurz}%
+\begin{reledmacbsp}{\bsplineenum}
+\gkk{\msdata{G T U V}Τῆς \vari{Κιλικίας}{\gkk{Πισιδίας} V} δὲ τῆς \vari{ἔξω}{\emph{del.} G} 
+τοῦ Ταύρου ἡ μὲν λέγεται τραχεῖα ἡ δὲ πεδιάς;
+τραχεῖα μέν, ἧς \quell[\gkk{ἡ \dots{} ἐστι}]{ἡ παραλία \alteSeite{} στενή ἐστι}%
+{Konon Paraliotes, \gkk{Κοσμογραφία} VI 7} καὶ οὐδὲν 
+\vari{ἢ σπανίως}{\gkk{ἢ σπανιαίτερον} V U; \emph{del.} T} ἔχει τι χωρίον
+\msdata{G U}ἐπίπεδον, καὶ ἔτι ἧς ὑπέρκειται ὁ Ταῦρος οἰκούμενος κακῶς μέχρι καὶ τῶν
+προσβόρρων πλευρῶν τῶν περὶ Ἴσαυρα καὶ τοὺς Ὁμοναδέας μέχρι τῆς Πισιδίας;}
+\end{reledmacbsp}
+
+
+\section{Die satztechnischen Feinheiten}
+
+Nun wollen wir noch einige optische Feinheiten anpassen und die Anmerkungen platzsparender organisieren. 
+Ich stelle hier einige der Möglichkeiten vor. Es kommen nun zahlreiche verschiedene Befehle vor, 
+die aufgrund der vielen Einstellungsmöglichkeiten etwas verwirrend erscheinen mögen. Man sollte 
+sich jedoch vor Augen halten, dass man diese Einstellungen nur einmal vornehmen muss, 
+und sobald alles nach Wunsch aussieht, 
+muss man daran nichts mehr ändern. 
+%Der Vorteil ist aber, wenn dann doch noch etwas geändert 
+%werden muss, braucht es nur eine einzige Änderung an einem dieser Befehle, und schon ist das ganze Dokument umgestellt.
+Muss aber doch noch etwas geändert werden, genügt eine
+          einzige Korrektur an einem dieser Befehle, um das ganze
+          Dokument umzustellen.
+
+Fast alle der hier vorgestellten Befehle haben ein optionales Argument: Wenn es leer bleibt, gilt der Befehl für alle Apparate; wenn man dort einen oder 
+mehrere Apparate mit ihrem Buchstaben angibt, gilt der Befehl nur für diese.
+%
+Die Anordnung der Anmerkungen im Apparat wird mit dem Makro +\Xarrangement[<app>]{<option>}+ angepasst. 
+Ich wähle hier die platzsparende Option +paragraph+, es wären aber auch zwei- oder dreispaltiger Satz der Anmerkungen möglich: +twocol+, +threecol+. Der Befehl muss \emph{vor} dem +\beginnumbering+ stehen. 
+
+\begin{sloppypar}
+Im gezeigten Beispiel sind in Z.~1 mehrere Varianten zu besprechen; die Zeilennummer wird 
+im Moment einfach wiederholt. Schöner ist es, wenn stattdessen nur ein Trennsymbol 
+angezeigt wird. Setzt man +\Xnumberonlyfirstinline[<app>][<bool>]+ auf +true+, ist die doppelte 
+Zeilennummer weg. Dann muss auch noch +\Xnumberonlyfirstintwolines[<app>][<bool>]+ auf \texttt{true} 
+gesetzt werden, damit bei mehrzeiligen Lemmata auf jeden Fall die Zeilennummern 
+angezeigt werden. Mit +\Xsymlinenum{<symbol>}+ kann noch ein Trennsymbol 
+definiert werden, in unserem Fall +||+.
+%
+Um die Übersichtlichkeit der Apparate zu steigern, lassen wir durch den Befehl 
++\Xnotenumfont[<app>]{<stil>}+ die Zeilennummern etwas dicker setzen.
+%
+Mit +\Xnonbreakableafternumber[<app>]+ verhindern wir, dass im Apparat nach der Angabe der Zeilennummer die Zeile umgebrochen wird.
+\end{sloppypar}
+
+Für den Fall, dass ein Lemma über zwei Zeilen geht, soll nicht beispielsweise »2--3« 
+ausgegeben werden, sondern »2\,f.«. Dies legen wir mit +\Xtwolines[<app>]{<abk>}+ 
+fest. Bei Lemmata, die über drei oder mehr Zeilen gehen, sollen die Zeilennummern 
+aber vollständig ausgegeben werden, daher benutzen wir: +\Xtwolinesbutnotmore[<app>]+.
+
+Mit +\Xlemmaseparator[<app>]{<sep>}+ kann eingestellt werden, was direkt hinter dem 
+Lemma ausgegeben werden soll, die Standard-Einstellung ist +]+. Für den Quellen-Apparat 
+und den textkritischen Apparat soll es stattdessen ein »+:+« sein.
+
+%%der Zeugen-Apparat:
+%\setmsdatalabel{}%kein Label-Text ("Ms.") benötigt
+%\Xtxtbeforenotes[A]{}%kein Text am Anfang des Apparats
+%\Xafternumber[A]{0pt}%kein spatium nach der Zeilennummer
+%\Xlemmaseparator[A]{}%kein Lemma-Trenner
+%\Xinplaceofnumber[A]{0pt}%kein spatium, wenn die Zeilennummern nicht angezeigt werden (auf Seiten ohne neue msdata)
+
+Dann nehmen wir noch einige Einstellungen für den Sonderfall des Zeugen-Apparates vor. Bisher 
+steht hier hinter den Zeilennummern »Ms.«, dann der Lemma\-sepa\-rator und dann die 
+Zeugen. Hinter den Zeilennummern sollen aber nur die Zeugen stehen, weiter nichts. 
+Mit +\setmsdatalabel{<label>}+ streichen wir das »Ms.« vor jeder Anmerkung; 
+allerdings erscheint nun am Anfang des Apparates ein »Ms.« Dieses entfernen 
+wir mit dem Befehl +\Xtxtbeforenotes[<app>]{<label>}+. Mit +\Xafternumber[<app>]{<laenge>}+ 
+setzen wir das \emph{Spatium} nach der Zeilennummer auf +2pt+, mit dem gerade 
+schon verwendeten Befehl +\Xlemmaseparator+ löschen wir den Lemmaseparator. 
+Damit statt des Lemmaseparators kein \emph{Spatium} erscheint, setzen wir 
++\Xinplaceoflemmaseparator[<app>]{<laenge>}+ auf +0pt+.
+
+Auf Seiten, die durchgehend durch dieselben Handschriften bezeugt sind, stehen keine Zeilenangaben, sondern nur diese Handschriften. Bei den aktuellen Einstellungen wäre davor ein überflüssiges \emph{Spatium}, 
+das sich mit +\Xinplaceofnumber[<app>]{<laenge>}+ noch entfernen lässt.
+
+Damit haben wir folgende neue Optionen gesetzt:
+
+\begin{lfgwcode}{}
+%% generell zu den Apparaten
+% auf jeden Fall vor \beginnumbering:
+\Xarrangement{paragraph}%
+% kann auch nach \beginnumbering stehen:
+\Xnumberonlyfirstinline[][true]%
+\Xnumberonlyfirstintwolines[][true]%
+\Xsymlinenum{||}%
+\Xnotenumfont[]{\bfseries}%
+\Xnonbreakableafternumber[]%
+\Xtwolines{f.}%
+\Xtwolinesbutnotmore%
+
+%% Quellen- und textkritischer Apparat
+\Xlemmaseparator[B,C]{:}
+
+%% Zeugen-Apparat:
+\setmsdatalabel{}%
+\Xtxtbeforenotes[A]{}%
+\Xafternumber[A]{2pt}%
+\Xlemmaseparator[A]{}%
+\Xinplaceoflemmaseparator[A]{0pt}%
+\Xinplaceofnumber[A]{0pt}%
+\end{lfgwcode}
+
+Bei diesen Optionen sieht das Ergebnis nun so aus:
+
+%muss vor beginnumbering stehen, daher schon hier:
+\Xarrangement{paragraph}%
+
+\begin{reledmacbsp}{%
+%% generell zu den Apparaten
+\Xnumberonlyfirstinline[][true]%
+\Xnumberonlyfirstintwolines[][true]%
+\Xsymlinenum{||}%
+\Xnotenumfont[]{\bfseries}%
+\Xnonbreakableafternumber[]%
+\Xtwolines{f.}%
+\Xtwolinesbutnotmore%
+%
+%% Quellen- und textkritischer Apparat
+\Xlemmaseparator[B,C]{:}%
+%
+%% Zeugen-Apparat:
+\setmsdatalabel{}%
+\Xtxtbeforenotes[A]{}%
+\Xafternumber[A]{2pt}%
+\Xlemmaseparator[A]{}%
+\Xinplaceoflemmaseparator[A]{0pt}%
+\Xinplaceofnumber[A]{0pt}%
+%
+\bsplineenum
+}
+\gkk{\msdata{G T U V}Τῆς \vari{Κιλικίας}{\gkk{Πισιδίας} V} δὲ τῆς \vari{ἔξω}{\emph{del.} G} 
+τοῦ Ταύρου ἡ μὲν λέγεται τραχεῖα ἡ δὲ πεδιάς;
+τραχεῖα μέν, ἧς \quell[\gkk{ἡ \dots{} ἐστι}]{ἡ παραλία \alteSeite{} στενή ἐστι}%
+{Konon Paraliotes, \gkk{Κοσμογραφία} VI 7} καὶ οὐδὲν 
+\vari{ἢ σπανίως}{\gkk{ἢ σπανιαίτερον} V U; \emph{del.} T} ἔχει τι χωρίον
+\msdata{G U}ἐπίπεδον, καὶ ἔτι ἧς ὑπέρκειται ὁ Ταῦρος οἰκούμενος κακῶς μέχρι καὶ τῶν
+προσβόρρων πλευρῶν τῶν περὶ Ἴσαυρα καὶ τοὺς Ὁμοναδέας μέχρι τῆς Πισιδίας;}
+\end{reledmacbsp}
+
+Zum Abschluss sei hier noch auf die Befehle für Querverweise hingewiesen. Mit +\edlabel{<label>}+ 
+lässt sich ein Label definieren, das dann etwa mit den Befehlen 
++\edpageref{<label>}+, +\edlineref{<label>}+ und +\pstartref{<label>}+ angesprochen werden kann: 
+Man kann sich also die Seite, die Zeile oder die Paragraphennummer eines Labels ausgeben lassen; 
+dies ist eine sehr praktische Funktion, solange der Seiten- und Zeilenumbruch noch nicht 
+feststeht. Eine Reihe weiterer Befehle ermöglicht automatische Querverweise auf Anmerkungen im Apparat, Zeilenenden u.\,v.\,m.
+
+Viele weitere Einstellungsmöglichkeiten bietet das ausführliche Benutzerhandbuch von +reledmac+. Die wichtigsten Funktionen des Paketes sind hier jedoch schon vorgestellt worden, genug jedenfalls, um eine den technischen und wissenschaftlichen Ansprüchen genügende, sehr schön anzusehende Edition zu erstellen.
+
+\index{reledmac|)}
+
+\UndefineShortVerb{\+}
