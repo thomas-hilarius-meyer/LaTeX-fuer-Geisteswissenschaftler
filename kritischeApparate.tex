@@ -198,8 +198,8 @@ Mit den nun neu eingeführten Befehlen sieht der Beispielcode so aus:
 \linenumincrement{2}% ... und zwar jede zweite Zeile
 \beginnumbering
 \pstart[\subsubsection{Strabons Geographika XIV 5,1}]
-Τῆς Κιλικίας δὲ τῆς ἔξω τοῦ Ταύρου ἡ μὲν λέγεται τραχεῖα ἡ δὲ πεδιάς;
-τραχεῖα μέν, ἧς ἡ παραλία \alteSeite{} στενή ἐστι καὶ οὐδὲν ἢ σπανίως ἔχει \dots{}
+§\null§Τῆς§~§Κιλικίας§~§δὲ§~§τῆς§~§ἔξω§~§τοῦ§~§Ταύρου§~§ἡ§~§μὲν§~§λέγεται§~§τραχεῖα§~§ἡ§~§δὲ§~§πεδιάς;
+§\null§τραχεῖα§~§μέν,§~§ἧς§~§ἡ§~§παραλία§~§\alteSeite{}§~§στενή§~§ἐστι§~§καὶ§~§οὐδὲν§~§ἢ§~§σπανίως§~§ἔχει§~§\dots{}
 \pend
 \endnumbering
 \end{lfgwcode}
@@ -239,7 +239,7 @@ dazu existieren die Befehle +\Afootnote{<anm>}+, +\Bfootnote{<anm>}+ usw. Für d
 (es ist zu beachten, dass \reledmac bis zu drei \LaTeX"=Durchläufe braucht, bis die Zeilennummern im Apparat richtig sind):
 
 \begin{lfgwcode}{}
-Τῆς \edtext{Κιλικίας}{\Afootnote{Πισιδίας V}} δὲ τῆς ἔξω τοῦ Ταύρου \dots{}
+§\null§Τῆς§~§\edtext{§\null§Κιλικίας}{\Afootnote{§\null§Πισιδίας§~§V}}§~§δὲ§~§τῆς§~§ἔξω§~§τοῦ§~§Ταύρου§~§\dots{}
 \end{lfgwcode}
 
 Wenn das +lemma+ etwas länger ist, kann es sinnvoll sein, es nicht vollständig im Apparat wiederzugeben, sondern es
@@ -249,8 +249,8 @@ Die Verwendung ist auch dann sinnvoll, wenn der Text des Lemmas andere Befehle e
 Hier ein Anwendungsbeispiel (unten auf Seite~\pageref{Pilhofer-Beispiel-Lemma-kurz} wird dies auch noch anschaulich gemacht):
 
 \begin{lfgwcode}{}
-\dots{}, ἧς \edtext{ἡ παραλία \alteSeite{} στενή ἐστι}{\lemma{ἡ \dots{} 
-ἐστι}\Bfootnote{Anmerkungstext}} καὶ οὐδὲν ἢ σπανίως ἔχει \dots{}
+\dots{},§~§ἧς§~§\edtext{§\null§ἡ§~§παραλία§~§\alteSeite{}§~§στενή§~§ἐστι}{\lemma{§\null§ἡ§~§\dots{}
+§\null§ἐστι}\Bfootnote{Anmerkungstext}}§~§καὶ§~§οὐδὲν§~§ἢ§~§σπανίως§~§ἔχει§~§\dots{}
 \end{lfgwcode}
 
 Da dies schnell etwas unübersichtlich wird, führen wir einen Befehl für Text-Varianten ein, 
@@ -265,7 +265,7 @@ nämlich: +\vari[<lemma_kurz>]{<lemma>}{<anm>}+ (die Angabe des abgekürzten Lem
 Der neue Befehl sieht im Beispieltext dann so aus:
 
 \begin{lfgwcode}{}
-Τῆς \vari{Κιλικίας}{Πισιδίας V} δὲ τῆς ἔξω τοῦ Ταύρου \dots{}
+§\null§Τῆς§~§\vari{§\null§Κιλικίας}{§\null§Πισιδίας§~§V}§~§δὲ§~§τῆς§~§ἔξω§~§τοῦ§~§Ταύρου§~§\dots{}
 \end{lfgwcode}
 
 Der angegebene Code führt nach genügend vielen Durchläufen zu diesem Ergebnis:
@@ -287,10 +287,10 @@ Gehen wir hier einmal davon aus, dass die Wörter \gkk{ἡ παραλία στε
 Lemmas und zudem mit einer weiteren Lesart: Handschrift G bietet das \gkk{ἔξω} nicht):
 
 \begin{lfgwcode}{}
-Τῆς \vari{Κιλικίας}{Πισιδίας V} δὲ τῆς \vari{ἔξω}{\emph{del.} G} 
-τοῦ Ταύρου ἡ μὲν λέγεται τραχεῖα ἡ δὲ πεδιάς;
-τραχεῖα μέν, ἧς \quell[ἡ \dots{} ἐστι]{ἡ παραλία \alteSeite{} στενή ἐστι}%
-{Konon Paraliotes, Κοσμογραφία VI 7} καὶ οὐδὲν ἢ σπανίως ἔχει \dots{}
+§\null§Τῆς§~§\vari{§\null§Κιλικίας}{§\null§Πισιδίας§~§V}§~§δὲ§~§τῆς§~§\vari{§\null§ἔξω}{\emph{del.}§~§G}
+§\null§τοῦ§~§Ταύρου§~§ἡ§~§μὲν§~§λέγεται§~§τραχεῖα§~§ἡ§~§δὲ§~§πεδιάς;
+§\null§τραχεῖα§~§μέν,§~§ἧς§~§\quell[§\null§ἡ§~§\dots{}§~§ἐστι]{§\null§ἡ§~§παραλία§~§\alteSeite{}§~§στενή§~§ἐστι}%
+{Konon§~§Paraliotes,§~§Κοσμογραφία§~§VI§~§7}§~§καὶ§~§οὐδὲν§~§ἢ§~§σπανίως§~§ἔχει§~§\dots{}
 \end{lfgwcode}
 
 Mit beiden Apparaten kommen wir zu diesem Zwischenergebnis:
@@ -314,13 +314,13 @@ Nehmen wir an, unser Text sei in insgesamt vier Handschriften V, U, G und T bele
 in V und T sind nur die ersten Zeilen erhalten, in U und G der komplette Text. Dann sähe unser Beispiel so aus:
 
 \begin{lfgwcode}{}
-\msdata{G T U V}Τῆς \vari{Κιλικίας}{Πισιδίας V} δὲ τῆς \vari{ἔξω}{\emph{del.} G} 
-τοῦ Ταύρου ἡ μὲν λέγεται τραχεῖα ἡ δὲ πεδιάς;
-τραχεῖα μέν, ἧς \quell[ἡ \dots{} ἐστι]{ἡ παραλία \alteSeite{} στενή ἐστι}%
-{Konon Paraliotes, Κοσμογραφία VI 7} καὶ οὐδὲν 
-\vari{ἢ σπανίως}{ἢ σπανιαίτερον V U; \emph{del.} T} ἔχει τι χωρίον
-\msdata{G U}ἐπίπεδον, καὶ ἔτι ἧς ὑπέρκειται ὁ Ταῦρος οἰκούμενος κακῶς μέχρι καὶ τῶν
-προσβόρρων πλευρῶν τῶν περὶ Ἴσαυρα καὶ τοὺς Ὁμοναδέας μέχρι τῆς Πισιδίας;
+\msdata{G§~§T§~§U§~§V}§\null§Τῆς§~§\vari{§\null§Κιλικίας}{§\null§Πισιδίας§~§V}§~§δὲ§~§τῆς§~§\vari{§\null§ἔξω}{\emph{del.}§~§G}
+§\null§τοῦ§~§Ταύρου§~§ἡ§~§μὲν§~§λέγεται§~§τραχεῖα§~§ἡ§~§δὲ§~§πεδιάς;
+§\null§τραχεῖα§~§μέν,§~§ἧς§~§\quell[§\null§ἡ§~§\dots{}§~§ἐστι]{§\null§ἡ§~§παραλία§~§\alteSeite{}§~§στενή§~§ἐστι}%
+{Konon§~§Paraliotes,§~§Κοσμογραφία§~§VI§~§7}§~§καὶ§~§οὐδὲν
+\vari{§\null§ἢ§~§σπανίως}{§\null§ἢ§~§σπανιαίτερον§~§V§~§U;§~§\emph{del.}§~§T}§~§ἔχει§~§τι§~§χωρίον
+\msdata{G§~§U}§\null§ἐπίπεδον,§~§καὶ§~§ἔτι§~§ἧς§~§ὑπέρκειται§~§ὁ§~§Ταῦρος§~§οἰκούμενος§~§κακῶς§~§μέχρι§~§καὶ§~§τῶν
+§\null§προσβόρρων§~§πλευρῶν§~§τῶν§~§περὶ§~§Ἴσαυρα§~§καὶ§~§τοὺς§~§Ὁμοναδέας§~§μέχρι§~§τῆς§~§Πισιδίας;
 \end{lfgwcode}
 
 Noch nicht sonderlich schön, aber immerhin technisch vollständig, sieht der Zwischenstand so aus:
