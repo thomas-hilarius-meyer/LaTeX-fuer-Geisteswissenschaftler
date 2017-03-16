@@ -1,6 +1,6 @@
 %% lfgw: 2.21 Linguistische Beispiele
 
-\input{vorspann}
+%\input{vorspann}
 %\newcommand{\TikZ}{Ti\textit{k}Z\xspace}
 %\usepackage[linguistics]{forest}
 %\forestapplylibrarydefaults{linguistics, edges}
@@ -13,11 +13,11 @@
 %http://tex.stackexchange.com/questions/328972/presence-of-pgfplots-package-breaks-forest-environment-%w-folder-option-en/329015
 %\usepackage{amsmath, amssymb}
 
-\begin{document}
+%\begin{document}
 
-\chapter{Konstituentenstrukturen}
+%\chapter{Konstituentenstrukturen}
 
-\section{Einordnung}
+\subsubsection{Einordnung}
 
 Konstituentenanalysen von Wörtern und Sätzen vorzunehmen, sind in der Linguistik vom amerikanischen Strukturalismus entwickelte Verfahren der Segmentierung zur Ermittlung von syntaktischen Konstituentenhierarchien 
 und -kategorien, die für die Beschreibung und Analyse von Sprachen relevant sind. 
@@ -53,7 +53,7 @@ it is unclear $[_\text{S´} [_{\text{COMP}} \enspace \textnormal{what} ]
 \end{lstlisting}
 
 
-\section{Baumstrukturen mit \texttt{forest}}
+\subsubsection{Baumstrukturen mit \texttt{forest}}
 
 Sa\v{s}o \v{Z}ivanovi\'{c}, der Autor von \Package{forest}, schreibt in \cite[3]{forest-doc},
 bezüglich Forest: \\
@@ -64,7 +64,7 @@ der Äste entsprechend der Label an den Astenden selbstständig anpasst. Dabei b
 um schlanke Bäume. Auch komplexe Strukturen führen nicht zu Problemen. Durch die Anbindung
 an PGF/TikZ können Ausschmückungen vorgenommen werden.
 
-\subsection{Funktionsweise}
+\minisec{Funktionsweise}
 
 Das Paket wird mit \verb|\usepackage{forest}| in der Präambel geladen. Spezielle Bibliotheken
 können mit ihrem Namen in der Regel als fakultatives Argument hinzugefügt werden: 
@@ -195,7 +195,7 @@ forked edges,
 \end{lfgwprint}
 
 
-\subsection{Modifizierungen}
+\minisec{Modifizierungen}
 
 In die Strukturen können zusätzliche Informationen mit den Mitteln von TikZ
 eingebracht werden (wie in Beispiel~\ref{example:9}, \ref{example:10}). Dies ist allerdings nicht so einfach,
@@ -286,7 +286,7 @@ for tree={l=2cm}
 \end{forest}
 \end{lfgwexample}
 
-\section{Klammerschreibung}
+\subsubsection{Klammerschreibung}
 
 Die in der Weiterentwicklung der GG im \enquote{Minimalistischen Programm}
 zentrale Operation Merge (Verkettung) erzeugt mengentheoretische Objekte, die
@@ -325,7 +325,7 @@ ii) $ [[_\text{wh} \enspace \text{in} \enspace \text{which} \enspace \text{house
 %% amsmath
 
 
-\end{document}
+%\end{document}
 
 
 
