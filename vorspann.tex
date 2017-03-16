@@ -167,6 +167,23 @@ lfgwstyle/.style={%
 
 \usepackage{multicol}
 
+
+% Für den Abschnitt über Konstituentenanylyse von C. Römer:
+
+\newcommand{\TikZ}{Ti\textit{k}Z\xspace}
+\usepackage[linguistics]{forest}
+\forestapplylibrarydefaults{linguistics, edges}
+\useforestlibrary{edges}
+\makeatletter
+\let\pgfmathModX=\pgfmathMod@
+\usepackage{pgfplots}%
+\let\pgfmathMod@=\pgfmathModX
+\makeatother
+%http://tex.stackexchange.com/questions/328972/presence-of-pgfplots-package-breaks-forest-environment-%w-folder-option-en/329015
+\usepackage{amsmath, amssymb}
+
+
+
 % Pakete im Bereich Kapitel 3 - Diagramme zeichnen
 \usepackage{tikz}
 \usepackage{forest}
