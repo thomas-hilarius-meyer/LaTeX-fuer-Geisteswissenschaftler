@@ -1,127 +1,13 @@
-% !TEX root = lfgw.tex
 
 \input{vorspann}
 \begin{document}
 
-\newcommand\vari[3][]{%
-\edtext{#2}{%
-  \if$#1$\lemma{\gkk{#2}}\else\lemma{\gkk{#1}}\fi
-  \Cfootnote{#3}}}
-
-\newcommand\quell[3][]{%
-\edtext{#2}{%
-  \if$#1$\lemma{\gkk{#2}}\else\lemma{\gkk{#1}}\fi
-  \Bfootnote{#3}}}
-
-\newsavebox\bspbox
-\newenvironment{reledmacbsp}[1]{%
-%  \begin{lfgwprint}{}%
-%  \begin{lrbox}{\bspbox}
-  \begin{minipage}[t]{0.95\linewidth}
-  \beginnumbering
-  #1%
-  \pstart[\subsubsection*{Strabons Geographika XIV 5,1}]%
-}%
-{%
-  \pend
-  \endnumbering
-  \end{minipage}%
-%  \end{lrbox}%
-%  \par
-%  \end{lfgwprint}%
-}
-
-\newcommand\bsplineenum{\firstlinenum{2}\linenumincrement{2}}
-
-\newcounter{alteSeite}
-\setcounter{alteSeite}{269}
-\newcommand\alteSeite{{|\ledsidenote{\emph{T}~\thealteSeite}}}%stepcounter machen wir hier nicht, sonst zählt er ja immer weiter ...
-
-\begin{lfgwcode}{}
-\msdata{G§~§T§~§U§~§V}§\null§Τῆς§~§\vari{§\null§Κιλικίας}{§\null§Πισιδίας§~§V}§~§δὲ§~§τῆς§~§\vari{§\null§ἔξω}{\emph{del.}§~§G}
-§\null§τοῦ§~§Ταύρου§~§ἡ§~§μὲν§~§λέγεται§~§τραχεῖα§~§ἡ§~§δὲ§~§πεδιάς;
-§\null§τραχεῖα§~§μέν,§~§ἧς§~§\quell[§\null§ἡ§~§\dots{}§~§ἐστι]{§\null§ἡ§~§παραλία§~§\alteSeite{}§~§στενή§~§ἐστι}%
-{Konon§~§Paraliotes,§~§Κοσμογραφία§~§VI§~§7}§~§καὶ§~§οὐδὲν
-\vari{§\null§ἢ§~§σπανίως}{§\null§ἢ§~§σπανιαίτερον§~§V§~§U;§~§\emph{del.}§~§T}§~§ἔχει§~§τι§~§χωρίον\stopmsdata
-\msdata{G§~§U}§\null§ἐπίπεδον,§~§καὶ§~§ἔτι§~§ἧς§~§ὑπέρκειται§~§ὁ§~§Ταῦρος§~§οἰκούμενος§~§κακῶς§~§μέχρι§~§καὶ§~§τῶν
-§\null§προσβόρρων§~§πλευρῶν§~§τῶν§~§περὶ§~§Ἴσαυρα§~§καὶ§~§τοὺς§~§Ὁμοναδέας§~§μέχρι§~§τῆς§~§Πισιδίας;\stopmsdata
-\end{lfgwcode}
-
-Noch nicht sonderlich schön, aber immerhin technisch vollständig, sieht der Zwischenstand so aus:
-
-\label{Pilhofer-Beispiel-Lemma-kurz}%
-\begin{reledmacbsp}{\bsplineenum}
-\gkk{\msdata{G T U V}Τῆς \vari{Κιλικίας}{\gkk{Πισιδίας} V} δὲ τῆς \vari{ἔξω}{\emph{del.} G} 
-τοῦ Ταύρου ἡ μὲν λέγεται τραχεῖα ἡ δὲ πεδιάς;
-τραχεῖα μέν, ἧς \quell[\gkk{ἡ \dots{} ἐστι}]{ἡ παραλία \alteSeite{} στενή ἐστι}%
-{Konon Paraliotes, \gkk{Κοσμογραφία} VI 7} καὶ οὐδὲν 
-\vari{ἢ σπανίως}{\gkk{ἢ σπανιαίτερον} V U; \emph{del.} T} ἔχει τι χωρίον\stopmsdata
-\msdata{G U}ἐπίπεδον, καὶ ἔτι ἧς ὑπέρκειται ὁ Ταῦρος οἰκούμενος κακῶς μέχρι καὶ τῶν
-προσβόρρων πλευρῶν τῶν περὶ Ἴσαυρα καὶ τοὺς Ὁμοναδέας μέχρι τῆς Πισιδίας;\stopmsdata}
-\end{reledmacbsp}
-
-
-
-\begin{lfgwcode}{}
-%% generell zu den Apparaten
-% auf jeden Fall vor \beginnumbering:
-\Xarrangement{paragraph}%
-% kann auch nach \beginnumbering stehen:
-\Xnumberonlyfirstinline[][true]%
-\Xnumberonlyfirstintwolines[][true]%
-\Xsymlinenum{||}%
-\Xnotenumfont[]{\bfseries}%
-\Xnonbreakableafternumber[]%
-\Xtwolines{f.}%
-\Xtwolinesbutnotmore%
-
-%% Quellen- und textkritischer Apparat
-\Xlemmaseparator[B,C]{:}
-
-%% Zeugen-Apparat:
-\setmsdatalabel{}%
-\Xtxtbeforenotes[A]{}%
-\Xafternumber[A]{2pt}%
-\Xlemmaseparator[A]{}%
-\Xinplaceoflemmaseparator[A]{0pt}%
-\Xinplaceofnumber[A]{0pt}%
-\end{lfgwcode}
-
-Bei diesen Optionen sieht das Ergebnis nun so aus:
-
-%muss vor beginnumbering stehen, daher schon hier:
-\Xarrangement{paragraph}%
-
-\begin{reledmacbsp}{%
-%% generell zu den Apparaten
-\Xnumberonlyfirstinline[][true]%
-\Xnumberonlyfirstintwolines[][true]%
-\Xsymlinenum{||}%
-\Xnotenumfont[]{\bfseries}%
-\Xnonbreakableafternumber[]%
-\Xtwolines{f.}%
-\Xtwolinesbutnotmore%
-%
-%% Quellen- und textkritischer Apparat
-\Xlemmaseparator[B,C]{:}%
-%
-%% Zeugen-Apparat:
-\setmsdatalabel{}%
-\Xtxtbeforenotes[A]{}%
-\Xafternumber[A]{2pt}%
-\Xlemmaseparator[A]{}%
-\Xinplaceoflemmaseparator[A]{0pt}%
-\Xinplaceofnumber[A]{0pt}%
-%
-\bsplineenum
-}
-\gkk{\msdata{G T U V}Τῆς \vari{Κιλικίας}{\gkk{Πισιδίας} V} δὲ τῆς \vari{ἔξω}{\emph{del.} G} 
-τοῦ Ταύρου ἡ μὲν λέγεται τραχεῖα ἡ δὲ πεδιάς;
-τραχεῖα μέν, ἧς \quell[\gkk{ἡ \dots{} ἐστι}]{ἡ παραλία \alteSeite{} στενή ἐστι}%
-{Konon Paraliotes, \gkk{Κοσμογραφία} VI 7} καὶ οὐδὲν 
-\vari{ἢ σπανίως}{\gkk{ἢ σπανιαίτερον} V U; \emph{del.} T} ἔχει τι χωρίον\stopmsdata
-\msdata{G U}ἐπίπεδον, καὶ ἔτι ἧς ὑπέρκειται ὁ Ταῦρος οἰκούμενος κακῶς μέχρι καὶ τῶν
-προσβόρρων πλευρῶν τῶν περὶ Ἴσαυρα καὶ τοὺς Ὁμοναδέας μέχρι τῆς Πισιδίας;\stopmsdata}
-\end{reledmacbsp}
+\begin{minipage}[t]{0.95\linewidth}
+\beginnumbering
+\pstart[\subsubsection*{Strabons Geographika XIV 5,1}]%
+\gkk{\msdata{G T U V}Τῆς προσβόρρων πλευρῶν τῶν περὶ Ἴσαυρα καὶ τοὺς Ὁμοναδέας μέχρι τῆς Πισιδίας;\stopmsdata}
+\pend
+\endnumbering
+\end{minipage}%
 
 \end{document}
