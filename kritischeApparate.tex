@@ -327,15 +327,14 @@ Noch nicht sonderlich schön, aber immerhin technisch vollständig, sieht der Zw
 
 \label{Pilhofer-Beispiel-Lemma-kurz}%
 \begin{reledmacbsp}{\bsplineenum}
-\gkk{%\msdata{G T U V}
+\gkk{\msdata{G T U V}
 Τῆς \vari{Κιλικίας}{\gkk{Πισιδίας} V} δὲ τῆς \vari{ἔξω}{\emph{del.} G} 
 τοῦ Ταύρου ἡ μὲν λέγεται τραχεῖα ἡ δὲ πεδιάς;
 τραχεῖα μέν, ἧς \quell[\gkk{ἡ \dots{} ἐστι}]{ἡ παραλία \alteSeite{} στενή ἐστι}%
 {Konon Paraliotes, \gkk{Κοσμογραφία} VI 7} καὶ οὐδὲν 
-\vari{ἢ σπανίως}{\gkk{ἢ σπανιαίτερον} V U; \emph{del.} T} ἔχει τι χωρίον
-%\msdata{G U}
-ἐπίπεδον, καὶ ἔτι ἧς ὑπέρκειται ὁ Ταῦρος οἰκούμενος κακῶς μέχρι καὶ τῶν
-προσβόρρων πλευρῶν τῶν περὶ Ἴσαυρα καὶ τοὺς Ὁμοναδέας μέχρι τῆς Πισιδίας;}
+\vari{ἢ σπανίως}{\gkk{ἢ σπανιαίτερον} V U; \emph{del.} T} ἔχει τι χωρίον\stopmsdata
+\msdata{G U}ἐπίπεδον, καὶ ἔτι ἧς ὑπέρκειται ὁ Ταῦρος οἰκούμενος κακῶς μέχρι καὶ τῶν
+προσβόρρων πλευρῶν τῶν περὶ Ἴσαυρα καὶ τοὺς Ὁμοναδέας μέχρι τῆς Πισιδίας;\stopmsdata}
 \end{reledmacbsp}
 
 
@@ -433,41 +432,40 @@ Damit haben wir folgende neue Optionen gesetzt:
 
 Bei diesen Optionen sieht das Ergebnis nun so aus:
 
-%%muss vor beginnumbering stehen, daher schon hier:
-%\Xarrangement{paragraph}%
+%muss vor beginnumbering stehen, daher schon hier:
+\Xarrangement{paragraph}%
+
+\begin{reledmacbsp}{%
+%% generell zu den Apparaten
+\Xnumberonlyfirstinline[][true]%
+\Xnumberonlyfirstintwolines[][true]%
+\Xsymlinenum{||}%
+\Xnotenumfont[]{\bfseries}%
+\Xnonbreakableafternumber[]%
+\Xtwolines{f.}%
+\Xtwolinesbutnotmore%
 %
-%\begin{reledmacbsp}{%
-%%% generell zu den Apparaten
-%\Xnumberonlyfirstinline[][true]%
-%\Xnumberonlyfirstintwolines[][true]%
-%\Xsymlinenum{||}%
-%\Xnotenumfont[]{\bfseries}%
-%\Xnonbreakableafternumber[]%
-%\Xtwolines{f.}%
-%\Xtwolinesbutnotmore%
-%%
-%%% Quellen- und textkritischer Apparat
-%\Xlemmaseparator[B,C]{:}%
-%%
-%%% Zeugen-Apparat:
-%\setmsdatalabel{}%
-%\Xtxtbeforenotes[A]{}%
-%\Xafternumber[A]{2pt}%
-%\Xlemmaseparator[A]{}%
-%\Xinplaceoflemmaseparator[A]{0pt}%
-%\Xinplaceofnumber[A]{0pt}%
-%%
-%\bsplineenum
-%}
-%\gkk{\msdata{G T U V}
-%Τῆς \vari{Κιλικίας}{\gkk{Πισιδίας} V} δὲ τῆς \vari{ἔξω}{\emph{del.} G} τοῦ Ταύρου ἡ μὲν λέγεται τραχεῖα ἡ δὲ πεδιάς;
-%τραχεῖα μέν, ἧς \quell[\gkk{ἡ \dots{} ἐστι}]{ἡ παραλία \alteSeite{} στενή ἐστι}%
-%{Konon Paraliotes, \gkk{Κοσμογραφία} VI 7} καὶ οὐδὲν 
-%\vari{ἢ σπανίως}{\gkk{ἢ σπανιαίτερον} V U; \emph{del.} T} ἔχει τι χωρίον
-%\msdata{G U}
-%ἐπίπεδον, καὶ ἔτι ἧς ὑπέρκειται ὁ Ταῦρος οἰκούμενος κακῶς μέχρι καὶ τῶν
-%προσβόρρων πλευρῶν τῶν περὶ Ἴσαυρα καὶ τοὺς Ὁμοναδέας μέχρι τῆς Πισιδίας;}
-%\end{reledmacbsp}
+%% Quellen- und textkritischer Apparat
+\Xlemmaseparator[B,C]{:}%
+%
+%% Zeugen-Apparat:
+\setmsdatalabel{}%
+\Xtxtbeforenotes[A]{}%
+\Xafternumber[A]{2pt}%
+\Xlemmaseparator[A]{}%
+\Xinplaceoflemmaseparator[A]{0pt}%
+\Xinplaceofnumber[A]{0pt}%
+%
+\bsplineenum
+}
+\gkk{\msdata{G T U V}
+Τῆς \vari{Κιλικίας}{\gkk{Πισιδίας} V} δὲ τῆς \vari{ἔξω}{\emph{del.} G} τοῦ Ταύρου ἡ μὲν λέγεται τραχεῖα ἡ δὲ πεδιάς;
+τραχεῖα μέν, ἧς \quell[\gkk{ἡ \dots{} ἐστι}]{ἡ παραλία \alteSeite{} στενή ἐστι}%
+{Konon Paraliotes, \gkk{Κοσμογραφία} VI 7} καὶ οὐδὲν 
+\vari{ἢ σπανίως}{\gkk{ἢ σπανιαίτερον} V U; \emph{del.} T} ἔχει τι χωρίον\stopmsdata
+\msdata{G U}ἐπίπεδον, καὶ ἔτι ἧς ὑπέρκειται ὁ Ταῦρος οἰκούμενος κακῶς μέχρι καὶ τῶν
+προσβόρρων πλευρῶν τῶν περὶ Ἴσαυρα καὶ τοὺς Ὁμοναδέας μέχρι τῆς Πισιδίας;\stopmsdata}
+\end{reledmacbsp}
 
 Zum Abschluss sei hier noch auf die Befehle für Querverweise hingewiesen. Mit +\edlabel{<label>}+ 
 lässt sich ein Label definieren, das dann etwa mit den Befehlen 
