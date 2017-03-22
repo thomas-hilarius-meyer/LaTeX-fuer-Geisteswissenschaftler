@@ -1,1 +1,27 @@
-pandoc Dokument.docx --extract-media=. -s -o Dokument.tex
+ \documentclass{scrartcl}
+  \usepackage{polyglossia}
+  \setmainlanguage[%
+  	spelling=new,%old
+  	latesthyphen=true,%false
+	babelshorthands=true,%false
+	]{german}
+ \setotherlanguage{french}
+
+ \begin{document}
+ Text in Deutsch.
+ Heute ist der \today.
+
+ \begin{french}
+ Aujourd'hui ce le \today.
+ Ceci est en française!
+ \end{french}
+
+ Und wieder in Deutsch!
+ Beachte das Ausrufezeichen.
+ Einzelne Wörter oder kurze Sätze,
+ wie \textfrench{résistance} oder \textfrench{courant}
+ werden nach den Regeln der Fremdsprache getrennt.
+
+ Ganz schön spannend.
+
+ \end{document}
