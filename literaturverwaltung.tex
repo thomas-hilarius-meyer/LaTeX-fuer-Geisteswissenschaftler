@@ -4,17 +4,27 @@
 \label{biblatex}
 \autor{Lukas C. Bossert}
 
-\section{Der (neue) Standard: biblatex und biber}
+\section{Der (neue) Standard: \paket{biblatex} und \paket{biber}}
+Während in den naturwissenschaftlichen Bereichen die Bibliographie eine weniger relevante Rolle spielt -- als bspw. in den Geisteswissenschaften -- hält sich dort noch die (veraltete) Technik Bibtex.
+In den letzten Jahren hat sich jedoch allmählich und unumkehrbar die Möglichkeit Bibliographien und Zitate mittels Paket \paket{biblatex} durchgesetzt.\footcite{wassenhoven:dtk2008/2,wassenhoven:dtk2008/4}
+Der Vorteil ist die leichte Einbindung und der Wechsel verschiedener Bibliographie- und Zitierstile, die als Option dem Paket übergeben werden. 
 
+Das folgende Kapitel zeigt die Arbeit mit \paket{biblatex}: 
+Zunächst wie man eine Bibliografie-Datenbank erstellt und verwaltet (\cref{sec:bibliografiedatenbank}),
+wie man die notwendigen Felder bestimmter Eintragstypen (Buch, Zeitschrift, Lexikon etc.) belegt, wie man im eigenen Text die Verweise einabut (\cref{sec:zitate}) und
+schließlich wie man eine oder mehrere (Teil-)Bibliografien erstellt.
+
+Am Schluss werden verschiedene Bibliografie-Stile vorgestellt,
+die besonders für Geisteswissenschaftler relevant sind und die auf unterschiedliche Anforderungen in den verschiedenen Fachrichtungen Lösungen bereithalten (\cref{sec:bibliografie}).
+ 
 \paket{biblatex}
 Vgl.\footcite[79\psqq]{rouquette:2012}
 \footcite{voss:bibliografien}
-\footcite{wassenhoven:dtk2008/2}
-\footcite{wassenhoven:dtk2008/4}
 
 
 
-\section{Aufbau der Bibliografie-Datenbank}
+
+\section{Aufbau der Bibliografie-Datenbank}\label{sec:bibliografiedatenbank}
 
 \subsection{Grundlegender Aufbau}
 
@@ -35,7 +45,7 @@ Vgl.\footcite[79\psqq]{rouquette:2012}
 alle auflisten....
 
 
-\section{Zitate}
+\section{Zitate}\label{sec:zitate}
 
 Normale Zitate werden mit dem Befehl \cs{cite} ausgeführt:
 \begin{lfgwcode}{label={lis:XXX}}
@@ -238,14 +248,17 @@ Der öffentliche Raum ist Teil einer Stadt sagt \citeauthor{Osland2016} in \cite
 Möchte man einen Eintrag nicht als Zitation im Text haben, 
 aber auf die Auflistung in der Bibliographie nicht verzichten,
 dann kann man \cs{nocite}\marg{Schlüssel} verwenden.
-Die Zitation wird damit ›unsichtbar‹ zitieren, sodass sie dennoch in der Bibliographie auftaucht.
+Die Zitation wird damit ›unsichtbar‹ zitiert:
+Sie taucht nicht im Fließtext aber dennoch in der Bibliographie.
 
 
 
 
-\section{Bibliographiestile}
+\section{Bibliografie-Stile}\label{sec:bibliografiestile}
+Mit der zunehmenden Anwendung von \LaTeX{} in den Geisteswissenschaften steigt auch die Frage nach den \enquote*{passenden} Zitierstilen für die unterschiedlichen Fachgebiete:
+Sei es Archäologie, Alte Geschichte, Filmwissenschaft, Theologie usw.
+\subsection{Standardstile von biblatex}
 
-\minisec{Standardstile von biblatex}
 biblatex (--> verschiedene biblatex-Stile mit deren Optionen erläutern, die für Geisteswissenschaftler relevant sind)
 -- biblatex-dw (sehr viele Optionen)\\
 -- archaeologie (sehr viele Optionen)\\
@@ -262,7 +275,7 @@ Installation als Paket nötig:
 
 
 
-\section{Ein Beispiel für Historiker: Quellen und Sekundärliteratur}
+\section{Ein Beispiel für Historiker: Quellen und Sekundärliteratur}\label{sec:bibliografie}
 \index{Quellenverzeichnis}
 \index{Bibliographie}
 \index{Literaturverzeichnis}
@@ -277,7 +290,7 @@ Installation als Paket nötig:
 %\end{lfgwcode}
 
 
-\begin{lfgwcode}{}
+\begin{lfgwcode}{label={lis:bibantikequellen}}
 \printbibliography[%
   heading=subbibliography,
   %heading=subbibnumbered,% if you want it numbered
@@ -285,7 +298,7 @@ Installation als Paket nötig:
   title={Antike Quellen}]
 \end{lfgwcode}
 
-\begin{lfgwcode}{}
+\begin{lfgwcode}{label={lis:bibabksekliteratur}}
 \printbibliography[%
   heading=subbibliography,
   keyword=corpus,%
