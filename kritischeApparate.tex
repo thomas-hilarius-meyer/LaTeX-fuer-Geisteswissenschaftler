@@ -27,8 +27,7 @@
 
 \newsavebox\bspbox
 \newenvironment{reledmacbsp}[1]{%
-%  \begin{lfgwprint}{}%
-%  \begin{lrbox}{\bspbox}
+  \begin{lrbox}{\bspbox}
   \begin{minipage}[t]{0.95\linewidth}
   \beginnumbering
   #1%
@@ -39,9 +38,12 @@
   \stopmsdata
   \endnumbering
   \end{minipage}%
-%  \end{lrbox}%
-%  \par
-%  \end{lfgwprint}%
+  \end{lrbox}%
+  \colorbox{black!5}{%
+  \begin{minipage}{\textwidth}%
+  \usebox\bspbox
+  \end{minipage}}
+  \medskip
 }
 
 \newcommand\bsplineenum{\firstlinenum{2}\linenumincrement{2}}
