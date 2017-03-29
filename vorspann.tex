@@ -55,7 +55,7 @@
   language=[LaTeX]{TeX},
   numbers=left, 
   %stepnumber=3,
-  numbersep=3pt, 
+  numbersep=5pt, 
   numberfirstline=false,  
   numberstyle=\tiny\textsf,
   basicstyle=\ttfamily\footnotesize,
@@ -64,23 +64,24 @@
   %frame=tlrb,
   breaklines=true,
   breakatwhitespace=true,
+  breakindent=5pt,
   %postbreak=\mbox{$\hookrightarrow$},
-  escapeinside={{*@}{@*}},
+  escapeinside={*@}{@*},
   %showstringspace=false, 
   captionpos=b,
   upquote=true,
   %%%classoffset=0,
   morekeywords={%
   %a
-  Afootnote,alteSeite,autopar,
+  Afootnote,alteSeite,autocite,autopar,
   %b
   beginnumbering,Bfootnote,biblerefformat,biblerefmap,biblerefstyle,bonuspointpoints,
   %c
-  Cfootnote,chapter,chbpword,chpword,chpgword,chqword,chsword,chtword,columnrulewidth,Columns,columnsposition,
+  Cfootnote,chapter,chbpword,chpword,chpgword,chqword,chsword,chtword,citeauthor,cites,citetitle,columnrulewidth,Columns,columnsposition,
   %e
-  edtext,endnumbering,
+  edtext,endnumbering,enquote,
   %f
-  firstlinenum,firstlinenumR,firstpageheadrule,
+  firstlinenum,firstlinenumR,firstpageheadrule,footcite,footcites,footfullcite,fullcite,
   %h
   hpword,hqword,hsword,htword,
   %l
@@ -88,22 +89,33 @@
   %m
   msdata,
   %p
-  Pages,pend,pibibleverse,pointpoints,printbibliography,printindex,pstart,
+  Pages,parencite,pend,pibibleverse,pointpoints,printbibheading,printbibliography,printindex,pstart,
   %q
   quell,question,
   %r
   Rcolwidth,
   %s
-  selectlanguage,setlength,setmsdatalabel,solutiontitle,subsubsection,
+  selectlanguage,setlength,setmsdatalabel,smartcite,smartcites,solutiontitle,subsubsection,
   %t
-  thealteSeite,
+  textcite,textcites,thealteSeite,
   %v
   vari,
   %x
   Xafternumber,Xarrangement,Xlemmaseparator,Xinplaceoflemmaseparator,Xinplaceofnumber,Xnonbreakableafternumber,Xnotenumfont,Xnumberonlyfirstinline,Xnumberonlyfirstintwolines,Xsymlinenum,Xtwolines,Xtwolinesbutnotmore,Xtxtbeforenotes
   },   
-  literate={ä}{{\"a}}1{ö}{{\"o}}1{ü}{{\"u}}1{ß}{{\ss}}1
-  }
+  literate=
+  {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+  {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+  {à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
+  {À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
+  {ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
+  {Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
+  {â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
+  {Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
+  {œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
+  {ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
+  {€}{{\EUR}}1 {£}{{\pounds}}1
+}
 \lstset{style=listinglfgw}
   
 \usepackage[%
@@ -134,7 +146,7 @@ lfgwstyle/.style={%
     fontupper=\small\ttfamily,
     sidebyside,
     listing and text,
-    title=Beispiel \thetcbcounter,
+    title={Beispiel \thetcbcounter},
     listing options={style=listinglfgw},
     #1,
 %text and listing,
@@ -144,8 +156,8 @@ lfgwstyle/.style={%
     lfgwstyle,
     fontupper=\small\ttfamily,
     listing only,
-    title=Beispiel \thetcbcounter,
-    listing options={style=listinglfgw,escapechar=§},
+    title={Beispiel \thetcbcounter},
+    listing options={style=listinglfgw},
     #1,
 }
 
@@ -153,13 +165,14 @@ lfgwstyle/.style={%
     fontupper=\small,
     lfgwstyle,
     text only,
-    title=Beispiel \thetcbcounter,
+    title={Beispiel \thetcbcounter},
     listing options={style=listinglfgw},
     #1,
 }
 
 
 \usepackage{showexpl}
+%\lstset{explpreset={escapeinside={*@}{@*}}}
 
 \usepackage[pagewise]{lineno}
 
