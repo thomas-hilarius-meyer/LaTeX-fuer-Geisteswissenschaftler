@@ -62,26 +62,53 @@ mit \pdfLaTeX{} erzeugt worden.
 \section{Arbeitswerkzeuge}
 
 empfehlenswert für die tägliche Arbeit mit \LaTeX{} gerade bei größeren Projekten ist eine IDE.
-Diese Schrift wurde mit kile erstellt.
-Alternative: overleaf oder sharelatex.
 Doch zuerst sollte man die Einzelwerkzeuge kennen, die in solchen \enquote{Meta-Werkzeugen}
 zusammengefasst sind.
 
 \minisec{Einzelwerkzeuge}
 
 \LaTeX -Dokumente lassen sich mit jedem beliebigen \textbf{Editor} erstellen.
+
+Diese Buch entstand als Kooperation mehrerer Autoren, die unterschiedliche Editoren
+auf unterschiedlichen Betriebssystemen benutzt haben:
+
+\begin{itemize}
+\item \Program{TeXShop} auf macOS
+\item \Program{Vim} auf macOS
+\item \Program{Kile} auf Linux
+\end{itemize}
+
+\marginnote{Bitte ergänzen}
+
+Das ist möglich, da es sich bei den Dateien um reine Textdateien handelt.
+
 Doch es gibt ein paar Qualitätsmerkmale, auf die man bei der Auswahl achten sollte, weil
 sie die tägliche Arbeit wesentlich erleichtern:
 
-Syntax-Highlighting hebt \LaTeX-Befehle sowie bestimmte Inhalte wie Überschriften etc. farblich
-hervor, was die Übersicht über das Dokument wesentlich erleichtert. Auch die Navigation in
-den manchmal Geschachtelten geschweiften Klammern kann durch einen guten Editor wesentlich
-erleichtert werden: Fährt man eine schließende Klammer an, wird die jeweils dazugehörende
-öffnende Klammer hervorgehoben.
+\begin{labeling}{\Program{TechnicCenter}}
 
-Das zweite Merkmal, das ein Editor (v.\,a. für den Einsatz in geisteswissenschaftlichen Projekten!) 
-erfüllen muss, ist der Umgang mit Unicode. Moderne Linux-Distributionen verwenden Unicode (utf8)
-bereits standardmäßig als Codierung, manchmal muss das manuell eingestellt werden.
+\item[Syntaxhervorhebung] (Highlighting) hebt \LaTeX-Befehle sowie bestimmte
+  Inhalte wie Überschriften etc. farblich hervor, was die Übersicht über das
+  Dokument wesentlich erleichtert. Auch die Navigation in den manchmal
+  Geschachtelten geschweiften Klammern kann durch einen guten Editor
+  wesentlich erleichtert werden: Fährt man eine schließende Klammer an, wird
+  die jeweils dazugehörende öffnende Klammer hervorgehoben.
+
+\item [Unicode Unterstützung] sollte im 21. Jahrhundert selbstverständlich
+  sein.  Zur Darstellung benötigt man einen geeigneten Zeichensatz, der die
+  erforderlichen Symbole enthält. Alle hier vorgestellten Programme
+  unterstützten Unicode.
+
+\item [Faltung] Einige Editoren erlauben es Umgebungen oder Abschnitte
+  einzufalten.  Es bleibt dann nur noch die erste Zeile sichtbar. So behält
+  man auch bei großen Dokumenten den Überblick.
+
+\item [Synchronisation] (SyncTeX) zwischen Eingabe und PDF ermöglicht es im
+  Quelltext auf eine Textstelle zu klicken und in der entsprechenden Stelle
+  im PDF zu landen, bzw.  umgekehrt aus dem PDF in den Quelltext
+  zurückzuspringen. Hier sind die IDEs den Editoren klar überlegen.
+
+\end{labeling}
 
 Einige empfehlenswerte Editoren für die Arbeit mit \LaTeX{} sind:
 
@@ -124,7 +151,7 @@ Einige empfehlenswerte Editoren für die Arbeit mit \LaTeX{} sind:
   für alle, die nicht ständig zur Maus greifen wollen.  Der Einstieg ist
   noch etwas schwieriger als beim \Program{Vim}, dafür dafür gibt es auch
   deutlich mehr Funktionen. Selbstverständlich ist auch hier eine
-  Versionverwaltung integriert.  Für Anfänger ist der \Program{Emacs} nur
+  Versionsverwaltung integriert.  Für Anfänger ist der \Program{Emacs} nur
   dann geeignet, wenn am Nachbartisch ein erfahrener Emacs-Anwender sitzt.
   Selbst dann verbringt man leicht mehr Zeit damit \Program{Emacs} zu
   lernen, als damit \LaTeX{} zu lernen.
@@ -184,7 +211,8 @@ biber
   Versionsverwaltung mit \Program{SVN}.  Die Syntaxhervorhebung erkennt die
   verwendeten Pakete und lädt die benötigten Definitionen bei Bedarf nach.
   So werden ungültige Befehle erkannt und farblich markiert, man merkt den
-  Tippfehler also schon bei der Eingabe.
+  Tippfehler also schon bei der Eingabe. Außerdem lassen sich Umgebungen
+  und Abschnitte einfalten.
 
 \item[kile] (Win + Linux) \url{http://kile.sourceforge.net}
 
