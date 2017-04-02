@@ -84,8 +84,54 @@ erfüllen muss, ist der Umgang mit Unicode. Moderne Linux-Distributionen verwend
 bereits standardmäßig als Codierung, manchmal muss das manuell eingestellt werden.
 
 Einige empfehlenswerte Editoren für die Arbeit mit \LaTeX{} sind:
-für Linux: kwrite,  und kate (beide aus dem KDE-Projekt) --
-für Windows: Notepad++.
+
+\begin{labeling}{\Program{TechnicCenter}}
+\item[\Program{kwrite}] (Linux) 
+
+\item[\Program{kate}] (Linux)
+
+\item[\Program{Notepad++}] (Windows) \url{https://notepad-plus-plus.org} Ein
+  kostenloser Editor mit Syntaxhervorhebung.  
+
+\item[\Program{TextEdit}]
+  (macOS) Dieser Editor wird mit dem Betriebssystem ausgeliefert.  Anders
+  als der Name vermuten lässt, speichert er jedoch keinen reinen Text
+  sondern RTF.  Eine Datei muss vor dem Speichern in reinen Text umgewandelt
+  werden.
+
+\item[\Program{Atom}] (Windows + Linux + macOS)
+  \url{https://atom.io} Der Editor von GitHub.  Es gibt Erweiterungspakete
+  die Syntaxhervorhebung sowie den Aufruf von \LaTeX{} nachrüsten.
+
+\item[\Program{Vim}] (Windows + Linux + macOS) \url{http://www.vim.org} Eine
+  verbesserte Version des Klassikers \Program{vi}. \Program{Vim} bietet
+  neben der Syntaxhervorhebung ein Funktion zum Falten des Textes. Öffnet
+  man eine Datei, so sind nur die Überschriften sichtbar. Das erleichtert
+  besonders bei großen Dokumenten die Navigation.  Die
+  \Program{vim-latex-suite} erweitert den Editor zu einer IDE, die meisten
+  Befehle können dann mit zwei bis drei Tasten eingegeben werden, außerdem
+  werden die geschweiften Klammern automatisch eingefügt, gerade auf einer
+  deutschen Tastatur ist das extrem hilfreich.  Zusätzlich bietet er mit
+  \Program{fugitive} eine Integration in die Versionsverwaltung
+  \Program{git}.  \Program{Vim} ist ein sehr mächtiges Werkzeug das den
+  Anfänger leicht überfordert.  Für den langjährigen Nutzer ist
+  unverständlich, wie jemand etwas anderes benutzen kann.  \Program{Vim} ist
+  Charityware, der Autor bittet um Spenden für Waisenkinder in Uganda.
+
+\item[\Program{Emacs}] (Windows + Linux + macOS) 
+  \url{https://www.gnu.org/software/emacs/emacs.html} In Verbindung mit
+  \Program{AucTeX} ist der Emacs der eine integrierte Entwicklungsumgebung
+  für alle, die nicht ständig zur Maus greifen wollen.  Der Einstieg ist
+  noch etwas schwieriger als beim \Program{Vim}, dafür dafür gibt es auch
+  deutlich mehr Funktionen. Selbstverständlich ist auch hier eine
+  Versionverwaltung integriert.  Für Anfänger ist der \Program{Emacs} nur
+  dann geeignet, wenn am Nachbartisch ein erfahrener Emacs-Anwender sitzt.
+  Selbst dann verbringt man leicht mehr Zeit damit \Program{Emacs} zu
+  lernen, als damit \LaTeX{} zu lernen.
+  
+  Der \Program{Emacs} wird von der Free Software Foundation entwickelt
+  und ist frei (wie in Freiheit) verfügbar.
+\end{labeling}
 
 Einen Sonderfall stellt der plattformübergreifend verfügbare Editor Emacs mit AucTeX-Ergänzung
 dar: Eigentlich handelt es sich dabei bereits um eine ausgewachsene Entwicklungsumgebung (s.\,u.);
@@ -103,34 +149,42 @@ biber
 \minisec{Integrierte Entwicklungsumgebungen (IDE)}
 
 \begin{labeling}{\Program{TechnicCenter}}
-\item[\Program{TeXShell}] (Atari ca. 1990) Der Atari war wegen seiner graphischen Oberfläche sehr beliebt.
-Natürlich wollte niemand auf so einem Rechner eine Kommandozeile benutzen.
-Zum Glück gab es mit der \Program{TeXShell} eine Oberfläche, die die einzelnen Programme hinter
-Knöpfen versteckte.
-Eine farbliche Syntaxhervorhebung gab es natürlich nicht, das hätte auf dem Monochrommonitor
-auch nichts gebracht.
+\item[\Program{TeXShell}] (Atari ca. 1990) Der Atari war wegen seiner
+  graphischen Oberfläche sehr beliebt.  Natürlich wollte niemand auf so
+  einem Rechner eine Kommandozeile benutzen.  Zum Glück gab es mit der
+  \Program{TeXShell} eine Oberfläche, die die einzelnen Programme hinter
+  Knöpfen versteckte.  Eine farbliche Syntaxhervorhebung gab es natürlich
+  nicht, das hätte auf dem Monochrommonitor auch nichts gebracht.
 
-\item[\Program{TexnicCenter}] (Windows 1999) \url{http://www.texniccenter.org}  Bei Windows-Nutern ist
-die Kommandozeile noch weniger beliebt als bei Atari-Nutzern.
-Das \Program{TexnicCenter} war die erste wirklich integrierte Entwicklungsumgebung.
-So konnte man \LaTeX{} ohne \Program{command.com} benutzen.
+\item[\Program{TexnicCenter}] (Windows 1999)
+  \url{http://www.texniccenter.org}  Bei Windows-Nutern ist die
+  Kommandozeile noch weniger beliebt als bei Atari-Nutzern.  Das
+  \Program{TexnicCenter} war die erste wirklich integrierte
+  Entwicklungsumgebung.  So konnte man \LaTeX{} ohne \Program{command.com}
+  benutzen.
 
-\item[\Program{Texshop}] (macOS 2001) \url{http://pages.uoregon.edu/koch/texshop/about.html}  Kurz nach dem 
-Erscheinen von macOS (née OS X) erschien mit \Program{TeXShop} eine IDE für den Mac.
-Nach heutigem Standard ist der Funktionsumfang eher minimalistisch, aber Syntaxhervorhebung und
-Makros zum aufrufen der gängigen \LaTeX{}-Befehle sind vorhanden.
-Durch den geringen Funktionsumfang ist das Programm sehr aufgeräumt.
+\item[\Program{Texshop}] (macOS 2001)
+  \url{http://pages.uoregon.edu/koch/texshop/about.html}  Kurz nach dem
+  Erscheinen von macOS (née OS X) erschien mit \Program{TeXShop} eine IDE
+  für den Mac.  Nach heutigem Standard ist der Funktionsumfang eher
+  minimalistisch, aber Syntaxhervorhebung und Makros zum aufrufen der
+  gängigen \LaTeX{}-Befehle sind vorhanden.  Durch den geringen
+  Funktionsumfang ist das Programm sehr aufgeräumt.
 
-\item[\Program{TeXworks}] (Win + Linux + macOS 2009) \url{https://www.tug.org/texworks/}  Da \Program{TeXShop}
-nur auf dem Mac läuft, wurde versucht mit \Program{TeXworks} eine Version für alle gängigen
-Betriebssysteme zu schaffen.
-Das Design ist eher aufgeräumt und übersichtlich.
+\item[\Program{TeXworks}] (Win + Linux + macOS 2009)
+  \url{https://www.tug.org/texworks/}  Da \Program{TeXShop} nur auf dem Mac
+  läuft, wurde versucht mit \Program{TeXworks} eine Version für alle
+  gängigen Betriebssysteme zu schaffen.  Das Design ist eher aufgeräumt und
+  übersichtlich.
 
-\item[\Program{TeXStudio}] (Win + Linux + macOS 2009) \url{http://texstudio.sourceforge.net}  Das rundum sorglos
-Programm für große Projekte. Neben einem Projektbrowser, der alle zum Projekt gehörenden Dateien zeigt,
-bietet \Program{TeXStudio} auch eine integrierte Versionsverwaltung mit \Program{SVN}.
-Die Syntaxhervorhebung erkennt die verwendeten Pakete und lädt die benötigten Definitionen bei Bedarf nach.
-So werden ungültige Befehle erkannt und farblich markiert, man merkt den Tippfehler also schon bei der Eingabe.
+\item[\Program{TeXStudio}] (Win + Linux + macOS 2009)
+  \url{http://texstudio.sourceforge.net}  Das rundum sorglos Programm für
+  große Projekte. Neben einem Projektbrowser, der alle zum Projekt
+  gehörenden Dateien zeigt, bietet \Program{TeXStudio} auch eine integrierte
+  Versionsverwaltung mit \Program{SVN}.  Die Syntaxhervorhebung erkennt die
+  verwendeten Pakete und lädt die benötigten Definitionen bei Bedarf nach.
+  So werden ungültige Befehle erkannt und farblich markiert, man merkt den
+  Tippfehler also schon bei der Eingabe.
 
 \item[kile] (Win + Linux) \url{http://kile.sourceforge.net}
 
