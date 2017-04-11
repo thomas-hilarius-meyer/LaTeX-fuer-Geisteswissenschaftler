@@ -2,21 +2,34 @@
 \chapter{Versionsverwaltung mit Subversion und Git}
 \autor{Uwe Ziegenhagen}
 
-Beim Schreiben längerer Dokumente über Wochen und Monate hinweg sollte man sich auf jeden Fall um eine zuverlässige Datensicherung kümmern. Die Kosten einer professionellen Datenrettung gehen schnell in den vierstelligen Bereich, wenn eine Festplatte kaputt geht, im Falle der Verlusts oder Diebstahls des Rechners sind die Daten ohne Sicherung schlichtweg fort und müssen neu erstellt werden.
+Beim Arbeiten an längeren oder sehr wichtigen Dokumenten wie Bachelor-, Master- oder Doktorarbeiten sollte man sich tunlichst um eine Strategie zur Sicherung der Daten kümmern. Dies gilt nicht nur für die Arbeit mit \LaTeX, sondern ganz allgemein. 
+
+Einzelne Dateien oder ganze Festplatten/SSDs können kaputt gehen, Rechner gestohlen werden, kurzum externe Ereignisse können dazu führen, dass die Datei, in die man Wochen oder Monate gesteckt hat, nicht mehr lesbar ist. 
+
+Die professionelle Rettung von Daten von einer defekten Festplatte erreicht leicht vierstellige Beträge, im Fall des Verlusts oder Diebstahls sind die Daten schlichtweg fort! 
 
 Die übliche Vorgehensweise, das Sichern von Dateien mit unterschiedlichen Zeitstempeln im Namen, ist nicht zu empfehlen. Sie schützt nur gegen Fehler, die man selbst im Dokument einbaut, nicht gegen Verlust oder Defekt. Auch gegen einen Verschlüsselungstrojaner, der alle Dateien auf dem Rechner verschlüsselt und -- falls man Glück hat -- gegen anonyme Zahlung eines signifikanten Geldbetrages wieder entschlüsselt, hilft dies nicht.
 
-Die aus Sicht des Autors beste Lösung ist daher eine Sicherung außerhalb des lokalen Rechners, idealerweise auch auf einem anderen Dateisystem. Der Grund hierfür ist technisch: Es sind Fälle bekannt, in denen Trojaner nicht nur die lokalen Dateien sondern auch alle Dateien auf angeschlossenen Netzlaufwerken verschlüsselten. Eine Sicherung auf einer Netzwerkfreigabe kann daher auch zu wenig sein. 
+In diesem Kapitel wollen wir verschiedene Möglichkeiten zeigen, wie man mit Hilfe eines Versionsverwaltungssystems dezentrale Kopien seiner Arbeit verwalten kann.
 
-In der Softwareentwicklung setzt man seit Jahrzehnten auf die Nutzung von Versionsverwaltungssystem wie CVS/RSC, Subversion und Git, die es neben dem Sicherungsaspekt auch erlauben, zu früheren Versionen eines Dokuments zurückzukehren. Konsequent genutzt kann man mit einer Versionsverwaltung beispielsweise zur letzten \TeX-Datei zurückgehen, die sich noch problemlos übersetzen ließ und diese mit der aktuellen, eventuell fehlerhaften, Version vergleichen. Und noch ein weiterer Aspekt soll genannt werden: die Arbeit mit mehreren Autoren und/oder auf mehreren Rechnern. Der Autor dieses Kapitels speichert wichtige Dokumente in einem Subversion-Repository. Soll mit einem anderem Rechner an den Dateien gearbeitet werden, so wird dort einfach ein neuer Checkout gemacht. Es darf nur am Ende der Arbeit nicht vergessen werden, die Dateien auch wieder mit dem Repository abzugleichen, dieser wichtige Schritt geht einem aber nach kurzer Zeit \enquote{in Fleisch und Blut} über.
+\section{Grundlagen}
 
-Die Zusammenarbeit in einem Team vereinfacht sich drastisch, da der mühsame und fehlerträchtige Austausch von Dateien über FTP oder Email entfällt, ältere Versionen einer Datei können problemlos wiederhergestellt werden und die Zusammenführung verschiedener Versionen vereinfacht sich. Ein nicht zu unterschätzender Vorteil ist zudem die Möglichkeit, Backups quasi im \enquote{Vorbeigehen} zu erstellen.
+In der Softwareentwicklung setzt man seit Jahrzehnten auf die Nutzung von Versionsverwaltungssystem wie CVS/RSC, Subversion und Git, die neben dem Aspekt der Sicherungskopie außerhalb der eigenen vier Wände auch die Möglichkeit bieten, auf frühere Versionen einer Datei zurückzukehren. So kann man beispielsweise zur letzten \TeX-Datei zurückgehen, die sich noch problemlos übersetzen ließ und diese mit der aktuellen, fehlerhaften Version vergleichen. 
 
 In diesem Kapitel soll am Beispiel von Subversion und Git gezeigt werden, wie auch beim bei der Arbeit mit \TeX/\LaTeX\ Versionsverwaltungssysteme sinnvoll eingesetzt werden können.
 
-Da die Installation und Konfiguration beider Systeme einen gewissen technischen Sachverstand voraussetzt, soll an dieser Stelle nur der fachliche Umgang gezeigt werden, nicht die Installation. Wer einen eigenen Subversion- oder Git-Server betreiben möchte, findet im Internet eine Vielzahl von Tutorials. Für die folgenden Beispiele wird jeweils ein Subversion/Git Server genutzt, der auf einem privaten NAS (\enquote{Network-Attached Storage}) der Firma Synology läuft und Backups in der Amazon-Cloud ablegt. Fr beide Versionsverwaltungen gibt es auch eine Vielzahl kommerzieller Anbieter, die die notwendige Infrastruktur bereitstellen. Github beispielsweise berechnet 7~US-\$ pro Monat für eine unbegrenzte Zahl privater (nicht öffentlich einsehbarer) Repositories, LCube-Hosting (\url{https://www.lcube-webhosting.de}) berechnet 2,99~Euro pro Monat für ein Gigabyte an quasi unbegrenzten Subversion-Repositories.
+Ein Hinweis noch: Die saubere Konfiguration einer Versionsverwaltung setzt ein gewisses technisches Verständnis voraus. Wer sich dies nicht zutraut, nutzt am besten einen der vielen Hoster, die die notwendige Infrastruktur und Expertise bereithalten. Github beispielsweise berechnet 7~US-\$ pro Monat für eine unbegrenzte Zahl privater (nicht öffentlich einsehbarer) Git-Repositories, LCube-Hosting (\url{https://www.lcube-webhosting.de}) berechnet 2,99~Euro pro Monat für ein Gigabyte an Subversion-Repositories.
 
 \section{Subversion}
+
+Subversion wurde ursprünglich von CollabNet entwickelt, seit 2009 hat es seine Heimat bei der Apache Foundation gefunden. Es handelt sich bei Subversion um eine \textit{zentrale} Versionsverwaltung, das heißt es gibt einen zentralen Server, auf dem der Subversion-Dienst läuft und auf den geänderte Dateien geladen werden. Git im Gegensatz dazu ist eine \textit{dezentrale} Versionsverwaltung, doch dazu später mehr.
+
+\subsection{Installation}
+
+Es gibt verschiedene Möglichkeiten, einen Subversion-Server zu installieren. Die lokale Installation auf dem Arbeitsrechner ist nicht empfehlenswert, denn im Fall des Verlusts geht nicht nur die lokale Kopie sondern auch die komplette Versionshistorie verloren. Wenn man diesen Weg gehen möchte, sollte man sich auf jeden Fall um ein Backup auf einem externen Rechner kümmern. 
+
+Gute Erfahrungen hat der Autor mit der Nutzung eines Synology NAS (NAS = \enquote{Network-Attached Storage}), also einer Netzwerkfestplatte gemacht, auf der der Subversion-Dienst mit wenigen Handgriffen installiert werden kann. Hier gilt zwar auch, dass eine externe Sicherung sehr ratsam ist, mit den bordeigenen Mitteln des NAS ist dies aber leicht umsetzbar.
+
 
 
 
@@ -25,4 +38,11 @@ Da die Installation und Konfiguration beider Systeme einen gewissen technischen 
 
 \endinput
 
+Die aus Sicht des Autors beste Lösung ist daher eine Sicherung außerhalb des lokalen Rechners, idealerweise auch auf einem anderen Dateisystem. Der Grund hierfür ist technisch: Es sind Fälle bekannt, in denen Trojaner nicht nur die lokalen Dateien sondern auch alle Dateien auf angeschlossenen Netzlaufwerken verschlüsselten. Eine Sicherung auf einer Netzwerkfreigabe kann daher auch zu wenig sein. 
+
+
+
+Und noch ein weiterer Aspekt soll genannt werden: die Arbeit mit mehreren Autoren und/oder auf mehreren Rechnern. Der Autor dieses Kapitels speichert wichtige Dokumente in einem Subversion-Repository. Soll mit einem anderem Rechner an den Dateien gearbeitet werden, so wird dort einfach ein neuer Checkout gemacht. Es darf nur am Ende der Arbeit nicht vergessen werden, die Dateien auch wieder mit dem Repository abzugleichen, dieser wichtige Schritt geht einem aber nach kurzer Zeit \enquote{in Fleisch und Blut} über.
+
+Die Zusammenarbeit in einem Team vereinfacht sich drastisch, da der mühsame und fehlerträchtige Austausch von Dateien über FTP oder Email entfällt, ältere Versionen einer Datei können problemlos wiederhergestellt werden und die Zusammenführung verschiedener Versionen vereinfacht sich. Ein nicht zu unterschätzender Vorteil ist zudem die Möglichkeit, Backups quasi im \enquote{Vorbeigehen} zu erstellen.
 
