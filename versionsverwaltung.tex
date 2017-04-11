@@ -26,14 +26,31 @@ Subversion wurde ursprünglich von CollabNet entwickelt, seit 2009 hat es seine 
 
 \subsection{Installation}
 
-Es gibt verschiedene Möglichkeiten, einen Subversion-Server zu installieren. Die lokale Installation auf dem Arbeitsrechner ist nicht empfehlenswert, denn im Fall des Verlusts geht nicht nur die lokale Kopie sondern auch die komplette Versionshistorie verloren. Wenn man diesen Weg gehen möchte, sollte man sich auf jeden Fall um ein Backup auf einem externen Rechner kümmern. 
+Es gibt verschiedene Möglichkeiten, einen Subversion-Server zu installieren. Die lokale Installation auf dem Arbeitsrechner ist nicht empfehlenswert, denn im Fall des Verlusts geht nicht nur die lokale Kopie, sondern auch die komplette Versionshistorie verloren. Wenn man diesen Weg gehen möchte, sollte man sich auf jeden Fall um ein regelmäßiges, am besten automatisiertes, Backup auf einem externen Rechner kümmern. 
 
 Gute Erfahrungen hat der Autor mit der Nutzung eines Synology NAS (NAS = \enquote{Network-Attached Storage}), also einer Netzwerkfestplatte gemacht, auf der der Subversion-Dienst mit wenigen Handgriffen installiert werden kann. Hier gilt zwar auch, dass eine externe Sicherung sehr ratsam ist, mit den bordeigenen Mitteln des NAS ist dies aber leicht umsetzbar.
 
 
+\subsection{Client}
+
+tortoisesvn
+
+
+\subsection{svn-multi}
 
 
 \section{Git}
+
+Für dieses Buch wurde nicht Subversion, sondern git benutzt, das im Gegensatz zu Subversion nicht \textit{zentral}, sondern \textit{dezentral} arbeitet. Der Grund für git statt Subversion war dabei eher organisatorisch als technisch, mehrere der Co-Autoren hatten bereits gute Erfahrungen mit github.com gemacht, das -- wie der Name sagt -- git nutzt.
+
+Im wesentlichen bedeutet \textit{dezentral}, dass es nicht einen zentralen Server gibt, der die Historie vorhält, sondern dass jeder Entwickler oder Autor die komplette Historie auf dem Rechner hat und Änderungen an den lokalen Dateien auch in das lokale git Repository eingecheckt werden. 
+
+Man kann aber die lokalen Änderungen in ein entferntes (\enquote{remote}) Repository pushen, sodass es keine fundamentalen Unterschiede zur Arbeit mit git statt Subversion gibt.
+Github unterstützt auch den Zugriff auf die Repositories über das Subversion-Protokoll, damit lassen sich auch grafische Clients wie TortoiseSVN mit github nutzen. 
+
+Im folgenden soll gezeigt werden, wie man auf github ein neues Repository anlegt und damit Dateien verwaltet.
+
+
 
 
 \endinput
