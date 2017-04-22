@@ -5,48 +5,99 @@
 \autor{Lukas C. Bossert}
 
 \section{Der (neue) Standard: \paket{biblatex} und \paket{biber}}
-Während in den naturwissenschaftlichen Bereichen die Bibliographie eine weniger relevante Rolle spielt -- als bspw. in den Geisteswissenschaften -- hält sich dort noch die (veraltete) Technik \BibTeX.
+Während in den naturwissenschaftlichen Bereichen die Bibliographie eine weniger relevante Rolle spielt -- als bspw. in den Geisteswissenschaften -- hält sich dort die (veraltete) Technik der Literaturvewaltung mittels \BibTeX.
 
-In den letzten Jahren hat sich jedoch allmählich und unumkehrbar die Möglichkeit Bibliographien und Zitate mittels Paket \paket{biblatex} durchgesetzt.\footcite{wassenhoven:dtk2008/2,wassenhoven:dtk2008/4}
-Der Vorteil ist die leichte Einbindung und der Wechsel verschiedener Bibliographie- und Zitierstile, die als Option dem Paket übergeben werden. 
+In den letzten Jahren hat sich jedoch allmählich und unumkehrbar die Möglichkeit durchgesetzt Bibliographien und Zitate mittels dem Paket \paket{biblatex} zu erstellen.\footcite{wassenhoven:dtk2008/2,wassenhoven:dtk2008/4}
+Der Vorteil ist die einfache(re) Programmierung, die leichte Einbindung und der Wechsel verschiedener Bibliographie- und Zitierstile.
 
 Das folgende Kapitel zeigt die Arbeit mit \paket{biblatex}: 
-Zunächst wie man eine Bibliografie-Datenbank erstellt und verwaltet (\cref{sec:bibliografiedatenbank}),
-wie man die notwendigen Felder bestimmter Eintragstypen (Buch, Zeitschrift, Lexikon etc.) belegt, wie man im eigenen Text die Verweise einabut (\cref{sec:zitate}) und
-schließlich wie man eine oder mehrere (Teil"~)""Bibliografien erstellt.
+Zunächst wird erläutert, wie man eine Bibliografie-Datenbank erstellt und verwaltet (\cref{sec:bibliografiedatenbank}),
+anschließend wie man die notwendigen Felder bestimmter Eintragstypen (Buch, Zeitschrift, Lexikon etc.) belegt, 
+schließlich wie man im eigenen Text die Verweise einabut (\cref{sec:zitate}) und
+zum Schluss wie man eine oder mehrere (Teil"~)""Bibliografien erstellt.
 
-Am Schluss werden verschiedene Bibliografie-Stile vorgestellt,
+Zuletzt werden verschiedene Bibliografie-Stile vorgestellt,
 die besonders für Geisteswissenschaftler relevant sind und die auf unterschiedliche Anforderungen in den verschiedenen Fachrichtungen Lösungen bereithalten (\cref{sec:bibliografie}).
- 
-\paket{biblatex}
-Vgl.\footcite[79\psqq]{rouquette:2012}
-\footcite{voss:bibliografien}
+
+
+\paket{biblatex} wurde %XXXJAHR  einfügen
+von Philipp Lehmann entworfen und seitdem stetig weiterentwickelt. 
+Von Haus aus bringt es bereits eine Großzahl an Einstellungen mit, 
+die es erlauben auf die Vorgaben in den einzelnen Disziplinen einzugehen. 
+Für weitere spezielle Eigenheiten in der Zitation und Bibliographie haben unzählige Mitglieder der \TeX -Community Stile und Erweiterungen entwickelt,
+die dem  Paket als Option übergeben werden.\footcite{voss:bibliografien}
+
+
+Wohingegen die offizielle Paket-Dokumentation von \paket{biblatex}  mehr als 250~Seiten umfasst und  für einen Einsteiger nur bedingt zu empfehlen ist,
+gibt es ebenfalls auf englisch eine sehr ansprechende und verständliche Kurzeinführung.\footcite{biblatex-tutorial}
+
+
+%Vgl.\footcite[79\psqq]{rouquette:2012}
 
 
 
 
 \section{Aufbau der Bibliografie-Datenbank}\label{sec:bibliografiedatenbank}
+Eine Bibliografie-Datenbank ist zunächst nichts anderes als eine \meta{.tex}-Datei,
+die allerdings die Endung \meta{.bib} hat und ebenso mit jedem Texteditor bearbeitet werden kann.
 
 \subsection{Grundlegender Aufbau}
+Am Beispiel von \cite{voss:einfuehrung} sei der Aufbau eines Einrags in der Bibliographiedatei erklärt (\cref{{lis:voss:einfuehrung}}):
 
+\begin{lfgwcode}{label={lis:voss:einfuehrung}}
+@Book{voss:einfuehrung,
+ author = {Herbert Voß}, 
+ title = {Einführung in \LaTeX},
+ publisher = {DANTE~e.V. and Lehmanns Media},
+ location = {Berlin and Heidelberg},
+ year = {2016},
+ edition = {2},
+}
+\end{lfgwcode}
+
+\begin{description}
+ \item[1] \meta{@Book}: Damit wird das Wesen des Werks, der Publikationstypus, definiert, in diesem Fall handelt es sich um ein Buch; vgl. \cref{lit:publikationstypus}.
+ \item[1] \meta{voss:einfuehrung}: Dies ist der \meta{Schlüssel}, den jeder Eintrag haben muss, um im Textdokument zitiert werden zu können.
+ \item[2-7] Alle Informationen zu einem Eintrag müssen in bestimmten Feldern geschrieben werden; bspw. \meta{author = {Herbert Voß}}: 
+ Der Name des Autors des Buches wird in das Feld \marg{author} geschrieben. 
+\end{description}
+Jeder Eintrag beginnt mit dem Publikationstypus, alle weiteren Informationen sind innerhalb eines Klammerpaares.
 \subsection{Schlüsselvergabe}
+Anhand des \meta{Schlüssels} wird im Textdokument über einen \cs{cite}-Befehl (\cref{lit:cite-befehle}) das Werk eingebunden.
+Ein solcher \meta{Schlüssel} muss innerhalb einer Bibliografie-Datei einmalig und eindeutig sein, 
+da es ansonsten zu einer Fehlermeldung kommt.
+In der Regel bieten Bibliografieverwaltungsprogramme wie JabRef eine Funktion an, anhand der man den \meta{Schlüssel} erzeugen kann. 
 
-\subsection{Publikationstypen und ihre Datenfelder}
+Es bietet sich an, den Namen des Autors und ein Kurztitel oder Nachname des (ersten) Autors und das Jahr der Publikation. 
+Je kürzer und prägnanter ein \meta{Schlüssel} ist, desto weniger Tipparbeit bedeutet dies im Textdokument, zumal man den \meta{Schlüssel} zwar jederzeit ändern kann, aber diese Änderungen ebenfalls im Textdokument ausführen muss. 
+Normalerweise bleibt daher der \meta{Schlüssel} für das gesamte Dokument gleich.
+
+\subsection{Publikationstypen und ihre Datenfelder}\label{lit:publikationstypus}
+Standardmäßig unterscheidet das \Paket{biblatex} XX %Anzahl
+Publikationstypen, die je nach Typ unterschiedlich ausgegeben werden.
+Zusätzliche Bibliografiestile können weitere Publikationstypen bereithalten,
+wie bspw. der Stil \meta{arthistory-bonn} für einen ›Ausstellungskatalog‹ den Eintrag \meta{@exhibcatalog} und \meta{@movie} für einen Film im Stil \meta{fiwi}.
+
 
 \subsubsection{Bücher (Monografie, Sammmelband)}
+%@book/@inbook
+%@collection/@incollection
 
 \subsubsection{Zeitschriften (Artikel, Rezensionen)}
+%@article
+%@review
 
 \subsubsection{Lexika, Handbücher}
-
+%@reference/@inreference
 \subsubsection{Internet-Ressourcen}
+%@online (=@www)
 
-\subsubsection{Übersicht: Publikationstypen und Datenfelder}
+\subsubsection{Übersicht: Datenfelder}
+Theoretisch und technisch können (fast) alle Datenfelder für alle Publikationstypen genutzt werden.
+Allerdings ist dies nicht immer sinnvoll, wie bspw. eine Seitenangabe bei einer Webseite keinen logischen Mehrwert hat.
 
-alle auflisten....
 
-
-\section{Zitate}\label{sec:zitate}
+\section{Zitate}\label{sec:zitate}\label{lit:cite-befehle}
 
 Normale Zitate werden mit dem Befehl \cs{cite} ausgeführt:
 \begin{lfgwcode}{label={lis:XXX}}
@@ -63,7 +114,7 @@ dann wird es als \oarg{Suffix} behandelt.
 Der \meta{Schlüssel} korrespondiert mit dem Schlüssel der Bibliografie-Datei.
 
 \begin{lfgwexample}{label={lis:xxx}}
-\enquote{Beware of bugs in the above code; I have only proved it correct, not tried it.} Donald Knuth
+%\enquote{Beware of bugs in the above code; I have only proved it correct, not tried it.} Donald Knuth
 Der öffentliche Raum ist Teil einer Stadt \cite{Osland2016}.
 \end{lfgwexample}
 
@@ -268,6 +319,7 @@ biblatex (--> verschiedene biblatex-Stile mit deren Optionen erläutern, die fü
 -- apa\\
 -- historian\\
 -- biblatex-fiwi\\
+-- arthistory-bonn\\
 
 \minisec{Nützliche Bibliografiestile, die nachinstalliert werden müssen}
 
