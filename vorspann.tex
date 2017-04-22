@@ -233,7 +233,7 @@ lfgwstyle/.style={%
 
 \usepackage{hieroglf}
 
-\usepackage[normalem]{ulem} %%% MS: Wofür? Unterstreichungen sollten vermieden werden!
+\usepackage[normalem]{ulem} %%% MS: Wofür? Unterstreichungen sollten vermieden werden! LCB: kann \xout
 \usepackage{letterspace} %%% MS: Wofür. Besser direkt \textls aus dem Microtypepaket
 
 \usepackage[hyphens]{url}
@@ -273,7 +273,6 @@ lfgwstyle/.style={%
 \usepackage[%
     style=authoryear,  
 %  style=historische-zeitschrift, % das am liebsten - aber der geht (bei mir?) nicht!
-%  style=archaeologie,
 %  pageref=true,
 	backend=biber
 	]{biblatex}
@@ -297,7 +296,7 @@ lfgwstyle/.style={%
     pdfencoding=unicode,   % Sorgt für korrekte Umlaute in den pdf-Lesezeichen - thm
 	pdfcaptionwriter={varia},
 	pdfkeywords={{LaTeX}, {Geisteswissenschaften}},
-%	pdfproducer={XeLaTeX},
+	pdfproducer={LuaLaTeX},
 	pdflicenseurl={http://creativecommons.org/licenses/by-nc-nd/4.0/},
 	plainpages=false,			% 	- 
   colorlinks   = true, %Colours links instead of ugly boxes
@@ -346,6 +345,13 @@ lfgwstyle/.style={%
   sort,
   nameinlink
   ]{cleveref}%nach hyperref laden
+	
+\addto\captionsngerman{%
+    \crefformat{lfgwexample}{#2Beispiel\,#1#3}%
+    \crefformat{lfgwcode}{#2Beispiel\,#1#3}%
+    \crefformat{lfgwprint}{#2Beispiel\,#1#3}%
+}
+
 
 \providecommand*{\LaTeXTeX}{\hologo{(La)TeX}}
 \providecommand*{\AmSLaTeX}{\hologo{AmSLaTeX}}
@@ -475,59 +481,6 @@ lfgwstyle/.style={%
 \vfuzz \hfuzz
 %%%\raggedbottom
 
-%***********************
-%für katalog.tex
-\usepackage{framed}
-\newenvironment{bsp}{\begin{framed}\begin{footnotesize}}%
-{\end{footnotesize}\end{framed}}
-\newcommand\catalogueentry[1]{%
-\RaggedRight\begingroup
-\setkeys{catalogue}{#1}%
-\ifdef{\KVhouse}{\section{\KVhouse
-			\ifdef{\KVlabel}{\label{\KVlabel}}{}}
-			}{}%
-\begin{labeling}{Beschreibung}
-\ifdef{\KVdescription}{\item[Beschreibung] \KVdescription}{}%
-\ifdef{\KVlocation}{\item[Verortung] \KVlocation}{}%
-\ifdef{\KVinterior}{%
-	\item[Ausstattung] \KVinterior %
-	\ifboolexpr{bool{@KVinteriorM} or bool {@KVinteriorW} or bool {@KVinteriorS}}{%
-	\begin{labeling}{Wandgemälde}
-			\ifdef{\KVinteriorM}{\item[Mosaike:] \KVinteriorM}{}
-			\ifdef{\KVinteriorW}{\item[Wandgemälde:] \KVinteriorW}{}
-			\ifdef{\KVinteriorS}{\item[Statuen:] \KVinteriorS}{}
-			\end{labeling}
-		}{}}%
-	{%
-	\ifboolexpr{bool{@KVinteriorM} or bool {@KVinteriorW} or bool {@KVinteriorS}}{%
-		\item[Ausstattung]%
-	\begin{labeling}{Wandgemälde}	
-				\ifdef{\KVinteriorM}{\item[Mosaike:] \KVinteriorM}{}
-				\ifdef{\KVinteriorW}{\item[Wandgemälde:] \KVinteriorW}{}
-				\ifdef{\KVinteriorS}{\item[Statuen:] \KVinteriorS}{}
-			\end{labeling}
-	}{}}%
-\ifdef{\KVsize}{	\item[Größe] \SI{\KVsize}{\meter\squared}}{}%
-\ifdef{\KVbackref}{\item[Erwähnungen]S.\ \KVbackref}{}%		oder \pno{}
-\end{labeling}
-\endgroup
-}
-
-\makeatletter
-\newbool{@KVinteriorM}
-\newbool{@KVinteriorW}
-\newbool{@KVinteriorS}
-\define@key{catalogue}{house}{\def\KVhouse{#1}}
-\define@key{catalogue}{label}{\def\KVlabel{#1}}
-\define@key{catalogue}{description}{\def\KVdescription{#1}}
-\define@key{catalogue}{location}{\def\KVlocation{#1}}
-\define@key{catalogue}{size}{\def\KVsize{#1}}
-\define@key{catalogue}{interior}{\def\KVinterior{#1}}
-\define@key{catalogue}{interiorM}{\def\KVinteriorM{#1}\booltrue{@KVinteriorM}}
-\define@key{catalogue}{interiorW}{\def\KVinteriorW{#1}\booltrue{@KVinteriorW}}
-\define@key{catalogue}{interiorS}{\def\KVinteriorS{#1}\booltrue{@KVinteriorS}}
-\define@key{catalogue}{backref}{\def\KVbackref{#1}}
-\makeatother
 
 % Autorkennung:   Wie soll's aussehen?
 \providecommand{\autor}[1]{\hfill\textbf{#1}}
