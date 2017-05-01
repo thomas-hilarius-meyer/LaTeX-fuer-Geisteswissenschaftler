@@ -49,7 +49,7 @@ formalen Merkmale von Gedichten anzeigen.
 
 \subsection{Gedichte setzen}
 
-In \cite[S.\,94]{Willberg} wird das Setzen von Gedichten als etwas Schwieriges
+In \cite[S.\,94]{lesetypografie2010} wird das Setzen von Gedichten als etwas Schwieriges
 charakterisiert, dass "`vom Typografen äußerstes Feingefühl"` erfordert. "`Schriftcharakter, Schriftgrößen, Zeilenabstände, Laufweite und Wortzwischenraum [\ldots] müssen aufs Sorgfältigste der Sprache angepasst werden."'
 
 Innerhalb der KOMA-Textklassen gibt es die Umgebung \verb|\begin{verse} ... \end{verse}|.
@@ -70,7 +70,7 @@ verse with \LaTeX "') verwiesen.
 In dieser Umgebung werden die Verse als eine Art von Liste eingerückt und zentriert
 ausgegeben und Strophen mit einer Leerzeile beendet. Für die
 Strukturierung eines Gedichtes gibt es grundlegende Befehle, einige werden
-nachfolgend aufgeführt, weitere können in \cite[S.\,5\,f.]{Wilson} nachgelesen
+nachfolgend aufgeführt, weitere können in \cite[S.\,5\,f.]{wilson:lyrik} nachgelesen
 werden:
 
 ~\\
@@ -92,7 +92,7 @@ genaue Position des Gedichtes. Diese Referenzzeile muss nicht der längste Vers 
 Gedichtes sein, sondern kann und sollte in der Regel dem Mittelwert entsprechen.
 Weiterhin werden Verse, die länger als die Referenzzeile sind,
 automatisch umgebrochen und in der nächsten Zeile 
-passend weitergeführt. \cite{wilson} 
+passend weitergeführt. \cite{wilson:memoir} 
 \begin{lstlisting}
 \settowidth{\versewidth}{Referenzvers}
 \begin{verse}[\versewidth] Gedicht \end{verse}
@@ -203,7 +203,7 @@ Ich bin ein Zug,\\
 
 
 In "`memoir"' hat der Paketautor von "`verse"' weitere Befehle
-zur Verfügung gestellt \cite[Kap.\,14]{wilson}, beispielsweise nachfolgende:
+zur Verfügung gestellt \cite[Kap.\,14]{wilson:memoir}, beispielsweise nachfolgende:
 
 \begin{tabular}{ll}
  \verb|\PoemTitle*| & für  \verb|\poemtitle|\\
@@ -461,18 +461,18 @@ A. Francke Verlag: Tübingen und Basel, 3. überarbeitete und erweiterte Auf\/la
 In: Eulenspiegel, Heft 5/2012, S.\,14.
 
 \bibitem
-{Willberg} Hans Peter Willberg /Friedrich Forsman:
+{lesetypografie2010} Hans Peter Willberg /Friedrich Forsman:
 \textsl{Lesetypografie.}
 Verlag Hermann Schmidt: Mainz 2010.
 
 \bibitem
-{wilson} Peter R. Wilson/Lars Madsen:
+{wilson:memoir} Peter R. Wilson/Lars Madsen:
 \textsl{The Memoir Class for Configurable Typesetting. User Guide.}
 The Herries Press, Normandy Park, WA 2011.
 \url{macros/latex/contrib/memoir/memman.pdf}.
 
 \bibitem
-{Wilson} Peter R. Wilson:
+{wilson:lyrik} Peter R. Wilson:
 \textsl{Typesetting simple verse with \LaTeX }. 2004.
 \url{macros/latex/contrib/verse/verse.pdf}
 \end{thebibliography}
