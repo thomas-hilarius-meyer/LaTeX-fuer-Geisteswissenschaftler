@@ -55,11 +55,13 @@ it is unclear $[_\text{S´} [_{\text{COMP}} \enspace \textnormal{what} ]
 
 \subsubsection{Baumstrukturen mit \texttt{forest}}
 
-Sa\v{s}o \v{Z}ivanovi\'{c}, der Autor von \Package{forest}, schreibt in \cite[3]{forest-doc},
+Sa\v{s}o \v{Z}ivanovi\'{c}, der Autor von \Package{forest}, schreibt in
+\cite[3]{zivanovic:forest},
 bezüglich Forest: \\
 "`I believe, the most flexible tree typesetting package for \LaTeX\ you can get."'
 
-Auf jeden Fall ist es einfacher als andere Pakete\footnote{Zu anderen einschlägigen Paketen siehe \cite{roemer}.} zu handhaben, da es die Spreizung
+Auf jeden Fall ist es einfacher als andere Pakete\footnote{Zu anderen
+einschlägigen Paketen siehe \cite{roemer:dtk2016}.} zu handhaben, da es die Spreizung
 der Äste entsprechend der Label an den Astenden selbstständig anpasst. Dabei bemüht es sich,
 um schlanke Bäume. Auch komplexe Strukturen führen nicht zu Problemen. Durch die Anbindung
 an PGF/TikZ können Ausschmückungen vorgenommen werden.
@@ -74,7 +76,7 @@ standardmäßig linksverzweigt.
 
 Phonologische Strukturen (wie in Beispiel~\ref{example:3}) sind in der \texttt{linguistik}-Bibliothek
 in dem \texttt{GP1}-Stil angelegt. Der Stilname wird vor die erste sich öffnende Klammer des Baums 
-geschrieben\footnote{\cite[Beispiel\,6]{forest-doc}}.
+geschrieben\footnote{\cite[Beispiel\,6]{zivanovic:forest}}.
 
 \begin{lfgwexample}{label={example:3}}
 \begin{forest} GP1 [
@@ -234,10 +236,11 @@ wie die Strukturbäume zu setzen, da es Kenntnisse des komplexen PGF/TikZ verlan
 \end{lfgwprint}
 
 FOREST positioniert die Knoten mittels einem rekursiven Algorithmus (genauer siehe 
-\cite[Kap.\,2.4]{forest-doc}). Manuelle Abänderungen sind natürlich möglich. Beispielsweise
+\cite[Kap.\,2.4]{zivanovic:forest}). Manuelle Abänderungen sind natürlich möglich. Beispielsweise
 kann mit der Option 
 \texttt{s sep} der Abstand zwischen den Teilsträngen, die aus einer Wurzel kommen, 
-gesteuert werden; vgl. \ref{example:11} und \ref{example:12}).\footnote{\cite[Beispiel\,27]{forest-doc}.}
+gesteuert werden; vgl. \ref{example:11} und
+\ref{example:12}).\footnote{\cite[Beispiel\,27]{zivanovic:forest}.}
 
 
 \begin{lfgwexample}{label={example:11}}
@@ -272,7 +275,7 @@ for tree={s sep=(3-level)*6mm}
 Auch die Äste können unterschiedlich gespreizt werden (\texttt{fixed edge angles}),
 wie es auch möglich ist, die Kantenhöhe mit \verb|for tree={l=<Wert>cm}| zu verändern 
 (Beispiel~\ref{example:13})
-\footnote{\cite[Beispiel\,59]{forest-doc}}.
+\footnote{\cite[Beispiel\,59]{zivanovic:forest}}.
 
 \begin{lfgwexample}{label={example:13}}
 \begin{forest}
