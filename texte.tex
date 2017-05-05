@@ -35,7 +35,7 @@ Hans Peter Willberg und Friedrich Forssmann karikiert wird:
  
 \begin{quotation}
  \emph{Du warst doch mal Sekretärin.
- Ich muß meine Diss schreiben, kannst Du mir zeigen, wie das geht?}
+ Ich muss meine Diss schreiben, kannst Du mir zeigen, wie das geht?}
  
  \emph{Was} ein Doktorand oder Diplomand zu schreiben hat, das hat er studiert.
  \emph{Wie} er es zu schreiben hat, hat er nicht studiert, er setzt irgendwie drauflos.
@@ -98,7 +98,7 @@ article -- oder sehr speziell -- wie die Vorlage einer Dissertation in Elektrote
 bestimmten Technischen Hochschule.
 
 Die gewünsche Dokumentklasse wird ganz am Anfang angegeben durch das Kommando
-\lstinline/\documentclass[Optionen]{NAME}/.
+\cs{documentclass\oarg{Optionen}\marg{NAME}}.
 
 Grundsätzlich gilt: Je spezieller eine Dokumentklasse ist, desto genauer passt sie zu einer spezifischen
 Aufgabenstellung und desto eher wird sie spezifische Sonderanforderungen befriedigen -- bis hin zur
@@ -224,7 +224,7 @@ präzise auf das endgültige Maß zuschneiden zu können.
 \minisec{Ein- oder zweiseitiges Layout}
 
 Bei der Einstellung der Dokumentklasse kann durch die Optionen \opt{oneside} bzw.
-\lstinline/twoside/ ein- bzw. zweiseitiges Layout verlangt werden.
+\opt{twoside} ein- bzw. zweiseitiges Layout verlangt werden.
 
 Beim einseitigen Layout sind alle Seiten gleich gestaltet, während beim zweiseitigen Layout zwischen
 linken und rechten Seiten unterschieden wird. Definitionsgemäß haben \enquote{linke} Seiten gerade
@@ -916,10 +916,11 @@ Das Paket \paket{textgreek} erlaubt die einfache Eingabe griechischer Buchstaben
 Es ist natürlich weniger geeignet, ganze Texte auf Griechisch zu erfassen, kann aber sehr
 praktisch sein, wenn es eben nur um wenige einzelne Zeichen geht:
 
+%MS: Sollte man hier nicht im Buch selbst direkt die Unicodezeichen nehmen? Siehe die ersten beiden Zeilen
 \begin{center}
 \begin{tabular}{llll}
- \textalpha & 	\lstinline/\textalpha/ &	\textAlpha &	\lstinline/\textAlpha/ \\
- \textbeta & 	\lstinline/\textbeta/ &		\textBeta &	\lstinline/\textBeta/ \\
+ α & 	\lstinline/\textalpha/ &	Α &	\lstinline/\textAlpha/ \\
+ β & 	\lstinline/\textbeta/ &		Β &	\lstinline/\textBeta/ \\
  \textgamma & 	\lstinline/\textgamma/ &	\textGamma &	\lstinline/\textGamma/ \\
  \textdelta & 	\lstinline/\textdelta/ &	\textDelta &	\lstinline/\textDelta/ \\
  \textepsilon & \lstinline/\textepsilon/ &	\textEpsilon &	\lstinline/\textEpsilon/ \\
