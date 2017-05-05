@@ -1,31 +1,13 @@
 %% lfgw: 2.21 Linguistische Beispiele
-
-%\input{vorspann}
-%\newcommand{\TikZ}{Ti\textit{k}Z\xspace}
-%\usepackage[linguistics]{forest}
-%\forestapplylibrarydefaults{linguistics, edges}
-%\\useforestlibrary{edges}
-%\makeatletter
-%\let\pgfmathModX=\pgfmathMod@
-%\usepackage{pgfplots}%
-%\let\pgfmathMod@=\pgfmathModX
-%\makeatother
-%http://tex.stackexchange.com/questions/328972/presence-of-pgfplots-package-breaks-forest-environment-%w-folder-option-en/329015
-%\usepackage{amsmath, amssymb}
-
-%\begin{document}
-
-%\chapter{Konstituentenstrukturen}
-
 \subsubsection{Einordnung}
 
 Konstituentenanalysen von Wörtern und Sätzen vorzunehmen, sind in der Linguistik vom amerikanischen Strukturalismus entwickelte Verfahren der Segmentierung zur Ermittlung von syntaktischen Konstituentenhierarchien 
 und -kategorien, die für die Beschreibung und Analyse von Sprachen relevant sind. 
-Die Ergebnisse der Zerlegungen werden in Baumstrukturen (s. Beispiel~\ref{example:1}) und  Klammerschreibungen (s. Beispiel \ref{example:2})
+Die Ergebnisse der Zerlegungen werden in Baumstrukturen (s. Beispiel~\ref{forestexample:1}) und  Klammerschreibungen (s. Beispiel~\ref{forestexample:2})
 veranschaulicht. Noam Chomsky, der Kopf der Generativen Grammatik, zeigt in Form der X-bar-Theorie
 bspw. in \enquote{Rules and Representations} die Beziehung zwischen Tense und dem COMP  folgendermaßen auf (S.\,170f.)
 
-\begin{lfgwexample}{label={example:1}}
+\begin{lfgwexample}{label={forestexample:1}}
 \begin{forest}
 [S´
   [COMP [$ \begin{Bmatrix}\emph{that} \\ \emph{for} \end{Bmatrix} $, align=center, base=bottom]]
@@ -37,7 +19,7 @@ bspw. in \enquote{Rules and Representations} die Beziehung zwischen Tense und de
 \end{forest}
 \end{lfgwexample}
 
-\begin{lfgwprint}{label={example:2}}
+\begin{lfgwprint}{label={forestexample:2}}
 \begin{center}
 it is unclear $[_\text{S´} [_{\text{COMP}} \enspace \textnormal{what} ]
  [_\text{S}  \enspace  \textnormal{NP} \enspace \begin{Bmatrix} \emph{Tense}\\ \emph{to} \end{Bmatrix} \enspace \textnormal{VP}] ]$
@@ -74,11 +56,11 @@ können mit ihrem Namen in der Regel als fakultatives Argument hinzugefügt werd
 mit \verb|\usepackage[linguistics]{forest}|. Mit dieser Option werden die Strukturbäume
 standardmäßig linksverzweigt.
 
-Phonologische Strukturen (wie in Beispiel~\ref{example:3}) sind in der \texttt{linguistik}-Bibliothek
+Phonologische Strukturen (wie in Beispiel~\ref{forestexample:3}) sind in der \texttt{linguistik}-Bibliothek
 in dem \texttt{GP1}-Stil angelegt. Der Stilname wird vor die erste sich öffnende Klammer des Baums 
 geschrieben\footnote{\cite[Beispiel\,6]{zivanovic:forest}}.
 
-\begin{lfgwexample}{label={example:3}}
+\begin{lfgwexample}{label={forestexample:3}}
 \begin{forest} GP1 [
   [O[x[f]][x[r]]]
   [R[N[x[o]]][x[s]]]
@@ -92,9 +74,9 @@ Die Baumstrukturen werden in die \texttt{forest-Umgebung} oder in den Befehl \ve
 mittels Umklammerungen der Konstituenten eingefügt. Die Kinder eines Knotens befinden sich 
 innerhalb des Mutterknotens.\footnote{Den linguistischen Konstruktionen liegt die Generative
 Grammatik zugrunde. So werden bei den Barstufen der Kategorien die Markierungen rechts ausgedruckt,
-obwohl sie links eingegeben werden (siehe Beispiel~\ref{fig:4}).}
+obwohl sie links eingegeben werden (siehe Beispiel~\ref{forestexample:4}).}
 
-\begin{lfgwexample}{label={example:4}}
+\begin{lfgwexample}{label={forestexample:4}}
 \begin{minipage}{.3\linewidth}
 \begin{forest}
 [VP
@@ -121,12 +103,12 @@ obwohl sie links eingegeben werden (siehe Beispiel~\ref{fig:4}).}
 
 Als letzte Labels können auch natürlichsprachliche Ausdrücke (\verb|tier=word|) eingefügt werden, 
 die dann entsprechend den Konventionen kursiv geschrieben werden können, mit dem entsprechenden
-Befehl. Wie im folgenden Beispiel (\ref{example:5}) beim obersten Knoten zusehen ist, 
+Befehl. Wie im folgenden Beispiel (\ref{forestexample:5}) beim obersten Knoten zusehen ist, 
 können Labels auch ohne Kantenverbindungen untereinander
 geschrieben werden (\verb|align=center, base=bottom|).
 
 
-\begin{lfgwexample}{label={example:5}}
+\begin{lfgwexample}{label={forestexample:5}}
 \begin{forest}
 where n children=0{tier=word}{}
 [Wort\\Stamm, align=center, base=bottom
@@ -140,9 +122,9 @@ where n children=0{tier=word}{}
 \end{lfgwexample}
 
 Die Linien zu den Konstituenten können auch gestrichelt, gepunktet oder als Pfeile
-gesetzt werden (Beispiel~\ref{example:6}).
+gesetzt werden (Beispiel~\ref{forestexample:6}).
 
-\begin{lfgwexample}{label={example:6}}
+\begin{lfgwexample}{label={forestexample:6}}
 \begin{forest} for tree={grow'=0,l=2cm,anchor=west,child anchor=west},
 [Äste,rotate=90
   [normale Linie,edge label={node[midway,left,
@@ -158,9 +140,9 @@ gesetzt werden (Beispiel~\ref{example:6}).
 
 Die Bibliothek \texttt{edges} ermöglicht verzweigte Kanten/Äste bei horizontal wachsenden
 Strukturen. Sie wird mit \verb|\useforestlibrary{edges}| geladen. Man kann damit beispielsweise
-Begriffshierarchien aufzeigen (wie in \ref{example:7}, \ref{example:8}).
+Begriffshierarchien aufzeigen (wie in \ref{forestexample:7}, \ref{forestexample:8}).
 
-\begin{lfgwcode}{label={example:7}}
+\begin{lfgwcode}{label={forestexample:7}}
 \documentclass[border=5pt,tikz]{standalone}
 \usepackage{xltxtra}
 \usepackage{forest}
@@ -181,7 +163,7 @@ forked edges,
 \end{document
 \end{lfgwcode}
 
-\begin{lfgwprint}{label={example:8}}
+\begin{lfgwprint}{label={forestexample:8}}
 \begin{forest}
  for tree={grow'=1,draw},
 forked edges,
@@ -198,12 +180,12 @@ forked edges,
 
 
 \minisec{Modifizierungen}
-
+%TODO: forestexample:10 existiert nicht mehr => Verweis nach forestexample:9 gelöscht
 In die Strukturen können zusätzliche Informationen mit den Mitteln von TikZ
-eingebracht werden (wie in Beispiel~\ref{example:9}, \ref{example:10}). Dies ist allerdings nicht so einfach,
+eingebracht werden (wie in Beispiel~\ref{forestexample:9}). Dies ist allerdings nicht so einfach,
 wie die Strukturbäume zu setzen, da es Kenntnisse des komplexen PGF/TikZ verlangt.
 
-\begin{lfgwcode}{label={example:9}}
+\begin{lfgwcode}{label={forestexample:9}}
 \begin{forest}
 [Nomen,name=kompositum
 [Adjektiv [\emph{Rot}, tier=word]]
@@ -239,11 +221,11 @@ FOREST positioniert die Knoten mittels einem rekursiven Algorithmus (genauer sie
 \cite[Kap.\,2.4]{zivanovic:forest}). Manuelle Abänderungen sind natürlich möglich. Beispielsweise
 kann mit der Option 
 \texttt{s sep} der Abstand zwischen den Teilsträngen, die aus einer Wurzel kommen, 
-gesteuert werden; vgl. \ref{example:11} und
-\ref{example:12}).\footnote{\cite[Beispiel\,27]{zivanovic:forest}.}
+gesteuert werden; vgl. \ref{forestexample:11} und
+\ref{forestexample:12}).\footnote{\cite[Beispiel\,27]{zivanovic:forest}.}
 
 
-\begin{lfgwexample}{label={example:11}}
+\begin{lfgwexample}{label={forestexample:11}}
 \begin{forest}
 for tree={s sep=(3-level)*2mm}
 [CP, for tree=draw
@@ -255,7 +237,7 @@ for tree={s sep=(3-level)*2mm}
 \end{forest}
 \end{lfgwexample}
 
-\begin{lfgwexample}{label={example:12}}
+\begin{lfgwexample}{label={forestexample:12}}
 \begin{forest}
 for tree={s sep=(3-level)*6mm}
 [CP, for tree=draw
@@ -274,10 +256,10 @@ for tree={s sep=(3-level)*6mm}
 %\measurexdistance{(!1.north east)}{(!221.north west)}{+(0,-2.4cm)}{below}
 Auch die Äste können unterschiedlich gespreizt werden (\texttt{fixed edge angles}),
 wie es auch möglich ist, die Kantenhöhe mit \verb|for tree={l=<Wert>cm}| zu verändern 
-(Beispiel~\ref{example:13})
-\footnote{\cite[Beispiel\,59]{zivanovic:forest}}.
+(Beispiel~\ref{forestexample:13})
+\footnote{\cite[Beispiel~59]{zivanovic:forest}}.
 
-\begin{lfgwexample}{label={example:13}}
+\begin{lfgwexample}{label={forestexample:13}}
 \begin{forest}
 calign=fixed edge angles,
 calign primary angle=-30,calign secondary angle=60,
@@ -293,7 +275,7 @@ for tree={l=2cm}
 
 Die in der Weiterentwicklung der GG im \enquote{Minimalistischen Programm}
 zentrale Operation Merge (Verkettung) erzeugt mengentheoretische Objekte, die
-\enquote{strenggenommen keine Strukturbäume mehr darstellen}\footnote{Günter Grewendorf: Minimalistische Syntax. A. Francke: Tübingen und Basel 2002, S.\,126}. Mit Klammerschreibungen in geschweiften (s. \ref{example:12}) oder eckigen Klammern (siehe Beispiel \ref{example:1} oben) können diese mithilfe der Pakete \texttt{amsmath,amssymb} und diversen Umgebungen einfach in \TeX\ gesetzt werden. Sie müssen
+\enquote{strenggenommen keine Strukturbäume mehr darstellen}\footnote{Günter Grewendorf: Minimalistische Syntax. A. Francke: Tübingen und Basel 2002, S.~126}. Mit Klammerschreibungen in geschweiften (s. \ref{forestexample:12}) oder eckigen Klammern (siehe Beispiel \ref{forestexample:1} oben) können diese mithilfe der Pakete \texttt{amsmath,amssymb} und diversen Umgebungen einfach in \TeX\ gesetzt werden. Sie müssen
 in eine mathematische Umgebung eingefügt werden, dies sind u.\,a.:
 
 \begin{lstlisting}
@@ -302,7 +284,7 @@ oder
 \[                \] für längere Formalisierungen
 \end{lstlisting}
 
-\begin{lfgwprint}{label={example:14}}
+\begin{lfgwprint}{label={forestexample:14}}
 1. Schritt Verkettung von \emph{trinken} und \emph{Milch}:\\
 $ K= \{trinkt,\{Milch,trikt\}\}\ $ \\
 2. Schritt Verkettung von K und Pauline:\\
@@ -317,9 +299,9 @@ $ \{trinkt, \{Pauline, \{trinkt, \{trinkt, \{Milch, trinkt\}\}\}\}\} $
 \end{lstlisting}
 
 Beim Setzen im mathematischen Modus werden alle Buchstaben kursiv gestellt und Leerzeichen
-entfernt. Mit den Befehlen \verb|text{  }| und \verb|\enspace| kann man das abändern (s. \ref{example:15}).
+entfernt. Mit den Befehlen \verb|text{  }| und \verb|\enspace| kann man das abändern (s. \ref{forestexample:15}).
 
-\begin{lfgwexample}{label={example:15}}
+\begin{lfgwexample}{label={forestexample:15}}
 Mary wants to know\\
 i) $ [[_{wh} in which house]John lived t] $ \\
 ii) $ [[_\text{wh} \enspace \text{in} \enspace \text{which} \enspace \text{house}]\enspace \text{John} \enspace \text{lived} \enspace \text{t}] $

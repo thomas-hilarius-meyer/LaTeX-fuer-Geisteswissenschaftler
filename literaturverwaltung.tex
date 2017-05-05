@@ -42,7 +42,7 @@ Eine Bibliografie-Datenbank ist zunächst nichts anderes als eine \meta{.tex}-Da
 die allerdings die Endung \meta{.bib} hat und ebenso mit jedem Texteditor bearbeitet werden kann.
 
 \subsection{Grundlegender Aufbau}
-Am Beispiel von \cite{voss:einfuehrung} sei der Aufbau eines Einrags in der Bibliographiedatei erklärt (\cref{{lis:voss:einfuehrung}}):
+Am Beispiel von \cite{voss:einfuehrung} sei der Aufbau eines Eintrags in der Bibliographiedatei erklärt (\cref{{lis:voss:einfuehrung}}):
 
 \begin{lfgwcode}{label={lis:voss:einfuehrung}}
 @Book{voss:einfuehrung,
@@ -108,12 +108,12 @@ Während \meta{Präfix}  eine kurze Anmerkung \emph{vor} die Zitation (z.\,B. \e
 wird  \meta{Suffix} für gewöhnlich für Seitenzahlen verwendet.
 Ist nur ein optionales Argument definiert, 
 dann wird es als \oarg{Suffix} behandelt.
-\begin{lfgwcode}{label={lis:XXX}}
+\begin{lfgwcode}{label={lis:code:cite}}
 \cite*@\oarg{Suffix}\marg{Schlüssel}@*
 \end{lfgwcode}
 Der \meta{Schlüssel} korrespondiert mit dem Schlüssel der Bibliografie-Datei.
 
-\begin{lfgwexample}{label={lis:xxx}}
+\begin{lfgwexample}{label={lis:example:cite}}
 %\enquote{Beware of bugs in the above code; I have only proved it correct, not tried it.} Donald Knuth
 Der öffentliche Raum ist Teil einer Stadt \cite{Osland2016}.
 \end{lfgwexample}
@@ -121,19 +121,19 @@ Der öffentliche Raum ist Teil einer Stadt \cite{Osland2016}.
 \minisec{\cs{cites}}
 Möchte man hingegen mehrere Autoren oder Werke zitieren, 
 gibt es zwei Möglichkeiten:
-Entweder kann man dies durch die Kommagetrennte Reihung der \marg{Schlüssel} machen,
+Entweder kann man dies durch die Komma-getrennte Reihung der \marg{Schlüssel} machen,
 was jedoch den Nachteil hat, dass man für die einzelnen \marg{Schlüssel} keine \oarg{Präfixe} oder \oarg{Suffixe} definieren kann.
 
 Die andere Möglichkeit sieht vor, den Befehl \cs{cites} zu verwenden, 
 bei dem für jeden Autor\,/\,jedes Werk sowohl \oarg{Präfixe} als \oarg{Suffixe} definiert werden kann.
 Zudem lässt sich für die gesamte Reihung ein \oarg{Präfix} und ein \oarg{Suffix} festlegen:
-\begin{lfgwcode}{label={lis:XXX}}
+\begin{lfgwcode}{label={lis:code:cites}}
 \cites(Prä-Präfix)(Suf-Suffix)
   *@\oarg{Präfix}\oarg{Suffix}\marg{Schlüssel}@*%
   *@\oarg{Präfix}\oarg{Suffix}\marg{Schlüssel}@*%
   *@\oarg{Präfix}\oarg{Suffix}\marg{Schlüssel}\ldots@*
 \end{lfgwcode}
-\begin{lfgwexample}{label={lis:xxx}}
+\begin{lfgwexample}{label={lis:example:cites}}
 Der öffentliche Raum ist Teil einer Stadt \cites(vgl.)(){Osland2016}{Evangelidis2014}.
 \end{lfgwexample}
  
@@ -141,24 +141,24 @@ Der öffentliche Raum ist Teil einer Stadt \cites(vgl.)(){Osland2016}{Evangelidi
 Manchmal soll die Zitation in Klammern stehen.
 Um dies nicht händisch in runde Klammern setzen zu müssen (und ggf. die \enquote{Klammerschachtelregel} zu verletzen),
 kann dafür der Befehl  \cs{parencite} verwendet werden:
-\begin{lfgwcode}{label={lis:XXX}}
+\begin{lfgwcode}{label={lis:code:parencite}}
 \parencite*@\oarg{Suffix}\marg{Schlüssel}@*
 \end{lfgwcode} 
 Mit diesem Zitationsbefehl wird die korrekte Ordnung von korrespondierenden Klammern berücksichtigt.
-\begin{lfgwexample}{label={lis:xxx}}
+\begin{lfgwexample}{label={lis:example:parencite}}
 \enquote{Der öffentliche Raum ist Teil einer Stadt.} \parencite{Osland2016}
 \end{lfgwexample}
 
 \minisec{\cs{parencites}}
 Ebenso lassen sich auch mehrere Zitationen mit Klammern umschließen.
 Dies wird mittels \cs{parencites} umgesetzt:
-\begin{lfgwcode}{label={lis:XXX}}
+\begin{lfgwcode}{label={lis:code:parencites}}
 \parencites(Prä-Präfix)(Suf-Suffix)%
 *@\oarg{Präfix}\oarg{Suffix}\marg{Schlüssel}@*%
 *@\oarg{Präfix}\oarg{Suffix}\marg{Schlüssel}@*%
 *@\oarg{Präfix}\oarg{Suffix}\marg{Schlüssel}\ldots@*
 \end{lfgwcode}
-\begin{lfgwexample}{label={lis:xxx}}
+\begin{lfgwexample}{label={lis:example:parencites}}
 Der öffentliche Raum ist Teil einer Stadt.\parencites(s.)(){Osland2016}%
 [vgl.][]{Evangelidis2014}.
 \end{lfgwexample}
@@ -168,23 +168,23 @@ Neben den bereits angeführten \cs{cite}-Befehlen gibt es eine dritte Möglichke
 \cs{textcite} ist vor allem für die Fälle zu nutzen, 
 bei denen der Autor\,/\,das Werk im Fließtext genannt sein soll, 
 aber die weiteren Angaben (Publikationsjahr, Seitenangabe) nur in runden Klammern dahinter.
-\begin{lfgwcode}{label={lis:XXX}}
+\begin{lfgwcode}{label={lis:code:textcite}}
 \textcite*@\oarg{Suffix}\marg{Schlüssel}@*
 \end{lfgwcode} 
 
-\begin{lfgwexample}{label={lis:xxx}}
+\begin{lfgwexample}{label={lis:example:textcite}}
 Der öffentliche Raum ist Teil einer Stadt, sagt \textcite{Osland2016}.
 \end{lfgwexample}
 
 \minisec{\cs{textcites}}
-Wiederum können mehrere Autoren/ Werke mittels  \cs{textcites} gelistet werden:
-\begin{lfgwcode}{label={lis:XXX}}
+Wiederum können mehrere Autoren\,/\,Werke mittels \cs{textcites} gelistet werden:
+\begin{lfgwcode}{label={lis:code:textcites}}
 \textcites(Prä-Präfix)(Suf-Suffix)%
   *@\oarg{Präfix}\oarg{Suffix}\marg{Schlüssel}@*%
   *@\oarg{Präfix}\oarg{Suffix}\marg{Schlüssel}@*%
   *@\oarg{Präfix}\oarg{Suffix}\marg{Schlüssel}\ldots@*
 \end{lfgwcode}
-\begin{lfgwexample}{label={lis:xxx}}
+\begin{lfgwexample}{label={lis:example:textcites}}
 Der öffentliche Raum ist Teil einer Stadt, sagen \textcites{Osland2016}%
 [vgl.][]{Evangelidis2014}.
 \end{lfgwexample}
@@ -194,10 +194,10 @@ Der öffentliche Raum ist Teil einer Stadt, sagen \textcites{Osland2016}%
 Darüberhinaus gibt es weitere \cs{cite}-Befehle, 
 die die Einbettung der Zitation beeinflussen. 
 Zunächst kann man mit \cs{footcite} die Zitation direkt als eigene Fußnote setzen:
- \begin{lfgwcode}{label={lis:XXX}}
+ \begin{lfgwcode}{label={lis:code:footcite}}
 \footcite*@\oarg{Präfix}\oarg{Suffix}\marg{Schlüssel}@*
 \end{lfgwcode}
-\begin{lfgwexample}{label={lis:xxx}}
+\begin{lfgwexample}{label={lis:example:footcite}}
 \enquote{Der öffentliche Raum ist Teil einer Stadt.}\footcite{Osland2016}
 \end{lfgwexample}
 \cs{footcite} ist das Äquivalent zu \lstinline/\footnote{\cite{Osland2016}.}/
@@ -205,7 +205,7 @@ was jedoch manche (überflüssige) Tipparbeit spart.
 
 \minisec{\cs{footcites} }
 Für mehrere Autoren\,/\,Werke in einer Fußnote gibt es auch \cs{footcites}:
-\begin{lfgwexample}{label={lis:xxx}}
+\begin{lfgwexample}{label={lis:example:footcites}}
 \enquote{Der öffentliche Raum ist Teil einer Stadt.}\footcites(s.)(){Osland2016}%
 [vgl.][]{Evangelidis2014}
 \end{lfgwexample}
@@ -220,26 +220,26 @@ bietet der Befehl \cs{smartcite}.
 Wird die Zitation allerdings in einer Fußnote aufgerufen,
 erfolgt die Ausgabe nach dem Schema von \cs{cite}. 
  is a clever 
-\begin{lfgwcode}{label={lis:XXX}}
+\begin{lfgwcode}{label={lis:code:smartcite}}
 \smartcite*@\oarg{Suffix}\marg{Schlüssel}%@*
 \end{lfgwcode} 
 
-\begin{lfgwexample}{label={lis:xxx}}
+\begin{lfgwexample}{label={lis:example:smartcite}}
 Der öffentliche Raum ist Teil einer Stadt.\smartcite{Osland2016} 
 Eventuell aber zugangsbeschränkt.\footnote{\smartcite[vgl.][]{Evangelidis2014}.}
 \end{lfgwexample}
 
 
 \minisec{\cs{smartcites}}
-Wiederumg gibt es analog auch den Befehl \cs{textcites}, 
+Wiederum gibt es analog auch den Befehl \cs{textcites}, 
 um mehrere Autoren\,/\,Werke clever zu zitieren:
-\begin{lfgwcode}{label={lis:XXX}}
+\begin{lfgwcode}{label={lis:code:smartcites}}
 \smartcites(Prä-Präfix)(Suf-Suffix)%
   *@\oarg{Präfix}\oarg{Suffix}\marg{Schlüssel}@*%
   *@\oarg{Präfix}\oarg{Suffix}\marg{Schlüssel}@*%
   *@\oarg{Präfix}\oarg{Suffix}\marg{Schlüssel}\ldots@*
 \end{lfgwcode}
-\begin{lfgwexample}{label={lis:xxx}}
+\begin{lfgwexample}{label={lis:example:smartcites}}
 Der öffentliche Raum ist Teil einer Stadt.\smartcites{Osland2016}{Evangelidis2014} 
 Eventuell aber zugangsbeschränkt.\footnote{\smartcites{Osland2016}%
 [cf.][]{Evangelidis2014}.}
@@ -250,28 +250,28 @@ Mit  \cs{autocite} ist eine individuelle und flexible Zitationsangabe möglich,
 indem man in der Präambel steuert,
 wie \cs{autocite} ausgegeben werden soll.
 Für gewöhnlich stehen folgende Optionen zur Verfügung:
-\begin{labeling}{XXXXX}
+\begin{labeling}{footnote}
 	\item[plain] Ausgabe wie \cs{cite}
 	\item[inline]Ausgabe wie \cs{parencite}
 	\item[footnote]Ausgabe wie \cs{footcite}
 \end{labeling}
-\begin{lfgwcode}{label={lis:XXX}}
+\begin{lfgwcode}{label={lis:code:autocite}}
 \autocite*@\oarg{Präfix}\oarg{Suffix}\marg{Schlüssel}@*
 \end{lfgwcode} 
 
-\begin{lfgwexample}{label={lis:xxx}}
+\begin{lfgwexample}{label={lis:example:autocite}}
 Der öffentliche Raum ist Teil einer Stadt \autocite{Osland2016} 
 \end{lfgwexample}
 
 \minisec{\cs{fullcite} \cs{footfullcite}}
 Mit den Befehlen \cs{fullcite} und \cs{footfullcite} werden zwei Möglichkeiten gegeben,
 mit denen man den kompletten Bibliographie-Eintrag in den Fließtext bzw. in die Fußnote schreiben kann.
-\begin{lfgwcode}{label={lis:XXX}}
+\begin{lfgwcode}{label={lis:code:footfullcite}}
 \fullcite*@\oarg{Präfix}\oarg{Suffix}\marg{Schlüssel}@*
 \footfullcite*@\oarg{Präfix}\oarg{Suffix}\marg{Schlüssel}@*
 \end{lfgwcode} 
 
-\begin{lfgwexample}{label={lis:xxx}}
+\begin{lfgwexample}{label={lis:example:footfullcite}}
 Der öffentliche Raum ist Teil einer Stadt.\footfullcite{Osland2016}
 Das steht auch geschrieben bei \fullcite{Evangelidis2014}
 \end{lfgwexample}
@@ -282,15 +282,15 @@ Das steht auch geschrieben bei \fullcite{Evangelidis2014}
 Neben den \enquote{geläufigen} \cs{cite}-Befehlen kann man auch nur den oder die Autoren zitieren 
 und ebenso nur den Werktitel.
 Dies funktioniert für den Fließtext und für Fußnoten gleichermaßen:
-\begin{lfgwcode}{label={lis:XXX}}
+\begin{lfgwcode}{label={lis:code:citeauthor}}
 \citeauthor *@ \oarg{Präfix}\oarg{Suffix}\marg{Schlüssel} @*
 \end{lfgwcode} 
   and for the works 
-\begin{lfgwcode}{label={lis:XXX}}
+\begin{lfgwcode}{label={lis:code:citetitle}}
 \citetitle *@\oarg{Präfix}\oarg{Suffix}\marg{Schlüssel} @*
 \end{lfgwcode} 
 
-\begin{lfgwexample}{label={lis:xxx}}
+\begin{lfgwexample}{label={lis:example:citetitle}}
 Der öffentliche Raum ist Teil einer Stadt sagt \citeauthor{Osland2016} in \citetitle{Osland2016}.
 \footnote{Der öffentliche Raum ist Teil einer Stadt sagt \citeauthor{Osland2016} in \citetitle{Osland2016}.}
 \end{lfgwexample}
