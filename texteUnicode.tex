@@ -21,6 +21,7 @@ bzw. für antike Texte auch hieraus (\url{http://www.perseus.tufts.edu/hopper/co
 
 \noindent Es war einmal \dots
 
+%MS: Man sollte hier seriös bleiben. ASCII = American Standard Code for Information Interchange
 Als \TeX{} in den 70er Jahren entwickelt wurde, war die Kodierung nach 
 ASCII\footnote{Altertümlicher Standard Code Inzwischen Irrelevant} \emph{eine}
 gängige Form Texte im Computer einzugeben. 
@@ -28,9 +29,9 @@ Die ersten 32 Zeichen waren Steuerzeichen, so blieben weniger als 100 druckbare 
 Da dieser Standard aus den USA kam, gab es keine Umlaute oder sonstige europäische
 Sonderzeichen.
 
-Mit dem Erscheinen von \TeX{} 3.0 konnte \TeX{} auch 8-bit Kodierungen verarbeiten.
+Mit dem Erscheinen von \TeX{} 3.0 konnte \TeX{} auch 8-Bit-Zeichenkodierungen verarbeiten.
 Ja, Kodierungen in der Mehrzahl, inzwischen hatten alle Computerhersteller den Zeichensatz
-auf 8 bit erweitert, jeder nach seiner Art. Außerdem wurden in Mitteleuropa andere Buchstaben
+auf 8~Bit erweitert, jeder nach seiner Art. Außerdem wurden in Mitteleuropa andere Buchstaben
 benötigt als in Westeuropa.
 
 \begin{labeling}{Mitteleuropa}
@@ -56,15 +57,15 @@ Noch heute ist es bei einigen Betriebssystemen schwierig einige dieser
 Bereits Anfang der 90er wurde eine Universelle Kodierung definiert,
 die alle wichtigen Zeichen abdecken sollte.
 
-Unicode wurde als 16-bit Kodierung entworfen, aber sehr schnell hat man festgestellt,
-das 65tausend Zeichen nicht ausreichen und so wurde der Standard 1996
+Unicode wurde als 16-Bit-Kodierung entworfen, aber sehr schnell hat man festgestellt,
+das 65000 Zeichen nicht ausreichen und so wurde der Standard 1996
 erweitert und umfasst jetzt 17 Ebenen (Planes) mit jeweils 65tausend
 Zeichen. Somit ist es möglich auch Zeichen älterer Schriftsysteme
 (Hieroglyphen, mittelalterliche Texte) und Fantasieschriften (Klingonisch,
 Tengwar) in Unicode darzustellen.
 
 Mit UTF-8 wurde eine platzsparende Kodierung entwickelt, die bei lateinischen Buchstaben
-nur minimal mehr Platz benötigt als die alten 8-bit Systeme.
+nur minimal mehr Platz benötigt als die alten 8-Bit-Systeme.
 
 UFT-8 erfordert nicht zwingend ein unicodefähiges \TeX{}, solange man sich auf
 lateinische Buchstaben beschränkt, funktioniert es auch mit \pdfTeX{}.
@@ -75,7 +76,6 @@ Zeichensatz lassen sich Zeichen wie {\FSEfont asdf άβγδἔ БГДЙ अऐ�
 Das Beispiel wurde daher in GNU FreeSerif \url{http://savannah.gnu.org/projects/freefont/} gesetzt.}
 
 \section{Babel und Polyglossia}
-
 Es gibt zwei Pakete, die sich um sprachspezifische Besonderheiten kümmern.
 Außerdem gibt es noch den \paket{german.sty}, der spezielle Anpassungen für deutsche Texte
 zur Verfügung stellt. Er sollte für neue Texte nicht mehr verwendet werden.
@@ -130,16 +130,16 @@ auch sprachabhängige Texte für das Datum (\cs{today}) sowie Überschriften fü
  Ganz schön spannend.
 \end{lfgwprint}
 
-Im Beispiel \ref{babel-preamble} wird \paket{Babel} mit zwei Sprachen benutzt.
+Im Beispiel \ref{babel-preamble} wird \paket{babel} mit zwei Sprachen benutzt.
 Die Hauptsprache wird mit der Option \texttt{main=} festgelegt.
 Ohne diese Option ist die \emph{letzte} angegebene Sprache die Hauptsprache.
 Im französischen Text wird ein kleiner Abstand vor dem \enquote{!} eingefügt.
-Das passiert dank \paket{Babel} automatisch.
+Das passiert dank \paket{babel} automatisch.
 
 Fremdwörter werden am Zeilenende nach den Regeln der Fremdsprache getrennt,
 wenn man sie entsprechend markiert.
 
-Lange Zeit sah es so aus, als würde Babel nicht mehr weiterentwickelt.
+Lange Zeit sah es so aus, als würde \paket{babel} nicht mehr weiterentwickelt.
 
 In dieser Zeit entstand \paket{polyglossia} (Πολυγλωσσια), um die unicodefähigen \TeX{}-Versionen zu unterstützen.
 Polyglossia bietet zusätzlich Unterstützung für Arabisch, Bengalisch, Farsi (Persisch), Hindi, Kannada, Khmer,
@@ -329,7 +329,7 @@ Vgl.\ Abschnitt \ref{utf8codes} auf Seite \pageref{utf8codes}.
 \index{Griechisch}
 
 Es gibt (mindestens...) drei verschiedene Möglichkeiten, griechische Textpassagen einzubinden;
-je nach Aufgabenberich sind diese verschieden gut geeignet:
+je nach Aufgabenbereich sind diese verschieden gut geeignet:
 
 
 \minisec{Möglichkeit I: Einzelbuchstaben}
@@ -446,7 +446,7 @@ wird so eingegeben:
 \end{lstlisting}
 
 Mit etwas Eingewöhnung arbeitet man mit diesem System \emph{wesentlich} schneller und
-angenehmer, als wenn man etwa die Unicode-Zeichen mit Hilfe eines grafischen Auswahlwerkzeuges
+angenehmer, als wenn man etwa die Unicode-Zeichen mit Hilfe eines grafischen Auswahlwerkzeugs
 einzeln auswählt...
 
 Die Bearbeitung mit \LaTeX{} ergibt:
@@ -496,7 +496,7 @@ Ist \paket{arabtex} noch aktuell?
 \index{Runen}
 
 Das Paket \paket{runic} von Peter Wilson stellt die Runen des sog.\ Futhark-Alphabets bereit.
-Nach \lstinline/\usepackage{runic}/ gibt es den Befehl \lstinline/\textfut{}/, der
+Nach \cs{usepackage\marg*{runic}} gibt es den Befehl \cs{textfut}, der
 die Runen ausgibt. Dies ist die Transkription:
 
 \begin{center}
