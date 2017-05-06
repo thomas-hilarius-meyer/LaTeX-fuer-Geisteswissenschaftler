@@ -1,33 +1,13 @@
 % !TEX root = lfgw.tex
-%% lfgw: 2.19 Lyrik-Satz
-
-
-%\input{vorspann}
-
-
-%\usepackage{verse}
-%\newcommand\He{\textbackslash\xspace}
-%\newcommand\Se{$\cup$\xspace} 
-%\newcommand*{\Zr}{\unskip\textunderscore}
-%\newcommand\daktylus{$\textbackslash\cup\cup$\xspace} 
-%\newcommand\anapaest{$\cup\cup\textbackslash$\xspace}
-%\makeatother
-
-%\begin{document}
-%\author{Christine Römer}
-
-%\chapter{Lyrik-Satz}
-
 \section{Lyrik-Satz}
 \index{Gedicht} \index{Lyrik}
 \autor{Christine Römer}
 
 \subsection{Einführung}
-
 Lyrische Texte wurden früher nach strengen Regeln gedichtet. Deshalb ist für 
 die Literaturwissenschaft "`für
 die Lyrikinterpretation [\ldots] die Kenntnis der Metrik, der Reimformen, der
-wichtigsten Strophen- und Gedichtformen"' grundlegend. (\cite[S.\,8]{Neuhaus})
+wichtigsten Strophen- und Gedichtformen"' grundlegend. (\cite[8]{Neuhaus})
 Heutige Lyrik lehnt jedoch oftmals Formregeln ab, dass es sich um Lyrik handeln
 soll, wird nur noch durch die Einteilung in Verse angezeigt. Diese Entwicklung ist
 jedoch noch nicht in das allgemeine Wissen eingegangen. In einer aktuellen Diskussion 
@@ -37,7 +17,7 @@ Limerick \cite{Svoboda} aus einer Satirezeitschrift nimmt dies auch auf die Schi
 \settowidth{\versewidth}{und das hat sich nicht mal gereimt.}
 \begin{verse}[\versewidth]
 Es gab mal zwei Staaten in Nahost\\
-die war`n über`nander erbost.\\
+die war'n über'nander erbost.\\
 \vin Da kam Günter Grass\\
 \vin \vin und dichtete was,\\
 und das hat sich nicht mal gereimt.\\
@@ -49,7 +29,7 @@ formalen Merkmale von Gedichten anzeigen.
 
 \subsection{Gedichte setzen}
 
-In \cite[S.\,94]{lesetypografie2010} wird das Setzen von Gedichten als etwas Schwieriges
+In \cite[94]{lesetypografie2010} wird das Setzen von Gedichten als etwas Schwieriges
 charakterisiert, dass "`vom Typografen äußerstes Feingefühl"` erfordert. "`Schriftcharakter, Schriftgrößen, Zeilenabstände, Laufweite und Wortzwischenraum [\ldots] müssen aufs Sorgfältigste der Sprache angepasst werden."'
 
 Innerhalb der KOMA-Textklassen gibt es die Umgebung \verb|\begin{verse} ... \end{verse}|.
@@ -70,7 +50,7 @@ verse with \LaTeX "') verwiesen.
 In dieser Umgebung werden die Verse als eine Art von Liste eingerückt und zentriert
 ausgegeben und Strophen mit einer Leerzeile beendet. Für die
 Strukturierung eines Gedichtes gibt es grundlegende Befehle, einige werden
-nachfolgend aufgeführt, weitere können in \cite[S.\,5\,f.]{wilson:lyrik} nachgelesen
+nachfolgend aufgeführt, weitere können in \cite[5\psq]{wilson:lyrik} nachgelesen
 werden:
 
 ~\\
@@ -147,7 +127,7 @@ passend weitergeführt. \cite{wilson:memoir}
 \attrib{Rainer Maria Rilke}
 \end{lstlisting}
 
-Dichter benutzen öfters auch den Einzug von Versen für lyrische Ef\/fekte.
+Dichter benutzen öfters auch den Einzug von Versen für lyrische Ef"|fekte.
 Dies ist beispielsweise in dem Gedicht "`Zwei Städte"' von Jewgeni Jewtuschenko
 (deutscher Nachdichter Volker Braun) der Fall, wo sich das beschriebene 
 Hin und Her in der Verstypografie der ersten Strophe reflektiert. 
@@ -224,9 +204,9 @@ Ich bin ein Zug,\\*
 der fährt jahraus -- jahrein
 \end{lstlisting}
 
-Mit den neuen Makros \verb|\brokenline| und \verb|\brokenlinethree|
-von H. Oberdiek, die \verb|\vinphantom| 
-mit \verb|\providecommand| in \texttt{verse} umdefinieren, kann die doppelte
+Mit den neuen Makros \cs{brokenline} und \cs{brokenlinethree}
+von Heiko Oberdiek, die \cs{vinphantom}
+mit \cs{providecommand} in \texttt{verse} umdefinieren, kann die doppelte
 Tipparbeit eingespart werden, die \verb|\vinphantom| verlangt. Diese Makros 
 funktionieren auch in \texttt{memoir}.
 Mit ihnen kann alternativ auch \verb|\vinphantom| ignoriert werden und gleich 
@@ -285,7 +265,7 @@ kommen beide neuen Makros zum Einsatz.
 
 Mit der Umgebung \texttt{altverse} können individuell gestaltete Strophen gesetzt werden; sie hat den Effekt, dass z.\,B. bei den paarweise 
 strukturierten
-Strophen die 2., 4. etc. Zeile um die Länge \verb|\vgap| einrückt.
+Strophen die 2., 4. etc. Zeile um die Länge \cs{vgap} einrückt.
 Als Alternative wird für die \texttt{verse}-Umgebung der Einschluss einzelner
 Verse in die \texttt{patverse}-Umgebung angeboten.
 
@@ -348,7 +328,7 @@ unterscheidet traditionell nach den Metren verschiedene Rhythmen in den Wortsilb
 den Jambus (unbetont, betont) et cetera. Um mehr Übersichtlichkeit bei der Vermittlung und
 Bestimmung des Versmaßes zu bekommen wird die Abfolge von Hebungen und Senkungen auch
 graphisch dargestellt. Das übliche Modell nimmt dafür den Backslash (\verb|\|) für eine 
-Hebung und "`ein kleines breites U"' ($\cup$) für die Senkung \cite[S.\,17]{Neuhaus}.
+Hebung und "`ein kleines breites U"' ($\cup$) für die Senkung \cite[17]{Neuhaus}.
 
 Beispielsweise wurde der Daktylus, der schon in der griechischen Ilias Verwendung fand,
 während der Klassikepoche in der deutschen Verslehre als Abfolge einer 
