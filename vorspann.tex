@@ -16,6 +16,8 @@
 \usepackage{yfonts}
 \usepackage{textgreek}
 \usepackage{amsmath,amssymb}
+\usepackage{textcomp}
+\usepackage{unicode-math}
 \usepackage{fontspec}
 \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
 \usepackage{cjhebrew}[2017/03/06]
@@ -24,13 +26,21 @@
 #1}
 
 \usepackage[]{babel}
-\usepackage{libertine}
+%\usepackage{libertine}
 %\RequirePackage{libertinegc}
-\usepackage[supstfm=libertinesups,%
-   supscaled=1.2,%
-   raised=-.13em]% match XHeight of libertine
-   {superiors}
+%\usepackage[supstfm=libertinesups,%
+%   supscaled=1.2,%
+%   raised=-.13em]% match XHeight of libertine
+%   {superiors}
+\setmainfont{Libertinus Serif}
+\setsansfont{Libertinus Sans}
 \setmonofont[Scale=MatchLowercase,FakeStretch=0.85]{DejaVu Sans}%das wird für Griechisch in Codebeispielen gebraucht
+\setmathfont{Libertinus Math}
+\makeatletter
+\newcommand*\sustyle{\addfontfeatures{VerticalPosition=Superior}}
+\DeclareTextFontCommand{\textsu}{\sustyle}
+\def\@makefnmark{\hbox{\sustyle\@thefnmark}}
+\makeatother
 \usepackage[%
    final,%
    tracking=smallcaps,%
