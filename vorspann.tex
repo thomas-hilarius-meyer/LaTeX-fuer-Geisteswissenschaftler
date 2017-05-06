@@ -10,28 +10,25 @@
    fontsize=11pt,%
    paper=17cm:24cm,%
    DIV=13,%
+   listof=totoc,%
+   bibliography=totoc,%
    pagesize%
    ]{scrbook}
 
 \usepackage{yfonts}
 \usepackage{textgreek}
+\usepackage{cjhebrew}[2017/03/06]
 \usepackage{amsmath,amssymb}
-\usepackage{textcomp}
+%%%\usepackage{textcomp}
 \usepackage{unicode-math}
 \usepackage{fontspec}
 \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
-\usepackage{cjhebrew}[2017/03/06]
 %\newfontfamily\GFSDidot{GFS Didot}
 \newcommand\gkk[1]{%{\GFSDidot
 #1}
 
 \usepackage[]{babel}
-%\usepackage{libertine}
-%\RequirePackage{libertinegc}
-%\usepackage[supstfm=libertinesups,%
-%   supscaled=1.2,%
-%   raised=-.13em]% match XHeight of libertine
-%   {superiors}
+\usepackage[ngerman,noftligs]{selnolig}
 %%%\setmainfont{Libertinus Serif} %reicht auch, unten evtl. besser wegen SB
 \setmainfont{libertinusserif}[
    Extension = {.otf},
@@ -47,10 +44,12 @@
 \DeclareTextFontCommand{\textsu}{\sustyle}
 \def\@makefnmark{\hbox{\sustyle\@thefnmark}}
 \makeatother
+\DeclareTextCommandDefault{\textborn}{{\char"002A}}
+\DeclareTextCommandDefault{\textdied}{{\char"2020}}
 \usepackage[%
    final,%
    tracking=smallcaps,%
-   %%%expansion=alltext,%
+   expansion=alltext,%
    protrusion=true%
    ]{microtype}%
 \SetTracking{encoding=*,shape=sc}{50}%
@@ -96,7 +95,7 @@
   %%%classoffset=0,
   morekeywords={%
   %a
-  addplot,Afootnote,alteSeite,autocite,autopar,
+  addbibresource,addplot,Afootnote,alteSeite,autocite,autopar,
   %b
   beginnumbering,Bfootnote,biblerefformat,biblerefmap,biblerefstyle,bonuspointpoints,
   %c
@@ -127,9 +126,9 @@
   %r
   Rcolwidth,
   %s
-  selectlanguage,setlength,setmainfont,setmonofont,setmsdatalabel,setromanfont,setsansfont,smartcite,smartcites,solutiontitle,setbeamerfont,setbeamercovered,subsection,subsection*,subsubsection,
+  selectlanguage,setlength,setmainfont,setmonofont,setmsdatalabel,setromanfont,setsansfont,smartcite,smartcites,solutiontitle,setbeamerfont,setbeamercovered,subsection,subsection*,subsubsection,subtitle,
   %t
-  text,textcite,textcites,textsubscript,thealteSeite,tableofcontents,
+  text,textalpha,textAlpha,textbeta,textBeta,textborn,textcite,textcites,textdelta,textDelta,textdied,texteuro,textgamma,textGamma,textmarriage,textsubscript,thealteSeite,tableofcontents,
   %u
   usetheme,usecolortheme,usebackgroundtemplate,useforestlibrary,usepackage,usetikzlibrary
   %v
@@ -218,6 +217,7 @@ lfgwstyle/.style={%
 \makeatletter
 \let\pgfmathModX=\pgfmathMod@
 \usepackage{pgfplots}%
+\pgfplotsset{compat=1.14}
 \let\pgfmathMod@=\pgfmathModX
 \makeatother
 %http://tex.stackexchange.com/questions/328972/presence-of-pgfplots-package-breaks-forest-environment-%w-folder-option-en/329015
@@ -230,7 +230,7 @@ lfgwstyle/.style={%
 \usetikzlibrary{pgfplots.dateplot}
 \usetikzlibrary{mindmap}
 
-\deffootnote[1.5em]{1.5em}{1.5em}{\makebox[1.5em][l]{\textsuperscript{\thefootnotemark\ }}}
+\deffootnote[1.5em]{1.5em}{1.5em}{\makebox[1.5em][l]{{\fontseries{sb}\selectfont\thefootnotemark\ }}}
 
 \usepackage{enumitem}			% for simple list modifications
 \setlist{leftmargin=*,before=\setlength{\rightmargin}{\leftmargin}}
@@ -289,15 +289,15 @@ lfgwstyle/.style={%
 	backend=biber
 	]{biblatex}
 \addbibresource{lfgw-bibliographie.bib}
-\defbibheading{bibliography}{\chapter{#1}} %%%Besser bei \addchap bleiben
+%%%\defbibheading{bibliography}{\addchap{#1}} %%%Besser bei \addchap bleiben
 
 \usepackage{fancyvrb}
 \makeatletter
 \usepackage[%
-series={A,B,C},%nur die Apparate A B C aktivieren
-noend,%keine Endotenapparate
-noeledsec%keine eledsections et al.
-%noledgroup%keine ledgroups -- das muss hier auskommentiert werden, damit die minipages funktionieren!
+   series={A,B,C},%nur die Apparate A B C aktivieren
+   noend,%keine Endotenapparate
+   noeledsec%keine eledsections et al.
+   %noledgroup%keine ledgroups -- das muss hier auskommentiert werden, damit die minipages funktionieren!
 ]{reledmac}%
 \@ifpackagelater{reledmac}{2017/03/20}{%
    % Package is new enough
@@ -305,16 +305,8 @@ noeledsec%keine eledsections et al.
 \PackageError{reledmac}{Es wird reledmac >= 2.18.1 benötigt.}%
 }
 \makeatother
-
 \usepackage{reledpar}
-%
-% Definition in vorspann.tex damit es in 
-% paralleleTexte und kritischeApparate verfügbar ist.
-%
-% Solche Abkürzungen sind aber kein guter Stil und führen
-% leicht zu Problemen, wie man im vorherigen Commit sehen kann.
-%
-\newcommand\reledmac{\mbox{\Package{reledmac}}\xspace}
+
 \usepackage{varioref}
 \usepackage{hyperxmp}
 \usepackage{hyperref}
@@ -328,24 +320,25 @@ noeledsec%keine eledsections et al.
 	pdfdisplaydoctitle=true,
 	pdfdate={\the\year-\the\month-\the\day}
 	pdflang={de},
-    pdfencoding=unicode,   % Sorgt für korrekte Umlaute in den pdf-Lesezeichen - thm
+   pdfencoding=unicode,   % Sorgt für korrekte Umlaute in den pdf-Lesezeichen - thm
 	pdfcaptionwriter={varia},
 	pdfkeywords={{LaTeX}, {Geisteswissenschaften}},
 	pdfproducer={LuaLaTeX},
 	pdflicenseurl={http://creativecommons.org/licenses/by-nc-nd/4.0/},
 	plainpages=false,			% 	- 
-  colorlinks   = true, %Colours links instead of ugly boxes
-  urlcolor     =  blue!50!black, %Colour for external hyperlinks
-  linkcolor    = blue, %Colour of internal links
-  citecolor   = green!50!black, %Colour of citations
-  linktoc=page,
+   colorlinks   = true, %Colours links instead of ugly boxes
+   urlcolor     =  blue!50!black, %Colour for external hyperlinks
+   linkcolor    = blue, %Colour of internal links
+   citecolor   = green!50!black, %Colour of citations
+   linktoc=page,
   	pdfborder={0 0 0},			% 	-
 	breaklinks=true,			% 	- allow line break inside links
  %   bookmarks=true,
 	bookmarksnumbered=true,		%
 	bookmarksopenlevel=2,
 	bookmarksopen=true,		%
-    bookmarksdepth=3,
+   bookmarksdepth=3,
+   pdfdisplaydoctitle,
 	final=true	% = true, nur bei web-Dokument!! (wichtig!!)
 }
 \usepackage{bookmark}%advanced bookmarks
@@ -366,6 +359,8 @@ noeledsec%keine eledsections et al.
 
 \renewcommand*{\glqq}{\textquotedblleft}
 \renewcommand*{\grqq}{\quotedblbase}
+
+\providecommand*{\reledmac}{\mbox{\Package{reledmac}}\xspace}
 
 \providecommand*{\LaTeXTeX}{\hologo{(La)TeX}}
 \providecommand*{\AmSLaTeX}{\hologo{AmSLaTeX}}
