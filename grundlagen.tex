@@ -2,8 +2,8 @@
 \chapter{Grundsätzliches}
 
 Der Einsteiger in die Welt von \TeX{} und \LaTeX{} wird mit einer Vielzahl von Programmnamen und 
-Spezialbegriffen, die zunächst einmal Verwirrung stiftet. 
-Wie so oft hilft ein Blick in die Geschichte, die Vielfalt der Gegenwart zu verstehen...
+Spezialbegriffen konfrontiert, die zunächst einmal Verwirrung stiftet.
+Wie so oft hilft ein Blick in die Geschichte, die Vielfalt der Gegenwart zu verstehen~\dots
 
 
 \section{Zur Geschichte von \TeX{}, \LaTeX{} und Co. -- zugleich eine Begriffsklärung}
@@ -29,15 +29,17 @@ wieder erweitert und angepasst.
 Die wichtigste Erweiterung erfolgte durch Leslie Lamport der eine ganze Reihe von 
 inhaltlich ausgerichteten Befehlen auf \TeX-Basis definierte: \LaTeX{} war geboren.
 Die bislang letzte Version dieses Programmes -- \LaTeXe{} -- stammt aus dem Jahre 1994
-und definiert das Grundgerüst.
+und definiert das Grundgerüst. Aus Kompatibilitätsgründen gab es für diese Version nur
+Fehlerkorrekturen.
 
 Zwei Dinge haben sich seither weiterentwickelt:
 
 Das Ausgabeformat PDF hat sich als universelles Dokumentformat durchgesetzt; es wird von neueren
-\LaTeX-Entwicklungen direkt erzeugt. (\TeX{} und das ursprüngliche \LaTeX{} erzeugten DVI-Dateien,
-die man zu PS-Dateien konvertieren konnte, die man zu PDF-Dateien konvertieren konnte.)
+\LaTeX-Entwicklungen direkt erzeugt. (\TeX{} und das ursprüngliche \LaTeX{} erzeugten DeVice 
+Independent~(DVI)-Dateien, die man mit einem speziellen Druckertreiber ausdrucken,
+oder zu PS- oder PDF-Dateien konvertieren konnte.)
 Das ausführende Programm hieß nun \pdfLaTeX. 
-Selbstverständlich versteht es auch Dateien in reinem \TeX ;
+Selbstverständlich versteht es auch Dateien in reinem \TeX{};
 es kann per Kommandozeilenoption dazu gebracht werden, DVI-Dateien zu erzeugen, wenn dies aus 
 bestimmten Gründen gewünscht ist.
 Ruft man den Kommandozeilenbefehl \lstinline/latex/ auf, wird in aller Regel das Programm 
@@ -51,23 +53,28 @@ Man kann das traditionelle \pdfLaTeX-Programm m.\,H. eines sog. Paketes dazu bri
 zu verstehen
 (Die entsprechenden Befehle heißen: \lstinline/\usepackage[utf8]{inputenc}/ 
 und \lstinline/\usepackage[T1]{fontenc}/.)
-oder das speziell für die Unicode-Untersützung entwickelte \XeLaTeX{} verwenden.
+oder eine speziell für die Unicode-Untersützung entwickelte \TeX{}-Version wie \XeLaTeX{} 
+oder \LuaLaTeX{} verwenden.
 
 Die neueste Entwicklung in der Welt der \TeX-Programme ist die Integration der Skriptsprache
 Lua in die \LaTeX-engine: \LuaLaTeX{} wird als der kommende Standard gehandelt.
 
-Die Beispiele des folgenden Buches sowie das Buch selbst sind -- wegen der weiten Verbreitung --
-mit \pdfLaTeX{} erzeugt worden.
+Dieses Buch wurde mit \LuaLaTeX{} erstellt, die meisten Beispiele funktionieren aber auch mit \pdfLaTeX{}.
+Der Vorteil von \pdfLaTeX{} ist die höhere Bearbeitungsgeschwindigkeit, bei über 200 Seiten merkt man
+den Unterschied.
+
+Wenn \LuaLaTeX{} erforderlich ist, wird im Beispiel darauf hingewiesen.
 
 \section{Arbeitswerkzeuge}
 
-empfehlenswert für die tägliche Arbeit mit \LaTeX{} gerade bei größeren Projekten ist eine IDE.
+Empfehlenswert für die tägliche Arbeit mit \LaTeX{} gerade bei größeren Projekten ist eine 
+IDE (Integrated Developement Environment = Integrierte Entwicklungsumgebung).
 Doch zuerst sollte man die Einzelwerkzeuge kennen, die in solchen \enquote{Meta-Werkzeugen}
 zusammengefasst sind.
 
 \minisec{Einzelwerkzeuge}
 
-\LaTeX -Dokumente lassen sich mit jedem beliebigen \textbf{Editor} erstellen.
+\LaTeX{}-Dokumente lassen sich mit jedem beliebigen \textbf{Editor} erstellen.
 
 Diese Buch entstand als Kooperation mehrerer Autoren, die unterschiedliche Editoren
 auf unterschiedlichen Betriebssystemen benutzt haben:
@@ -91,7 +98,7 @@ sie die tägliche Arbeit wesentlich erleichtern:
 \item[Syntaxhervorhebung] (Highlighting) hebt \LaTeX-Befehle sowie bestimmte
   Inhalte wie Überschriften etc. farblich hervor, was die Übersicht über das
   Dokument wesentlich erleichtert. Auch die Navigation in den manchmal
-  Geschachtelten geschweiften Klammern kann durch einen guten Editor
+  geschachtelten geschweiften Klammern kann durch einen guten Editor
   wesentlich erleichtert werden: Fährt man eine schließende Klammer an, wird
   die jeweils dazugehörende öffnende Klammer hervorgehoben.
 
@@ -142,13 +149,13 @@ Einige empfehlenswerte Editoren für die Arbeit mit \LaTeX{} sind:
   deutschen Tastatur ist das extrem hilfreich.  Zusätzlich bietet er mit
   \Program{fugitive} eine Integration in die Versionsverwaltung
   \Program{git}.  \Program{Vim} ist ein sehr mächtiges Werkzeug das den
-  Anfänger leicht überfordert.  Für den langjährigen Nutzer ist
+  Anfänger leicht überfordert.  Für den langjährigen Nutzer ist es jedoch
   unverständlich, wie jemand etwas anderes benutzen kann.  \Program{Vim} ist
   Charityware, der Autor bittet um Spenden für Waisenkinder in Uganda.
 
 \item[\Program{Emacs}] (Windows + Linux + macOS) 
   \url{https://www.gnu.org/software/emacs/emacs.html} In Verbindung mit
-  \Program{AucTeX} ist der Emacs der eine integrierte Entwicklungsumgebung
+  \Program{AucTeX} ist der Emacs eine integrierte Entwicklungsumgebung
   für alle, die nicht ständig zur Maus greifen wollen.  Der Einstieg ist
   noch etwas schwieriger als beim \Program{Vim}, dafür dafür gibt es auch
   deutlich mehr Funktionen. Selbstverständlich ist auch hier eine
