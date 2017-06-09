@@ -77,7 +77,7 @@ Prüfungen.
  \item[scrbook] ist die Klasse für Bücher mit zahlreichen ausgereiften Funktionen für
   die Titelei etc.
  \item[exam] ist eine eigene Klasse zur Entwicklung von Aufgabenblättern zu Prüfungszwecken.
- \item[beamer] stellt eine ganze Reihe von features für die Erstellung von Präsentationen
+ \item[beamer] stellt eine ganze Reihe von Features für die Erstellung von Präsentationen
   zur Verfügung. Mit etwas Einarbeitung gelingen damit schneller bessere Präsentationen als 
   mit der verbreiteten Konkurrenz.
 \end{labeling}
@@ -152,7 +152,7 @@ Die als letztes genannte Sprache stellt die Standardsprache des Dokuments (die a
 eingestellt ist) dar.
 
 Auch der Dokumentklasse sollte man die Standardsprache des Dokumentes bekanntgeben.
-Denn zahlreiche Pakete , die später geladen werden, werten diese Sprachoption aus und 
+Denn zahlreiche Pakete, die später geladen werden, werten diese Sprachoption aus und 
 passen sich an (z.\,B. \paket{varioref}).
 
 Somit ergibt sich folgender typische Dokumentbeginn:
@@ -184,7 +184,7 @@ Im laufenden Dokument kann auf eine der im Paketaufruf angegebenen Sprachen umge
 \label{komaskript}
 \index{Seitenspiegel} \index{Goldener Schnitt}
 
-Die folgenden Angaben sind nur von Interesse, wenn man als Papierformat nicht Din"~A4-Papier 
+Die folgenden Angaben sind nur von Interesse, wenn man als Papierformat nicht DIN"~A4-Papier 
 nutzen will und/oder nicht die eingebauten Satzspiegelkonstruktionen verwenden kann.
 In den allermeisten Fällen empfiehlt es sich, den Vorgaben insbesondere der Dokumentklassen von
 \KOMAScript{} zu überlassen, wie das Verhältnis von bedrucktem Bereich und Rändern aufzuteilen ist,
@@ -213,7 +213,7 @@ Randeinstellungen -- überlässt ihm aber auch die ganze Verantwortung in ästhe
 \index{Beschnittmarken}
 
 Wenn man eine Druckvorlage für ein besonders Papierformat erzeugt, aber seine Korrekturausdrucke
-auf üblichen Din"~A4-Papier erstellt, kann man sich die \enquote{wirklichen} Größenverhältnisse von
+auf üblichen DIN"~A4-Papier erstellt, kann man sich die \enquote{wirklichen} Größenverhältnisse von
 Textblöcken und Rändern oft nicht gut vorstellen.
 
 Hier hilft das Paket \paket{crop}, das Randmarkierungen, sog. Beschnittmarken, in verschiedener
@@ -423,7 +423,7 @@ so lassen sich z.\,B. unterschiedliche Ziffern auswählen.
     {\LIVLfont 0123456789} &\verb+Numbers={Proportional,Lining}+
   \end{tabular}
 
-\LuaLaTeX{} kennt drei verschiedene Schriften, siehe \ref{lst:luatex-schriften}.
+\LuaLaTeX{} kennt drei verschiedene Schriften, siehe Beispiel~\ref{lst:luatex-schriften}.
 Diese werde von \LaTeX{} für die entsprechenden Befehle benutzt.
 Der Befehl \cs{setsansfont} definiert die Schrift für \cs{textsf},
 \cs{setmonofont} die Schrift für \cs{texttt} und \cs{setromanfont} die normale Textschrift.
@@ -431,7 +431,7 @@ Der Befehl \cs{setsansfont} definiert die Schrift für \cs{textsf},
 Die Option \texttt{[Ligature=TeX]} aktiviert ein paar Ligaturen, 
 die die Eingabe von Text erleichtern und bei den Standard \LaTeX{}-Schriften ebenfalls definiert waren.
 Aus der Eingabe \verb+--+ wird ein \enquote{--}, aus der Eingabe \verb+---+ wird ein \enquote{---}.
-Diese Definition sorg manchmal für Überraschungen, 
+Diese Definition sorgt manchmal für Überraschungen, 
 da auch \verb+!`+ zu \enquote{!`} und \verb+?`+ zu \enquote{?`} gewandelt wird.
 Gibt man den Text direkt in Unicode ein, kann man auf die Ligaturen verzichten.
 In vielen alten Texten werden sie jedoch verwendet, daher diese Option.
@@ -522,10 +522,10 @@ Hier lohnt sich der Blick in die Unterverzeichnisse \texttt{truetype} und \textt
 \newfontfamily\APfont[Ligatures=TeX,Scale=0.9,Numbers={Proportional,OldStyle}]{Antykwa Poltawskiego}
 \newfontfamily\ATfont[Ligatures=TeX,Scale=0.9,Numbers={Proportional,OldStyle}]{Antykwa Torunska}
 \newfontfamily\FSEfont[Ligatures=TeX,Scale=0.9,Numbers={Proportional,OldStyle}]{FreeSerif}
-\newfontfamily\FSAfont[Ligatures=TeX,Scale=0.9,Numbers={Proportional,OldStyle}]{FreeSans}	
+\newfontfamily\FSAfont[Ligatures=TeX,Scale=0.9,Numbers={Proportional,OldStyle}]{FreeSans}   
 \newfontfamily\FMfont[Ligatures=TeX,Scale=0.9,Numbers={Proportional,OldStyle}]{FreeMono}
 \newfontfamily\PSEfont[Ligatures=TeX,Scale=0.9,Numbers={Proportional,OldStyle}]{PT Serif}
-\newfontfamily\PSAfont[Ligatures=TeX,Scale=0.9,Numbers={Proportional,OldStyle}]{PT Sans}	
+\newfontfamily\PSAfont[Ligatures=TeX,Scale=0.9,Numbers={Proportional,OldStyle}]{PT Sans}    
 \newfontfamily\PMfont[Ligatures=TeX,Scale=0.9,Numbers={Proportional,OldStyle}]{PT Mono}
 \newfontfamily\DVSEfont[Ligatures=TeX,Scale=0.8,Numbers={Proportional,OldStyle}]{DejaVu Serif}
 \newfontfamily\DVSAfont[Ligatures=TeX,Scale=0.8,Numbers={Proportional,OldStyle}]{DejaVu Sans}
@@ -824,11 +824,11 @@ horizontalen Abstand zu definieren.
 Zusammengefasst:
 
 \begin{lfgwexample}{}
-Wort Wort\\	            % normales Leerzeichen
-Wort~Wort\\             % kein Zeilenumbruch
-z.\,B.\\		        % kleinerer Zwischenraum
-Wort\quad Wort\\        % Breite eines m
-Wort\qquad Wort\\       % das Doppelte
+Wort Wort\\       % normales Leerzeichen
+Wort~Wort\\       % kein Zeilenumbruch
+z.\,B.\\          % kleinerer Zwischenraum
+Wort\quad Wort\\  % Breite eines m
+Wort\qquad Wort\\ % das Doppelte
 Wort\hspace{20mm}Wort\\ % explizite Angabe
 \end{lfgwexample}    
 
@@ -866,8 +866,8 @@ Quasi unterhalb der Ebene von Unicode mit seinem Zugang zum gesamten Zeichensatz
 sein dürften. Sie können als besondere Befehle eingegeben werden:
 
 \begin{tabular}{ll}
- kleines \th & 	\lstinline/\th/ \\
- großes \TH & 	\lstinline/\TH/ \\
+ kleines \th &  \lstinline/\th/ \\
+ großes \TH &   \lstinline/\TH/ \\
 \end{tabular}
 \index{Thorn}
 
@@ -875,12 +875,12 @@ Lädt man zusätzlich das \paket{textcomp}, stehen eine ganze Reihe weiterer Sym
 zur Verfügung:
 
 \begin{tabular}{ll}
- \pounds & 	\lstinline/\pounds/ \\
- \copyright & 	\lstinline/\copyright/ \\
- \texteuro & 	\lstinline/\texteuro/ \\
- \textborn & 	\lstinline/\textborn/ \\
- \textmarried & 	\lstinline/\textmarried/ \\
- \textdied & 	\lstinline/\textdied/ \\
+ \pounds      & \lstinline/\pounds/ \\
+ \copyright   & \lstinline/\copyright/ \\
+ \texteuro    & \lstinline/\texteuro/ \\
+ \textborn    & \lstinline/\textborn/ \\
+ \textmarried & \lstinline/\textmarried/ \\
+ \textdied    & \lstinline/\textdied/ \\
  \end{tabular}
  
 Dies stellt nur eine winzige Teilmenge der in \LaTeX{} zur Verfügung stehenden Sonderzeichen dar;
@@ -914,30 +914,30 @@ praktisch sein, wenn es eben nur um wenige einzelne Zeichen geht:
 %MS: Sollte man hier nicht im Buch selbst direkt die Unicodezeichen nehmen? Siehe die ersten beiden Zeilen
 \begin{center}
 \begin{tabular}{llll}
- α & 	\lstinline/\textalpha/ &	Α &	\lstinline/\textAlpha/ \\
- β & 	\lstinline/\textbeta/ &		Β &	\lstinline/\textBeta/ \\
- \textgamma & 	\lstinline/\textgamma/ &	\textGamma &	\lstinline/\textGamma/ \\
- \textdelta & 	\lstinline/\textdelta/ &	\textDelta &	\lstinline/\textDelta/ \\
- \textepsilon & \lstinline/\textepsilon/ &	\textEpsilon &	\lstinline/\textEpsilon/ \\
- \textzeta & 	\lstinline/\textzeta/ &		\textZeta &	\lstinline/\textZeta/ \\
- \texteta & 	\lstinline/\texteta/ &		\textEta &	\lstinline/\textEta/ \\
- \texttheta & 	\lstinline/\texttheta/ &	\textTheta &	\lstinline/\textTheta/ \\
- \textiota & 	\lstinline/\textiota/ &		\textIota &	\lstinline/\textIota/ \\
- \textkappa & 	\lstinline/\textkappa/ &	\textKappa &	\lstinline/\textKappa/ \\
- \textlambda & 	\lstinline/\textlambda/ &	\textLambda &	\lstinline/\textLambda/ \\
- \textmu & 	\lstinline/\textmu/ &		\textMu &	\lstinline/\textMu/ \\
- \textnu & 	\lstinline/\textnu/ &		\textNu &	\lstinline/\textNu/ \\
- \textxi & 	\lstinline/\textxi/ &		\textXi &	\lstinline/\textXi/ \\
- \textomikron & \lstinline/\textomikron/ &	\textOmikron &	\lstinline/\textOmikron/ \\
- \textpi & 	\lstinline/\textpi/ &		\textPi &	\lstinline/\textPi/ \\
- \textrho & 	\lstinline/\textrho/ &		\textRho &	\lstinline/\textRho/ \\
- \textsigma & 	\lstinline/\textsigma/ &	\textSigma &	\lstinline/\textSigma/ \\
- \texttau & 	\lstinline/\texttau/ &		\textTau &	\lstinline/\textTau/ \\
- \textupsilon & \lstinline/\textupsilon/ & 	\textUpsilon &	\lstinline/\textUpsilon/ \\
- \textphi & 	\lstinline/\textphi/ &		\textPhi &	\lstinline/\textPhi/ \\
- \textchi & 	\lstinline/\textchi/ &		\textChi &	\lstinline/\textChi/ \\
- \textpsi & 	\lstinline/\textpsi/ &		\textPsi &	\lstinline/\textPsi/ \\
- \textomega & 	\lstinline/\textomega/ &	\textOmega &	\lstinline/\textOmega/ \\
+ α          &   \lstinline/\textalpha/ &    Α & \lstinline/\textAlpha/ \\
+ β          &   \lstinline/\textbeta/ &     Β & \lstinline/\textBeta/ \\
+ \textgamma &   \lstinline/\textgamma/ &    \textGamma &    \lstinline/\textGamma/ \\
+ \textdelta &   \lstinline/\textdelta/ &    \textDelta &    \lstinline/\textDelta/ \\
+ \textepsilon & \lstinline/\textepsilon/ &  \textEpsilon &  \lstinline/\textEpsilon/ \\
+ \textzeta  &   \lstinline/\textzeta/ &     \textZeta & \lstinline/\textZeta/ \\
+ \texteta   &   \lstinline/\texteta/ &      \textEta &  \lstinline/\textEta/ \\
+ \texttheta &   \lstinline/\texttheta/ &    \textTheta &    \lstinline/\textTheta/ \\
+ \textiota  &   \lstinline/\textiota/ &     \textIota & \lstinline/\textIota/ \\
+ \textkappa &   \lstinline/\textkappa/ &    \textKappa &    \lstinline/\textKappa/ \\
+ \textlambda &  \lstinline/\textlambda/ &   \textLambda &   \lstinline/\textLambda/ \\
+ \textmu    &   \lstinline/\textmu/ &       \textMu &   \lstinline/\textMu/ \\
+ \textnu    &   \lstinline/\textnu/ &       \textNu &   \lstinline/\textNu/ \\
+ \textxi    &   \lstinline/\textxi/ &       \textXi &   \lstinline/\textXi/ \\
+ \textomikron & \lstinline/\textomikron/ &  \textOmikron &  \lstinline/\textOmikron/ \\
+ \textpi    &   \lstinline/\textpi/ &       \textPi &   \lstinline/\textPi/ \\
+ \textrho   &   \lstinline/\textrho/ &      \textRho &  \lstinline/\textRho/ \\
+ \textsigma &   \lstinline/\textsigma/ &    \textSigma &    \lstinline/\textSigma/ \\
+ \texttau   &   \lstinline/\texttau/ &      \textTau &  \lstinline/\textTau/ \\
+ \textupsilon & \lstinline/\textupsilon/ &  \textUpsilon &  \lstinline/\textUpsilon/ \\
+ \textphi   &   \lstinline/\textphi/ &      \textPhi &  \lstinline/\textPhi/ \\
+ \textchi   &   \lstinline/\textchi/ &      \textChi &  \lstinline/\textChi/ \\
+ \textpsi   &   \lstinline/\textpsi/ &      \textPsi &  \lstinline/\textPsi/ \\
+ \textomega &   \lstinline/\textomega/ &    \textOmega &    \lstinline/\textOmega/ \\
 \end{tabular}
 \end{center}
 
@@ -955,9 +955,9 @@ Comprehensive S.~
 Nicht einfach die Gänsefüßchen \lstinline/"/ benutzen, das diese nicht korrekt interpretiert
 werden können: Es ist für den Computer schwer erkennbar, wo die Anführung beginnt und wo sie
 endet. Entsprechende regelbasierte Automatiken sind notorisch fehleranfällig.
-Da die zugrundeliegenden Regeln nicht ganz trivial sind,
+Da die zugrundeliegenden Regeln nicht ganz trivial sind,%
 \footnote{Lesetypographie seite ...}
-kommen -- auch in professionell gesetzten Büchern häufig Fehler vor.
+kommen -- auch in professionell gesetzten Büchern -- häufig Fehler vor.
 Man sollte daher möglichst auf eine händische Eingabe ganz verzichten.
 
 Am sinnvollsten ist der Weg, das Paket \paket{csquotes} einzubinden (in der Präambel) und auf 
@@ -1137,7 +1137,7 @@ die Breite der linken Spalte:
 \end{lfgwexample}
 
 Wie alle Teile von \KOMAScript\ gibt es zahlreiche Möglichkeiten, die Gestaltung zu
-beeiflussen. Um diese Möglichkeiten auszuschöpfen, muss man sich mit der Dokumentation 
+beeinflussen. Um diese Möglichkeiten auszuschöpfen, muss man sich mit der Dokumentation 
 beschäftigen.
 
 
@@ -1351,7 +1351,7 @@ Worterklärungen (Fußnoten 1, 2, 3, \ldots ) und Quellenhinweise (a, b, c, \ldo
 
 Auch Lesartenapparate in kritischen Editionsprojekten ließen sich theoretisch 
 mit diesem Ansatz organisieren; 
-allerdings bietet \paket{reledmac} hierzu die besseren Instrumente, vgl. hierzu \ref{reledmac}.
+allerdings bietet \paket{reledmac} hierzu die besseren Instrumente, vgl. hierzu Kapitel~\ref{reledmac}.
 
 
 \section{Zeilennummern} 
@@ -1438,7 +1438,7 @@ Makro \cs{linenumberfont} für die Schriftart der Zeilennummer.
 Länge \cs{linenumbersep} bestimmt Abstand zwischen Zeilennummer und Text.
 
 Zeilennummern bei größeren Projekten, insbesondere im Kontext von kritischen Editionsprojekten,
-sollten mit dem Paket \paket{reledmac} erzeugt werden, vgl. hierzu \ref{reledmac}.
+sollten mit dem Paket \paket{reledmac} erzeugt werden, vgl. hierzu Kapitel \ref{reledmac}.
 
  
 
