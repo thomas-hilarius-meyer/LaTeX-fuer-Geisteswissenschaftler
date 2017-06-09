@@ -321,17 +321,17 @@ Standardmäßig erlaubt \LaTeX\ die typischen Auszeichnungen:
 
 \begin{center}
 \begin{tabular}{lll}
-      Befehl &		Beschreibung & typograph. Bewertung \\
+      Befehl                &       Beschreibung                        & typograph. Bewertung \\
       \hline
- \lstinline/\emph{}/ 		&	\emph{hervorgehoben} (z.\,B. kursiv in recte-Texten) 		&	+ \\
- \lstinline/\textit{}/		&		\textsl{kursiv} &	-- -- \\
- \lstinline/\textsl{}/		&		\textsl{schräggestellt} &	-- -- \\
- \lstinline/\textsc{}/		&		\textsc{Kapitälchen}	&	+ \\
- \lstinline/\textbf{}/ 		&		\textbf{fett} 		&	+/- \\
- \lstinline/\underline{}/ 	&		\underline{unterstrichen} &	-- \\
- \lstinline/\texttt{}/		&		\texttt{Schreibmaschinenschrift} &	? \\
- \lstinline/\textsuperscript{}/ &	Text\textsuperscript{hochgestellt} &	\\
- \lstinline/\textsubscript{}/ &		Text\textsubscript{tiefgestellt} & \\
+ \lstinline/\emph{}/        &   \emph{hervorgehoben} (z.\,B. kursiv in recte-Texten)        &   $+$ \\
+ \lstinline/\textit{}/      &       \textsl{kursiv}                     &   $--$\\
+ \lstinline/\textsl{}/      &       \textsl{schräggestellt}             &   $--$\\
+ \lstinline/\textsc{}/      &       \textsc{Kapitälchen}                &   $+$ \\
+ \lstinline/\textbf{}/      &       \textbf{fett}                       &   $+/-$ \\
+ \lstinline/\underline{}/   &       \underline{unterstrichen}           &   $-$ \\
+ \lstinline/\texttt{}/      &       \texttt{Schreibmaschinenschrift}    &   ? \\
+ \lstinline/\textsuperscript{}/ &   Text\textsuperscript{hochgestellt}  &     \\
+ \lstinline/\textsubscript{}/ &     Text\textsubscript{tiefgestellt}    &     \\
  \end{tabular} 
 \end{center}
 
@@ -351,13 +351,13 @@ ermöglicht:
 
 \begin{center}
   \begin{tabular}{ll}
-      Befehl &		Beschreibung \\
+      Befehl &      Beschreibung \\
       \hline
-      \lstinline/\uline{text}/ &	\uline{einfaches Unterstreichen} \\
-      \lstinline/\uuline{text}/ &	\uuline{doppeltes Unterstreichen}\\
-      \lstinline/\uwave{text}/ &	\uwave{wellenförmiges Unterstreichen}\\
-      \lstinline/\sout{text}/ &		\sout{Durchstreichen} \\
-      \lstinline/\xout{text}/ &		\xout{Ausschraffieren von Text} \\
+      \lstinline/\uline{text}/ &    \uline{einfaches Unterstreichen} \\
+      \lstinline/\uuline{text}/ &   \uuline{doppeltes Unterstreichen}\\
+      \lstinline/\uwave{text}/ &    \uwave{wellenförmiges Unterstreichen}\\
+      \lstinline/\sout{text}/ &     \sout{Durchstreichen} \\
+      \lstinline/\xout{text}/ &     \xout{Ausschraffieren von Text} \\
   \end{tabular}    
 \end{center} 
 
@@ -378,22 +378,20 @@ die konkrete Bedeutung der Größenangaben von der Dokumentklasse vorgenommen we
 
 \begin{center} 
 \begin{tabular}{ll}
-          Befehl &		Beschreibung \\
+          Befehl &      Beschreibung \\
           \hline
- \lstinline/\Huge{}/		&	\Huge{Riesig!} \\
- \lstinline/\huge{}/		&	\Huge{riesig} \\
- \lstinline/\LARGE{}/		&	\LARGE{sehr, sehr groß} \\
- \lstinline/\Large{}/		&	\Large{sehr groß} \\
- \lstinline/\large{}/		&	\large{groß} \\
- \lstinline/\normalsize{}/	&	\normalsize{normal groß (Grundschriftgröße)} \\
- \lstinline/\small{}/		&	\small{klein} \\
- \lstinline/\footnotesize{}/	&	\footnotesize{so groß wie die Fußnoten} \\
- \lstinline/\scriptsize{}/	&	\scriptsize{für Kleingedrucktes} \\
- \lstinline/\tiny{}/		&	\tiny{wirklich winzig} \\
+ \lstinline/\Huge{}/        &   \Huge{Riesig!} \\
+ \lstinline/\huge{}/        &   \Huge{riesig} \\
+ \lstinline/\LARGE{}/       &   \LARGE{sehr, sehr groß} \\
+ \lstinline/\Large{}/       &   \Large{sehr groß} \\
+ \lstinline/\large{}/       &   \large{groß} \\
+ \lstinline/\normalsize{}/  &   \normalsize{normal groß (Grundschriftgröße)} \\
+ \lstinline/\small{}/       &   \small{klein} \\
+ \lstinline/\footnotesize{}/    &   \footnotesize{so groß wie die Fußnoten} \\
+ \lstinline/\scriptsize{}/  &   \scriptsize{für Kleingedrucktes} \\
+ \lstinline/\tiny{}/        &   \tiny{wirklich winzig} \\
 \end{tabular}
 \end{center}
-
-\ifluatex
 
 \subsection{Verschiedene Schriftarten}
 
@@ -443,6 +441,8 @@ Oder man definiert für Tabellen eine eigene Schrift,
 damit alle Ziffern die gleiche Breite haben. 
 
 \begin{lfgwcode}{label={lst:luatex-schriften}}
+  % !TEX TS-program = LuaLaTeX
+  % !TEX encoding = UTF-8
   \setromanfont[Ligatures=TeX]{Linux Libertine}
   \setsansfont[Ligatures=TeX]{Linux Libertine}
   \setmonofont[Ligatures=TeX]{Linux Libertine}
@@ -457,7 +457,11 @@ In diesem Fall wäre es aber besser gewesen das \paket{fontawesome} Paket zu ver
 mit diesem kann man die Symbole mit ihrem Namen ansprechen.
 
 \begin{lfgwcode}{label={lst:luatex-schriften-einzel}}
- \newfontface\AWsome{FontAwesome}
+  % !TEX TS-program = LuaLaTeX
+  % !TEX encoding = UTF-8
+  \newfontface\AWsome{FontAwesome}
+  % besser, funktioniert auch mit pdfLaTeX:
+  \usepackage{fontawesome}  
 \end{lfgwcode}
 
 Für viele der hier vorgestellten Schriften gibt es auch \LaTeX-Pakete, 
@@ -499,15 +503,15 @@ entsprechende Zeichensätze für die weiteren Schriften.
 
 \begin{tabular}{llll}
 Schriftname & Buchstaben & Textziffern \\\hline
-\LMRfont Latin Modern Roman	&\LMRfont abcdef ABCDEF 	&\LMRfont 1234567890 \\
-\ADfont TeX Gyre Adventor	&\ADfont abcdef ABCDEF 	&\ADfont 1234567890 \\
-\BOfont TeX Gyre Bonum		&\BOfont abcdef ABCDEF 	&\BOfont 1234567890 \\
-\CHfont TeX Gyre Chorus		&\CHfont abcdef ABCDEF 	&\CHfont 1234567890 \\
-\CUfont TeX Gyre Cursor		&\CUfont abcdef ABCDEF 	&\CUfont 1234567890 \\
-\HEfont TeX Gyre Heros		&\HEfont abcdef ABCDEF 	&\HEfont 1234567890 \\
-\PAfont TeX Gyre Pagella	&\PAfont abcdef ABCDEF 	&\PAfont 1234567890 \\
-\SCfont TeX Gyre Schola		&\SCfont abcdef ABCDEF 	&\SCfont 1234567890 \\
-\TEfont TeX Gyre Termes		&\TEfont abcdef ABCDEF 	&\TEfont 1234567890 \\
+\LMRfont Latin Modern Roman &\LMRfont abcdef ABCDEF &\LMRfont 1234567890 \\
+\ADfont TeX Gyre Adventor   &\ADfont abcdef ABCDEF  &\ADfont 1234567890 \\
+\BOfont TeX Gyre Bonum      &\BOfont abcdef ABCDEF  &\BOfont 1234567890 \\
+\CHfont TeX Gyre Chorus     &\CHfont abcdef ABCDEF  &\CHfont 1234567890 \\
+\CUfont TeX Gyre Cursor     &\CUfont abcdef ABCDEF  &\CUfont 1234567890 \\
+\HEfont TeX Gyre Heros      &\HEfont abcdef ABCDEF  &\HEfont 1234567890 \\
+\PAfont TeX Gyre Pagella    &\PAfont abcdef ABCDEF  &\PAfont 1234567890 \\
+\SCfont TeX Gyre Schola     &\SCfont abcdef ABCDEF  &\SCfont 1234567890 \\
+\TEfont TeX Gyre Termes     &\TEfont abcdef ABCDEF  &\TEfont 1234567890 \\
 \end{tabular} 
 
 \minisec{Weitere \TeXLive-Schriften}
@@ -538,26 +542,26 @@ Hier lohnt sich der Blick in die Unterverzeichnisse \texttt{truetype} und \textt
 
 \noindent
 \begin{tabular}{lllll}
-Schriftname & Buchstaben & Griechisch & Kyrillisch & Textziffern \\\hline
-\LLfont Linux Libertine O	&\LLfont abce ABCD 	&\LLfont αβγδΑΒΓ	&\LLfont абвгдАБВГ &\LLfont 1234567890 \\
-\LBfont Linux Biolinum O	&\LBfont abce ABCD 	&\LBfont αβγδΑΒΓ	&\LBfont абвгдАБВГ &\LBfont 1234567890 \\
-\OSfont Old Standard TT		&\OSfont abce ABCD 	&\OSfont αβγδΑΒΓ	&\OSfont абвгдАБВГ &\OSfont 1234567890 \\
-\ATfont Antykwa Torunska 	&\ATfont abce ABCD 	&\ATfont αβγδΑΒΓ	&\ATfont абвгдАБВГ &\ATfont 1234567890 \\
-\FSEfont FreeSerif 		&\FSEfont abce ABCD 	&\FSEfont αβγδΑΒΓ	&\FSEfont абвгдАБВГ &\FSEfont 1234567890 \\
-\FSAfont FreeSans 		&\FSAfont abce ABCD 	&\FSAfont αβγδΑΒΓ	&\FSAfont абвгдАБВГ &\FSAfont 1234567890 \\
-\FMfont FreeMono 		&\FMfont abce ABCD 		&\FMfont αβγδΑΒΓ	&\FMfont абвгдАБВГ &\FMfont 1234567890 \\
-\DVSEfont DejaVu Serif 	&\DVSEfont abce ABCD 	&\DVSEfont αβγδΑΒΓ	&\DVSEfont абвгдАБВГ &\DVSEfont 1234567890 \\
-\DVSAfont DejaVu Sans 	&\DVSAfont abce ABCD 	&\DVSAfont αβγδΑΒΓ	&\DVSAfont абвгдАБВГ &\DVSAfont 1234567890 \\
-\DVSMfont DejaVu Sans Mono &\DVSMfont abce ABCD	&\DVSMfont αβγδΑΒΓ	&\DVSMfont абвгдАБВГ &\DVSMfont 1234567890 \\
-\NotoSEfont Noto Serif 	&\NotoSEfont abce ABCD 	&\NotoSEfont αβγδΑΒΓ	&\NotoSEfont абвгдАБВГ &\NotoSEfont 1234567890 \\
-\NotoSAfont Noto Sans 	&\NotoSAfont abce ABCD 	&\NotoSAfont αβγδΑΒΓ	&\NotoSAfont абвгдАБВГ &\NotoSAfont 1234567890 \\
-\NotoMOfont Noto Mono &\NotoMOfont abce ABCD	&\NotoMOfont αβγδΑΒΓ	&\NotoMOfont абвгдАБВГ &\NotoMOfont 1234567890 \\
-\PSEfont PT Serif 		&\PSEfont abce ABCD 	&\PSEfont			&\PSEfont абвгдАБВГ &\PSEfont 1234567890 \\
-\PSAfont PT Sans 		&\PSAfont abce ABCD 	&\PSAfont			&\PSAfont абвгдАБВГ &\PSAfont 1234567890 \\
-\PMfont PT Mono 		&\PMfont abce ABCD 		&\PMfont			&\PMfont абвгдАБВГ &\PMfont 1234567890 \\
-\APfont Antykwa Poltawskiego &\APfont abce ABCD	&\APfont αβγδΑΒΓ	&\APfont            &\APfont 1234567890 \\
-\Junicodefont Junicode 	&\Junicodefont abce ABCD	&\Junicodefont αβγδΑΒΓ &\Junicodefont	&\Junicodefont 1234567890 \\
-\Gentiumfont Gentium Basic &\Gentiumfont abce ABCD	&\Gentiumfont		&\Gentiumfont       &\Gentiumfont 1234567890 \\
+Schriftname                 & Buchstaben & Griechisch & Kyrillisch & Textziffern \\\hline
+\LLfont Linux Libertine O   &\LLfont abce ABCD     &\LLfont αβγδΑΒΓ    &\LLfont абвгдАБВГ   &\LLfont 1234567890 \\
+\LBfont Linux Biolinum O    &\LBfont abce ABCD     &\LBfont αβγδΑΒΓ    &\LBfont абвгдАБВГ   &\LBfont 1234567890 \\
+\OSfont Old Standard TT     &\OSfont abce ABCD     &\OSfont αβγδΑΒΓ    &\OSfont абвгдАБВГ   &\OSfont 1234567890 \\
+\ATfont Antykwa Torunska    &\ATfont abce ABCD     &\ATfont αβγδΑΒΓ    &\ATfont абвгдАБВГ   &\ATfont 1234567890 \\
+\FSEfont FreeSerif          &\FSEfont abce ABCD    &\FSEfont αβγδΑΒΓ   &\FSEfont абвгдАБВГ  &\FSEfont 1234567890 \\
+\FSAfont FreeSans           &\FSAfont abce ABCD    &\FSAfont αβγδΑΒΓ   &\FSAfont абвгдАБВГ  &\FSAfont 1234567890 \\
+\FMfont FreeMono            &\FMfont abce ABCD     &\FMfont αβγδΑΒΓ    &\FMfont абвгдАБВГ   &\FMfont 1234567890 \\
+\DVSEfont DejaVu Serif      &\DVSEfont abce ABCD   &\DVSEfont αβγδΑΒΓ  &\DVSEfont абвгдАБВГ &\DVSEfont 1234567890 \\
+\DVSAfont DejaVu Sans       &\DVSAfont abce ABCD   &\DVSAfont αβγδΑΒΓ  &\DVSAfont абвгдАБВГ &\DVSAfont 1234567890 \\
+\DVSMfont DejaVu Sans Mono  &\DVSMfont abce ABCD   &\DVSMfont αβγδΑΒΓ  &\DVSMfont абвгдАБВГ &\DVSMfont 1234567890 \\
+\NotoSEfont Noto Serif      &\NotoSEfont abce ABCD &\NotoSEfont αβγδΑΒΓ    &\NotoSEfont абвгдАБВГ &\NotoSEfont 1234567890 \\
+\NotoSAfont Noto Sans       &\NotoSAfont abce ABCD &\NotoSAfont αβγδΑΒΓ    &\NotoSAfont абвгдАБВГ &\NotoSAfont 1234567890 \\
+\NotoMOfont Noto Mono       &\NotoMOfont abce ABCD &\NotoMOfont αβγδΑΒΓ    &\NotoMOfont абвгдАБВГ &\NotoMOfont 1234567890 \\
+\PSEfont PT Serif           &\PSEfont abce ABCD    &\PSEfont           &\PSEfont абвгдАБВГ &\PSEfont 1234567890 \\
+\PSAfont PT Sans            &\PSAfont abce ABCD    &\PSAfont           &\PSAfont абвгдАБВГ &\PSAfont 1234567890 \\
+\PMfont PT Mono             &\PMfont abce ABCD     &\PMfont            &\PMfont абвгдАБВГ  &\PMfont 1234567890 \\
+\APfont Antykwa Poltawskiego &\APfont abce ABCD    &\APfont αβγδΑΒΓ    &\APfont            &\APfont 1234567890 \\
+\Junicodefont Junicode      &\Junicodefont abce ABCD &\Junicodefont αβγδΑΒΓ &\Junicodefont &\Junicodefont 1234567890 \\
+\Gentiumfont Gentium Basic  &\Gentiumfont abce ABCD &\Gentiumfont       &\Gentiumfont      &\Gentiumfont 1234567890 \\
 \end{tabular}
 
 \iffalse
@@ -581,31 +585,30 @@ Hier ein paar Beispiele:
 
 \begin{labeling}{Gentium Plus}
 \item[Gentium Plus] Die Gentium Basic aus \TeXLive{} enthält nur lateinische Zeichen, 
-	die Plus Version hat ein deutlich größeres Repertoire.
+    die Plus Version hat ein deutlich größeres Repertoire.
 \item[Charis SIL] Eine gut lesbare Schrift mit einem umfangreichen Zeichenvorrat, 
-	es fehlen allerdings ein paar griechische Buchstaben. 
+    es fehlen allerdings ein paar griechische Buchstaben. 
 \item[Andika] Diese Schrift wurde für Leseanfänger entwickelt. 
-	Hier wurde großen Wert auf unterschiedliche Formen ähnlicher Buchstaben geachtet.
-	Andika: {\ABfont Il1 bd qp} Heros: {\HEfont Il1 bd qp}.
-	Auch hier sind die griechischen Buchstaben nicht komplett.
+    Hier wurde großen Wert auf unterschiedliche Formen ähnlicher Buchstaben geachtet.
+    Andika: {\ABfont Il1 bd qp} Heros: {\HEfont Il1 bd qp}.
+    Auch hier sind die griechischen Buchstaben nicht komplett.
 \item[Cardo] Diese Schrift wurde speziell für Mediävisten entwickelt. 
  Download unter: \url{http://scholarsfonts.net/index.html}
 \item[Vollkorn] Eine Brotschrift, also eine Schrift mit der ein Sätzer sein Brot verdient. 
-	In diesem Fall ist es das Vollkornbrot des Schriftdesigners Friedrich Althausen.
-	Auch diese Schrift hat in der Version 3 einen großen Zeichenvorrat. 
-	Download unter \url{http://vollkorn-typeface.com/}
+    In diesem Fall ist es das Vollkornbrot des Schriftdesigners Friedrich Althausen.
+    Auch diese Schrift hat in der Version 3 einen großen Zeichenvorrat. 
+    Download unter \url{http://vollkorn-typeface.com/}
 \end{labeling}
 
 \noindent
 \begin{tabular}{lllll}
 Schriftname & Buchstaben & Griechisch & Kyrillisch & Textziffern \\\hline
-\Gentiumplusfont Gentium Plus		&\Gentiumplusfont abce ABCD &\Gentiumplusfont αβγδΑΒΓ	&\Gentiumplusfont абвгдАБВГ &\Gentiumplusfont 1234567890 \\
-\CHAfont Charis SIL	&\CHAfont abcde ABCD &\CHAfont αβγδΑΒΓ &\CHAfont абвгдАБВГ &\CHAfont 1234567890 \\
-\ABfont Andika		&\ABfont abcde ABCD 	&\ABfont αβγδΑΒΓ &\ABfont абвгдАБВГ &\ABfont 1234567890 \\
-\Cardofont Cardo 	&\Cardofont abcde ABCD 	&\Cardofont αβγδΑΒΓ	&\Cardofont абвгдАБВГ &\Cardofont 1234567890 \\
-\VKfont Vollkorn	&\VKfont abcde ABCD 	&\VKfont αβγδΑΒΓ &\VKfont абвгдАБВГ &\VKfont 1234567890 \\
+\Gentiumplusfont Gentium Plus       &\Gentiumplusfont abce ABCD &\Gentiumplusfont αβγδΑΒΓ   &\Gentiumplusfont абвгдАБВГ &\Gentiumplusfont 1234567890 \\
+\CHAfont Charis SIL &\CHAfont abcde ABCD &\CHAfont αβγδΑΒΓ &\CHAfont абвгдАБВГ &\CHAfont 1234567890 \\
+\ABfont Andika      &\ABfont abcde ABCD     &\ABfont αβγδΑΒΓ &\ABfont абвгдАБВГ &\ABfont 1234567890 \\
+\Cardofont Cardo    &\Cardofont abcde ABCD  &\Cardofont αβγδΑΒΓ &\Cardofont абвгдАБВГ &\Cardofont 1234567890 \\
+\VKfont Vollkorn    &\VKfont abcde ABCD     &\VKfont αβγδΑΒΓ &\VKfont абвгдАБВГ &\VKfont 1234567890 \\
 \end{tabular}
-\fi
 \fi
 
 \subsection{Schriftarten mit besonderen Anforderungen}
