@@ -253,14 +253,17 @@ Also brauchen wir für den Anfang erst einmal eine Datei mit ein paar Zauberwort
 
 \minisec{Datei: hausarbeit.tex}
 
-\begin{lstlisting}
-\documentclass{scrreprt}
+\begin{lfgwcode}{label={hausarbeit}}
+% !TEX TS-program = pdfLaTeX
+% !TEX encoding = UTF-8
+\documentclass[german]{scrreprt}
  
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 
 \usepackage[ngerman]{babel}
 \usepackage{csquotes}
+
 \usepackage{graphicx}
 
 \usepackage{imakeidx}
@@ -268,14 +271,13 @@ Also brauchen wir für den Anfang erst einmal eine Datei mit ein paar Zauberwort
 \usepackage[style=verbose-inote,pageref=true]{biblatex}
 \addbibresource{meine-bibliographie.bib}
 
-
-\begin{document}
-
 \title{\LaTeX{} und der Sinn des Lebens}
 \subtitle{Eine vielosofische Hausarbeit}
 
 \author{Eberhard Knesenbeck}
 \date{[Stand: \today]}
+
+\begin{document}
 
 \maketitle
 
@@ -285,66 +287,130 @@ blubb, blah...
 
 \printbibliography
 \end{document}
-\end{lstlisting}
+\end{lfgwcode}
 
 Was bedeuten die Anweisungen im einzelnen?
 
-\begin{description}
- \item[1] Das Einstellen der Dokumentklasse definiert das grundsätzliche Aussehen des 
- Textes: geht es um ein Buch, einen Artikel oder - wie hier - eine Hausarbeit. 
- Die Angabe \lstinline/scrrprt/ bedeutet, dass ein \enquote{Report} (also z.\,B. eine Hausarbeit)
- m.\,H. der Definitionen des \KOMAScript-Paketes von Markus Kohm erstellt werden soll.
- (Mehr dazu vgl. \pageref{komaskript}
- \item[3-4] Zwei Zauberzeilen, die dazu führen, dass alle möglichen Unicode-Sonderzeichen
- benutzt werden dürfen und auch ausgegeben werden können wie z.\,B. ä, ö, ü, ß, æ, ï oder þ.
- (Achtung! Der Editor muss auf Unicode eingestellt sein! - vgl. S.~\pageref{unicode}
- \item[6-7] \LaTeX{} benutzt jetzt deutsche Begriffe (Bibliographie statt Bibliography) und 
- Silbentrennmuster (\paket{babel}). 
- \footnote{Etwas genauer: Es gelten die Regeln der sog. Rechtschreibreform von 1996.
- Sollen die Regeln von 1901 gelten, muss als Option stattdessen \lstinline/german/ angeben
- werden. Vgl. \ref{babel} auf S.~\pageref{babel}}
- Außerdem werden (Z. 7) deutsche Gepflogenheiten bei den Anführungszeichen
- verwendet (\paket{csquotes}). 
- Die beiden zaubersprüche sollten in keiner deutschen datei fehlen.
- \item[8] Das Paket \paket{graphicx} ist ein mächtiges Werkzeug um Grafiken einzubinden.
- Wir laden es vorsorglich; wenn unser Text nicht lang genug ist, können wir Bilder dazunehmen...
- \item[10] Das paket \paket{imakeidx} wird uns später erlauben, sehr einfach ein Register zu unserer
- Arbeit auszugeben.
- Für komplexere Aufgaben wie Orts- und Personenregister, Bibelstellenregister etc. lässt sich
- imakeidx umfangreich konfigurieren.
- \item[12-13] Diese beiden recht abschreckenden Zauberformeln werden uns erlauben, unsere
- gesamte Literaturverwaltung mit allen Formalien automatisch erledigen zu lassen.
- Hier sagen wir \LaTeX{} , dass wir unsere Bibliographiedaten in einer Datei namens 
- meine-bibliographie.bib aufheben, dass das Programm biblatex für uns die Arbeit machen soll
- und dass es sich dabei an einem bestimmten, eher traditionellen geisteswissenschaftlichen
- Stil ausrichten soll.
- \item[15] Jetzt wird es ernst: Unser eigentliches Dokument beginnt.
- \item[18-19] Erst mal legen wir einen guten Titel und Untertitel fest...
- \item[21] ... und sagen, wer wir sind.
- \item[22] Diese Zeile sorgt dafür, dass auf dem Titelblatt das jeweils aktuelle Datum als 
- Stand der Arbeit ausgegeben wird. Das kann praktisch sein, wenn man seltener seinen Schreibtisch
- aufräumt, als neue Fassungen ausdruckt.\\
- Achtung! Soll (z.\,B. in der Endfassung) kein Datum ausgegeben werden, so muss man explizit
- \lstinline/\date{}/ angeben. Löscht man die \lstinline/\date/-Anweisung ganz, wird 
- automatisch das heutige Datum ausgegeben!
- \item[24] Achtung! Erst mit dem Befehl \lstinline/\maketitle/ wird \LaTeX{} dazu gebracht,
- die definierten Titelseiten auch wirklich \emph{auszugeben}!
- \item[26] Dieser Befehl gibt das Inhaltsverzeichnis aus.
- \item[28] Jetzt kommen endlich unsere wertvollen Inhalte.
- \item[30] Hier wird das automatisch erstellte Inhaltsverzeichnis ausgegeben.
- \item[31] Diese letzte Zeile schließt \LaTeX -Dokumente ab.
- \end{description}
+\begin{labeling}{3-4}
+
+ \item[1-2] Zeilen, die mit einen \%-Zeichen beginnen, sind Kommentare und
+   werden von \LaTeX{} ignoriert. Bei diesen beiden Zeilen handelt es sich
+   um Anweisungen an die IDE, die so die richtige Kodierung und das
+   erforderliche Programm erfährt.  Leider sind sich die unterschiedlichen
+   IDEs nicht einig, welche Parameter wie kodiert werden, mal sind die
+   Leerzeichen um das Gleichheitszeichen erforderlich, mal sind sie
+   verboten.
+
+ \item[3] Das Einstellen der Dokumentklasse definiert das grundsätzliche
+   Aussehen des Textes: geht es um ein Buch, einen Artikel oder -- wie hier
+   -- eine Hausarbeit.  Die Angabe \lstinline/scrrprt/ bedeutet, dass ein
+   \enquote{Report} (also z.\,B. eine Hausarbeit) m.\,H. der Definitionen
+   des \KOMAScript-Paketes von Markus Kohm erstellt werden soll.  (Mehr dazu
+   vgl. \pageref{komaskript}
  
+ \item[5-6] Zwei Zauberzeilen, die dazu führen, dass alle möglichen
+   Unicode-Sonderzeichen benutzt werden dürfen und auch ausgegeben werden
+   können wie z.\,B. ä, ö, ü, ß, æ, ï oder þ.  (Achtung! Der Editor muss auf
+   Unicode eingestellt sein! -- vgl. S.~\pageref{unicode}
+ 
+ \item[8-9] \LaTeX{} benutzt jetzt deutsche Begriffe (Bibliographie statt
+   Bibliography) und Silbentrennmuster (\paket{babel}).  \footnote{Etwas
+   genauer: Es gelten die Regeln der sog. Rechtschreibreform von 1996.
+   Sollen die Regeln von 1901 gelten, muss als Option stattdessen
+   \lstinline/german/ angeben werden. Vgl. \ref{babel} auf
+   S.~\pageref{babel}} Außerdem werden (Z. 8) deutsche Gepflogenheiten bei
+   den Anführungszeichen verwendet (\paket{csquotes}).  Die beiden
+   Zaubersprüche sollten in keiner deutschen Datei fehlen.
+ 
+ \item[11] Das Paket \paket{graphicx} ist ein mächtiges Werkzeug um Grafiken
+   einzubinden.  Wir laden es vorsorglich; wenn unser Text nicht lang genug
+   ist, können wir Bilder dazunehmen...
+ 
+ \item[12] Das paket \paket{imakeidx} wird uns später erlauben, sehr einfach
+   ein Register zu unserer Arbeit auszugeben.  Für komplexere Aufgaben wie
+   Orts- und Personenregister, Bibelstellenregister etc. lässt sich imakeidx
+   umfangreich konfigurieren.
+ 
+ \item[14-15] Diese beiden recht abschreckenden Zauberformeln werden uns
+   erlauben, unsere gesamte Literaturverwaltung mit allen Formalien
+   automatisch erledigen zu lassen.  Hier sagen wir \LaTeX{}, dass wir
+   unsere Bibliographiedaten in einer Datei namens
+   \file{meine-bibliographie.bib} aufheben, dass das Programm
+   \Program{biblatex} für uns die Arbeit machen soll und dass es sich dabei
+   an einem bestimmten, eher traditionellen geisteswissenschaftlichen Stil
+   ausrichten soll.
+
+ \item[17-18] Erst mal legen wir einen guten Titel und Untertitel fest \dots
+
+ \item[20] \dots\ und sagen, wer wir sind.
+ 
+ \item[21] Diese Zeile sorgt dafür, dass auf dem Titelblatt das jeweils
+   aktuelle Datum als Stand der Arbeit ausgegeben wird. Das kann praktisch
+   sein, wenn man seltener seinen Schreibtisch aufräumt, als neue Fassungen
+   ausdruckt.\\ Achtung! Soll (z.\,B. in der Endfassung) kein Datum
+   ausgegeben werden, so muss man explizit \lstinline/\date{}/ angeben.
+   Löscht man die \lstinline/\date/-Anweisung ganz, wird automatisch das
+   heutige Datum ausgegeben!
+
+ \item[23] Jetzt wird es ernst: Unser eigentliches Dokument beginnt.
+ 
+ \item[25] Achtung! Erst mit dem Befehl \lstinline/\maketitle/ wird \LaTeX{}
+   dazu gebracht, die definierten Titelseiten auch wirklich
+   \emph{auszugeben}!
+
+ \item[27] Dieser Befehl gibt das Inhaltsverzeichnis aus.
+
+ \item[29] Jetzt kommen endlich unsere wertvollen Inhalte.
+ 
+ \item[31] Hier wird das automatisch erstellte Literaturzeichnis ausgegeben.
+ 
+ \item[32] Diese letzte Zeile schließt \LaTeX{}-Dokumente ab.
+
+ \end{labeling}
+
+Das gleiche Beispiel nun mit \LuaLaTeX{}, es ändern sich nur drei Zeilen.
+ 
+\begin{lfgwcode}{label={hausarbeit-lualatex}}
+% !TEX TS-program = LuaLaTeX
+% !TEX encoding = UTF-8
+\documentclass[german]{scrreprt}
+ 
+\usepackage{fontspec}
+
+\usepackage[ngerman]{babel}
+
+\begin{document}
+
+\end{document}
+\end{lfgwcode}
+
+\begin{labeling}{3-4}
+
+ \item[1] Hier wird jetzt \LuaLaTeX{} als zuständiges Programm ausgewählt. 
+  
+ \item[5] \Paket{inputenc} und \Paket{fontenc} werden nicht mehr benötigt,
+   stattdessen übernimmt \Paket{fontspec} das laden der Zeichensätze.  Die
+   Standardschrift ist jetzt \texttt{Latin Modern Roman}, die Unterschiede
+   zu \texttt{Computer Modern Roman} sind aber nur minimal. 
+
+ \item[7] Babel funktioniert auch mit \LuaLaTeX{}.
+ 
+ \item[9] Jetzt wird es ernst: Unser eigentliches Dokument beginnt.
+ 
+ \item[11] Diese letzte Zeile schließt \LaTeX -Dokumente ab.
+
+ \end{labeling}
+
  
 \minisec{Datei: meine-bibliographie.bib}
 
-Damit sich die Datei kompilieren lässt, muss die in Zeile 13 angekündigte Datei mit 
+Damit sich die Datei kompilieren lässt, muss die in Zeile 16 angekündigte Datei mit 
 bibliografischen Angaben auch existieren!
 
 Sie habe einen einzigen Eintrag mit einem wichtigen Buch für \LaTeX -Einsteiger.
 Legen wir sie an:
 
-\begin{lstlisting}
+\begin{lfgwcode}{label={hausarbeit-bib}}
 @Book{voss:einfuehrung,
  author = {Herbert Voß}, 
  title = {Einführung in \LaTeX},
@@ -353,7 +419,7 @@ Legen wir sie an:
  year = {2016},
  edition = {2},
 }
-\end{lstlisting}
+\end{lfgwcode}
 
 Die Bibliografie-Datei unseres Projektes enthält also einen einzigen Eintrag:
 \bigskip
