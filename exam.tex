@@ -7,11 +7,10 @@
 CTAN%
 \footcite[Vgl.][]{ziegenhagen:dtk2016/2} 
 hält eine Reihe von Paketen bereit, um Klausuren und Übungsblätter zu setzen, neben \paket{exam} sind hier \paket{eqexam}, \paket{exercise} und \paket{exsheets} zu nennen. 
-Im folgenden möchte ich nur auf \paket{exam} weiter eingehen, dem geneigten Leser sei die Lektüre der Dokumentationen für die anderen Pakete ans Herz gelegt.
 
-\paket{exam} wird von Philip Hirschhorn (Wellesley College, USA) betreut, das Paket kann auf eine Geschichte zurückblicken, die bis ins Jahr 1994 reicht. 
-Die aktuelle Version, die als Grundlage für diesen Artikel dient, datiert auf Mai 2015. 
-Da dieses Kapitel nicht alle Funktionen der Klasse detailliert beschreiben kann, sei an dieser Stelle ein Hinweis auf die exzellente Dokumentation erlaubt, die auf mehr als 100 Seiten den Umgang mit \paket{exam} erläutert.
+Im folgenden möchten wir das Paket \paket{exam} genauer beschreiben, dem geneigten Leser sei die Lektüre der Dokumentationen für die anderen Pakete ans Herz gelegt, um das für sie oder ihn \enquote{optimale} Paket zu finden.
+
+Das Paket, dessen Geschichte bis in das Jahr 1994 reicht, wird von Philip Hirschhorn (Wellesley College, USA) betreut. Die aktuelle Version, die als Grundlage für diesen Artikel dient, datiert auf Mai 2015. Da dieses Kapitel nicht alle Funktionen der Klasse detailliert beschreiben kann, sei an dieser Stelle ein Hinweis auf die exzellente Dokumentation erlaubt, die auf mehr als 100 Seiten den Umgang mit \paket{exam} erläutert.
 
 \section{Minimalbeispiel}
 
@@ -31,36 +30,19 @@ Wieviel wiegt Blei?
 \end{document}
 \end{lfgwcode}
 
-Dem  \cs{question} Befehl kann noch optional die Anzahl der möglichen Punkte für diese Frage übergeben werden. 
-\paket{exam} kann -- sofern die Klassenoption \enquote{addpoints} gesetzt ist -- die Punkte zusammenaddieren und auch eine Bewertungstabelle ausgeben; eine hilfreiche Funktion, die den Dozenten vor lästigen Rechenfehlern bewahren kann.
+Dem  \cs{question} Befehl kann noch optional die Anzahl der möglichen Punkte für diese Frage übergeben werden. Da \paket{exam} -- sofern die Klassenoption \enquote{addpoints} gesetzt ist -- die Punkte eigenständig zusammenaddieren und auch eine Bewertungstabelle ausgeben kann, ist dies eine hilfreiche Funktion.
 
-Neben \enquote{addpoints} gibt es noch eine weitere Klassenoption, die an dieser Stelle nicht unerwähnt bleiben soll: \enquote{answers}. Sie steuert, ob die Antworten auf eine Frage unter die Frage gesetzt werden sollen oder nicht, dazu später mehr.
+Neben \enquote{addpoints} gibt es noch eine weitere Klassenoption, die an dieser Stelle nicht unerwähnt bleiben soll: \enquote{answers}. Sie steuert, ob die Antworten auf eine Frage unter die Frage gesetzt werden sollen oder nicht, darauf werden wir jedoch später noch eingehen.
 
-Betrachten wir uns das Ergebnis von \ref{lis:b01} in \cref{fig:b01}, so fällt auf dass statt \enquote{Punkte} \enquote{points} gesetzt wurde. 
-Dies liegt daran, dass das Paket standardmäßig mit englischen Begriffen arbeitet, die erst eingedeutscht werden müssen. Außerdem war das Minimalbeispiel so minimal, dass eine Reihe von nützlichen oder notwendigen Paketen noch nicht eingebunden ist. 
-Da ich persönlich noch am liebsten mit \prog{pdflatex} arbeite, enthält meine Paketliste (siehe Listing \ref{lis:pak}) noch Pakete, die bei der Nutzung von \XeLaTeX\ oder \LuaLaTeX\ nicht unbedingt notwendig sind.
+Betrachten wir uns das Ergebnis von \ref{lis:b01} in \cref{fig:b01}, so fällt auf, dass anstelle von \enquote{Punkte} der englische Begriff \enquote{points} gesetzt wurde. 
+Dies liegt daran, dass das Paket standardmäßig mit englischen Begriffen arbeitet, die erst übersetzt werden müssen. 
 
 \begin{figure}
 \fbox{\includegraphics[clip,trim=2cm 25cm 6cm 1cm,width=\textwidth]{./Examples/exam/beispiel-01}}
 \caption{Ergebnis von Listing \ref{lis:b01}, \texttt{beispiel-01.tex}}\label{fig:b01}
 \end{figure}
 
-
-
-\begin{lfgwcode}{label={lis:pak}}
-\usepackage[ngerman]{babel} % ngerman mal nicht als Klassenoption
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{booktabs} % schöne Tabellen
-\usepackage{csquotes} % Anführungszeichen mit \enquote{}
-\usepackage{paralist} % für kompakte Aufzählungen
-\usepackage[math]{iwona} % Font mit Mathe-Support
-\usepackage{amsmath,textcomp,tikz} %diverses
-\usepackage{eso-pic} % Bilder im Hintergrund
-\end{lfgwcode}
-
-
-Die Anpassung der Begriffe geschieht in \texttt{exam} über spezielle Befehle, eine Auswahl der in späteren Beispielen notwendigen finden sich in Listing \ref{lis:lang}, die Dokumentation enthält noch eine Reihe anderer entsprechender Befehle.
+Die Anpassung der Begriffe geschieht in \texttt{exam} über spezielle Befehle, eine Auswahl der in späteren Beispielen notwendigen finden sich in Listing \ref{lis:lang}. Die Dokumentation enthält zusätzlich noch eine Reihe anderer entsprechender Befehle für weitere im Paket genutzte Begriffe.
 
 \begin{lfgwcode}{label={lis:lang}}
 \pointpoints{Punkt}{Punkte}
@@ -80,7 +62,7 @@ Die Anpassung der Begriffe geschieht in \texttt{exam} über spezielle Befehle, e
 \htword{Summe:}
 \end{lfgwcode}
 
-Kombinieren wir nun die Paketliste aus Listing \ref{lis:pak} mit dem Minimalbeispiel aus Listing \ref{lis:b01}, so erhalten wir beim Übersetzen die Ausgabe von Abbildung \ref{fig:b02}.
+Kombinieren wir die Übersetzungen aus Listing \ref{lis:lang} mit dem Minimalbeispiel aus Listing \ref{lis:b01}, so erhalten wir beim Übersetzen des Dokuments die Ausgabe von Abbildung \ref{fig:b02}.
 
 \begin{figure}[b]
 \fbox{\includegraphics[clip,trim=1cm 22cm 8cm 1cm,width=\textwidth]{./Examples/exam/beispiel-02}}
@@ -89,10 +71,9 @@ Kombinieren wir nun die Paketliste aus Listing \ref{lis:pak} mit dem Minimalbeis
 
 \section{Formatierung von Kopf \& Fuß}
 
-\texttt{exam} bietet eine Reihe von Möglichkeiten für die Anpassung von Kopf und Fuß. 
+Das \texttt{exam} Paket bietet eine Reihe von Möglichkeiten für die Anpassung von Kopf- und Fußzeile, die wir kurz erläutern möchten. 
 Listing \ref{lis:headfoot} zeigt, wie \texttt{firstpageheader} und -\texttt{footer} für die Titelseite beziehungsweise \texttt{runningpageheader} und -\texttt{footer} für Folgeseiten mit Angabe von Fach und Dozent ausgestattet werden können.
-Horizontale Linien unter den Kopfzeilen werden durch die entsprechenden \texttt{\dots headrule} Befehle gesetzt. 
-Abbildung \ref{fig:headfoot} zeigt das entsprechende Ergebnis.
+Horizontale Linien unter den Kopfzeilen werden durch die entsprechenden \texttt{\dots headrule} Befehle gesetzt. Abbildung \ref{fig:headfoot} zeigt das entsprechende Ergebnis.
 
 \begin{lfgwcode}{label={lis:headfoot}}
 \newcommand{\dozent}{Dr. Uwe Ziegenhagen}
@@ -117,8 +98,8 @@ Abbildung \ref{fig:headfoot} zeigt das entsprechende Ergebnis.
 
 \section{Einfügen von Teilfragen}
 
-Einzelne Fragen, die mit \texttt{\textbackslash question} gesetzt wurden, lassen sich noch in Unterfragen unterteilen. 
-\paket{exam} bietet dazu folgende Umgebungen und dazugehörige Befehle an, die wie \texttt{\textbackslash question} zu nutzen sind:
+Die einzelnen Fragen, die mit \texttt{\textbackslash question} gesetzt werden, lassen sich noch in Unterfragen unterteilen. 
+Das \paket{exam} Paket bietet dazu folgende Umgebungen und die dazugehörigen Befehle an, die wie \texttt{\textbackslash question} zu nutzen sind:
 
 \begin{itemize}
 	\item \texttt{parts} Umgebung mit \texttt{\textbackslash part} Befehl
@@ -126,7 +107,7 @@ Einzelne Fragen, die mit \texttt{\textbackslash question} gesetzt wurden, lassen
 	\item \texttt{subsubparts} Umgebung mit \texttt{\textbackslash subsubpart} Befehl
 \end{itemize}
 
-Listing \ref{lis:parts} zeigt, wie man eine Frage in zwei \texttt{\textbackslash part} Unterfragen unterteilt, Abbildung \ref{fig:allparts} die Ausgabe eines erweiterten Beispiels, das auch \texttt{\textbackslash subpart} und \texttt{\textbackslash subsubpart} nutzt.
+Listing \ref{lis:parts} zeigt, wie man eine Frage in zwei \texttt{\textbackslash part} Unterfragen unterteilt, Abbildung \ref{fig:allparts} zeigt die Ausgabe eines erweiterten Beispiels, das auch die weiteren Unterteilungen \texttt{\textbackslash subpart} und \texttt{\textbackslash subsubpart} nutzt.
 
 \begin{lfgwcode}{label={lis:parts}}
 \question[5]
@@ -148,18 +129,18 @@ Wieviel wiegt Luft?
 
 \section{Weitere Aufgabentypen}
 
-Neben Textaufgaben unterstützt \texttt{exam} auch sogenannte Multiple-Choice Aufgaben und Lückentexte. 
-Es stellt dazu folgende Umgebungen bzw. Befehle bereit:
+Neben Textaufgaben unterstützt \texttt{exam} auch Multiple-Choice Aufgaben und Lückentexte. Das Paket stellt dazu folgende Umgebungen bzw. Befehle bereit:
 
 \begin{description}
 \item[choices] Umgebung, stellt dem Eintrag einen Buchstaben voran
-\item[checkboxes] Umgebung, nutzt keinen Buchstaben sondern einen  Kreis, der angekreuzt werden kann
+\item[checkboxes] Umgebung, nutzt keinen Buchstaben sondern einen Kreis, der angekreuzt werden kann
 \item[oneparcheckboxes] Umgebung wie \texttt{checkboxes}, jedoch in einem Absatz nebeneinander anstatt untereinander
 \item[fillin] Befehl für Lückentext, als optionaler Parameter wird das Lösungswort übergeben
 \end{description}
 
 Für die drei genannten Umgebungen gilt, dass die jeweils richtige Antwort bzw. die richtigen Antworten mittels \texttt{\textbackslash CorrectChoice} von den falschen Antworten unterschieden werden können. 
-Setzt man die \enquote{answers} Option wie oben beschrieben als Klassenoption, so werden diese richtigen Antworten entsprechend markiert. 
+
+Setzt man wie oben beschrieben die \enquote{answers} Option als Klassenoption, so werden diese richtigen Antworten im PDF entsprechend markiert. 
 Listing \ref{lis:mchoice1} und \ref{lis:mchoice2} zeigen die entsprechenden Code-Beispiele, Abbildung \ref{fig:mchoicea} die Ausgabe mit \enquote{answers} aktiviert.
 
 \begin{lfgwcode}{label={lis:mchoice1}}
@@ -184,8 +165,6 @@ Listing \ref{lis:mchoice1} und \ref{lis:mchoice2} zeigen die entsprechenden Code
 \end{checkboxes}
 \end{lfgwcode}
 
-\clearpage
-
 \begin{lfgwcode}{label={lis:mchoice2}}
 
 \question Wer war kein Beatle?
@@ -198,7 +177,7 @@ Listing \ref{lis:mchoice1} und \ref{lis:mchoice2} zeigen die entsprechenden Code
 \CorrectChoice Socrates
 \end{oneparcheckboxes}
 
-\question \fillin[James Bond] ist der coolste Superheld.
+\question \fillin[James Bond] ist der geheimste Geheimagent.
 
 \end{lfgwcode}
 
@@ -211,7 +190,7 @@ Listing \ref{lis:mchoice1} und \ref{lis:mchoice2} zeigen die entsprechenden Code
 
 \section{Platz für Antworten}
 
-\texttt{exam} erlaubt es dem Dozenten auch, unterschiedliche Leerräume für die Antworten von Schülern und Studenten bereitzuhalten. 
+\texttt{exam} erlaubt es dem Dozenten auch, unterschiedliche Leerräume für die Antworten der Prüflinge bereitzuhalten. 
 Neben einfachem Leerraum mittels \texttt{\textbackslash vspace} und umrahmten Boxen mittels (siehe Listing \ref{lis:vspace1} sowie die Ausgabe in Abbildung \ref{fig:vspace1}) stellt \texttt{exam} auch linierte und gepunktete Linien sowie karierten Platz bereit.
 
 \begin{lfgwcode}{label={lis:vspace1}}
@@ -267,7 +246,7 @@ Beispiele für die Nutzung dieser Befehle finden sich in Listing \ref{lis:fill},
 
 \section{Ausgabe von Lösungen}
 
-Wie bereits erwähnt, steuert die globale Option \enquote{answers}, ob die hinterlegten Lösungen angezeigt werden sollen oder nicht. 
+Wie bereits oben erwähnt, steuert die globale Option \enquote{answers}, ob die hinterlegten Lösungen angezeigt werden sollen oder nicht. 
 Die Hinterlegung von Lösungen bei Textaufgaben im Text erfolgt dabei über eingefügte \texttt{solution} Umgebungen, die hinter jede \texttt{\textbackslash question} gesetzt werden.
 Listing \ref{lis:sol1} zeigt ein entsprechendes Beispiel, Abbildung \ref{fig:sol2} die entsprechende Ausgabe.
 
