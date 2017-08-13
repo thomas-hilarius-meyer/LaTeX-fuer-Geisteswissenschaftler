@@ -2,39 +2,56 @@
 \chapter{Versionsverwaltung mit Subversion und Git}
 \autor{Uwe Ziegenhagen}
 
-Beim Arbeiten an längeren oder sehr wichtigen Dokumenten wie Bachelor-, Master- oder Doktorarbeiten sollte man sich tunlichst um eine Strategie zur Sicherung der Daten kümmern. Dies gilt nicht nur für die Arbeit mit \LaTeX, sondern ganz allgemein. 
+Beim Arbeiten an längeren oder sehr wichtigen Dokumenten wie Bachelor-, Master- oder Doktorarbeiten ist es mehr als nur ratsam, sich um eine Strategie zur Sicherung der Daten kümmern. Dies gilt nicht nur für die Arbeit mit \LaTeX, sondern ganz allgemein. 
 
-Einzelne Dateien oder ganze Festplatten/SSDs können kaputt gehen, Rechner gestohlen werden, kurzum externe Ereignisse können dazu führen, dass die Datei, in die man Wochen oder Monate gesteckt hat, nicht mehr lesbar ist. 
+Einzelne Dateien oder ganze Festplatten/SSDs können kaputt gehen, Rechner gestohlen werden, zusammengefasst: externe Ereignisse können dazu führen, dass die Arbeit, in die man Wochen oder Monate gesteckt hat, nicht mehr verfügbar ist. 
 
-Die professionelle Rettung von Daten von einer defekten Festplatte erreicht leicht vierstellige Beträge, im Fall des Verlusts oder Diebstahls sind die Daten schlichtweg fort! 
+Die Kosten für die professionelle Rettung von Daten von einer defekten Festplatte können leicht vierstellige Beträge erreichen, im Fall des Verlusts oder Diebstahls sind die Daten schlichtweg fort!
 
-Die übliche Vorgehensweise, das Sichern von Dateien mit unterschiedlichen Zeitstempeln im Namen, ist nicht zu empfehlen. Sie schützt nur gegen Fehler, die man selbst im Dokument einbaut, nicht gegen Verlust oder Defekt. Auch gegen einen Verschlüsselungstrojaner, der alle Dateien auf dem Rechner verschlüsselt und -- falls man Glück hat -- gegen anonyme Zahlung eines signifikanten Geldbetrages wieder entschlüsselt, hilft dies nicht.
+Die übliche Vorgehensweise, das Sichern von Dateien mit unterschiedlichen Zeitstempeln im Namen, ist besser als gar keine Sicherung zu haben, aber auch nicht unbedingt empfehlenswert. Sie schützt nur gegen Fehler, die man selbst im Dokument einbaut, nicht gegen Verlust oder technischen Defekt. Auch gegen einen Virus oder Verschlüsselungstrojaner, der alle Dateien auf dem Rechner löscht oder verschlüsselt und -- falls man Glück hat -- gegen anonyme Zahlung eines signifikanten Geldbetrages wieder entschlüsselt, hilft dies nicht.
 
-In diesem Kapitel wollen wir verschiedene Möglichkeiten zeigen, wie man mit Hilfe eines Versionsverwaltungssystems dezentrale Kopien seiner Arbeit verwalten kann.
+In diesem Kapitel möchten wir verschiedene Möglichkeiten zeigen, wie man mit Hilfe eines Versionsverwaltungssystems Sicherungskopien seiner Arbeit verwalten kann.
 
 \section{Grundlagen}
 
-In der Softwareentwicklung setzt man seit Jahrzehnten auf die Nutzung von Versionsverwaltungssystem wie CVS/RSC, Subversion und Git, die neben dem Aspekt der Sicherungskopie außerhalb der eigenen vier Wände auch die Möglichkeit bieten, auf frühere Versionen einer Datei zurückzukehren. So kann man beispielsweise zur letzten \TeX-Datei zurückgehen, die sich noch problemlos übersetzen ließ und diese mit der aktuellen, fehlerhaften Version vergleichen. 
+In der Softwareentwicklung setzt man seit Jahrzehnten auf die Nutzung von Versionsverwaltungssystem wie CVS/RSC, Subversion und Git, die -- neben dem Aspekt der Sicherungskopie außerhalb der eigenen vier Wände -- die Möglichkeit bieten, zu früheren Versionen einer Datei zurückzukehren. So könnte man beispielsweise zur letzten \TeX-Datei zurückgehen, die sich noch problemlos übersetzen ließ und diese mit der aktuellen, fehlerhaften Version vergleichen. Die meisten Betriebssysteme bringen zu diesem Zweck passende Werkzeuge mit, oftmals haben auch die Versionsverwaltungssysteme passendes an Bord.
 
-In diesem Kapitel soll am Beispiel von Subversion und Git gezeigt werden, wie auch beim bei der Arbeit mit \TeX/\LaTeX\ Versionsverwaltungssysteme sinnvoll eingesetzt werden können.
+In diesem Kapitel soll am Beispiel von Subversion und Git gezeigt werden, wie bei der Arbeit mit \TeX/\LaTeX\ Versionsverwaltungssysteme sinnvoll eingesetzt werden können.
 
-Ein Hinweis noch: Die saubere Konfiguration einer Versionsverwaltung setzt ein gewisses technisches Verständnis voraus. Wer sich dies nicht zutraut, nutzt am besten einen der vielen Hoster, die die notwendige Infrastruktur und Expertise bereithalten. Github beispielsweise berechnet 7~US-\$ pro Monat für eine unbegrenzte Zahl privater (nicht öffentlich einsehbarer) Git-Repositories, LCube-Hosting (\url{https://www.lcube-webhosting.de}) berechnet 2,99~Euro pro Monat für ein Gigabyte an Subversion-Repositories.
+Ein Hinweis noch: Die ordentliche Konfiguration einer Versionsverwaltung setzt ein gewisses technisches Verständnis voraus. Wer sich dies nicht zutraut, nutzt am besten einen der vielen Hoster, die die notwendige Infrastruktur und Expertise bereithalten. Github beispielsweise berechnet 7~US-\$ pro Monat für eine unbegrenzte Zahl privater (nicht öffentlich einsehbarer) Git-Repositories (die auch per Subversion-Client benutzt werden können), LCube-Hosting (\url{https://www.lcube-webhosting.de}) berechnet 2,99~Euro pro Monat für ein Gigabyte an Subversion-Repositories.
 
 \section{Subversion}
 
-Subversion wurde ursprünglich von CollabNet entwickelt, seit 2009 hat es seine Heimat bei der Apache Foundation gefunden. Es handelt sich bei Subversion um eine \textit{zentrale} Versionsverwaltung, das heißt es gibt einen zentralen Server, auf dem der Subversion-Dienst läuft und auf den geänderte Dateien geladen werden. Git im Gegensatz dazu ist eine \textit{dezentrale} Versionsverwaltung, doch dazu später mehr.
+Subversion wurde ursprünglich von CollabNet entwickelt, seit 2009 hat es seine Heimat bei der Apache Foundation gefunden. Es handelt sich bei Subversion um eine \textit{zentrale} Versionsverwaltung, das bedeutet das es einen zentralen Server gibt, auf dem der Subversion-Dienst läuft und auf den geänderte Dateien hochgeladen werden.
 
 \subsection{Installation}
 
-Es gibt verschiedene Möglichkeiten, einen Subversion-Server zu installieren. Die lokale Installation auf dem Arbeitsrechner ist nicht empfehlenswert, denn im Fall des Verlusts geht nicht nur die lokale Kopie, sondern auch die komplette Versionshistorie verloren. Wenn man diesen Weg gehen möchte, sollte man sich auf jeden Fall um ein regelmäßiges, am besten automatisiertes, Backup auf einem externen Rechner kümmern. 
+Es gibt verschiedene Möglichkeiten, einen Subversion-Server zu installieren. Die lokale Installation auf dem Arbeitsrechner ist nicht ohne weiteres empfehlenswert, denn im Fall des Verlusts geht nicht nur die lokale Kopie, sondern auch die komplette Versionshistorie verloren. Wenn man diesen Weg gehen möchte oder muss, dann sollte man sich auf jeden Fall um ein regelmäßiges, am besten automatisiertes, Backup auf einem externen Rechner -- am besten an einem anderen Standort -- kümmern. Ein Hinweis noch: es empfiehlt sich dringend, auch die Integrität des Backups gelegentlich zu prüfen. Ein kaputtes Backup bietet keinen Mehrwert!
 
-Gute Erfahrungen hat der Autor mit der Nutzung eines Synology NAS (NAS = \enquote{Network-Attached Storage}), also einer Netzwerkfestplatte gemacht, auf der der Subversion-Dienst mit wenigen Handgriffen installiert werden kann. Hier gilt zwar auch, dass eine externe Sicherung sehr ratsam ist, mit den bordeigenen Mitteln des NAS ist dies aber leicht umsetzbar.
+Der Autor selbst hat gute Erfahrungen mit der Nutzung eines Synology NAS (NAS = \enquote{Network-Attached Storage}), also einer Netzwerkfestplatte gemacht, auf der der Subversion-Dienst mit wenigen Handgriffen installiert werden kann. Hier gilt zwar auch, dass eine externe Sicherung sehr ratsam ist, mit den bordeigenen Mitteln des NAS ist dies aber recht leicht umsetzbar. Persönlich nutzt der Autor dazu den täglichen Dump der letzten Version des Repositories in eine Datei, die dann verschlüsselt und gezippt bei einem Cloud-Anbieter gespeichert wird.
+
+Eine weitere Möglichkeit bietet die Installation von beispielsweise \enquote{VisualSVN Server} (\url{https://www.visualsvn.com/server/}) für Windows, das in der Standard-Installation kostenlos verfügbar ist. Die Installation ist in wenigen Minuten erledigt, über spezielle Programme wird der Subversion-Dienst dann konfiguriert. Im folgenden gehen wir davon aus, das a) der Dienst auf dem lokalen Windows-Rechner läuft und b) ein leeres Repository \enquote{BachelorArbeit2017} eingerichtet wurde.
+
+% https://desktop-tnm26jc/!/#BachelorArbeit2017
+
+\subsection{Subversion von der Kommandozeile}
+
+Subversion bringt einen eigenen Kommandozeilen-Client mit, der auf allen Betriebssystemen identisch funktioniert. Schon aus diesem Grund empfiehlt es sich, zumindest die Grundlagen dazu zu beherrschen.
+
+Als erstes erfolgt der Checkout der Dateien aus dem Repository in ein leeres Verzeichnis. Dazu wechselt man auf die Kommandozeile (über die \enquote{Eingabeaufforderung}) und wechselt mittels \texttt{cd} in das Verzeichnis, in dem das Arbeitsverzeichnis erstellt werden soll. Dann gibt man den Befehl zum Checkout der Daten ein:
+
+\texttt{svn checkout https://localhost/svn/BachelorArbeit2017/}
+
+Nach der Eingabe von Benutzername und Passwort lädt Subversion dann die Dateien herunter, da aber unser Repository noch neu und damit leer war, erkennt man auf den Blick keinen Unterschied. 
 
 
-\subsection{Client}
+\subsection{Grafische Clients}
 
-tortoisesvn
+Für die verschiedenen Betriebssysteme existieren auch diverse grafische Benutzeroberflächen für Subversion, Maß aller Dinge -- zumindest unserer Meinung nach -- ist dabei aber TortoiseSVN (\url{https://tortoisesvn.net/downloads.html}). Auf dieses hilfreiche Werkzeug möchten wir daher näher  eingehen.
 
+
+
+\section{Integration von Subversion-Informationen in \LaTeX}
 
 \subsection{svn-multi}
 
