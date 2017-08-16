@@ -26,43 +26,51 @@ Subversion wurde ursprünglich von CollabNet entwickelt, seit 2009 hat es seine 
 
 \subsection{Installation}
 
-Es gibt verschiedene Möglichkeiten, einen Subversion-Server zu installieren. Die lokale Installation auf dem Arbeitsrechner ist nicht ohne weiteres empfehlenswert, denn im Fall des Verlusts geht nicht nur die lokale Kopie, sondern auch die komplette Versionshistorie verloren. Wenn man diesen Weg gehen möchte oder muss, dann sollte man sich auf jeden Fall um ein regelmäßiges, am besten automatisiertes, Backup auf einem externen Rechner -- am besten an einem anderen Standort -- kümmern. Ein Hinweis noch zum Thema \enquote{Backup}: es empfiehlt sich, auch die Integrität des Backups gelegentlich zu prüfen. Sollte der Fall eintreten, dass man das Backup wieder einspielen muss, dann sollte es auch technisch möglich sein. Ein kaputtes Backup bietet keinen Mehrwert!
+Es gibt verschiedene Möglichkeiten, einen Subversion-Server zu installieren. Die lokale Installation auf dem Arbeitsrechner -- egal auf welchem Betriebssystem --ist nur dann empfehlenswert, wenn die Daten regelmäßig, am besten auf einem externen Rechner, gesichert werden. Wenn nämlich der schlimmste Fall eintritt und der lokale defekt ist oder abhanden gekommen ist, ist nicht nur die Arbeitskopie sondern auch das ganze Repository defekt.
 
-Der Autor selbst hat gute Erfahrungen mit der Nutzung eines Synology NAS (NAS = \enquote{Network-Attached Storage}), also einer Netzwerkfestplatte gemacht, auf der der Subversion-Dienst mit wenigen Handgriffen installiert werden kann. Hier gilt zwar auch, dass eine externe Sicherung sehr ratsam ist, mit den bordeigenen Mitteln des NAS ist dies aber recht leicht umsetzbar. Persönlich nutzt der Autor dazu den täglichen Dump der letzten Version des Repositories in eine Datei, die dann verschlüsselt und gezippt bei einem Cloud-Anbieter gespeichert wird.
+Ein Hinweis noch zum Thema \enquote{Backup}: es empfiehlt sich, auch die Integrität des Backups gelegentlich zu prüfen.
+Ein kaputtes Backup bietet keinen Mehrwert!
 
-Neben der Installation auf einem NAS kann man Subversion auch in Form eines Windows-Dienstes installieren, hier empfiehlt sich beispielsweise \enquote{VisualSVN Server} (\url{https://www.visualsvn.com/server/}), das in der Standard-Installation kostenlos verfügbar ist. Die Installation ist in wenigen Minuten erledigt, über das Programm \enquote{VisualSVN Server Manager} werden dann die User und Repositories konfiguriert. Im folgenden gehen wir davon aus, das a) der Dienst auf dem lokalen Windows-Rechner läuft und b) ein leeres Repository \enquote{BachelorArbeit2017} eingerichtet wurde.
+Der Autor selbst hat gute Erfahrungen mit der Nutzung eines Synology NAS (NAS = \enquote{Network-Attached Storage}), also einer Netzwerkfestplatte der Firma Synology gemacht, auf der der Subversion-Dienst mit wenigen Handgriffen installiert werden kann. 
+Hier gilt zwar auch, dass eine externe Sicherung sehr ratsam ist, mit den bordeigenen Mitteln des NAS ist dies aber recht leicht umsetzbar. 
+Der Autor hat es so gelöst, dass täglich die letzte Version eines jeden Repositories in eine Datei gedumpt wird (mittels \texttt{svnadmin dump}), die dann verschlüsselt und gezippt bei einem Cloud-Anbieter gespeichert wird.
+
+Neben der Installation auf einem NAS kann man Subversion auch in Form eines Windows-Dienstes installieren, hier empfiehlt sich beispielsweise \enquote{VisualSVN Server} (\url{https://www.visualsvn.com/server/}), das in der Standard-Installation kostenlos verfügbar ist. Die Installation ist in wenigen Minuten erledigt, über das Programm \enquote{VisualSVN Server Manager} werden dann die User und Repositories konfiguriert. Für die folgenden Betrachtungen gehen wir davon aus, das a) VisualSVN auf dem lokalen Windows-Rechner läuft und b) ein leeres Repository \enquote{BachelorArbeit2017} eingerichtet wurde.
 
 % https://localhost/!/#BachelorArbeit2017
 
 \subsection{Subversion von der Kommandozeile}
 
 Subversion bringt einen eigenen Kommandozeilen-Client mit, der auf allen Betriebssystemen identisch funktioniert. 
-Schon aus diesem Grund empfiehlt es sich, wenigstens die Grundlagen dazu zu beherrschen.
+Schon allein aus diesem Grund empfiehlt es sich, wenigstens die Grundlagen dazu zu beherrschen.
 
-Als erstes erfolgt der Checkout der Dateien aus dem Repository in ein leeres Verzeichnis. Dazu wechselt man auf die Kommandozeile (über die \enquote{Eingabeaufforderung}) und wechselt mittels \texttt{cd} in das Verzeichnis, in dem das Arbeitsverzeichnis erstellt werden soll. 
+Als erstes erfolgt der Checkout der Dateien aus dem \enquote{BachelorArbeit2017}-Repository in ein leeres Verzeichnis, welches das Arbeitsverzeichnis sein wird. 
+Dazu wechselt man auf die Kommandozeile (über die \enquote{Eingabeaufforderung}) und wechselt mittels \texttt{cd} in das entsprechende Verzeichnis, wo das Arbeitsverzeichnis angelegt werden soll.
+
 Dann gibt man den Befehl zum Checkout der Daten ein:
 
 \texttt{svn checkout https://localhost/svn/BachelorArbeit2017/}
 
-Nach der Eingabe von Benutzername und Passwort lädt Subversion dann die Dateien herunter, da aber unser Repository noch neu und damit leer ist, erkennt man auf den Blick keinen Unterschied. 
-Den Unterschied erkennt man nur dann, wenn man sich mittels \texttt{dir /ah} versteckte Dateien und Verzeichnisse anzeigen lässt. 
-Subversion hat beim Checkout das Verzeichnis \texttt{.svn} angelegt, in dem SVN-interne Daten gespeichert werden. 
+Nach der Eingabe von Benutzername und Passwort lädt Subversion dann die Dateien herunter. 
+Da aber unser Repository noch neu und leer ist, erkennt man auf den Blick keinen Unterschied. 
+Den Unterschied erkennt man nur dann, wenn man sich mittels \texttt{dir /ah} die versteckten Dateien und Verzeichnisse anzeigen lässt. 
+Subversion hat beim Checkout der Daten das Verzeichnis \texttt{.svn} angelegt, in dem SVN-interne Daten gespeichert werden. 
 
 Wenn wir jetzt im Arbeitsverzeichnis neue Ordner und Dateien anlegen, können diese mit \texttt{svn add <Dateiname/ordner>} unter die Versionverwaltung gestellt werden. 
-Ein anschließendes \texttt{svn commit -m ''Kommentar''} überträgt die Dateien in das zentrale Repository. 
-Die Option \texttt{-m} mit dem Kommentar bzw. die Option \texttt{-f}, die den Kommentar aus einer Datei liest, muss gesetzt sein, am besten mit einem passenden Kommentar. Je besser der Kommentar, desto leichter lassen sich möglicherweise auftretende Probleme später lösen.
+Ein anschließendes \texttt{svn commit -m ''Kommentar''} überträgt die Dateien in das zentrale Repository.
+Die Option \texttt{-m} mit dem Kommentar, was man denn geändert hat, bzw. die Option \texttt{-f}, die diesen Kommentar aus einer Datei liest, muss gesetzt sein. Der Kommentar kann auch leer sein, es gilt aber: je besser der Kommentar, desto leichter lassen sich möglicherweise auftretende Probleme später lösen.
 
-Zum Updates des lokalen Arbeitsverzeichnisses mit den Daten aus dem Repository nutzt man \texttt{svn update}.
+Vor der Arbeit an den ausgecheckten Dateien empfiehlt es sich, jedes Mal ein Update der Dateien zu machen. Dazu nutzt man den Befehl \texttt{svn update}.  
 
 \subsection{Grafische Clients}
 
-Für die verschiedenen Betriebssysteme existieren auch diverse grafische Benutzeroberflächen für Subversion.
-Maß aller Dinge -- zumindest unserer Meinung nach -- ist dabei aber TortoiseSVN (\url{https://tortoisesvn.net/downloads.html}). 
+Für die verschiedenen Betriebssysteme existieren auch diverse grafische Clients für Subversion.
+Maß aller Dinge -- zumindest nach Meinung des Autors -- ist dabei aber TortoiseSVN (\url{https://tortoisesvn.net/downloads.html}). 
 Auf dieses hilfreiche Werkzeug möchten wir daher näher eingehen. 
 Nach Download, Installation und Neustart findet man im Kontextmenü des Explorers (rechte Maustaste\ldots)  zwei neue Menüpunkte: \texttt{SVN Checkout} und \texttt{TortoiseSVN}.
 
 Über den Menüpunkt \texttt{SVN Checkout} können wir -- analog zum Kommandozeilenbefehl \texttt{svn checkout} Dateien aus einem SVN-Repository holen.
-Wenn wir dies tun und dann in das neu erstellte Verzeichnis mit den ausgecheckten Dateien gehen, ändert sich das Kontextmenü. Der Punkt \texttt{SVN Checkout} ist nicht mehr verfügbar, was auch logisch ist, schließlich befinden wir uns bereits in einem ausgecheckten Verzeichnis. Hinzugekommen sind die Einträge \texttt{SVN Update} und \texttt{SVN Commit}. \texttt{SVN Update} tut genau das, was man erwarten würde: es aktualisiert die Dateien im Arbeitsverzeichnis mit dem letzten Stand aus dem Repository. Es empfiehlt sich daher, jedes Mal vor der Veränderung der lokalen Dateien solch ein \texttt{SVN Update} durchzuführen, um Datei-Konflikte zu vermeiden. Was in einem solchen Fall zu tun ist, werden wir noch später besprechen.
+Wenn wir dies tun und dann in das neu erstellte Verzeichnis mit den ausgecheckten Dateien gehen, verändert sich das Kontextmenü. Der Punkt \texttt{SVN Checkout} ist nicht mehr verfügbar, was auch logisch ist, schließlich befinden wir uns bereits in einem ausgecheckten Verzeichnis. Hinzugekommen sind die Einträge \texttt{SVN Update} und \texttt{SVN Commit}. \texttt{SVN Update} tut genau das, was man erwarten würde: es aktualisiert die Dateien im Arbeitsverzeichnis mit dem letzten Stand aus dem Repository. Es empfiehlt sich daher, jedes Mal vor der Veränderung der lokalen Dateien solch ein \texttt{SVN Update} durchzuführen, um Datei-Konflikte zu vermeiden. Was in einem solchen Fall zu tun ist, werden wir noch später besprechen.
 
 \texttt{SVN Commit} sorgt dafür, das die lokal veränderten Dateien wieder in das zentrale Repository hochgeladen werden. Man kann beim Commit via TortoiseSVN, genau wie auf der Kommandozeile, noch einen Kommentar mitgeben.
 
@@ -77,16 +85,16 @@ Früher oder später geschieht es immer: man hat lokal Dateien angepasst, die ab
 
 \section{Git}
 
-Für dieses Buch wurde nicht Subversion, sondern git benutzt, das im Gegensatz zu Subversion nicht \textit{zentral}, sondern \textit{dezentral} arbeitet. Der Grund für git statt Subversion war dabei eher organisatorisch als technisch, mehrere der Co-Autoren hatten bereits gute Erfahrungen mit github.com gemacht, das -- wie der Name sagt -- git nutzt.
+Für dieses Buch wurde nicht Subversion, sondern git benutzt, das im Gegensatz zu Subversion nicht \textit{zentral}, sondern \textit{dezentral} arbeitet. 
 
 Im wesentlichen bedeutet \textit{dezentral}, dass es nicht einen zentralen Server gibt, der die Historie vorhält, sondern dass jeder Entwickler oder Autor die komplette Historie auf dem Rechner hat und Änderungen an den lokalen Dateien auch in das lokale git Repository eingecheckt werden. 
+
+Der Grund der Entscheidung für git statt Subversion war dabei eher organisatorisch als technisch, mehrere der Co-Autoren hatten bereits gute Erfahrungen mit github (\url{www.github.com}) gesammelt, das -- wie der Name sagt -- auf git aufbaut.
 
 Man kann aber die lokalen Änderungen in ein entferntes (\enquote{remote}) Repository pushen, sodass es keine fundamentalen Unterschiede zur Arbeit mit git statt Subversion gibt.
 Github unterstützt auch den Zugriff auf die Repositories über das Subversion-Protokoll, damit lassen sich auch grafische Clients wie TortoiseSVN mit github nutzen. 
 
 Im folgenden soll gezeigt werden, wie man auf github ein neues Repository anlegt und damit Dateien verwaltet.
-
-
 
 
 \endinput
