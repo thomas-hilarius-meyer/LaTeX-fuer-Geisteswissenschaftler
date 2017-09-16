@@ -955,7 +955,7 @@ Comprehensive S.~
 \minisec{Ein \enquote{kleines Ärgernis}: Anführungszeichen}
 \label{enquote}
 
-Nicht einfach die Gänsefüßchen \lstinline/"/ benutzen, das diese nicht korrekt interpretiert
+Nicht einfach die Gänsefüßchen \lstinline/"/ benutzen, da diese nicht korrekt interpretiert
 werden können: Es ist für den Computer schwer erkennbar, wo die Anführung beginnt und wo sie
 endet. Entsprechende regelbasierte Automatiken sind notorisch fehleranfällig.
 Da die zugrundeliegenden Regeln nicht ganz trivial sind,%
@@ -963,8 +963,8 @@ Da die zugrundeliegenden Regeln nicht ganz trivial sind,%
 kommen -- auch in professionell gesetzten Büchern -- häufig Fehler vor.
 Man sollte daher möglichst auf eine händische Eingabe ganz verzichten.
 
-Am sinnvollsten ist der Weg, das Paket \paket{csquotes} einzubinden (in der Präambel) und auf 
-eine manuelle Eingabe der Anführungszeichen ganz zu verzichten: Statt dessen definiert das Paket
+Um diese Möglichkeit zu realisieren, ist das Paket \paket{csquotes} einzubinden (in der Präambel) und auf 
+die Eingabe von Anführungszeichen vollständig zu verzichten: Das Paket enthält
 ein Makro namens \lstinline/\enquote{}/, das als Ersatz für die Anführungszeichen eingegeben
 wird.
 
@@ -1008,6 +1008,7 @@ Hier werden nur die grundlegenden Funktionen gezeigt; daneben gibt zahlreiche M�
 Modifikation.\footcite[295\psqq]{voss:einfuehrung}
 
 %Philipp schlägt vor, compactenum vorzustellen!
+% unbedingt -- beide Varianten!
 
 \minisec{\enquote{Triviale} Listen ohne alles: trivlist}
 
