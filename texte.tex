@@ -64,7 +64,7 @@ so gibt es für Hausarbeiten oder Dissertationen zahlreicher Universitäten eine
 Dokumentklasse. Existiert eine solche, sollte man sie i.\,d.\,R. auch benutzen.
 
 Die folgende Einführung beschränkt sich auf die Klassen des \KOMAScript-Paketes von
-Markus Kohm, weil diese eine überragende typographische Qualität sowie zahllose Möglichkeiten
+Markus Kohm, weil diese eine überragende typografische Qualität sowie zahllose Möglichkeiten
 zur individuellen Anpassung bieten.%
 \footnote{Wer allerdings ihre volle Funktionalität nutzen will, sollte sich die originale 
 Dokumentation beschaffen und sich mit ihrer Hilfe genauer einarbeiten\dots}
@@ -99,6 +99,13 @@ bestimmten Technischen Hochschule.
 
 Die gewünsche Dokumentklasse wird ganz am Anfang angegeben durch das Kommando
 \cs{documentclass\oarg{Optionen}\marg{NAME}}.
+% sollte hier nicht deutlich gemacht werden, dass LaTeX genau dies
+% auszeichnet: man muss nicht mit den atomaren Elementen aus TeX arbeiten,
+% sondern nutzt eine Dokumentenklasse, die viele Detaileinstellungen vornimmt
+% und darüber hinaus eine Reihe von logisch strukturiernden Voreinstellungen
+% bereitstellt, die für den jeweiligen Anwendungsfall festgelegt wurden.
+% Auch könnte auf die Äquivalenz zwischen Dokumentenklasse und Vorlagen bei 
+% Textverarbeitungssystemen hingewiesen werden.
 
 Grundsätzlich gilt: Je spezieller eine Dokumentklasse ist, desto genauer passt sie zu einer spezifischen
 Aufgabenstellung und desto eher wird sie spezifische Sonderanforderungen befriedigen -- bis hin zur
@@ -107,7 +114,8 @@ Je allgemeiner eine Klasse ist, desto eher wird man bei Spezialbedürfnissen dar
 diese auf anderem Wege zu implementieren.
 Jetzt kommen die sog. Pakete ins Spiel:
 
-\textbf{Pakete} erweitern die Funktionalität einer beliebigen Dokumentklasse um einzelne, meist
+\textbf{Pakete} erweitern die Funktionalität einer %beliebigen
+Dokumentklasse um einzelne, meist
 thematisch zusammenhängende Features. Beispiele sind etwa die Möglichkeit zur Einbindung von
 Grafiken, die Erstellung von Registern, bessere Möglichkeiten zur Erstellung von komplexen Tabellen etc.
 Die meisten in dieser Anleitung vorgestellten Möglichkeiten basieren auf besonderen Paketen, die
@@ -127,12 +135,13 @@ ggf. zu Rate ziehen sollte, um ihren vollen Funktionsumfang ausnutzen zu können
 \dictum[Gen 11,7]{Wohlan, lasst uns hinabfahren und daselbst ihre Sprache verwirren, dass keiner mehr 
     des anderen Sprache verstehe.}
 
-Das vielleicht wichtigste Paket, das in praktisch jedem Dokument zu laden heißt \paket{babel}.
+Das vielleicht wichtigste Paket, das in praktisch jedem Dokument zu laden ist, heißt \paket{babel}.
 Es sorgt dafür, dass \LaTeX\ an die verschiedenen nationalsprachlichen Besonderheiten angepasst wird.
 Das betrifft auch automatisch eingesetzte Begriffe wie \enquote{Kapitel} statt \enquote{chapter} sowie
 sprachspezifische typographische Regelungen.
 
 Der Aufruf des Paketes \paket{babel} erfolgt wie bei allen Paketen: 
+% Ich würde nicht von Aufruf, sondern von Bereitstellen der Funktionalität sprechen
 \cs{usepackage\oarg{Liste mit benutzen Sprachen}\marg{babel}}
 
 Babel unterstützt eine ganze Reihe von Sprachen; für Geisteswissenschaftler am wichtigsten sind
