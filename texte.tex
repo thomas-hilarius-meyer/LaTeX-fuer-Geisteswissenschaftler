@@ -12,17 +12,17 @@ Ein großer Bereich, für den \LaTeX{} eigentlich bekannt ist, bleibt ganz auße
 der Satz von komplexen mathematischen Formeln und Gleichungen.
 
 
-\section{Vorüberlegungen zu typographischer Schönheit und Funktionalität}
+\section{Vorüberlegungen zu typografischer Schönheit und Funktionalität}
 
 \dictum[Louis Sullivan]{Form follows function.}
 
 Der Grundgedanke bei der Benutzung von \LaTeX\ ist, dass sich der Autor um die inhaltliche Seite seines
-Textes kümmert, und die typographische Aufbereitung den Algorithmen der Software überlässt, 
+Textes kümmert, und die typografische Aufbereitung den Algorithmen der Software überlässt, 
 die aus der ihr mitgeteilten logischen Struktur anhand der traditionellen Regeln funktionaler Setzerkunst 
 eine schön -- im Sinne funktionaler Ästhetik -- aufbereitete Druckfassung erstellt.
 
-Dieser Ansatz widerspricht der der weitverbreiteten Do-it-yourself-Mentalität der Typographie des
-PC-Zeitalters, die im sehr lesenswerten Leitfaden \enquote{Erste Hilfe Typographie} der Setzer-Koryphäen
+Dieser Ansatz widerspricht der der weitverbreiteten Do-it-yourself-Mentalität der Typografie des
+PC-Zeitalters, die im sehr lesenswerten Leitfaden \enquote{Erste Hilfe Typografie} der Setzer-Koryphäen
 Hans Peter Willberg und Friedrich Forssmann karikiert wird:
 
 \begin{quote}
@@ -138,7 +138,7 @@ ggf. zu Rate ziehen sollte, um ihren vollen Funktionsumfang ausnutzen zu können
 Das vielleicht wichtigste Paket, das in praktisch jedem Dokument zu laden ist, heißt \paket{babel}.
 Es sorgt dafür, dass \LaTeX\ an die verschiedenen nationalsprachlichen Besonderheiten angepasst wird.
 Das betrifft auch automatisch eingesetzte Begriffe wie \enquote{Kapitel} statt \enquote{chapter} sowie
-sprachspezifische typographische Regelungen.
+sprachspezifische typografische Regelungen.
 
 Der Aufruf des Paketes \paket{babel} erfolgt wie bei allen Paketen: 
 % Ich würde nicht von Aufruf, sondern von Bereitstellen der Funktionalität sprechen
@@ -163,8 +163,10 @@ eingestellt ist) dar.
 Auch der Dokumentklasse sollte man die Standardsprache des Dokumentes bekanntgeben.
 Denn zahlreiche Pakete, die später geladen werden, werten diese Sprachoption aus und 
 passen sich an (z.\,B. \paket{varioref}).
+% Ausdruck ist anthropomorphisierend -- nicht passen sich an, sondern 
+% passen sprachsensible Konstruktionen an
 
-Somit ergibt sich folgender typische Dokumentbeginn:
+Somit ergibt sich folgender typischer Dokumentbeginn:
 
 \begin{lfgwcode}{label={lis:dokumentbeginn}}
  \documentclass[ngerman]{scrreprt}
@@ -172,8 +174,8 @@ Somit ergibt sich folgender typische Dokumentbeginn:
 \end{lfgwcode}
 
 (Wenn keine griechischen Einschübe benutzt werden, kann die Angabe von \lstinline/polutonikogreek/
-natürlich wegbleiben.)
-
+%natürlich wegbleiben.)
+entfallen.)
 
 \minisec{Wechsel zu einer anderen Sprache}
 
@@ -203,6 +205,10 @@ klassische Ideale wie den Goldenen Schnitt berücksichtigt.
 Dazu reicht es, bei der Angabe der Dokumentklasse das Papierformat als Option \lstinline/paper=.../ anzugeben.
 Vordefiniert sind: letter, legal, executive, a0, a1, a2, a3, a4, a5, a6, a7, a8, b0 bis b8, c0 bis c8 und
 d0 bis d8. 
+% statt 
+% a0, a1, a2, a3, a4, a5, a6, a7, a8
+% besser: a0 bis a8
+%
 
 Außerdem ist es möglich, die Breite und Höhe des Papiers direkt anzugeben:
 \lstinline/paper=200mm:200mm/.
@@ -313,7 +319,7 @@ Texte lassen sich in \LaTeX{} m.\,H. eines hierarchischen Systems von Überschri
 
 \dictum[Mies van der Rohe]{Weniger ist mehr.}
 
-Innerhalb gedruckter Texte lassen sich auf drei Weisen verschiedene Passagen typographisch voneinander
+Innerhalb gedruckter Texte lassen sich auf drei Weisen verschiedene Passagen typografisch voneinander
 absetzen:
 durch eine Veränderung des Schriftschnittes,
 der Schriftgröße und
@@ -330,7 +336,7 @@ Standardmäßig erlaubt \LaTeX\ die typischen Auszeichnungen:
 
 \begin{center}
 \begin{tabular}{lll}
-      Befehl                &       Beschreibung                        & typograph. Bewertung \\
+      Befehl                &       Beschreibung                        & typograf. Bewertung \\
       \hline
  \lstinline/\emph{}/        &   \emph{hervorgehoben} (z.\,B. kursiv in recte-Texten)        &   $+$ \\
  \lstinline/\textit{}/      &       \textsl{kursiv}                     &   $--$\\
@@ -346,7 +352,7 @@ Standardmäßig erlaubt \LaTeX\ die typischen Auszeichnungen:
 
 \minisec{Unterstreichungen}
 
-In der anspruchsvolleren Typographie gelten Unterstreichungen als verpöntes Überbleibsel
+In der anspruchsvolleren Typografie gelten Unterstreichungen als verpöntes Überbleibsel
 aus der Schreibmaschinenzeit. Im klassischen Bleisatz wurde nicht mit Unterstreichungen
 gearbeitet.
 
@@ -373,7 +379,7 @@ ermöglicht:
 
 \minisec{Texte sperren}
 
-Eine sehr elegant-konservative typographische Möglichkeit zur aktiven Auszeichnung ist das 
+Eine sehr elegant-konservative typografische Möglichkeit zur aktiven Auszeichnung ist das 
 \textls{Sperren}  
 von Textpassagen. Hierzu stellt das Paket \paket{microtype} den Befehl
 \lstinline/\textls{Text}/ zur Verfügung.
@@ -679,7 +685,7 @@ Schwabacher um; der jeweils: zweite Befehl dient, um eine kürzere Passage in de
 jeweiligen Schriftart aus:zugeben.}
 
 {\frakfamily 
-Typographisch muß man beachten, daß die Frakturschrift zwei Zeichen für das: kleine S hat:
+Typografisch muß man beachten, daß die Frakturschrift zwei Zeichen für das: kleine S hat:
 }
 
 \begin{itemize}
@@ -968,7 +974,7 @@ Nicht einfach die Gänsefüßchen \lstinline/"/ benutzen, da diese nicht korrekt
 werden können: Es ist für den Computer schwer erkennbar, wo die Anführung beginnt und wo sie
 endet. Entsprechende regelbasierte Automatiken sind notorisch fehleranfällig.
 Da die zugrundeliegenden Regeln nicht ganz trivial sind,%
-\footnote{Lesetypographie seite ...}
+\footnote{Lesetypografie seite ...}
 kommen -- auch in professionell gesetzten Büchern -- häufig Fehler vor.
 Man sollte daher möglichst auf eine händische Eingabe ganz verzichten.
 
@@ -1578,7 +1584,7 @@ stark einschränkt.
  
  Faustregel: Der Wortabstand soll niemals größer sein als der Zeilenabstand.
  Evtl. kann es helfen, mehrspaltige Abschnitte im Flattersatz zu setzen.
- In typographischer Hinsicht ist dies ein sehr schlechter Absatz...
+ In typografischer Hinsicht ist dies ein sehr schlechter Absatz...
  
  Um dem Leser zu ermöglichen, die Spalten besser wahrzunehmen kann der Längenwert 
  \lstinline/columnseprule/ auf einen Wert größer 0 gestellt werden;
@@ -2015,7 +2021,7 @@ Zur Registererstellung vgl. \fullref{Bibelstellenregister}.
 
 \paket{covington}
 \paket{dramatist}
-\footcite[xxx]{lesetypographie}
+\footcite[xxx]{lesetypografie}
 
 
 
