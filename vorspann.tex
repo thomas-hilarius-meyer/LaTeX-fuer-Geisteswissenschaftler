@@ -46,7 +46,7 @@
 \makeatother
 \DeclareTextCommandDefault{\textborn}{{\char"002A}}
 \DeclareTextCommandDefault{\textdied}{{\char"2020}}
-\usepackage[%
+\usepackage[% microtype
    final,%
    tracking=smallcaps,%
    expansion=alltext,%
@@ -155,7 +155,7 @@
 }
 \lstset{style=listinglfgw}
   
-\usepackage[%
+\usepackage[% tcolorbox
   skins,%
   listings,%
   breakable,%
@@ -286,7 +286,7 @@ lfgwstyle/.style={%
 \indexsetup{level = \subsection*, toclevel = subsection, noclearpage, headers = {\indexname}{\indexname}}
 \makeindex[                title = {Allgemeiner Index}]
 \makeindex[name = pakete,  title = {Verzeichnis der Paketnamen}]
-\usepackage[%
+\usepackage[% biblatex
    style=authoryear,  
 %  style=historische-zeitschrift, % das am liebsten - aber der geht (bei mir?) nicht!
 %  pageref=true,
@@ -297,7 +297,7 @@ lfgwstyle/.style={%
 
 \usepackage{fancyvrb}
 \makeatletter
-\usepackage[%
+\usepackage[% reledmac
    series={A,B,C},%nur die Apparate A B C aktivieren
    noend,%keine Endotenapparate
    noeledsec%keine eledsections et al.
@@ -346,7 +346,7 @@ lfgwstyle/.style={%
 	final=true	% = true, nur bei web-Dokument!! (wichtig!!)
 }
 \usepackage{bookmark}%advanced bookmarks
-\usepackage[
+\usepackage[% cleceref
   sort,
   nameinlink
   ]{cleveref}%nach hyperref laden
