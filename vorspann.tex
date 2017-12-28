@@ -18,7 +18,7 @@
 \usepackage{yfonts}
 \usepackage{textgreek}
 \usepackage{cjhebrew}[2017/03/06]
-\usepackage{amsmath,amssymb}
+\usepackage{amsmath,amssymb} % für forrest
 %%%\usepackage{textcomp}
 \usepackage{unicode-math}
 \usepackage{fontspec}
@@ -239,7 +239,7 @@ lfgwstyle/.style={%
 \usepackage{enumitem}			% for simple list modifications
 \setlist{leftmargin=*,before=\setlength{\rightmargin}{\leftmargin}}
 
-\usepackage{parallel}
+%\usepackage{parallel}
 
 
 %- Für Lyrik-Satz, Christine Römer:
@@ -254,31 +254,36 @@ lfgwstyle/.style={%
 \usepackage{runic}
 \usepackage{hieroglf}
 \usepackage[normalem]{ulem} %%% MS: Wofür? Unterstreichungen sollten vermieden werden! LCB: kann \xout
-\usepackage{letterspace} %%% MS: Wofür. Besser direkt \textls aus dem Microtypepaket
+%\usepackage{letterspace} %%% MS: Wofür. Besser direkt \textls aus dem Microtypepaket
+%% ------------------------------------------------------------------------
+%%   This is a stand-alone version that only provides the letterspacing
+%%   commands. Do not use this package together with the `microtype' package.
+%%   Please refer to section 7 of the `microtype' documentation.
+%% ------------------------------------------------------------------------ 
 \usepackage[hyphens]{url}
 \usepackage{hologo}
 \usepackage{philex}
 \def\fg{}
 \usepackage{siunitx} %Supreme typesetting of units
-\sisetup{%
-    tight-spacing=true, %
-    %math-rm=\mathsf, 
-    %		text-rm=\sffamily,
-    detect-all, %Zahlen werden in der aktuellen Schrift angezeigt
-    detect-family,
-    exponent-to-prefix  	= true,%
-    round-mode          	= places,% 
-    round-precision     	= 2,%
-    group-minimum-digits 	= 4, % Für "Tausenderpunkt" --> 1.234 anstatt 1234
-    group-separator			={.},% für "12.345" statt "12 345"
-    %  scientific-notation = engineering, % Use multiples of 3 as exponent
-    locale					=DE, % Typeset numbers and units the German way
-    range-phrase 			={$\times$},%
-    %		zero-decimal-to-integer,%aus "2.0" wird "2"
-    range-units				=single,  % --> 2 x 2 m, - auskommentieren für 2 m x 2 m
-    %%%---------
-%    unit-color=myred,
-}
+%\sisetup{%
+%    tight-spacing=true, %
+%    %math-rm=\mathsf, 
+%    %		text-rm=\sffamily,
+%    detect-all, %Zahlen werden in der aktuellen Schrift angezeigt
+%    detect-family,
+%    exponent-to-prefix  	= true,%
+%    round-mode          	= places,% 
+%    round-precision     	= 2,%
+%    group-minimum-digits 	= 4, % Für "Tausenderpunkt" --> 1.234 anstatt 1234
+%    group-separator			={.},% für "12.345" statt "12 345"
+%    %  scientific-notation = engineering, % Use multiples of 3 as exponent
+%    locale					=DE, % Typeset numbers and units the German way
+%    range-phrase 			={$\times$},%
+%    %		zero-decimal-to-integer,%aus "2.0" wird "2"
+%    range-units				=single,  % --> 2 x 2 m, - auskommentieren für 2 m x 2 m
+%    %%%---------
+%%    unit-color=myred,
+%}
 
 \usepackage[german]{keystroke}% Computer-Tastatur-Tasten in Anweisungs-Texte zu setzen (z.B. \Shift, \Ctrl, \Spacebar).
 
@@ -346,7 +351,7 @@ lfgwstyle/.style={%
 	final=true	% = true, nur bei web-Dokument!! (wichtig!!)
 }
 \usepackage{bookmark}%advanced bookmarks
-\usepackage[% cleceref
+\usepackage[% cleveref
   sort,
   nameinlink
   ]{cleveref}%nach hyperref laden

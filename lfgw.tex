@@ -96,7 +96,8 @@ Die verwendete \TeX-Engine ist \LuaTeX\ mit folgenden Paketen:
 % \usepackage{textgreek}
 % \usepackage{cjhebrew}[2017/03/06]
 % \usepackage{amsmath,amssymb}
-% \usepackage{unicode-math}
+%% \usepackage{unicode-math}
+%% nur für \setmathfont, sonst keine Verwendung
 % \usepackage{fontspec}
 % \usepackage[]{babel}
 % \usepackage[ngerman,noftligs]{selnolig}
@@ -120,16 +121,22 @@ Die verwendete \TeX-Engine ist \LuaTeX\ mit folgenden Paketen:
 % \usepackage{chronology}
 % \usepackage{pgf-pie}
 % \usepackage{enumitem}			% for simple list modifications
-% \usepackage{parallel}
+%% \usepackage{parallel}
+%% Brauchen wir die? Das sollte doch reledpar machen?
 % \usepackage{verse}
 % \usepackage{runic}
 % \usepackage{hieroglf}
 % \usepackage[normalem]{ulem} %%% MS: Wofür? Unterstreichungen sollten vermieden werden! LCB: kann \xout
-% \usepackage{letterspace} %%% MS: Wofür. Besser direkt \textls aus dem Microtypepaket
+%% \usepackage{letterspace} %%% MS: Wofür. Besser direkt \textls aus dem Microtypepaket
+%% ------------------------------------------------------------------------
+%%   This is a stand-alone version that only provides the letterspacing
+%%   commands. Do not use this package together with the `microtype' package.
+%%   Please refer to section 7 of the `microtype' documentation.
+%% ------------------------------------------------------------------------ 
 % \usepackage[hyphens]{url}
 % \usepackage{hologo}
 % \usepackage{philex}
-% \usepackage{siunitx} %Supreme typesetting of units
+%% \usepackage{siunitx} % Keine Einheiten im Dokument.
 % \usepackage[german]{keystroke}% Computer-Tastatur-Tasten in Anweisungs-Texte zu setzen (z.B. \Shift, \Ctrl, \Spacebar).
 % \usepackage{imakeidx}
 % \usepackage[% biblatex
