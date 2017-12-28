@@ -310,15 +310,20 @@ Mit der zunehmenden Anwendung von \LaTeX{} in den Geisteswissenschaften steigt a
 Sei es Archäologie, Alte Geschichte, Filmwissenschaft, Theologie usw.
 \subsection{Standardstile von biblatex}
 
-biblatex (--> verschiedene biblatex-Stile mit deren Optionen erläutern, die für Geisteswissenschaftler relevant sind)
--- biblatex-dw (sehr viele Optionen)\\
--- archaeologie (sehr viele Optionen)\\
--- geschichtsfrkl (viele Optionen)\\
--- historische-zeitschrift\\
--- apa\\
--- historian\\
--- biblatex-fiwi\\
--- arthistory-bonn\\
+Es wäre schön, wenn man sich auf Zitate gemäß DIN~1505, ISO~690 oder APA beschränken könnte.
+Leider hat jede Zeitschrift und jedes Hochschulinstitut einen eigenen Zitierstil.
+Die folgenden biblatex-Stile sollten einen Großteil der Anforderungen abdecken, oder sich leicht anpassen lassen.
+
+\begin{labeling}{historische-zeitschrift}
+  \item[apa] APA Style Guide (6th Edition)
+  \item[biblatex-dw] Bietet zwei Optionen: \lstinline/style=authortitle-dw/ und \lstinline/style=footnote-dw/.
+  \item[archaeologie] (sehr viele Optionen)
+  \item[geschichtsfrkl] (viele Optionen)
+  \item[historische-zeitschrift]
+  \item[historian]
+  \item[arthistory-bonn]
+  \item[biblatex-fiwi] Der biblatex-Zitierstil für Filmwissenschaftler bietet zwei Optionen: \lstinline/style=fiwi/ und \lstinline/style=fiwi2/.
+\end{labeling}
 
 \minisec{Nützliche Bibliografiestile, die nachinstalliert werden müssen}
 
