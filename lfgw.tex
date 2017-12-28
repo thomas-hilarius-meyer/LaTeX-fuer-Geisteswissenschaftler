@@ -67,21 +67,27 @@
 \vfill
 \minisec{Kolophon}
 
-Texstudio
+Dieses Buch ist eine gemeinsame Arbeit mehrerer Autoren.
 
-pdflatex mit \KOMAScript 
+Bei der Erstellung wurden folgende Betriebssysteme und Programme genutzt:
 
-Klasse scrbook
+\begin{labeling}{microtype}
+\item[Linux] mit \Program{Kile} und \Program{\TeX{}studio}
+\item[macOS] mit \Program{TeXShop} und \Program{Vim} % muss ich das Dokument jetzt wirklich in den Emacs laden, damit der hier in die Liste kommt?
+\item[Windows] mit \Program{\TeX{}studio}
+\end{labeling}
 
-geometry, DIV,  BCOR ...
+Die verwendete \TeX-Engine ist \LuaTeX\ mit folgenden Paketen:
+\begin{labeling}{microtype}
+\item[scrbook]   aus dem \KOMAScript-Paket als Basisklasse.
+\item[babel]     für deutsche Sprachanpassungen.
+\item[microtype] für einen ausgeglichenen Satz und hängende Interpunktion.
+\item[listings]  zur Formatierung der Beispiele.
+\item[tcolorbox] zur Formatierung der Beispiele im Rahmen mit Kopfzeile.
+\item[siuntix]   zur konsistenten (und korrekten) Formatierung von Werten mit Einheiten.
+\item[biblate]   zum Erstellen des Literaturverzeichnisses, dabei wurde der Bibliografiestil der Historischen Zeitschrift verwendet.
+\item[imakeidx]  zum Erstellen des Registers.
+\item[u.v.a]     für diverse Kleinigkeiten.
+\end{labeling}
 
-babel
-
-lstlisting
-
-biblatex und biber
-
-Bibliografiestil der Historischen Zeitschrift (\lstinline/\usepackage[style=historische-zeitschrift]{biblatex}/)
-
-imakeidx
 \end{document}
