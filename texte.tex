@@ -21,7 +21,7 @@ Textes kümmert, und die typografische Aufbereitung den Algorithmen der Software
 die aus der ihr mitgeteilten logischen Struktur anhand der traditionellen Regeln funktionaler Setzerkunst 
 eine schön -- im Sinne funktionaler Ästhetik -- aufbereitete Druckfassung erstellt.
 
-Dieser Ansatz widerspricht der der weitverbreiteten Do-it-yourself-Mentalität der Typografie des
+Dieser Ansatz widerspricht der weitverbreiteten Do-it-yourself-Mentalität der Typografie des
 PC-Zeitalters, die im sehr lesenswerten Leitfaden \enquote{Erste Hilfe Typografie} der Setzer-Koryphäen
 Hans Peter Willberg und Friedrich Forssmann karikiert wird:
 
@@ -116,7 +116,7 @@ Jetzt kommen die sog. Pakete ins Spiel:
 
 \textbf{Pakete} erweitern die Funktionalität einer %beliebigen
 Dokumentklasse um einzelne, meist
-thematisch zusammenhängende Features. Beispiele sind etwa die Möglichkeit zur Einbindung von
+thematisch zusammenhängende Funktionen. Beispiele sind etwa die Möglichkeit zur Einbindung von
 Grafiken, die Erstellung von Registern, bessere Möglichkeiten zur Erstellung von komplexen Tabellen etc.
 Die meisten in dieser Anleitung vorgestellten Möglichkeiten basieren auf besonderen Paketen, die
 oftmals von und für Geisteswissenschaftler[n] entwickelt wurden.
@@ -906,8 +906,7 @@ Scott Pakin (331 Seiten, Stand Nov. 2015).
 
 \minisec{Akzenze und Diakritika}
 
-Diakritika \index{Diakritika},
-Betonungszeichen etc.
+Diakritika,\index{Diakritika} Betonungszeichen etc.
 
 
 \minisec{Unicode-Codes}
@@ -970,8 +969,8 @@ Comprehensive S.~
 Nicht einfach die Gänsefüßchen \lstinline/"/ benutzen, da diese nicht korrekt interpretiert
 werden können: Es ist für den Computer schwer erkennbar, wo die Anführung beginnt und wo sie
 endet. Entsprechende regelbasierte Automatiken sind notorisch fehleranfällig.
-Da die zugrundeliegenden Regeln nicht ganz trivial sind,%
-\footnote{Lesetypografie seite ...}
+Da die zugrundeliegenden Regeln nicht ganz trivial sind%
+\footnote{Lesetypografie seite ...},
 kommen -- auch in professionell gesetzten Büchern -- häufig Fehler vor.
 Man sollte daher möglichst auf eine händische Eingabe ganz verzichten.
 
@@ -1295,7 +1294,7 @@ anbietet:
 \lstinline/\footcite[vordere Ergänzung][hintere Ergänzung]{bibl. Kennung}/ dient dazu,
 einen Literaturverweis zu setzen. Die verwendete bibliographische Kennung muss in einer
 Bibliografie-Datei aufgeschlüsselt werden und wird vom Programmsystem gemäß den Vorgaben
-des eingestellten Bibliografiestils aufgelöst. Dabei lassen sich alle Rafinessen 
+des eingestellten Bibliografiestils aufgelöst. Dabei lassen sich alle Raffinessen 
 humanwissenschaftlicher Fußnotenkunst realisieren. 
 Die Details hierzu findet man in Kapitel \ref{biblatex} auf S.~\pageref{biblatex}. 
 
@@ -1347,7 +1346,7 @@ Die m.\,E. nützlichsten Optionen sind:
   \lstinline/\begin{document}/ stehen, der Paketaufruf aber natürlich davor!
  \item[norule] Weglassen der Fußnotenlinie.
  \item[multiple] Wenn mehrere Fußnoten direkt hintereinander stehen, wird zwischen die
-  Fußnotenkennungen der Inhalt von \lstinline/\multifootsep/ eingefügt. voreingestellt ist
+  Fußnotenkennungen der Inhalt von \lstinline/\multifootsep/ eingefügt. Voreingestellt ist
   ein Komma.
 \end{description}
 
@@ -1532,7 +1531,7 @@ Nähere Informationen enthält die Paketdokumentation.
 \section{Texte mehrspaltig setzen}
 
 Es gibt in \LaTeX{} zwei verschiedene Wege, zweispaltigen Satz zu erreichen:
-Bereits der \LaTeX -Kern bietet die Möglichkeit, Texte zweispaltig zu setzen;
+Bereits der \LaTeX{}-Kern bietet die Möglichkeit, Texte zweispaltig zu setzen;
 daneben gibt es das Paket \paket{multicol}, dass mehrspaltige Einschübe in einem ansonsten
 einspaltigen Dokument ermöglicht.
 
@@ -1549,7 +1548,7 @@ Spalten gesetzt.
 
 \minisec{Zweispaltige Einschübe in einem einspaltigen Dokument I: \LaTeX}
 
-Daneben bietet \LaTeX die Möglichkeit, in einem Dokument eine zweispaltige Passage
+Daneben bietet \LaTeX{} die Möglichkeit, in einem Dokument eine zweispaltige Passage
 zu integrieren. Die Passage wird mit dem Befehl \lstinline/\twocolumn[xxx] /
 eingeleitet. Die angegebene Überschrift wird einspaltig über beide Spalten gesetzt.
 Außer einer echten Überschrift (z.\,B. \lstinline/\section{}/ etc. sind hier auch
@@ -1619,7 +1618,7 @@ flexibler die Positionierung entscheiden kann (s. vorheriger Abschnitt).
 Dazu dient die Umgebung \lstinline/figure/.
 Dann ist auch die Angabe einer Bildunterschrift mit dem Paket \paket{caption} möglich.
 
-Ggf. empfiehlt sich auch noch das Eibetten in eine \lstinline/center/-Umgebung,
+Ggf. empfiehlt sich auch noch das Einbetten in eine \lstinline/center/-Umgebung,
 um das Bild auf die Mitte des Satzspiegels zu zentrieren.
 
 Alles zusammen sieht dann so aus:
@@ -1675,7 +1674,7 @@ Dafür gibt es zwei Gründe:
     Bezeichnung der einzelnen biblischen Bücher herausgebildet. Stützt man seine Stellenangaben
     auf eine eindeutig definierte maschinenlesbare Codierung, kann man den Computer automatisch 
     dafür sorgen lassen, dass alle Bibelstellenangaben einer bestimmten Wiedergabekonvention folgen.
-    (Also, dass z.B. das erste Buch der Bibel einheitlich entweder als \enquote{Genesis} oder als \enquote{1. Buch Mose}
+    Also, dass z.B. das erste Buch der Bibel einheitlich entweder als \enquote{Genesis} oder als \enquote{1. Buch Mose}
     referenziert wird.
 \end{itemize}
 
