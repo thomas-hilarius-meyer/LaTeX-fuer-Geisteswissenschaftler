@@ -15,7 +15,7 @@ Hinweis von Lukas C. Bossert:
 Für einzelne Wörter kann man auch \url{http://www.perseus.tufts.edu/hopper/morph} nutzen.
 bzw. für antike Texte auch hieraus (\url{http://www.perseus.tufts.edu/hopper/collection?collection=Perseus:collection:Greco-Roman}) kopieren.
 
-\section{Unicode}
+\section{Unicode}\label{sec:unicode}
 \autor{Axel Kielhorn}\footcite{kielhorn:dtk2014}
 
 
@@ -382,11 +382,11 @@ Das wird zu:
 Die dritte Möglichkeit besteht darin, die griechischen Schriftzeichen direkt als Unicode-Zeichen
 in das \LaTeX -Dokument einzufügen. Dazu reicht es aus, dem Paket \paket{babel} die
 (alt"~)""griechische Sprache als zusätzliche Option anzugeben:
-\cs{usepackage\oarg*{polutonikogreek,ngerman}\marg*{babel}}.%
+\cs{usepackage}\oarg*{polutonikogreek, ngerman} \marg*{babel}.%
 \footnote{Achtung! Bei den meisten \LaTeX-Installationen im Rahmen von Linux-Distributionen muss
 man Pakete nachinstallieren!}
 Damit \LaTeX{} den griechischen Font richtig ansprechen kann, braucht auch das Paket \paket{fontenc}
-eine Modifikation: \cs{usepackage\oarg*{OT1,T1}\marg*{fontenc}}.
+eine Modifikation: \cs{usepackage}\oarg*{OT1,T1} \marg*{fontenc}.
 
 Dann kann mit \cs{selectlanguage\marg*{polutonikogreek}} auf Griechisch umgeschaltet werden.
 
