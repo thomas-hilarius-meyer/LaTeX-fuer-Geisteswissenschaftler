@@ -140,7 +140,7 @@ Einige empfehlenswerte Editoren für die Arbeit mit \LaTeX{} sind:
 
 \item[\Program{Vim}] (Windows + Linux + macOS) \url{http://www.vim.org} Eine
   verbesserte Version des Klassikers \Program{vi}. \Program{Vim} bietet
-  neben der Syntaxhervorhebung ein Funktion zum Falten des Textes. Öffnet
+  neben der Syntaxhervorhebung eine Funktion zum Falten des Textes. Öffnet
   man eine Datei, so sind nur die Überschriften sichtbar. Das erleichtert
   besonders bei großen Dokumenten die Navigation.  Die
   \Program{vim-latex-suite} erweitert den Editor zu einer IDE, die meisten
@@ -148,10 +148,10 @@ Einige empfehlenswerte Editoren für die Arbeit mit \LaTeX{} sind:
   werden die geschweiften Klammern automatisch eingefügt, gerade auf einer
   deutschen Tastatur ist das extrem hilfreich.  Zusätzlich bietet er mit
   \Program{fugitive} eine Integration in die Versionsverwaltung
-  \Program{git}.  \Program{Vim} ist ein sehr mächtiges Werkzeug das den
-  Anfänger leicht überfordert.  Für den langjährigen Nutzer ist es jedoch
-  unverständlich, wie jemand etwas anderes benutzen kann.  \Program{Vim} ist
-  Charityware, der Autor bittet um Spenden für Waisenkinder in Uganda.
+  \Program{git}.  \Program{Vim} ist ein sehr mächtiges Werkzeug, das den
+  Anfänger leicht überfordert.  Für den langjährigen \Program{VIM}-Nutzer
+  ist es jedoch unverständlich, wie jemand etwas anderes benutzen kann.
+  \Program{Vim} ist Charityware, der Autor bittet um Spenden für Waisenkinder in Uganda.
 
 \item[\Program{Emacs}] (Windows + Linux + macOS) 
   \url{https://www.gnu.org/software/emacs/emacs.html} In Verbindung mit
@@ -162,7 +162,9 @@ Einige empfehlenswerte Editoren für die Arbeit mit \LaTeX{} sind:
   Versionsverwaltung integriert.  Für Anfänger ist der \Program{Emacs} nur
   dann geeignet, wenn am Nachbartisch ein erfahrener Emacs-Anwender sitzt.
   Selbst dann verbringt man leicht mehr Zeit damit \Program{Emacs} zu
-  lernen, als damit \LaTeX{} zu lernen.
+  lernen, als damit \LaTeX{} zu lernen. Für den langjährigen 
+  \Program{Emacs}-Nutzer ist es jedoch unverständlich, 
+  wie jemand etwas anderes benutzen kann.
   
   Der \Program{Emacs} wird von der Free Software Foundation entwickelt
   und ist frei (wie in Freiheit) verfügbar.
@@ -170,10 +172,10 @@ Einige empfehlenswerte Editoren für die Arbeit mit \LaTeX{} sind:
 
 \minisec{Kommandozeile}
 
-\TeXLive{} enthält 422 Programme, von denen man zu Glück nur einen Bruchteil benötigt.
+Eine \LaTeX{}-Standardinstallation enthält über 400 Programme, von denen man zu Glück nur einen Bruchteil benötigt.
 
 \begin{labeling}{makeindex}
-\item[\Program{pdflatex}] Das normale \LaTeX{}.
+\item[\Program{pdflatex}] Ein \LaTeX{} das weitgehend dem Stand von 1982 entspricht, jedoch direkt PDF-Dateien erzeugen kann.
 \item[\Program{xelatex}] Ein \LaTeX{} mit Unicode Unterstützung und der Möglichkeit von rechts nach links zu schreiben.
 \item[\Program{lualatex}] Ein \LaTeX{} mit Unicode Unterstützung und integrierter Programmiersprache.
 \item[\Program{biber}] Das Programm zum Erstellen des Literaturverzeichnisses.
@@ -326,12 +328,12 @@ Was bedeuten die Anweisungen im einzelnen?
    einzubinden.  Wir laden es vorsorglich; wenn unser Text nicht lang genug
    ist, können wir Bilder dazunehmen...
  
- \item[12] Das paket \paket{imakeidx} wird uns später erlauben, sehr einfach
+ \item[13] Das paket \paket{imakeidx} wird uns später erlauben, sehr einfach
    ein Register zu unserer Arbeit auszugeben.  Für komplexere Aufgaben wie
    Orts- und Personenregister, Bibelstellenregister etc. lässt sich imakeidx
    umfangreich konfigurieren.
  
- \item[14-15] Diese beiden recht abschreckenden Zauberformeln werden uns
+ \item[15-16] Diese beiden recht abschreckenden Zauberformeln werden uns
    erlauben, unsere gesamte Literaturverwaltung mit allen Formalien
    automatisch erledigen zu lassen.  Hier sagen wir \LaTeX{}, dass wir
    unsere Bibliographiedaten in einer Datei namens
@@ -340,11 +342,11 @@ Was bedeuten die Anweisungen im einzelnen?
    an einem bestimmten, eher traditionellen geisteswissenschaftlichen Stil
    ausrichten soll.
 
- \item[17-18] Erst mal legen wir einen guten Titel und Untertitel fest \dots
+ \item[18-19] Erst mal legen wir einen guten Titel und Untertitel fest \dots
 
- \item[20] \dots\ und sagen, wer wir sind.
+ \item[21] \dots\ und sagen, wer wir sind.
  
- \item[21] Diese Zeile sorgt dafür, dass auf dem Titelblatt das jeweils
+ \item[22] Diese Zeile sorgt dafür, dass auf dem Titelblatt das jeweils
    aktuelle Datum als Stand der Arbeit ausgegeben wird. Das kann praktisch
    sein, wenn man seltener seinen Schreibtisch aufräumt, als neue Fassungen
    ausdruckt.\\ Achtung! Soll (z.\,B. in der Endfassung) kein Datum
@@ -352,19 +354,19 @@ Was bedeuten die Anweisungen im einzelnen?
    Löscht man die \lstinline/\date/-Anweisung ganz, wird automatisch das
    heutige Datum ausgegeben!
 
- \item[23] Jetzt wird es ernst: Unser eigentliches Dokument beginnt.
+ \item[24] Jetzt wird es ernst: Unser eigentliches Dokument beginnt.
  
- \item[25] Achtung! Erst mit dem Befehl \lstinline/\maketitle/ wird \LaTeX{}
+ \item[26] Achtung! Erst mit dem Befehl \lstinline/\maketitle/ wird \LaTeX{}
    dazu gebracht, die definierten Titelseiten auch wirklich
    \emph{auszugeben}!
 
- \item[27] Dieser Befehl gibt das Inhaltsverzeichnis aus.
+ \item[28] Dieser Befehl gibt das Inhaltsverzeichnis aus.
 
- \item[29] Jetzt kommen endlich unsere wertvollen Inhalte.
+ \item[30] Jetzt kommen endlich unsere wertvollen Inhalte.
  
- \item[31] Hier wird das automatisch erstellte Literaturzeichnis ausgegeben.
+ \item[32] Hier wird das automatisch erstellte Literaturzeichnis ausgegeben.
  
- \item[32] Diese letzte Zeile schließt \LaTeX{}-Dokumente ab.
+ \item[33] Diese letzte Zeile schließt \LaTeX{}-Dokumente ab.
 
  \end{labeling}
 
