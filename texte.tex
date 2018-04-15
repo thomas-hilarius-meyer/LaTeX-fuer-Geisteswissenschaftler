@@ -97,12 +97,12 @@ mit Hilfe von \LaTeX. Das kann ganz allgemein sein -- wie die ursprünglichen St
 article -- oder sehr speziell -- wie die Vorlage einer Dissertation in Elektrotechnik an einer ganz
 bestimmten Technischen Hochschule.
 
-Die gewünsche Dokumentklasse wird ganz am Anfang angegeben durch das Kommando
+Die gewünschte Dokumentklasse wird ganz am Anfang angegeben durch das Kommando
 \cs{documentclass\oarg{Optionen}\marg{NAME}}.
 % sollte hier nicht deutlich gemacht werden, dass LaTeX genau dies
 % auszeichnet: man muss nicht mit den atomaren Elementen aus TeX arbeiten,
 % sondern nutzt eine Dokumentenklasse, die viele Detaileinstellungen vornimmt
-% und darüber hinaus eine Reihe von logisch strukturiernden Voreinstellungen
+% und darüber hinaus eine Reihe von logisch strukturierenden Voreinstellungen
 % bereitstellt, die für den jeweiligen Anwendungsfall festgelegt wurden.
 % Auch könnte auf die Äquivalenz zwischen Dokumentenklasse und Vorlagen bei 
 % Textverarbeitungssystemen hingewiesen werden.
@@ -218,7 +218,7 @@ die Einstellungen der Seitenränder sowie ihrer zahlreichen Bestandteile (Margin
 für Fußnoten und Seitenzahlen, Kolumnentitel usw.) direkt zu verändern.
  
 
-\minisec{Direktes Einstellen des Papierformats und Satzsspiegels}
+\minisec{Direktes Einstellen des Papierformats und Satzspiegels}
 
 Dies lässt sich am einfachsten mit Hilfe des Paketes \paket{geometry} von Hideo Umeki erreichen.
 Mit seiner Hilfe ist es problemlos möglich, besondere Wünsche des Verlages hinsichtlich der Satzspiegelgestaltung zu erfüllen. Das Paket übergibt dem Nutzer die volle Kontrolle über die
@@ -272,7 +272,7 @@ Alternativ kann durch \lstinline/\\/ ein Zeilenwechsel erzwungen werden.%
  \subsubsection{Ein kleiner Unterabschnitt}
  
  \chapter*{Ein Kapitel ohne Eintrag im Inhaltsverzeichnis}
- \section*{Ein Abschnitt ohne Eintr. im Inhaltsverz.}
+ \section*{Ein Abschnitt ohne Eintrag im Inhaltsverz.}
  \subsection*{Ein Unterabs. o. E. im Iv.}
  \subsubsection*{Ein kleiner Unterabschnitt o.\,E.i.\,I.}
  
@@ -359,7 +359,7 @@ gearbeitet.
 Dennoch können Unterstreichungen in Sonderfällen sinnvoll sein.
 
 Oftmals wünscht man sich dann sogar eine größere Auswahl an verschiedenen 
-Unterstreichungsarten, um etwa verschiedene Textherkünfte o.ä. markieren zu können.
+Unterstreichungsarten, um etwa verschiedene Textherkünfte o.\,ä. markieren zu können.
 
 Abhilfe schafft das Paket \paket{ulem}, das verschiedene Arten der Unterstreichung
 ermöglicht:
@@ -1087,7 +1087,7 @@ und auf diese im Fließtext zu verweisen:
 \item Dativ\label{fall:3}
 \item Akkusativ\label{fall:4}
 \end{enumerate}
-Der \ref{fall:1} wird auch Werfall gennant,
+Der \ref{fall:1} wird auch Werfall genannt,
 der \ref{fall:4} hingegen Wenfall.
 \end{lfgwexample}
 
@@ -1110,7 +1110,7 @@ der \ref{fall:4} hingegen Wenfall.
 \item Dativ\label{fall:3}
 \item Akkusativ\label{fall:4}
 \end{enumerate}
-Der \ref{fall:1} wird auch Werfall gennant,
+Der \ref{fall:1} wird auch Werfall genannt,
 der \ref{fall:4} hingegen Wenfall.
  \fi
  
@@ -1205,7 +1205,7 @@ Textstellen belegen mit Fußnote und automatischer Literaturverwaltung.
 \dictum[Sinnspruch nach Boethius]{Si tacuisses, philosophus mansisses.}
 
 \enquote{Ein häufiger anzutreffendes Element ist ein Zitat oder eine Redewendung, die rechtsbündig unter 
-oder über einer Überschrift gesetzt wird. dabei werden der Spruch selbst und der Quellennachweis
+oder über einer Überschrift gesetzt wird. Dabei werden der Spruch selbst und der Quellennachweis
 in der Regel speziell formatiert.}\footcite[131]{kohm:2014}
 
 \KOMAScript\ stellt hierfür den Befehl \lstinline/\dictum[Urheber]{Spruch}/ zur Verfügung.
@@ -1330,7 +1330,7 @@ in Grundschriftgröße; die jeweils erste Zeile jeder Fußnote ist eingerückt:
 \minisec{Das Paket \paket{footmisc}}
 
 Das Paket \paket{footmisc} von Robin Fairbains erlaubt zahlreiche Sonderfunktionen, die 
-lediglich per Paketoption angewähl werden müssen.
+lediglich per Paketoption angewählt werden müssen.
 
 Die m.\,E. nützlichsten Optionen sind:
 
@@ -1575,7 +1575,7 @@ stark einschränkt.
 
 \setlength{\columnseprule}{0.4pt}
 \begin{multicols}{3}
- Dabei liegt es in der Veranwortung des Nutzers, nicht zuviele Spalten zu verlangen,
+ Dabei liegt es in der Veranwortung des Nutzers, nicht zu viele Spalten zu verlangen,
  da sonst die einzelnen Spalten zu schmal werden und sich Aussehen und Lesbarkeit erheblich
  verschlechtern.
  
@@ -1604,7 +1604,7 @@ stark einschränkt.
 \index{Bilder}
 \index{Abbildungen}
 
-Voraussetzung: Paket \paket{graphicx} in Dokumentspräambel einbinden:
+Voraussetzung: Paket \paket{graphicx} in Dokumentpräambel einbinden:
 \lstinline/\usepackage{graphicx}/.
 
 Dann fügt der Befehl \lstinline/\includegraphics[Optionen]{Name}/ an der jeweiligen Stelle
@@ -1613,7 +1613,7 @@ Als Option sollte z.\,B. die gewünschte Abbildungsgröße eingestellt werden.
 Wieder sind sowohl absolute Angaben möglich als auch Bezugnahmen z.\,B. auf 
 \lstinline/\textwidth/.
 
-Meist möchte man die Abbibldung jedoch in eine Gleitumgebung einfügen, so dass das Satzprogramm
+Meist möchte man die Abbildung jedoch in eine Gleitumgebung einfügen, so dass das Satzprogramm
 flexibler die Positionierung entscheiden kann (s. vorheriger Abschnitt).
 Dazu dient die Umgebung \lstinline/figure/.
 Dann ist auch die Angabe einer Bildunterschrift mit dem Paket \paket{caption} möglich.
@@ -1674,7 +1674,7 @@ Dafür gibt es zwei Gründe:
     Bezeichnung der einzelnen biblischen Bücher herausgebildet. Stützt man seine Stellenangaben
     auf eine eindeutig definierte maschinenlesbare Codierung, kann man den Computer automatisch 
     dafür sorgen lassen, dass alle Bibelstellenangaben einer bestimmten Wiedergabekonvention folgen.
-    Also, dass z.B. das erste Buch der Bibel einheitlich entweder als \enquote{Genesis} oder als \enquote{1. Buch Mose}
+    Also, dass z.\,B. das erste Buch der Bibel einheitlich entweder als \enquote{Genesis} oder als \enquote{1. Buch Mose}
     referenziert wird.
 \end{itemize}
 
@@ -1716,7 +1716,7 @@ Dennoch lohnt sich ein Blick auf das Paket, weil es die konzeptionelle Grundlage
 
 Mit diesen beiden Befehlen lassen sich Bibelstelleneingaben eindeutig bezeichnen und deshalb
 mit Programmhilfe einheitlich formatiert ausgeben und im Register erschließen. 
-Vorraussetzung ist natürlich das Einbinden des Paketes in der Präambel:
+Voraussetzung ist natürlich das Einbinden des Paketes in der Präambel:
 \lstinline/\usepackage{bibleref}/
 Ein Beispiel: 
 
@@ -1786,7 +1786,7 @@ Das Paket \paket{bibleref-german} wurde von Dr. Dominik Waßenhoven entwickelt u
 angepasst an die Bedürfnisse deutscher Nutzer.
 
 Es stellt im deutschsprachigen Raum das Standardwerkzeug zum Umgang mit Bibelreferenzen dar,
-deshabl soll seine Funktionalität etwas genauer demonstriert werden.
+deshalb soll seine Funktionalität etwas genauer demonstriert werden.
 
 Mit Hilfe von \paket{bibleref} erstellte Dokumente sind unverändert lauffähig, wenn man nur
 den Paketaufruf austauscht. (Übrigens stehen auch die englischsprachigen Ausgabeformate von
@@ -1824,7 +1824,7 @@ drei Dinge zur Folge:
     \item Die Zeichensetzung entspricht deutschen Gewohnheiten.
 \end{itemize}
 
-Über die Konfigurationsmöglichkeiten des englisschsprachigen \paket{bibleref} lässt sich das Ausgabeformat der Bibelstellenangaben bei \paket{bibleref-german} in
+Über die Konfigurationsmöglichkeiten des englischsprachigen \paket{bibleref} lässt sich das Ausgabeformat der Bibelstellenangaben bei \paket{bibleref-german} in
 zweierlei Weise modifizieren:
 
 \begin{itemize}
@@ -1953,7 +1953,7 @@ Die beiden wichtigsten Befehle, die von dem Paket definiert werden, lauten analo
 
 Mit ihnen ist es möglich, Bibelstellen so zu zitieren, wie es der deutschsprachige Nutzer gewohnt ist.
 Dabei stellt sich der Parser sehr weitgehend auf die vielen Sonderfälle ein, die in Bibelstellen 
-auftreten können. Deshalb ist die hauptregel ganz einfach:
+auftreten können. Deshalb ist die Hauptregel ganz einfach:
 \enquote{The  basic message is: Just use your intuition. This is what this package was created for.}%
 \footnote{ebd. S. 3.}
 
