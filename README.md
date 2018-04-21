@@ -18,20 +18,22 @@ Die derzeitigen Kapitel sind:
 
 6. Literatur und Zitate automatisch verwalten --> Lukas
 
-7. Texte durch Register erschließen - Thomas
+7. Rechtswissenschaftliche Texte setzen --> Jürgen
 
-8. Prüfungen aufsetzen: exam --> Uwe
+8. Texte durch Register erschließen - Thomas
 
-9. Präsentationen gestalten mit beamer --> Axel
+9. Prüfungen aufsetzen: exam --> Uwe
 
-10. Eigene \LaTeX-"Erfindungen" dokumentieren
+10. Präsentationen gestalten mit beamer --> Axel
 
-11. Einbinden von LaTeX in heterogene Projekte (Beispiele)
+11. Eigene \LaTeX-"Erfindungen" dokumentieren
+
+12. Einbinden von LaTeX in heterogene Projekte (Beispiele)
 -- 11.1 LaTeX, Versionsverwaltung und die Arbeit in Teams --> Uwe
 -- 11.2 Python: Kataloge erstellen
 -- 11.3 Perl: Zeugnisse 
 
-12. Anhang
+13. Anhang
 -- 13.1 Ein Beispiel, das (fast alles kann)
 -- 13.2 Unicode
 -- 13.3 Wie installiere ich die Software / Pakete 
@@ -39,5 +41,5 @@ Die derzeitigen Kapitel sind:
 -- 13.5 Welche Bücher sollte ich mir kaufen?
 -- 13.6 Bücher veralten. Wer hält mich auf dem Laufenden?
 
-13. Literatur
+14. Literatur --> Jürgen
 
