@@ -41,11 +41,4 @@ Die derzeitigen Kapitel sind:
 -- 13.5 Welche Bücher sollte ich mir kaufen?
 -- 13.6 Bücher veralten. Wer hält mich auf dem Laufenden?
 
-<<<<<<< .mine
-13. Literatur||||||| .r863
-13. Literatur
-
-=======
 14. Literatur --> Jürgen
-
->>>>>>> .r932
