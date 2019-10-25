@@ -15,8 +15,6 @@ jobs:
         uses: dante-ev/latex-action@master
         with:
           root_file: lfgw.tex
-          args: -pdflatex=lualatex -pdf -latexoption=-file-line-error -latexoption=-interaction=nonstopmode
-
       - name: Gather build artifacts
         run: mkdir build && cp -lfgw.pdf build/
       - name: Deploy
