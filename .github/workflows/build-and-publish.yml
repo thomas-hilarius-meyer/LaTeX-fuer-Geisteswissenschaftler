@@ -17,10 +17,24 @@ jobs:
           root_file: lfgw.tex
           compiler: lualatex
           args: -interaction=nonstopmode
-      - name: Compile lfgw.tex using latexmk
+      - name: Compile lfgw.tex with biber
+        uses: dante-ev/latex-action@master
+        with:
+          root_file: lfgw
+          compiler: biber
+          args:
+      - name: Compile lfgw.tex with lualatex
         uses: dante-ev/latex-action@master
         with:
           root_file: lfgw.tex
+          compiler: lualatex
+          args: -interaction=nonstopmode
+      - name: Compile lfgw.tex with lualatex
+        uses: dante-ev/latex-action@master
+        with:
+          root_file: lfgw.tex
+          compiler: lualatex
+          args: -interaction=nonstopmode
       - name: Gather build artifacts
         run: mkdir build && cp -lfgw.pdf build/
       - name: Deploy
