@@ -11,7 +11,13 @@ jobs:
         uses: actions/checkout@v1
         with:
           depth: 1
-      - name: Compile main-german.tex
+      - name: Compile lfgw.tex with lualatex
+        uses: dante-ev/latex-action@master
+        with:
+          root_file: lfgw.tex
+          compiler: lualatex
+          args: -interaction=nonstopmode
+      - name: Compile lfgw.tex using latexmk
         uses: dante-ev/latex-action@master
         with:
           root_file: lfgw.tex
