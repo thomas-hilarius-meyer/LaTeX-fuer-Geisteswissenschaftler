@@ -2,7 +2,9 @@
 
 Geplant ist die Erstellung eines Sammelbandes mit Hinweisen zur Benutzung von LaTeX für (nichtmathematische) Geisteswissenschaftler.
 
-Die derzeitigen Kapitel sind: 
+Die derzeitigen Kapitel sind:
+
+```text
 
 1. Grundsätzliches --> Thomas
 
@@ -42,3 +44,4 @@ Die derzeitigen Kapitel sind:
 -- 13.6 Bücher veralten. Wer hält mich auf dem Laufenden?
 
 14. Literatur --> Jürgen
+```
