@@ -1,8 +1,10 @@
 # LaTeX-fuer-Geisteswissenschaftler
 
-Geplant ist die Erstellung eines Sammelbandes mit Hinweisen zur Benutzung von LaTeX für (nichtmathematische) Geisteswissenschaftler.
+> Sammelband mit Hinweisen zur Benutzung von LaTeX für (nichtmathematische) Geisteswissenschaftler.
 
-Die derzeitigen Kapitel sind:
+Der aktuelle Stand kann unter https://github.com/thomas-hilarius-meyer/LaTeX-fuer-Geisteswissenschaftler/tree/gh-pages betrachtet werden.
+
+## Derzeitige Kapitel sind
 
 ```text
 
