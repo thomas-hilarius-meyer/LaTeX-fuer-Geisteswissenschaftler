@@ -75,29 +75,120 @@ Je kürzer und prägnanter ein \meta{Schlüssel} ist, desto weniger Tipparbeit b
 Normalerweise bleibt daher der \meta{Schlüssel} für das gesamte Dokument gleich.
 
 \subsection{Publikationstypen und ihre Datenfelder}\label{lit:publikationstypus}
-Standardmäßig unterscheidet das \Paket{biblatex} 29 %Anzahl
+Standardmäßig unterscheidet das Paket \Paket{biblatex} 29 %Anzahl
 Publikationstypen, die je nach Typ unterschiedlich ausgegeben werden.
 Zusätzliche Bibliografiestile können weitere Publikationstypen bereithalten,
 wie z.\,B. der Stil \meta{arthistory-bonn} für einen ›Ausstellungskatalog‹ den Eintrag \meta{@exhibcatalog} und \meta{@movie} für einen Film im Stil \meta{fiwi}.
 
+Zu jedem Publikationstypus gibt es notwendige und optionale Felder.
+Grundsätzlich ist es eine gute Idee alle bekannten Informationen an einer Stelle (der Literaturdatenbank) zu sammeln,
+auch wenn der verwendete Stil diese Information nicht nutzt.
+
+Die meisten Publikationstypen benötigen folgende Felder:
+\meta{author} oder \meta{editor}
+\meta{title},
+\meta{year} oder \meta{date}.
 
 \subsubsection{Bücher (Monografie, Sammmelband)}
-%@book/@inbook
-%@collection/@incollection
+
+Zu den buchartigen Werken gehören: 
+
+\begin{labeling}{\meta{@mvproceedings}}
+\item[\meta{@book}]         Ein einzelnes Buch mit einem oder mehreren Autoren die für das Gesamtwerk verantwortlich sind.
+\item[\meta{@mvbook}]       Ein mehrbändiges Buch.
+%
+\item[\meta{@collection}]   Ein Buch mit mehren Autoren, die für einzelne Abschnitte verantwortlich sind.
+        Die einzelnen Abschnitte werden über \meta{@incollection} identifiziert. Das Geamtwerk hat einen \meta{editor}.
+\item[\meta{@mvcollection}] Eine mehrbändige \meta{@collection}.
+%
+\item[\meta{@reference}]    Eine Möglichkeit Lexika hervorzuheben, 
+        wird jedoch in den Standardstilen wie eine \meta{collection} behandelt.
+\item[\meta{@mvreference}]
+%
+\item[\meta{@proceedings}]  Ein Tagungsband. Anders als bei einer \meta{collection} ist hier kein \meta{editor} erforderlich.
+        Optional kann eine \meta{organization} angegeben werden.
+\item[\meta{@mvproceedings}] Ein mehrbändiger Tagungsband.
+%
+\item[\meta{@inbook}]       Ein Teil eines Buches.
+\item[\meta{@incollection}] Ein Teil einer \meta{@collection}.
+\item[\meta{@inreference}]
+\item[\meta{@proceedings}]
+%
+\item[\meta{@booklet}]      Ein Buch, das nicht von einem Verlag verlegt wurde.
+        Anstelle eines \meta{author}s kann auch ein \meta{editor} angegeben werden.
+        Die Art der Veröffentlichung kann im Feld  \meta{howpublished} angegeben werden
+\item[\meta{@manual}]       Ein Handbuch. Anders als beim \meta{@booklet} können \meta{author} und \meta{editor} entfallen.
+\item[\meta{@misc}]         Bei diesem Typus können \meta{author}, \meta{editor} und \meta{year} entfallen.
+\item[\meta{@patent}]       Die Patentnummer \meta{number} ist zusätzlich erforderlich.
+\item[\meta{@online}]       Anstelle eines \meta{author}s kann auch ein \meta{editor} angegeben werden.
+        Zusätzlich ist die Angabe einer \meta{url} erforderlich.
+\item[\meta{@report}]       Zusätzlich ist die Angabe einer \meta{institution} und des \meta{type} erforderlich.
+\item[\meta{@thesis}]       Eine Dissertation, die erforderlichen Daten entsprechen dem \meta{report}.
+\item[\meta{@unpublished}]  Ein noch nicht veröffentlichtes Buch.
+\end{labeling}
 
 \subsubsection{Zeitschriften (Artikel, Rezensionen)}
-%@article
-%@review
 
-\subsubsection{Lexika, Handbücher}
-%@reference/@inreference
-\subsubsection{Internet-Ressourcen}
-%@online (=@www)
+\begin{labeling}{\meta{@mvproceedings}}
+\item[\meta{@article}]    Ein Artikel, der in einer Zeitschrift erschienen ist.
+        Die Zeitschrift wird im Feld \meta{journaltitle} angegeben.
+\item[\meta{@review}]     Eine Rezension (von Büchern, Filmen etc.)
+        Kann von bestimmten Stilen besonders formatiert werden, 
+        ist in den Standardstilen identisch mit \meta{article}
+\item[\meta{@periodical}] Die komplette Zeitschrift, der \meta{editor} ist optional.
+\end{labeling}
+
+\subsubsection{Gesetze und Normen}
+
+Für die folgenden Typen gibt es in den Standardstilen keine besondere Formatierung,
+sie werden als \meta{misc} behandelt.
+Spezielle fachbezogenen Bibliografiestile können eine angepasste Formatierung benutzen.
+
+\begin{labeling}{\meta{@mvproceedings}}
+\item[\meta{@legislation}]      Gesetzestexte
+\item[\meta{@commentary}]       Kommentare zu Gesetzestexten
+\item[\meta{@standard}]         Normen
+\end{labeling}
 
 \subsubsection{Übersicht: Datenfelder}
 Theoretisch und technisch können (fast) alle Datenfelder für alle Publikationstypen genutzt werden.
 Allerdings ist dies nicht immer sinnvoll, wie z.\,B. eine Seitenangabe bei einer Webseite keinen logischen Mehrwert hat.
 
+Neben den hier aufgeführten Feldern gibt es noch weitere, die ein Dokument
+genauer beschreiben können.
+
+\begin{labeling}{\meta{organization}}
+\item[Namen]    \paket{biblatex} betreibt einen großen Aufwand um Namen richtig zu formatieren.
+        Ein Name besteht aus dem Vornamen \meta{first} und dem Nachname \meta{last}.
+        Zusätzlich kann er noch einen Namenszusatz \meta{von} und einen Namensanhang \meta{Jr} erhalten.
+        Namen werden für \meta{author} und \meta{editor} verwendet.
+        Mehrere Namen werden durch ein \meta{and} verbunden.
+\item[Datum] Ein Datum kann gemäß ISO 8601 angegeben werden (yyyy-mm-dd). 
+\end{labeling}
+
+\begin{labeling}{\meta{organization}}
+\item[\meta{title}]       Der Titel des Werks, in den meisten Fällen erforderlich.
+\item[\meta{author}]      Der Autor des Werks, in den meisten Fällen erforderlich.
+\item[\meta{editor}]      Der Herausgeber, wird in einigen Typen anstelle des \meta{author}s benutzt.
+\item[\meta{translator}]  Der Übersetzer.
+\item[\meta{publisher}]   Der Verlag.
+\item[\meta{organization}] Alternativ zu \meta{publisher} z.\,B. eine Organisation oder eine Firma.
+\item[\meta{institution}] Alternativ zu \meta{publisher} z.\,B. eine Schule oder Universität.
+\item[\meta{type}]        Art des \meta{report}s oder der \meta{thesis}.
+%
+\item[\meta{chapter}]     Das zitierte Kapitel.
+\item[\meta{pages}]       Eine Seitenzahl oder ein Bereich.
+%
+\item[\meta{year}]        Erscheinungsjahr (bei Büchern).
+\item[\meta{month}]       Erscheinungsmonat (bei Zeitschriften).
+\item[\meta{issue}]       Die Ausgabe eines Buches oder einer Zeitschrift.
+        Kann eine Zahl oder eine Text sein.
+\item[\meta{number}]      Die Nummer eines Buches oder einer Zeitschrift in einer Serie.
+        Kann eine Zahl oder eine Text sein.
+%
+\item[\meta{isbn}]  International Standard Book Number. 
+\item[\meta{issn}]  International Standard Serial Number. 
+\end{labeling}
 
 \section{Zitate}\label{sec:zitate}\label{lit:cite-befehle}
 
