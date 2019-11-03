@@ -51,10 +51,17 @@
 \usepackage[autostyle]{csquotes}
 \usepackage[newcommands]{ragged2e}
 
+% grffile funktioniert nicht mit LuaLaTeX (Stand Oktober 2019)
+% Workaround gemäß: 
+% https://github.com/ho-tex/oberdiek/issues/73#issuecomment-543101052
+%
+\usepackage{grffile}
 \usepackage{graphicx}
 \graphicspath{{bilder/}}
+\makeatletter
+\let\quote@name\unquote@name
+\makeatother
 
-\usepackage{grffile}
 \usepackage[a4,center,cross]{crop}
 
 \usepackage{listings}
