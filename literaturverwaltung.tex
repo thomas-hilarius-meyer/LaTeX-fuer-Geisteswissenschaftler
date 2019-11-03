@@ -458,6 +458,71 @@ Biblatex ist inzwischen so leistungsfähig geworden, dass man sich nicht alles m
 Das dachte sich auch Clea F. Rees und schuf im Jahre 2017 das \Package{biblatex-cheatsheet}.
 Hier hat man alle \cs{cite} Befehle auf einen Blick und kann auch die verfügbaren Datenbank Felder schnell nachschlagen.
 
+\subsection{Schlüsselbund}
+
+Entscheidend für die Benutzung von Biblatex sind die Zitierschlüssel.
+Gerade bei gewachsenen Datenbanken,
+oder wenn wie in diesem Buch mehrere Autoren zusammenarbeiten,
+wünscht man sich ein Literaturverzeichnis mit den dazugehörigen Schlüsseln.
+
+Hier hilft das Paket \Package{showkeys} weiter.
+In Verbindung mit einer kleinen \LaTeX-Datei erstellt es ein Literaturverzeichnis mit den dazugehörigen Schlüsseln.
+
+\begin{lfgwcode}{label={lis:Zitierschluessel}}
+\documentclass[headsepline,headinclude,10pt]{scrartcl}
+\usepackage[a4paper, left=5cm]{geometry} % breiter Rand
+\usepackage{showkeys}                    % Zitierschlüssel zeigen
+\usepackage[german]{babel}
+\usepackage[babel]{csquotes}
+%
+% Alphabetisch
+%
+%\usepackage[backend=biber,sortlocale=de,style=alphabetic]{biblatex}
+%
+% Numerisch
+%
+%\usepackage[backend=biber,sortlocale=de,style=numeric-comp]{biblatex}
+%
+% Author Year
+%
+\usepackage[backend=biber,sortlocale=de,style=authoryear]{biblatex}
+%
+% Literaturdatenbanken (mehrere sind möglich)
+%
+\bibliography{lfgw-bibliographie}
+
+\begin{document}
+\nocite{*} % Alle Quellen ausgeben
+\printbibliography
+\end{document}
+\end{lfgwcode}
+
+Wichtig ist hier die Zeile 2, damit der Zitierschlüssel nicht außerhalb des Blattes gedruckt wird.
+Zeile 3 aktiviert dann die Ausgabe der Schlüssel im linken Rand.
+Idealerweise wählt man die gleiche Sortierreihenfolge wie im fertigen Dokument.
+
+Das Paket \Package{showkeys} kann man auch im normalen Dokument benutzen, 
+es zeigt zusätzlich auch die definierten \cs{label} an.
+
+\section{An die Arbeit}
+
+Wenn man mit einer integrierten Entwicklungsumgebung arbeitet muss man sich normalerweise keine weiteren Gedanken machen,
+evtl. ist es erforderlich von \Package{bibtex} auf \Package{biblatex} umzuschalten.
+
+Auf der Kommandozeile ist es auch nicht schwieriger:
+
+\begin{lfgwcode}{label={lis:bibercmd}}
+> pdflatex dokumentname
+> biber dokumentname
+> pdflatex dokumentname
+\end{lfgwcode}
+
+Zuerst wird das Dokument mit \Package{pdflatex} (oder \Package{lualatex}) übersetzt,
+dann \Package{biber} aufgerufen und zum Schluss da Dokument noch einmal übersetzt.
+
+Fehler können auftreten, wenn ein Schlüssel mehrfach verwendet wird, 
+oder die öffnenden und schließenden Klammern nicht zusammenpassen.
+
 \section{Ein Beispiel für Historiker: Quellen und Sekundärliteratur}\label{sec:bibliografie}
 \index{Quellenverzeichnis}
 \index{Bibliographie}
