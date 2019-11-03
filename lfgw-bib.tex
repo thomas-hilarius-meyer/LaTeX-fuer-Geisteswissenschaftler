@@ -1,0 +1,77 @@
+% !TEX encoding = UTF-8 Unicode
+% !TEX TS-program = LuaLaTeX
+% !BIB program = biber
+
+\documentclass[headsepline,headinclude,10pt]{scrartcl}
+\usepackage[a4paper, left=5cm]{geometry} % breiter Rand
+\usepackage{showkeys} % Zitierschlüssel zeigen
+
+\usepackage{unicode-math}
+\usepackage{fontspec}
+\setmainfont{libertinusserif}[
+   Extension = {.otf},
+   UprightFont = {*-regular}, ItalicFont = {*-italic},
+   BoldFont = {*-bold}, BoldItalicFont = {*-bolditalic},%
+   FontFace = {sb}{\updefault}{*-semibold},%
+   FontFace = {sb}{it}{*-semibolditalic}]%
+\setsansfont{Libertinus Sans}
+\setmonofont[Scale=MatchLowercase,FakeStretch=0.85]{DejaVu Sans}
+\setmathfont{Libertinus Math}
+%
+%
+% Sprachauswahl
+%
+\usepackage[german]{babel}
+\usepackage[babel]{csquotes}
+\usepackage{hologo}
+\providerobustcmd*{\paket}[2][]{\textsf{#2}}
+\let\Package\paket%zwecks kompatibilität mit DTK
+\let\Paket\paket
+\providecommand*{\reledmac}{\mbox{\Package{reledmac}}\xspace}
+\providecommand*{\XeLaTeX}{\hologo{XeLaTeX}}
+\providecommand*{\METAFONT}{\hologo{METAFONT}}
+\providecommand*{\LaTeX}{\hologo{LaTeX}}
+
+\usepackage[% reledmac
+   series={A,B,C},%nur die Apparate A B C aktivieren
+   noend,%keine Endotenapparate
+   noeledsec%keine eledsections et al.
+   %noledgroup%keine ledgroups -- das muss hier auskommentiert werden, damit die minipages funktionieren!
+]{reledmac}%
+
+\usepackage{reledpar}
+
+%
+% Literaturverzeichnis
+%
+% Alphabetisch
+%
+%\usepackage[backend=biber,sortlocale=de,style=alphabetic,hyperref]{biblatex}
+%
+% Numerisch
+%
+%\usepackage[backend=biber,sortlocale=de,style=numeric-comp,hyperref]{biblatex}
+%
+% Author Year
+%
+\usepackage[backend=biber,sortlocale=de,style=authoryear,hyperref]{biblatex}
+
+\usepackage{hyperref} % immer als letztes
+
+%
+% Literaturdatenbanken (mehrere sind möglich)
+%
+\bibliography{lfgw-bibliographie}
+
+\emergencystretch 1.5em
+
+\pagestyle{headings}
+
+
+\begin{document}
+
+\nocite{*} % Alle Quellen ausgeben
+
+\printbibliography
+
+\end{document}
