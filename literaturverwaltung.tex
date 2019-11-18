@@ -17,7 +17,7 @@ das aus einer Datenbank und einer Formatierungsbeschreibung das Literaturverzeic
 Leider ist die Sprache zum Erstellen der Beschreibung nicht einfach zu verstehen
 und Anpassung an die Formatierungswünsche ist schwierig.
 
-Das Paket \paket{biblatex} wurde 2006 %JAHR  einfügen
+Das Paket \biblatex{} wurde 2006 %JAHR  einfügen
 von Philipp Lehmann entworfen und seitdem stetig weiterentwickelt. 
 Von Haus aus bringt es bereits eine große Anzahl an Einstellmöglicheiten mit, 
 die es erlauben auf die Vorgaben in den einzelnen Disziplinen einzugehen. 
@@ -25,10 +25,10 @@ Für weitere spezielle Eigenheiten in der Zitation und Bibliographie haben unzä
 die dem  Paket als Option übergeben werden.\footcite{voss:bibliografien}
 
 Bereits 2008 erschienen zwei Artikel in der DTK (Die TeXnische Komödie)\footcite{wassenhoven:dtk2008/2,wassenhoven:dtk2008/4}, 
-die die Verwendung und Anpassung von \paket{biblatex} an die eigenen Wünsch beschreiben.
+die die Verwendung und Anpassung von \biblatex{} an die eigenen Wünsch beschreiben.
 Beide Artikel können auf der Seite von \url{http://www.dante.de} heruntergeladen werden.
 
-Das folgende Kapitel zeigt die Arbeit mit \paket{biblatex}: 
+Das folgende Kapitel zeigt die Arbeit mit \biblatex: 
 Zunächst wird erläutert, wie man eine Bibliografie-Datenbank erstellt und verwaltet (\cref{sec:bibliografiedatenbank}),
 anschließend wie man die notwendigen Felder bestimmter Eintragstypen (Buch, Zeitschrift, Lexikon etc.) belegt, 
 wie man im eigenen Text die Verweise einbaut (\cref{sec:zitate}) und
@@ -37,7 +37,7 @@ zum Schluss wie man eine oder mehrere (Teil"~)""Bibliografien erstellt.
 Außerdem werden verschiedene Bibliografie-Stile vorgestellt,
 die besonders für Geisteswissenschaftler relevant sind und die auf unterschiedliche Anforderungen in den verschiedenen Fachrichtungen Lösungen bereithalten (\cref{sec:bibliografie}).
 
-Die offizielle Paket-Dokumentation von \paket{biblatex} gibt es nur in Englisch und sie umfasst mehr als 250~Seiten
+Die offizielle Paket-Dokumentation von \biblatex{} gibt es nur in Englisch und sie umfasst mehr als 250~Seiten
 Eine deutsche Übersetzung des Handbuchs ist Bestandteil von TeX-Live und im Verzeichnis 
 \url{texmf-dist/doc/latex/translation-biblatex-de} zu finden.
 Sie kann mit dem Befehl
@@ -54,7 +54,7 @@ Die Änderungen kann man im englischen Original im Anhang \enquote{Revision Hist
 Zusätzlich gibt es noch eine ausführliche Kurzeinführung\footcite{biblatex-tutorial} auf Englisch 
 und eine sehr kurze deutsche Einführung\footcite{biblatex-bottcher}.
 
-Die Einbindung von \paket{biblatex} in ein eigenes Dokument ist ganz einfach.
+Die Einbindung von \biblatex{} in ein eigenes Dokument ist ganz einfach.
 
 \begin{lfgwcode}{label={lis:biblatexkurz}}
 \documentclass[headsepline,headinclude,10pt]{scrartcl}
@@ -243,7 +243,7 @@ Neben den hier aufgeführten Feldern gibt es noch weitere, die ein Dokument
 genauer beschreiben können.
 
 \begin{labeling}{\meta{organization}}
-\item[Namen]    \paket{biblatex} betreibt einen großen Aufwand um Namen richtig zu formatieren.
+\item[Namen]    \biblatex{} betreibt einen großen Aufwand um Namen richtig zu formatieren.
         Ein Name besteht aus dem Vornamen \meta{first} und dem Nachname \meta{last}.
         Zusätzlich kann er noch einen Namenszusatz \meta{von} und einen Namensanhang \meta{Jr} erhalten.
         Namen werden für \meta{author} und \meta{editor} verwendet.
@@ -525,11 +525,11 @@ Literaturdatenbank in das Literaturverzeichnis übernommen.
 \section{Bibliografie-Stile}\label{sec:bibliografiestile}
 Mit der zunehmenden Anwendung von \LaTeX{} in den Geisteswissenschaften steigt auch die Frage nach den \enquote*{passenden} Zitierstilen für die unterschiedlichen Fachgebiete:
 Sei es Archäologie, Alte Geschichte, Filmwissenschaft, Theologie usw.
-\subsection{Standardstile von biblatex}
+\subsection{Standardstile von \biblatex}
 
 Es wäre schön, wenn man sich auf Zitate gemäß DIN~1505, ISO~690 oder APA beschränken könnte.
 Leider hat jede Zeitschrift und jedes Hochschulinstitut einen eigenen Zitierstil.
-Die folgenden biblatex-Stile sollten einen Großteil der Anforderungen abdecken, oder sich leicht anpassen lassen.
+Die folgenden \biblatex-Stile sollten einen Großteil der Anforderungen abdecken, oder sich leicht anpassen lassen.
 
 \begin{labeling}{historische-zeitschrift}
   \item[biblatex-apa]       APA Style Guide (6th Edition)
@@ -540,7 +540,7 @@ Die folgenden biblatex-Stile sollten einen Großteil der Anforderungen abdecken,
     Zeitschrift}
   \item[biblatex-historian] Angelehnt an das \enquote{Chicago Manual of Style}
   \item[biblatex-arthistory-bonn] Regeln des \enquote{Kunsthistorischen Instituts der Universität Bonn}.
-  \item[biblatex-fiwi]      Der biblatex-Zitierstil für Filmwissenschaftler bietet zwei Optionen: \lstinline/style=fiwi/ und \lstinline/style=fiwi2/.
+  \item[biblatex-fiwi]      Der \biblatex-Zitierstil für Filmwissenschaftler bietet zwei Optionen: \lstinline/style=fiwi/ und \lstinline/style=fiwi2/.
 \end{labeling}
 
 \minisec{Weitere nützliche Bibliografiestile}
@@ -555,7 +555,7 @@ nicht alle davon sind für deutschsprachige Nutzer relevant.
 \item[biblatex-chem]      Für Chemiker
 \item[biblatex-chicago]   Nach den Regeln des \enquote{Chicago Manual of
   Style}
-\item[biblatex-ext]       Biblatex Erweiterungen
+\item[biblatex-ext]       \biblatex{} Erweiterungen
 \item[biblatex-iso690]    Regeln der ISO 690
 \item[biblatex-juradiss]  Speziell für Juristen
 \item[biblatex-lni]       Regeln der \enquote{Lecture Notes in Informatics}
@@ -575,13 +575,13 @@ nicht alle davon sind für deutschsprachige Nutzer relevant.
 
 \subsection{Spickzettel}
 
-Biblatex ist inzwischen so leistungsfähig geworden, dass man sich nicht alles merken kann.
+\biblatex{} ist inzwischen so leistungsfähig geworden, dass man sich nicht alles merken kann.
 Das dachte sich auch Clea F. Rees und schuf im Jahre 2017 das \Package{biblatex-cheatsheet}.
 Hier hat man alle \cs{cite} Befehle auf einen Blick und kann auch die verfügbaren Datenbank Felder schnell nachschlagen.
 
 \subsection{Schlüsselbund}
 
-Entscheidend für die Benutzung von Biblatex sind die Zitierschlüssel.
+Entscheidend für die Benutzung von \biblatex{} sind die Zitierschlüssel.
 Gerade bei gewachsenen Datenbanken,
 oder wenn wie in diesem Buch mehrere Autoren zusammenarbeiten,
 wünscht man sich ein Literaturverzeichnis mit den dazugehörigen Schlüsseln.
@@ -639,7 +639,7 @@ In TeXWorks geschieht das über ein Menü links oben (Bild~\ref{fig:lis:TWbiber}
   \label{fig:lis:TWbiber}
 \end{figure}
 
-In TexStudio schaltet man im Menü Bibliographie auf BibLaTeX um (Bild~\ref{fig:lis:TSbiblatex}).
+In TexStudio schaltet man im Menü Bibliographie auf \BibLaTeX{} um (Bild~\ref{fig:lis:TSbiblatex}).
 
 \begin{figure}
   \includegraphics[width=\textwidth]{TS-Biblatex}
@@ -656,7 +656,7 @@ Auf der Kommandozeile ist es auch nicht schwieriger:
 \end{lfgwcode}
 
 Zuerst wird das Dokument mit \Package{pdflatex} (oder \Package{lualatex}) übersetzt,
-dann \Package{biber} aufgerufen und zum Schluss da Dokument noch einmal übersetzt.
+dann \biber{} aufgerufen und zum Schluss da Dokument noch einmal übersetzt.
 
 Fehler können auftreten, wenn ein Schlüssel mehrfach verwendet wird, 
 oder die öffnenden und schließenden Klammern nicht zusammenpassen.
