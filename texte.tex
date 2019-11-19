@@ -67,7 +67,7 @@ Die folgende Einführung beschränkt sich auf die Klassen des \KOMAScript-Pakete
 Markus Kohm, weil diese eine überragende typografische Qualität sowie zahllose Möglichkeiten
 zur individuellen Anpassung bieten.%
 \footnote{Wer allerdings ihre volle Funktionalität nutzen will, sollte sich die originale 
-Dokumentation beschaffen und sich mit ihrer Hilfe genauer einarbeiten\dots}
+Dokumentation beschaffen und sich mit ihrer Hilfe genauer einarbeiten \dots}
 Hinzu treten zwei Dokumentklassen für speziellere Fälle, nämlich für Präsentationen und 
 Prüfungen.
 
@@ -258,8 +258,9 @@ Kolumnentitel und Marginalien Einfluss.
 Die Absatzgrenze wird durch eine Leerzeile markiert. 
 
 Alternativ kann durch \lstinline/\\/ ein Zeilenwechsel erzwungen werden.%
-\footnote{Ganz so einfach ist es nicht: ...........}
-
+\footnote{Ganz so einfach ist es nicht.}
+% Wieso nicht?
+% Entweder erklären oder löschen.
 
 \minisec{Gliederung durch Zwischenüberschriften}
 
@@ -290,7 +291,7 @@ Texte lassen sich in \LaTeX{} mit Hilfe eines hierarchischen Systems von Übersc
     \lstinline/book/, 
     \lstinline/scrbook/, 
     \lstinline/report/ und 
-    \lstinline/scrrprt/ 
+    \lstinline/scrreprt/ 
  bestehen aus Teilen (\lstinline/\part{}/)
  \footnote{Ehrlich gesagt: eher selten. 
  \lstinline/part/ 
@@ -383,7 +384,8 @@ Eine sehr elegant-konservative typografische Möglichkeit zur aktiven Auszeichnu
 \textls{Sperren}  
 von Textpassagen. Hierzu stellt das Paket \paket{microtype} den Befehl
 \lstinline/\textls{Text}/ zur Verfügung.
-
+% Das ist jetzt nicht Ernst gemeint.
+% "A man who would letterspace lower case would steal sheep" Frederic Goudy
 
 \subsection{Veränderung der Schriftgröße}
 \index{Schriftgröße}
@@ -395,11 +397,11 @@ die konkrete Bedeutung der Größenangaben von der Dokumentklasse vorgenommen we
 \begin{tabular}{ll}
           Befehl &      Beschreibung \\
           \hline
- \lstinline/\Huge{}/        &   \Huge{Riesig!} \\
- \lstinline/\huge{}/        &   \Huge{riesig} \\
- \lstinline/\LARGE{}/       &   \LARGE{sehr, sehr groß} \\
- \lstinline/\Large{}/       &   \Large{sehr groß} \\
- \lstinline/\large{}/       &   \large{groß} \\
+ \lstinline/\Huge{}/        &   \Huge{\strut Riesig!} \\
+ \lstinline/\huge{}/        &   \Huge{\strut riesig} \\
+ \lstinline/\LARGE{}/       &   \LARGE{\strut sehr, sehr groß} \\
+ \lstinline/\Large{}/       &   \Large{\strut sehr groß} \\
+ \lstinline/\large{}/       &   \large{\strut groß} \\
  \lstinline/\normalsize{}/  &   \normalsize{normal groß (Grundschriftgröße)} \\
  \lstinline/\small{}/       &   \small{klein} \\
  \lstinline/\footnotesize{}/    &   \footnotesize{so groß wie die Fußnoten} \\
@@ -468,7 +470,7 @@ Benötigt man nur eine Schrift, weil es z.\,B. keine kursive oder fette Variante
 so reicht der \cs{newfonface}-Befehl.
 Für arabische, hebräische oder chinesische Schriften gibt es normalerweise nur eine Variante.
 Gleiches gilt für Symbolschriften wir im Beispiel \ref{lst:luatex-schriften-einzel}.
-In diesem Fall wäre es aber besser gewesen das \paket{fontawesome} Paket zu verwenden, 
+In diesem Fall wäre es aber besser gewesen, das \paket{fontawesome} Paket zu verwenden, 
 mit diesem kann man die Symbole mit ihrem Namen ansprechen.
 
 \begin{lfgwcode}{label={lst:luatex-schriften-einzel}}
@@ -959,7 +961,7 @@ praktisch sein, wenn es eben nur um wenige einzelne Zeichen geht:
 Offene Frage: Akzente
 
 Wo liegt die Schmerzgrenze für dieses Verfahren?
-Wahrscheinlich bei etwas über einem Wort...
+Wahrscheinlich bei etwas über einem Wort \dots
 
 Comprehensive S.~
 
@@ -1212,7 +1214,7 @@ in der Regel speziell formatiert.}\footcite[131]{kohm:2014}
 \KOMAScript\ stellt hierfür den Befehl \lstinline/\dictum[Urheber]{Spruch}/ zur Verfügung.
 
 Die angesprochene Formatierung lässt sich in allen Details verändern.
-\footcite[vgl.][131\psqq]{kohm:2014}
+\footcite[131\psqq]{kohm:2014}
 
 
 \minisec{Einen Abschnitt zitieren: quote}
@@ -1238,7 +1240,7 @@ Die Kurzgeschichte \enquote{Cäsar und sein Legionär} von B. Brecht beginnt so:
  Seit Anfang März wusste der Diktator, dass die Tage der Diktatur gezählt waren.
 
  Ein Fremder, aus einer der Provinzen kommend, hätte die Hauptstadt vielleicht imposanter
- denn je gefunden... 
+ denn je gefunden \dots
 \end{quote}
 \end{lfgwexample}
 
@@ -1303,7 +1305,7 @@ Nach den Setzerregeln steht die Fußnotenziffer ohne Leerzeichen direkt hinter d
 Satzzeichen oder Wort, auf das sich die Fußnote bezieht.
 Wenn der Fußnotenaufruf -- was sehr empfehlenswert ist, um die Quelldatei gut les- und 
 verarbeitbar zu halten -- die Fußnote in einer eigenen Zeile steht, sollte man durch ein 
-\% -Zeichen die Umwandlung des Zeilenwechsels in ein Leerzeichen verhindern:
+\%-Zeichen die Umwandlung des Zeilenwechsels in ein Leerzeichen verhindern:
 
 \begin{lfgwcode}{}
  Hier steht ein Text%
@@ -1409,7 +1411,7 @@ Auch das Ende der aktuellen Umgebung beendet die Zeilennummern.
  \modulolinenumbers[5]
  \linenumbers
  Den 20. ging Lenz durchs Gebirg. Die Gipfel und hohen Bergflächen im Schnee, die Täler
- hinunter graues Gestein...
+ hinunter graues Gestein \dots
  \end{quotation}
 \end{lfgwcode}
 
@@ -1446,7 +1448,7 @@ Beim Aufruf des Paketes können folgende Optionen angegeben werden:
  \item[pagewise] Die Zeilennummerierung beginnt auf jeder neuen Seite wieder bei 1.
  \item[modulo] Nur jede x-te Zeile erhält eine Nummer. 
   Das Einstellen der Schrittweite erfolgt durch \cs{modulolinenumbers\oarg{Integer}} 
-  (sic! Die Klammern müssen eckig sein...);
+  (sic! Die Klammern müssen eckig sein \dots);
   voreingestellt ist der Wert von 5.
 \end{labeling}
 
@@ -1472,7 +1474,7 @@ Auch die Nummerierung eines Gedichtes gelingt auf diese Weise ohne Probleme:
   Ist sie dann gleichwohl was,\\
   wem ist ihr tun bewusst?\\
   
-  Im Sommer ...\\
+  Im Sommer \dots\\
  \end{verse}
 
 \end{lfgwexample}
@@ -1490,7 +1492,7 @@ Randbemerkungen stehen immer außen auf den Seitenrändern; bei zweispaltigem La
 \emph{auf linken Seiten} der als \lstinline/[links]/ definierte Text ausgegeben, falls vorhanden.
 
 Mit dem Befehl \cs{reversemarginpar} lässt sich dieses Verhalten umkehren; 
-von der Benutzung ist abzuraten, da innen stehende Marginalien i.\,d.R. wegen der Bindung schlecht
+von der Benutzung ist abzuraten, da innen stehende Marginalien i.\,d.\,R. wegen der Bindung schlecht
 lesbar sind.
 
 Marginalien, die mit dem \LaTeX -Standardbefehl gesetzt sind, dürfen nicht in Gleitumgebungen
@@ -1552,7 +1554,7 @@ Spalten gesetzt.
 Daneben bietet \LaTeX{} die Möglichkeit, in einem Dokument eine zweispaltige Passage
 zu integrieren. Die Passage wird mit dem Befehl \lstinline/\twocolumn[xxx] /
 eingeleitet. Die angegebene Überschrift wird einspaltig über beide Spalten gesetzt.
-Außer einer echten Überschrift (z.\,B. \lstinline/\section{}/ etc. sind hier auch
+Außer einer echten Überschrift (z.\,B. \lstinline/\section{}/) sind hier auch
 längere Einleitungstexte etc. möglich.
 
 Mit dem Befehl \lstinline/\onecolumn/ wird wieder auf einspaltigen Satz zurückgestellt.
@@ -1576,13 +1578,13 @@ Benutzbarkeit meines Erachtens nach stark einschränkt.
 
 \setlength{\columnseprule}{0.4pt}
 \begin{multicols}{3}
- Dabei liegt es in der Veranwortung des Nutzers, nicht zu viele Spalten zu verlangen,
+ Dabei liegt es in der Verantwortung des Nutzers, nicht zu viele Spalten zu verlangen,
  da sonst die einzelnen Spalten zu schmal werden und sich Aussehen und Lesbarkeit erheblich
  verschlechtern.
  
  Faustregel: Der Wortabstand soll niemals größer sein als der Zeilenabstand.
  Evtl. kann es helfen, mehrspaltige Abschnitte im Flattersatz zu setzen.
- In typografischer Hinsicht ist dies ein sehr schlechter Absatz...
+ In typografischer Hinsicht ist dies ein sehr schlechter Absatz \dots
  
  Um dem Leser zu ermöglichen, die Spalten besser wahrzunehmen kann der Längenwert 
  \lstinline/columnseprule/ auf einen Wert größer 0 gestellt werden;
@@ -1928,7 +1930,7 @@ das Vermischen verschiedener Formate und insbesondere Stile innerhalb eines Doku
 
 Mit \paket{bibleref-german} lassen sich die deutschsprachigen Gepflogenheiten bei der Formatierung von
 Bibelstellenangaben sehr präzise abbilden. Wenn jetzt noch das Eingabeformat (hinsichtlich Kapitel- und
-Versangabe) etwas handlicher wäre...
+Versangabe) etwas handlicher wäre \dots
 
 
 \subsection{Das Paket \paket{bibleref-parse}}
