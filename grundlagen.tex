@@ -57,7 +57,7 @@ oder eine speziell für die Unicode-Untersützung entwickelte \TeX{}-Version wie
 oder \LuaLaTeX{} verwenden.
 
 Die neueste Entwicklung in der Welt der \TeX-Programme ist die Integration der Skriptsprache
-Lua in die \LaTeX-engine: \LuaLaTeX{} wird als der kommende Standard gehandelt.
+Lua in die \TeX-engine: \LuaLaTeX{} wird als der kommende Standard gehandelt.
 
 Dieses Buch wurde mit \LuaLaTeX{} erstellt, die meisten Beispiele funktionieren aber auch mit \pdfLaTeX{}.
 Der Vorteil von \pdfLaTeX{} ist die höhere Bearbeitungsgeschwindigkeit, bei über 200 Seiten merkt man
@@ -186,7 +186,7 @@ Eine \LaTeX{}-Standardinstallation enthält über 400 Programme, von denen man z
 
 \begin{labeling}{\Program{TechnicCenter}}
 \item[\Program{TeXShell}] (Atari ca. 1990) Der Atari war wegen seiner
-  graphischen Oberfläche sehr beliebt.  Natürlich wollte niemand auf so
+  grafischen Oberfläche sehr beliebt.  Natürlich wollte niemand auf so
   einem Rechner eine Kommandozeile benutzen.  Zum Glück gab es mit der
   \Program{TeXShell} eine Oberfläche, die die einzelnen Programme hinter
   Knöpfen versteckte.  Eine farbliche Syntaxhervorhebung gab es natürlich
@@ -203,7 +203,7 @@ Eine \LaTeX{}-Standardinstallation enthält über 400 Programme, von denen man z
   \url{http://pages.uoregon.edu/koch/texshop/about.html}  Kurz nach dem
   Erscheinen von macOS (née OS X) erschien mit \Program{TeXShop} eine IDE
   für den Mac.  Nach heutigem Standard ist der Funktionsumfang eher
-  minimalistisch, aber Syntaxhervorhebung und Makros zum aufrufen der
+  minimalistisch, aber Syntaxhervorhebung und Makros zum Aufrufen der
   gängigen \LaTeX{}-Befehle sind vorhanden.  Durch den geringen
   Funktionsumfang ist das Programm sehr aufgeräumt.
 
@@ -228,10 +228,17 @@ Eine \LaTeX{}-Standardinstallation enthält über 400 Programme, von denen man z
 \end{labeling}
 
 \minisec{Online-Lösungen}
-\url{www.overleaf.com} \index{overleaf} und \url{www.sharelatex.com} \index{sharelatex}
-\footcite{meyer:dtk2015/1}
 
+Mit Overleaf\footcite{meyer:dtk2015/1} \url{https://www.overleaf.com}\index{overleaf}
+gibt es eine Möglichkeit \LaTeX-Dokumente im Internet zu bearbeiten.
+So spart man sich die Installation und kann von jedem Rechner darauf zugreifen.
+Allerdings sind die Daten dann auch im Internet und man muss sich auf den Datenschutz der Betreiber verlassen.
 
+Die Minimalversion ist kostenlos, ein erweitertes Paket für bis zu 10 Mitarbeiter pro Projekt kostet 14~Euro im Monat.
+(Stand 2019)
+
+Das Projekt Sharelatex\index{sharelatex} \url{www.sharelatex.com}  wurde von Overleaf übernommen und existiert
+nicht mehr als eigenes Angebot.
 
 \section{Erste Schritte in \LaTeX}
 
@@ -285,7 +292,7 @@ Also brauchen wir für den Anfang erst einmal eine Datei mit ein paar Zauberwort
 
 \tableofcontents
 
-blubb, blah...
+blubb, blah \dots
 
 \printbibliography
 \end{document}
@@ -308,25 +315,30 @@ Was bedeuten die Anweisungen im einzelnen?
    -- eine Hausarbeit.  Die Angabe \lstinline/scrrprt/ bedeutet, dass ein
    \enquote{Report} (also z.\,B. eine Hausarbeit) mit Hilfe der Definitionen
    des \KOMAScript-Paketes von Markus Kohm erstellt werden soll.  (Mehr dazu
-   vgl. \pageref{komaskript}
+   vgl. S.~\pageref{komaskript}) Das Buch (\lstinline/book//\lstinline/scrbook/)
+   oder der Report  (\lstinline/report//\lstinline/scrrprt/) haben
+   als oberste Gliederungsebene das Kapitel (\lstinline/\chapter/), der Artikel
+   (\lstinline/article//\lstinline/scrartcl/) dagegen \lstinline/\section/.
+   Dadurch ist es möglich mehrere Artikel zu einem Report oder Buch zusammenzufassen.
  
  \item[5-6] Zwei Zauberzeilen, die dazu führen, dass alle möglichen
-   Unicode-Sonderzeichen benutzt werden dürfen und auch ausgegeben werden
+   Unicode"=Sonderzeichen benutzt werden dürfen und auch ausgegeben werden
    können wie z.\,B. ä, ö, ü, ß, æ, ï oder þ.  (Achtung! Der Editor muss auf
-   Unicode eingestellt sein! -- vgl. S.~\pageref{unicode}
+   Unicode eingestellt sein! -- vgl. S.~\pageref{unicode} und die verwendete
+   Schrift muss die Zeichen enthalten.)
  
  \item[8-9] \LaTeX{} benutzt jetzt deutsche Begriffe (Bibliographie statt
-   Bibliography) und Silbentrennmuster (\paket{babel}).  \footnote{Etwas
+   Bibliography) und Silbentrennmuster (\paket{babel}).\footnote{Etwas
    genauer: Es gelten die Regeln der Rechtschreibreform von 1996.
    Sollen die Regeln von 1901 gelten, muss als Option stattdessen
-   \lstinline/german/ angeben werden. Vgl. \ref{babel} auf
-   S.~\pageref{babel}} Außerdem werden (Z. 8) deutsche Gepflogenheiten bei
+   \lstinline/german/ angegeben werden. Vgl. \ref{babel} auf
+   S.~\pageref{babel}} Außerdem werden deutsche Gepflogenheiten bei
    den Anführungszeichen verwendet (\paket{csquotes}).  Die beiden
    Zaubersprüche sollten in keiner deutschen Datei fehlen.
  
  \item[11] Das Paket \paket{graphicx} ist ein mächtiges Werkzeug um Grafiken
    einzubinden.  Wir laden es vorsorglich; wenn unser Text nicht lang genug
-   ist, können wir Bilder dazunehmen...
+   ist, können wir Bilder dazunehmen \dots
  
  \item[13] Das paket \paket{imakeidx} wird uns später erlauben, sehr einfach
    ein Register zu unserer Arbeit auszugeben.  Für komplexere Aufgaben wie
@@ -364,9 +376,9 @@ Was bedeuten die Anweisungen im einzelnen?
 
  \item[30] Jetzt kommen endlich unsere wertvollen Inhalte.
  
- \item[32] Hier wird das automatisch erstellte Literaturzeichnis ausgegeben.
+ \item[32] Hier wird das automatisch erstellte Literaturverzeichnis ausgegeben.
  
- \item[33] Diese letzte Zeile schließt \LaTeX{}-Dokumente ab.
+ \item[33] Diese letzte Zeile schließt das \LaTeX{}-Dokumente ab.
 
  \end{labeling}
 
@@ -391,7 +403,7 @@ Das gleiche Beispiel nun mit \LuaLaTeX{}, es ändern sich nur drei Zeilen.
  \item[1] Hier wird jetzt \LuaLaTeX{} als zuständiges Programm ausgewählt. 
   
  \item[5] \Paket{inputenc} und \Paket{fontenc} werden nicht mehr benötigt,
-   stattdessen übernimmt \Paket{fontspec} das laden der Zeichensätze.  Die
+   stattdessen übernimmt \Paket{fontspec} das Laden der Zeichensätze.  Die
    Standardschrift ist jetzt \texttt{Latin Modern Roman}, die Unterschiede
    zu \texttt{Computer Modern Roman} sind aber nur minimal. 
 
@@ -399,7 +411,7 @@ Das gleiche Beispiel nun mit \LuaLaTeX{}, es ändern sich nur drei Zeilen.
  
  \item[9] Jetzt wird es ernst: Unser eigentliches Dokument beginnt.
  
- \item[11] Diese letzte Zeile schließt \LaTeX -Dokumente ab.
+ \item[11] Diese letzte Zeile schließt das \LaTeX -Dokumente ab.
 
  \end{labeling}
 
@@ -414,12 +426,12 @@ Legen wir sie an:
 
 \begin{lfgwcode}{label={hausarbeit-bib}}
 @Book{voss:einfuehrung,
- author = {Herbert Voß}, 
- title = {Einführung in \LaTeX},
+ author    = {Herbert Voß}, 
+ title     = {Einführung in \LaTeX},
  publisher = {DANTE~e.\,V. and Lehmanns Media},
- location = {Berlin and Heidelberg},
- year = {2016},
- edition = {2},
+ location  = {Berlin and Heidelberg},
+ year      = {2016},
+ edition   = {2},
 }
 \end{lfgwcode}
 
@@ -432,7 +444,7 @@ Die Bibliografie-Datei unseres Projektes enthält also einen einzigen Eintrag:
   }
 }
 \parbox{40mm}{
-   \emph{übrigens sehr lesenswert...}
+   \emph{übrigens sehr lesenswert \dots}
 }
 \bigskip
 
