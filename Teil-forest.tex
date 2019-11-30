@@ -4,7 +4,7 @@
 Konstituentenanalysen von Wörtern und Sätzen vorzunehmen, sind in der Linguistik vom amerikanischen Strukturalismus entwickelte Verfahren der Segmentierung zur Ermittlung von syntaktischen Konstituentenhierarchien 
 und -kategorien, die für die Beschreibung und Analyse von Sprachen relevant sind. 
 Die Ergebnisse der Zerlegungen werden in Baumstrukturen (s. Beispiel~\ref{forestexample:1}) und  Klammerschreibungen (s. Beispiel~\ref{forestexample:2})
-veranschaulicht. Noam Chomsky, der Kopf der Generativen Grammatik, zeigt in Form der X-bar-Theorie
+veranschaulicht. Noam Chomsky, der Kopf der Generativen Grammatik (GG), zeigt in Form der X-bar-Theorie
 z.\,B. in \enquote{Rules and Representations} die Beziehung zwischen Tense und dem COMP  folgendermaßen auf (S.\,170f.)
 
 \begin{lfgwexample}{label={forestexample:1}}
@@ -40,20 +40,22 @@ it is unclear $[_\text{S´} [_{\text{COMP}} \enspace \textnormal{what} ]
 Sa\v{s}o \v{Z}ivanovi\'{c}, der Autor von \Package{forest}, schreibt in
 \cite[3]{zivanovic:forest},
 bezüglich Forest: \\
-"`I believe, the most flexible tree typesetting package for \LaTeX\ you can get."'
+\enquote{I believe, the most flexible tree typesetting package for \LaTeX\ you can get.}
 
 Auf jeden Fall ist es einfacher als andere Pakete\footnote{Zu anderen
 einschlägigen Paketen siehe \cite{roemer:dtk2016}.} zu handhaben, da es die Spreizung
-der Äste entsprechend der Label an den Astenden selbstständig anpasst. Dabei bemüht es sich,
+der Äste entsprechend der Label an den Ast-Enden selbstständig anpasst. Dabei bemüht es sich,
 um schlanke Bäume. Auch komplexe Strukturen führen nicht zu Problemen. Durch die Anbindung
 an PGF/TikZ können Ausschmückungen vorgenommen werden.
 
+% Habe lange überlegt was Astenden sind. Axel
+
 \minisec{Funktionsweise}
 
-Das Paket wird mit \verb|\usepackage{forest}| in der Präambel geladen. Spezielle Bibliotheken
+Das Paket wird mit \lstinline|\usepackage{forest}| in der Präambel geladen. Spezielle Bibliotheken
 können mit ihrem Namen in der Regel als fakultatives Argument hinzugefügt werden: 
-\verb|\usepackage[library name]{forest}|; beispielsweise diejenige für linguistische Strukturen
-mit \verb|\usepackage[linguistics]{forest}|. Mit dieser Option werden die Strukturbäume
+\lstinline|\usepackage[library name]{forest}|; beispielsweise diejenige für linguistische Strukturen
+mit \lstinline|\usepackage[linguistics]{forest}|. Mit dieser Option werden die Strukturbäume
 standardmäßig linksverzweigt.
 
 Phonologische Strukturen (wie in Beispiel~\ref{forestexample:3}) sind in der \texttt{linguistik}-Bibliothek
@@ -70,7 +72,7 @@ geschrieben\footnote{\cite[Beispiel\,6]{zivanovic:forest}}.
 \end{forest}
 \end{lfgwexample}
 
-Die Baumstrukturen werden in die \texttt{forest-Umgebung} oder in den Befehl \verb|Forest*{   }|
+Die Baumstrukturen werden in die \texttt{forest-Umgebung} oder in den Befehl \lstinline|Forest*{   }|
 mittels Umklammerungen der Konstituenten eingefügt. Die Kinder eines Knotens befinden sich 
 innerhalb des Mutterknotens.\footnote{Den linguistischen Konstruktionen liegt die Generative
 Grammatik zugrunde. So werden bei den Barstufen der Kategorien die Markierungen rechts ausgedruckt,
@@ -101,11 +103,11 @@ obwohl sie links eingegeben werden (siehe Beispiel~\ref{forestexample:4}).}
 \end{minipage}
 \end{lfgwexample}
 
-Als letzte Labels können auch natürlichsprachliche Ausdrücke (\verb|tier=word|) eingefügt werden, 
+Als letzte Labels können auch natürlichsprachliche Ausdrücke (\lstinline|tier=word|) eingefügt werden, 
 die dann entsprechend den Konventionen kursiv geschrieben werden können, mit dem entsprechenden
 Befehl. Wie im folgenden Beispiel (\ref{forestexample:5}) beim obersten Knoten zusehen ist, 
 können Labels auch ohne Kantenverbindungen untereinander
-geschrieben werden (\verb|align=center, base=bottom|).
+geschrieben werden (\lstinline|align=center, base=bottom|).
 
 
 \begin{lfgwexample}{label={forestexample:5}}
@@ -139,7 +141,7 @@ gesetzt werden (Beispiel~\ref{forestexample:6}).
 \end{lfgwexample}
 
 Die Bibliothek \texttt{edges} ermöglicht verzweigte Kanten/Äste bei horizontal wachsenden
-Strukturen. Sie wird mit \verb|\useforestlibrary{edges}| geladen. Man kann damit beispielsweise
+Strukturen. Sie wird mit \lstinline|\useforestlibrary{edges}| geladen. Man kann damit beispielsweise
 Begriffshierarchien aufzeigen (wie in \ref{forestexample:7}, \ref{forestexample:8}).
 
 \begin{lfgwcode}{label={forestexample:7}}
@@ -217,7 +219,7 @@ wie die Strukturbäume zu setzen, da es Kenntnisse des komplexen PGF/TikZ verlan
 \end{forest}
 \end{lfgwprint}
 
-FOREST positioniert die Knoten mittels einem rekursiven Algorithmus (genauer siehe 
+Forest positioniert die Knoten mittels einem rekursiven Algorithmus (genauer siehe 
 \cite[Kap.\,2.4]{zivanovic:forest}). Manuelle Abänderungen sind natürlich möglich. Beispielsweise
 kann mit der Option 
 \texttt{s sep} der Abstand zwischen den Teilsträngen, die aus einer Wurzel kommen, 
@@ -255,7 +257,7 @@ for tree={s sep=(3-level)*6mm}
 %\measurexdistance{(!21.north east)}{(!22.north west)}{+(0,2cm)}{above}
 %\measurexdistance{(!1.north east)}{(!221.north west)}{+(0,-2.4cm)}{below}
 Auch die Äste können unterschiedlich gespreizt werden (\texttt{fixed edge angles}),
-wie es auch möglich ist, die Kantenhöhe mit \verb|for tree={l=<Wert>cm}| zu verändern 
+wie es auch möglich ist, die Kantenhöhe mit \lstinline|for tree={l=<Wert>cm}| zu verändern 
 (Beispiel~\ref{forestexample:13})
 \footnote{\cite[Beispiel~59]{zivanovic:forest}}.
 
@@ -286,20 +288,20 @@ oder
 
 \begin{lfgwprint}{label={forestexample:14}}
 1. Schritt Verkettung von \emph{trinken} und \emph{Milch}:\\
-$ K= \{trinkt,\{Milch,trikt\}\}\ $ \\
+$ K= \{trinkt,\{Milch,trinkt\}\}\ $ \\
 2. Schritt Verkettung von K und Pauline:\\
 $ \{trinkt, \{Pauline, \{trinkt, \{trinkt, \{Milch, trinkt\}\}\}\}\} $
 \end{lfgwprint}
 
 \begin{lstlisting}
 1. Schritt Verkettung von \emph{trinken} und \emph{Milch}:\\
-$ K= \{trinkt,\{Milch,trikt\}\}\ $ \\
+$ K= \{trinkt,\{Milch,trinkt\}\}\ $ \\
 2. Schritt Verkettung von K und \emph{Pauline}:\\
 $ \{trinkt, \{Pauline, \{trinkt, \{trinkt, \{Milch, trinkt\}\}\}\}\} $
 \end{lstlisting}
 
 Beim Setzen im mathematischen Modus werden alle Buchstaben kursiv gestellt und Leerzeichen
-entfernt. Mit den Befehlen \verb|text{  }| und \verb|\enspace| kann man das abändern (s. \ref{forestexample:15}).
+entfernt. Mit den Befehlen \lstinline|text{  }| und \lstinline|\enspace| kann man das abändern (s. \ref{forestexample:15}).
 
 \begin{lfgwexample}{label={forestexample:15}}
 Mary wants to know\\
@@ -307,6 +309,10 @@ i) $ [[_{wh} in which house]John lived t] $ \\
 ii) $ [[_\text{wh} \enspace \text{in} \enspace \text{which} \enspace \text{house}]\enspace \text{John} \enspace \text{lived} \enspace \text{t}] $
 \end{lfgwexample}
 
+\begin{lfgwexample}{label={forestexample:15axel}}
+Mary wants to know\\
+iii)  [[\textsubscript{wh} in which house] John lived t]
+\end{lfgwexample}
 %% amsmath
 
 
