@@ -21,9 +21,8 @@ bzw. für antike Texte auch hieraus (\url{http://www.perseus.tufts.edu/hopper/co
 
 \noindent Es war einmal \dots
 
-%MS: Man sollte hier seriös bleiben. ASCII = American Standard Code for Information Interchange
 Als \TeX{} in den 70er Jahren entwickelt wurde, war die Codierung nach 
-ASCII\footnote{Altertümlicher Standard Code Inzwischen Irrelevant} \emph{eine}
+ASCII\footnote{American Standard Code for Information Interchange} \emph{eine}
 gängige Form Texte im Computer einzugeben. 
 Die ersten 32 Zeichen waren Steuerzeichen, so blieben weniger als 100 druckbare Buchstaben.
 Da dieser Standard aus den USA kam, gab es keine Umlaute oder sonstige europäische
@@ -72,7 +71,7 @@ lateinische Buchstaben beschränkt, funktioniert es auch mit \pdfTeX{}.
 
 Heutzutage können alle Editoren mit Unicode umgehen, in Verbindung mit einem geeigneten
 Zeichensatz lassen sich Zeichen wie {\FSEfont asdf άβγδἔ БГДЙ अऐक אשב ܚܤܜܗ} direkt eingeben.%
-\footnote{Der in diesem Buch verwendetet Zeichensatz enthält nicht alle hier dargestellten Buchstaben.
+\footnote{Der in diesem Buch verwendete Zeichensatz enthält nicht alle hier dargestellten Buchstaben.
 Das Beispiel wurde daher in GNU FreeSerif \url{http://savannah.gnu.org/projects/freefont/} gesetzt.}
 
 \section{Babel und Polyglossia}
@@ -80,7 +79,7 @@ Es gibt zwei Pakete, die sich um sprachspezifische Besonderheiten kümmern.
 Außerdem gibt es noch den \paket{german.sty}, der spezielle Anpassungen für deutsche Texte
 zur Verfügung stellt. Er sollte für neue Texte nicht mehr verwendet werden.
 
-Das Paket \paket{babel} ist die international Weiterentwicklung des \paket{german.sty}.
+Das Paket \paket{babel} ist die internationale Weiterentwicklung des \paket{german.sty}.
 Es bietet Unterstützung für mehr als 40 Sprachen und Dialekte und definiert neben den Trennmustern 
 auch sprachabhängige Texte für das Datum (\cs{today}) sowie Überschriften für die Verzeichnisse 
 (Inhaltsverzeichnis, Abbildungsverzeichnis, Literaturverzeichnis etc.).
@@ -149,7 +148,7 @@ Hier wird das Programm \XeLaTeX{} benötigt, das spezielle Unterstützung für S
 die von Rechts nach Links geschrieben werden. Abgesehen davon gilt alles in diesem Buch über
 \LuaLaTeX{} gesagte auch für \XeLaTeX{}.
 
-Das Beispiel \ref{polyglossia-preamble} zeigt den Aufruf von \paket{Polyglossia}.
+Das Beispiel \ref{polyglossia-preamble} zeigt den Aufruf von \paket{polyglossia}.
 Obwohl Polyglossia eigene Befehle für die Sprachumschaltung verwendet, 
 funktionieren die Babel Befehle weiterhin.
 
@@ -157,9 +156,9 @@ In der aktuellen Version (März 2017) hat \paket{Polyglossia} einen Fehler in Ve
 Wenn einmal auf französische Zeichensetzung umgeschaltet wurde, bleibt das für den Rest des Dokumentes bestehen.
 
 Seit Herbst 2013 bietet Babel Unterstützung für die Unicode basierten Engines.
-Abhängig von der verwendeten Sprache kann entweder das eine oder as andere System besser sein.
+Abhängig von der verwendeten Sprache kann entweder das eine oder das andere System besser sein.
 
-Da sich beide Systeme weiterentwickeln ist dies für den konkreten Einsatzfall zu prüfen.
+Da beide Systeme weiterentwickelt werden ist dies für den konkreten Einsatzfall zu prüfen.
 
 \begin{lfgwcode}{label={polyglossia-preamble}}
  \documentclass{scrartcl}
@@ -244,7 +243,7 @@ Um einem \enquote{Capitulum} einzugeben: %
 \Program{Emacs} hat eine lange Liste vorgefertigte Aliase%
 \footnote{Ein \enquote{Alias} ist eine Aufruf, mit der
 mehrere Funktionen, durch einen neuen Befehl ersetzt werden kann.
-Es wird benutzt, um Zeit zu sparen und weniger zu tippen.}%
+Es wird benutzt, um Zeit zu sparen und weniger zu tippen.}
 um oft benutzte Unicode Zeichen einzugeben. Zuerst, mit nur
 drei Tastendrücke: um eine \enquote{no-break space} einzugeben: %
 \texttt{C-x 8}\meta{Leertaste}
@@ -289,16 +288,51 @@ zu setzen.
 %% \Return{} %
 %% kann ich einen \enquote{Bullet} eingeben.
 
-\minisec{Eingabe direkt mit der Tastatur}
+\subsection{Eingabe von Unicode-Zeichen mit digraphs in Vim}
+\label{unicodeviavim}\index{Unicode und Vim}
+
+Auch im Vim kann man Unicode Zeichen als Hexadezimalzahl eingeben.
+Dazu drückt man im Eingabemodus die Tastenkombination \lstinline/C-V u/ (\texttt{Strg}$+$\texttt{V u})
+gefolgt vom 4stelligen Hexadezimalwert.
+
+Für viele Zeichen gibt es eine einfachere Möglichkeit über \emph{digraphs}.
+Das sind Kombinationen aus zwei Zeichen, die ein ähnlich aussehendes Unicodezeichen erzeugen.
+Eingeleitet werden die Sequenzen mit dem Befehl \lstinline/C-K/ (\texttt{Strg}$+$\texttt{K}).
+Das ç erzeugt man mit \lstinline/C-K ,c/.
+
+Der Befehl \lstinline/:digraph/ zeigt alle definierten digraphs an.
+
+Besser ist es natürlich, die Ausgabe in eine Datei umzuleiten, dies geht mit dem Befehl
+\lstinline/:redir => d | silent dig! | redir END | put=d/
+zum Glück benötigt man Befehl nur ein Mal.
+
+Eigene digraph definiert man mit dem Befehl \lstinline/:dig xy dddd/.
+Dabei sind \lstinline/xy/ die beiden Zeichen, die den digraph definieren und \lstinline/dddd/
+der \emph{dezimale} Wert des Zeichens.
+
+Kennt man nur den Hexadezimalwert, so gibt man das Zeichen mit \lstinline/C-V u/ ein,
+geht im normal Modus auf das Zeichen und lässt sich mit dem Befehl \lstinline/ga/ die
+dezimalen, hexadezimalen und oktalen Werte des Zeichens ausgeben.
+(Einfach, oder?)
+
+\subsection{Eingabe direkt mit der Tastatur}
 
 Lohnend besonders bei den modernen Fremdsprachen: Anschaffen einer Tastatur in der jeweiligen
 Sprache.
+
+\begin{figure}
+ \includegraphics[width=\textwidth]{Tastatur_griechisch_p}
+ \caption{Bildschirmtastatur für polytonisches Griechisch auf dem Mac.}
+ \label{fig:tastatur-griechisch}
+\end{figure}
 
 Dabei muss es sich nicht um eine physikalische Tastatur handeln.
 Oft reicht es, die entsprechende Tastatur im Betriebssystem zu aktivieren und sich das
 Tastaturlayout auszudrucken.
 So kann man die Zeichen direkt eingeben, auch wenn auf den Tasten etwas anderes steht.
-Alternativ kann man eine Bildschirmtastatur benutzen.
+Alternativ kann man eine Bildschirmtastatur benutzen. Bild~\ref{fig:tastatur-griechisch} zeigt
+eine solche Tastatur. Die orangefarbenen Tasten sind sogenannte Dead Keys. Sie erzeugen einen Akzent,
+der dann über den nachfolgenden Buchstaben gesetzt wird.
 
 Problem im altphilologischen Bereich: Akzente und (bei Hebräisch) Vokalzeichen sind heute
 nicht mehr verwendet und fehlen deshalb auf den heutigen Tastaturen.
@@ -309,17 +343,31 @@ Tastaturlayout definieren. Am einfachsten ist es, ein vorhandenes Layout abzuän
 Unter Unix lässt sich die Tastenbelegung mit \Program{xmodmap} oder über das \Program{XKB}-System
 anpassen. Diese Anpassung ist allerdings nicht trivial und wird daher hier nicht beschrieben.
 
-Für Windows 2000 bis Windows 7 gibt es den \Program{Microsoft Keyboard Layout Creator} kurz \Program{MSKLC}.
-Die damit erstellten Layouts sollen auch mit neueren Windows Versionen funktionieren.
+Für MS Windows gibt es den \Program{Microsoft Keyboard Layout Creator} kurz \Program{MSKLC}.
+Die damit erstellten Layouts müssen als Treiber installiert werden, dazu sind Admin-Rechte erforderlich.
 
-\minisec{Auswahl über Maus-gestützte tools}
-KCharselect
+\subsection{Auswahl über Maus-gestützte tools}
+
+\subsubsection{KCharselect}
+
+Die Abbildung\ref{fig:kcharselect} zeigt eine Eingabemöglichkeit unter Linux.
 
 \begin{figure}
  \includegraphics[width=\textwidth]{kcharselect}
  \caption{Mit dem KDE-Programm KCharselect kann man Unicode-Buchstaben immerhin mit der Maus
  auswählen.}
+ \label{fig:kcharselect}
 \end{figure}
+
+\subsubsection{Zeichentabelle}
+
+Unter Windows gibt es das Programm \Program{Zeichentabelle}, das alle verfügbaren Zeichen anzeigt.
+
+\subsubsection{Emoji und Symbole einblenden}
+
+Im Kontrollfeld \enquote{Tastatur} kann man die Option \enquote{Tastatur-, Emoji- und Symbolübersichten in der Menüleiste anzeigen} aktivieren.
+Dann ist unter Flagge in der Menüzeile sowohl eine Bildschirmtastatur als auch eine Übersicht aller Zeichen verfügbar. 
+Die Bildschirmtastatur kann man auch über die normale Tastatur bedienen, so ist eine schnelle Eingabe in einer fremden Sprache möglich.
 
 \minisec{Eingabe über die Zeichennummer}
 
@@ -328,13 +376,13 @@ Vgl.\ Abschnitt \ref{utf8codes} auf Seite \pageref{utf8codes}.
 \section{Griechisch}
 \index{Griechisch}
 
-Es gibt (mindestens...) drei verschiedene Möglichkeiten, griechische Textpassagen einzubinden;
+Es gibt (mindestens) drei verschiedene Möglichkeiten, griechische Textpassagen einzubinden;
 je nach Aufgabenbereich sind diese verschieden gut geeignet:
 
 
 \minisec{Möglichkeit I: Einzelbuchstaben}
 
-Die erste Möglichkeit besteht in der Eingabe mit Hilfe der Einzelbuchstaben-Symbole des Paketes
+Die erste Möglichkeit besteht in der Eingabe mithilfe der Einzelbuchstaben-Symbole des Paketes
 \paket{textgreek}; das Verfahren ist in  \fullref{griechEinzelbuchstaben} beschrieben.
 
 Dieses Verfahren eignet sich eigentlich nur für ganz kurze Einsprengsel im Umfang von
@@ -345,7 +393,7 @@ einzelnen Zeichen bis maximal ca.\ einem Wort.
 
 Die zweite Methode eignet sich demgegenüber hervorragend, wenn es darum geht auch etwas
 längere (alt-)griechische Passagen in ein ansonsten deutschsprachiges
-Dokument~-- mit Hilfe eines deutschen Computers mit QWERTZ-Tastatur~-- einzugeben.
+Dokument~-- mithilfe eines Computers mit QWERTZ-Tastatur~-- einzugeben.
 
 Dabei wird für die griechischen Buchstaben eine Art Transkription in lateinischen Buchstaben
 vorgenommen, die sich bei etwas Übung sehr leicht benutzen lässt.
@@ -353,29 +401,32 @@ vorgenommen, die sich bei etwas Übung sehr leicht benutzen lässt.
 Das Paket \paket{ibycus}%
 \footnote{Paketdokumentation: \file{texdoc ibycus-babel}}
 definiert dabei eine Art Pseudosprache für \paket{babel},
-in der Dokumenpräambel ist also anzugeben:
+in der Dokumentpräambel ist also anzugeben:
 
 \begin{lstlisting}
  \usepackage[ibycus,ngerman]{babel}
 \end{lstlisting}
 
 Im Dokument stehen dann eine Umgebung \env{ibycus} sowie ein Befehl \cs{ibygr\{\}}
-zur Verfügung:
+zur Verfügung. Aus der Eingabe
 
+\begin{lstlisting}
+  \begin{ibycus}
+  (Hrodo'tou Qouri’ou i(stori’hs a)po’decis h(’de,
+  \dots
+  h(‘n ai)ti’hn e)pole’mhsan a)llh’loisi.
+  \end{ibycus}
+\end{lstlisting}
 
-Das wird zu:
+wird dann:
 
  \begin{ibycus}
   (Hrodo'tou Qouri’ou i(stori’hs a)po’decis h(’de,
-  ...
+  \dots
   h(‘n ai)ti’hn e)pole’mhsan a)llh’loisi.
   \end{ibycus}
 
-  Und jetzt ein einzelnes griechisches Wort~-- \ibygr{a)rxai=a gra’mmata}~-- im Text.
-
-
-
-
+ Und jetzt ein einzelnes griechisches Wort \lstinline/a)rxai=a gra’mmata/ -- \ibygr{a)rxai=a gra’mmata} -- im Text.
 
 \minisec{Möglichkeit III: Direkteingabe von Unicode-Text}
 
@@ -391,15 +442,21 @@ eine Modifikation: \cs{usepackage}\oarg*{OT1,T1} \marg*{fontenc}.
 Dann kann mit \cs{selectlanguage\marg*{polutonikogreek}} auf Griechisch umgeschaltet werden.
 
 Der folgende Bibelvers wurde aus dem Internet unverändert in das \LaTeX-Dokument
-kopiert. Derzeit werden nicht alle Zeichen in meinem KDE-Editor (kile) korrekt dargestellt (vgl. Abb.);
-dennoch gibt \LaTeX{} alle Zeichen richtig wider:
+kopiert. Derzeit werden nicht alle Zeichen in meinem KDE-Editor (kile) korrekt dargestellt 
+(vgl. Abb.~\ref{fig:kile}); dennoch gibt \LaTeX{} alle Zeichen richtig wider:
 
 \begin{figure}
  \includegraphics[width=\textwidth]{ersatzdarstellung}
  \caption{KDE kann nicht alle aus dem Internet kopierten Unicode-Zeichen korrekt darstellen;
  Buchstaben mit Akzent und Spiritus bekommen eine (nichtssagende) Ersatzdarstellung!}
+ \label{fig:kile}
 \end{figure}
 
+\begin{figure}
+ \includegraphics[width=\textwidth]{ersatzdarstellung_vim}
+ \caption{Vim mit dem Zeichensatz Menlo hat damit keine Probleme.}
+ \label{fig:griechsich-vim}
+\end{figure}
 
 \begin{otherlanguage}{polutonikogreek}
 Οὕτως γὰρ ἠγάπησεν ὁ Θεὸς τὸν κόσμον, ὥστε τὸν Υἱὸν τὸν μονογενῆ ἔδωκεν,
@@ -422,7 +479,7 @@ wesentlich angenehmer und effizienter.
 Das Paket \paket{cjhebrew} von Christian Justen eignet sich hervorragend für
 Theologen und Orientalisten, denn es erlaubt auch die Vokalisierung sowie die Verwendung
 von Akzenten. Auch das Problem der rechts- bzw. linksläufigen Schriften wird sehr
-Anwenderfreundlich~-- im Sinne von Anwendern an einem westlichen PC mit ansonsten
+anwenderfreundlich~-- im Sinne von Anwendern an einem westlichen PC mit ansonsten
 lateinischen Alphabet~-- gelöst:
 
 Nach \cs{usepackage\marg*{cjhebrew}}%
@@ -432,7 +489,7 @@ steht vor allem der Befehl \cs{cjRL\{\}}
 Umgebung \lstinline/cjhebrew/
 -- für ganze Absätze in Hebräisch~-- zur Verfügung.
 
-Beide drehen die Folge der Schriftzeichen automatisch um, so dass hebräische Textpartien
+Beide drehen die Folge der Schriftzeichen automatisch um, sodass hebräische Textpartien
 ganz gewohnt eingegeben werden können. Dabei sind für die einzelnen Zeichen sehr leicht
 merkbare Codes definiert worden:
 
@@ -446,8 +503,8 @@ wird so eingegeben:
 \end{lstlisting}
 
 Mit etwas Eingewöhnung arbeitet man mit diesem System \emph{wesentlich} schneller und
-angenehmer, als wenn man etwa die Unicode-Zeichen mit Hilfe eines grafischen Auswahlwerkzeugs
-einzeln auswählt...
+angenehmer, als wenn man etwa die Unicode-Zeichen mithilfe eines grafischen Auswahlwerkzeugs
+einzeln auswählt \dots
 
 Die Bearbeitung mit \LaTeX{} ergibt:
 
@@ -490,7 +547,7 @@ Ist \paket{arabtex} noch aktuell?
 \section{Keilschrift}
 \index{Keilschrift}
 
-\paket{archaic} und andere...
+\paket{archaic} und andere \dots
 
 \section{Runen}
 \index{Runen}
