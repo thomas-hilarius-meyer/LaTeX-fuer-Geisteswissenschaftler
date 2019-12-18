@@ -20,13 +20,16 @@ In diesem Kapitel soll am Beispiel von Subversion und Git gezeigt werden, wie be
 
 Ein Hinweis noch: Die ordentliche Konfiguration einer Versionsverwaltung setzt ein gewisses technisches Verständnis voraus. Wer sich dies nicht zutraut, nutzt am besten einen der vielen Hoster, die die notwendige Infrastruktur und Expertise bereithalten. Github beispielsweise berechnet 7~US-\$ pro Monat für eine unbegrenzte Zahl privater (nicht öffentlich einsehbarer) Git-Repositories (die auch per Subversion-Client benutzt werden können), LCube-Hosting (\url{https://www.lcube-webhosting.de}) berechnet 2,99~Euro pro Monat für ein Gigabyte an Subversion-Repositories.
 
+% Preis Dezember 2019: 2,49 €
+% Vergleich: Dieses Buch < 100 MB.
+
 \section{Subversion}
 
-Subversion wurde ursprünglich von CollabNet entwickelt, seit 2009 hat es seine Heimat bei der Apache Foundation gefunden. Es handelt sich bei Subversion um eine \textit{zentrale} Versionsverwaltung, das bedeutet das es einen zentralen Server gibt, auf dem der Subversion-Dienst läuft und auf den geänderte Dateien hochgeladen werden.
+Subversion wurde ursprünglich von CollabNet entwickelt, seit 2009 hat es seine Heimat bei der Apache Foundation gefunden. Es handelt sich bei Subversion um eine \textit{zentrale} Versionsverwaltung, das bedeutet, das es einen zentralen Server gibt, auf dem der Subversion-Dienst läuft und auf den geänderte Dateien hochgeladen werden.
 
 \subsection{Installation}
 
-Es gibt verschiedene Möglichkeiten, einen Subversion-Server zu installieren. Die lokale Installation auf dem Arbeitsrechner -- egal auf welchem Betriebssystem --ist nur dann empfehlenswert, wenn die Daten regelmäßig, am besten auf einem externen Rechner, gesichert werden. Wenn nämlich der schlimmste Fall eintritt und der lokale defekt ist oder abhanden gekommen ist, ist nicht nur die Arbeitskopie sondern auch das ganze Repository defekt.
+Es gibt verschiedene Möglichkeiten, einen Subversion-Server zu installieren. Die lokale Installation auf dem Arbeitsrechner -- egal auf welchem Betriebssystem --ist nur dann empfehlenswert, wenn die Daten regelmäßig, am besten auf einem externen Rechner, gesichert werden. Wenn nämlich der schlimmste Fall eintritt und der lokale defekt ist oder abhanden gekommen ist, ist nicht nur die Arbeitskopie, sondern auch das ganze Repository defekt.
 
 Ein Hinweis noch zum Thema \enquote{Backup}: es empfiehlt sich, auch die Integrität des Backups gelegentlich zu prüfen.
 Ein kaputtes Backup bietet keinen Mehrwert!
@@ -67,7 +70,7 @@ Vor der Arbeit an den ausgecheckten Dateien empfiehlt es sich, jedes Mal ein Upd
 Für die verschiedenen Betriebssysteme existieren auch diverse grafische Clients für Subversion.
 Maß aller Dinge -- zumindest nach Meinung des Autors -- ist dabei aber TortoiseSVN (\url{https://tortoisesvn.net/downloads.html}). 
 Auf dieses hilfreiche Werkzeug möchten wir daher näher eingehen. 
-Nach Download, Installation und Neustart findet man im Kontextmenü des Explorers (rechte Maustaste\ldots)  zwei neue Menüpunkte: \texttt{SVN Checkout} und \texttt{TortoiseSVN}.
+Nach Download, Installation und Neustart findet man im Kontextmenü des Explorers (rechte Maustaste \ldots)  zwei neue Menüpunkte: \texttt{SVN Checkout} und \texttt{TortoiseSVN}.
 
 Über den Menüpunkt \texttt{SVN Checkout} können wir -- analog zum Kommandozeilenbefehl \texttt{svn checkout} Dateien aus einem SVN-Repository holen.
 Wenn wir dies tun und dann in das neu erstellte Verzeichnis mit den ausgecheckten Dateien gehen, verändert sich das Kontextmenü. Der Punkt \texttt{SVN Checkout} ist nicht mehr verfügbar, was auch logisch ist, schließlich befinden wir uns bereits in einem ausgecheckten Verzeichnis. Hinzugekommen sind die Einträge \texttt{SVN Update} und \texttt{SVN Commit}. \texttt{SVN Update} tut genau das, was man erwarten würde: es aktualisiert die Dateien im Arbeitsverzeichnis mit dem letzten Stand aus dem Repository. Es empfiehlt sich daher, jedes Mal vor der Veränderung der lokalen Dateien solch ein \texttt{SVN Update} durchzuführen, um Datei-Konflikte zu vermeiden. Was in einem solchen Fall zu tun ist, werden wir noch später besprechen.
