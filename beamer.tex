@@ -5,8 +5,9 @@
 \noindent Die Beamer Klasse bietet eine einfache Möglichkeit Präsentationen zu
 erstellen.  Aufgrund der großen Auswahl an Themen und der reichhaltigen
 Optionen, ist der Einstieg jedoch nicht so leicht.  Eine
-Beispielpräsentation\footnote{%
-\url{http://www.dante.de/events/dante2014/Programm/Vortraege/kielhorn-beamer.zip}}
+Beispielpräsentation%
+%\footnote{%
+%\url{http://www.dante.de/events/dante2014/Programm/Vortraege/kielhorn-beamer.zip}}
 zeigt einige Optionen und umschifft einige der Klippen, die sich einem 
 Anfänger in den Weg stellen.
 
@@ -72,6 +73,7 @@ allen Themes, kombiniert mit allen Farb-Themes.
   %\usetheme{JuanLesPins}        % blau mit Navigationsbaum im Kopf mit Schatten
   %\usetheme{Ilmenau}            % blau mit Fortschrittsanzeige
   %\usetheme{Bergen}             % blau mit Seitenleiste
+  % Anpassungen für Bergen:
   %  \def\insertauthorindicator{Wer\,?}         % Who
   %  \def\insertinstituteindicator{Vom\,?}      % From
   %  \def\insertdateindicator{Wo\,?}            % When
@@ -122,7 +124,7 @@ angepasst werden.
 \subsection{Globale Einstellungen}
 
 Eine häufig benutzte Option von Beamer ist das stückweise (inkrementelle)
-Aufdecken.  Dies kann global für alle Umgebungen die dies unterstützen
+Aufdecken.  Dies kann global für alle Umgebungen, die dies unterstützen,
 eingeschaltet werden. Sollten einzelne komplett angezeigt werden, so kann
 die globale Einstellung durch Angabe von \texttt{<*>} bei den entsprechenden
 Befehlen überschrieben werden.
@@ -151,7 +153,7 @@ konfigurieren oder ganz ausschalten.
 
 \subsection{Teilweise Bearbeitung}
 
-Bei Umfangreichen Präsentationen kann es sinnvoll sein, nur den aktuellen
+Bei umfangreichen Präsentationen kann es sinnvoll sein, nur den aktuellen
 Frame zu bearbeiten.  Mit \cs{includeonlyframes} kann man die zu
 bearbeitenden Frames festlegen.  Wenn der aktuelle Frame den
 \texttt{label=current} trägt, so wird nur dieser Frame bearbeitet.  Ist die
@@ -231,8 +233,8 @@ eines Frames für die Präsentation ignoriert. Eine Ausnahme bilden hier
 die Gliederungsbefehle \cs{section}, \dots.
 
 Es gibt zwei Möglichkeiten einen Frame zu definieren.
-Die \LaTeX\ Methode und die \TeX\ Methode. Bei letzterer muss der
-\cs{frametitle} über einen Befehl eingegeben werden, bei der ersten ist
+Die \LaTeX\ Methode und die \TeX\ Methode. Bei Letzterer muss der
+\cs{frametitle} über einen Befehl eingegeben werden, bei der Ersten ist
 auch ein optionales Argument möglich. 
 
 \subsection{Rahmen}
