@@ -502,4 +502,17 @@ lfgwstyle/.style={%
 % Autorkennung:   Wie soll's aussehen?
 \providecommand{\autor}[1]{\hfill\textbf{#1}}
 
+%
+% Float-Parameter einstellen
+% Nur ändern, wenn es Probleme gibt
+% (z.B. viele kleine Floats)
+%
+\renewcommand{\topfraction}{0.8} % 0.7
+\renewcommand{\bottomfraction}{0.7} % 0.3
+%\renewcommand{\textfraction}{0.1} % 0.2
+%\renewcommand{\floatpagefraction}{0.7} 0.5
+\setcounter{topnumber}{2} % 2
+\setcounter{bottomnumber}{2} % 1
+%\setcounter{totalnumber}{10} % 3
+
 \endinput
