@@ -39,7 +39,7 @@
   \end{minipage}%
   \end{lrbox}%
   \colorbox{black!5}{%
-  \begin{minipage}{\textwidth}%
+  \begin{minipage}{.985\textwidth}%
   \usebox\bspbox
   \end{minipage}}
   \medskip
@@ -49,7 +49,7 @@
 
 \newcounter{alteSeite}
 \setcounter{alteSeite}{269}
-\newcommand\alteSeite{{|\ledsidenote{\emph{T}~\thealteSeite}}}%stepcounter machen wir hier nicht, sonst zählt er ja immer weiter ...
+\newcommand\alteSeite{{|\ledsidenote{\quad\emph{T}~\thealteSeite}}}%stepcounter machen wir hier nicht, sonst zählt er ja immer weiter ...
 
 \VerbatimFootnotes
 \DefineShortVerb{\+}
@@ -165,6 +165,7 @@ Das Ergebnis sähe bisher folgendermaßen aus:
 
 \bigskip\bigskip%warum sich die Abstände hier anders verhalten ...?
 
+\noindent
 \begin{reledmacbsp}{}
 \gkk{Τῆς Κιλικίας δὲ τῆς ἔξω τοῦ Ταύρου ἡ μὲν λέγεται τραχεῖα ἡ δὲ πεδιάς;
 τραχεῖα μέν, ἧς ἡ παραλία στενή ἐστι καὶ οὐδὲν ἢ σπανίως ἔχει \dots{}}
@@ -209,6 +210,7 @@ Mit den nun neu eingeführten Befehlen sieht der Beispielcode so aus:
 
 Das Ergebnis hat sich damit auch verändert und sähe nun folgendermaßen aus:
 
+\noindent
 \begin{reledmacbsp}{\bsplineenum}
 \gkk{Τῆς Κιλικίας δὲ τῆς ἔξω τοῦ Ταύρου ἡ μὲν λέγεται τραχεῖα ἡ δὲ πεδιάς;
 τραχεῖα μέν, ἧς ἡ παραλία \alteSeite{} στενή ἐστι καὶ οὐδὲν ἢ σπανίως ἔχει \dots{}}
@@ -273,6 +275,7 @@ Der neue Befehl sieht im Beispieltext dann so aus:
 
 Der angegebene Code führt nach genügend vielen Durchläufen zu diesem Ergebnis:
 
+\noindent
 \begin{reledmacbsp}{\bsplineenum}
 \gkk{Τῆς \vari{Κιλικίας}{\gkk{Πισιδίας} V} δὲ τῆς ἔξω τοῦ Ταύρου \dots{}}
 \end{reledmacbsp}
@@ -298,6 +301,7 @@ Lemmas und zudem mit einer weiteren Lesart: Handschrift G bietet das \gkk{ἔξ�
 
 Mit beiden Apparaten kommen wir zu diesem Zwischenergebnis:
 
+\noindent
 \begin{reledmacbsp}{\bsplineenum}
 \gkk{Τῆς \vari{Κιλικίας}{\gkk{Πισιδίας} V} δὲ τῆς \vari{ἔξω}{\emph{del.} G} 
 τοῦ Ταύρου ἡ μὲν λέγεται τραχεῖα ἡ δὲ πεδιάς;
@@ -329,6 +333,7 @@ in V und T sind nur die ersten Zeilen erhalten, in U und G der komplette Text. D
 Noch nicht sonderlich schön, aber immerhin technisch vollständig, sieht der Zwischenstand so aus:
 
 \label{Pilhofer-Beispiel-Lemma-kurz}%
+\noindent
 \begin{reledmacbsp}{\bsplineenum}
 \gkk{\msdata{G T U V}
 Τῆς \vari{Κιλικίας}{\gkk{Πισιδίας} V} δὲ τῆς \vari{ἔξω}{\emph{del.} G} 
@@ -438,6 +443,7 @@ Bei diesen Optionen sieht das Ergebnis nun so aus:
 %muss vor beginnumbering stehen, daher schon hier:
 \Xarrangement{paragraph}%
 
+\noindent
 \begin{reledmacbsp}{%
 %% generell zu den Apparaten
 \Xnumberonlyfirstinline[][true]%
