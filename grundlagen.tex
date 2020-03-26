@@ -93,7 +93,7 @@ Das ist möglich, da es sich bei den Dateien um reine Textdateien handelt.
 Doch es gibt ein paar Qualitätsmerkmale, auf die man bei der Auswahl achten sollte, weil
 sie die tägliche Arbeit wesentlich erleichtern:
 
-\begin{labeling}{\Program{TechnicCenter}}
+\begin{labeling}
 
 \item[Syntaxhervorhebung] (Highlighting) hebt \LaTeX-Befehle sowie bestimmte
   Inhalte wie Überschriften etc. farblich hervor, was die Übersicht über das
@@ -102,7 +102,7 @@ sie die tägliche Arbeit wesentlich erleichtern:
   wesentlich erleichtert werden: Fährt man eine schließende Klammer an, wird
   die jeweils dazugehörende öffnende Klammer hervorgehoben.
 
-\item [Unicode Unterstützung] sollte im 21. Jahrhundert selbstverständlich
+\item [Unicode Unterstützung] sollte im 21.\ Jahrhundert selbstverständlich
   sein.  Zur Darstellung benötigt man einen geeigneten Zeichensatz, der die
   erforderlichen Symbole enthält. Alle hier vorgestellten Programme
   unterstützten Unicode.
@@ -118,9 +118,15 @@ sie die tägliche Arbeit wesentlich erleichtern:
 
 \end{labeling}
 
-Einige empfehlenswerte Editoren für die Arbeit mit \LaTeX{} sind:
+Bei der Auswahl des Programms für die Bearbeitung kann man grundsätzlich zwischen Texteditoren und kompletten Entwicklungsumgebungen unterscheiden.
+Die Texteditoren einigen sich dafür, kleinere Korrekturen vorzunehmen.
+Für die umfassendere Bearbeitung eignen sich komplette Entwicklungsumgebungen.
+Auch hier ist es Geschmackssache des Urehbers, welches Werkzeug er bevorzugt.
+Im Folgenden sollen Repräsentantaten für beide Kategorien vorgestellt werden.
 
-\begin{labeling}{\Program{TechnicCenter}}
+Einige empfehlenswerte Editoren mit grundlegender Unterstützung für die Arbeit mit \LaTeX{} sind die folgenden:
+
+\begin{labeling}
 \item[\Program{kwrite}] (Linux) 
 
 \item[\Program{kate}] (Linux)
@@ -184,7 +190,7 @@ Eine \LaTeX{}-Standardinstallation enthält über 400 Programme, von denen man z
 
 \minisec{Integrierte Entwicklungsumgebungen (IDE)}
 
-\begin{labeling}{\Program{TechnicCenter}}
+\begin{labeling}
 \item[\Program{TeXShell}] (Atari ca. 1990) Der Atari war wegen seiner
   grafischen Oberfläche sehr beliebt.  Natürlich wollte niemand auf so
   einem Rechner eine Kommandozeile benutzen.  Zum Glück gab es mit der
@@ -214,9 +220,12 @@ Eine \LaTeX{}-Standardinstallation enthält über 400 Programme, von denen man z
   übersichtlich.
 
 \item[\Program{TeXStudio}] (Win + Linux + macOS 2009)
-  \url{http://texstudio.sourceforge.net}  Das rundum sorglos Programm für
-  große Projekte. Neben einem Projektbrowser, der alle zum Projekt
-  gehörenden Dateien zeigt, bietet \Program{TeXStudio} auch eine integrierte
+  \url{https://www.texstudio.org/}  Das rundum sorglos Programm für
+  große Projekte.
+  Neben den üblichen Features der Syntaxhervorherbung enthält es insbesondere folgende zwei Features enthält:
+  Unterstützung der Grammatikprüfung via LanguageTool\footnote{\url{https://languagetool.org/de/}} und der Sprung vom PDF zum \LaTeX{}-Quelltext.
+  Weiterhin bietet \Program{TeXStudio} neben einem Projektbrowser, der alle zum Projekt
+  gehörenden Dateien zeigt, bietet auch eine integrierte
   Versionsverwaltung mit \Program{SVN}.  Die Syntaxhervorhebung erkennt die
   verwendeten Pakete und lädt die benötigten Definitionen bei Bedarf nach.
   So werden ungültige Befehle erkannt und farblich markiert, man merkt den
