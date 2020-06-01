@@ -1,6 +1,6 @@
 1. Arbeitsgrundsätze
 
-Alle Zwischenstände sollten immer lauffähig sein, d.h. mit einem (aktuellen) TeX Live bzw. MiKTeX übersetzbar sein! 
+Alle Zwischenstände sollten immer lauffähig sein, d.h. mit einem (aktuellen) TeX Live bzw. MiKTeX übersetzbar sein!
 Arbeiten am TeX-Code sollten daher am besten immer lokal vorgenommen und gestestet werden.
 
 Autorwechsel mit \autor{Dagobert Duck}
@@ -14,11 +14,11 @@ Autorwechsel mit \autor{Dagobert Duck}
 – Für Programme, Pakete und einige andere Strukturen gibt es eigene Befehle, die genutzt werden sollen.
 ACHTUNG: Wenn in Überschriften der Befehl \paket benutzt werden soll, so muss ein optionales Argument ohne diesen Befehl verwendet werden. Bsp:
 \chapter[Prüfungen erstellen mit exam]{Prüfungen erstellen mit \paket{exam}}
- 
+
 3. Dokumentation von Code
- 
+
 – Keine Leerzeichen zwischen Makroname und Argumenten
-– Inline-Codeschnipsel sollten immer \cs für das Makro, \marg für obligatorische (mandatory) Argumente und \oarg 
+– Inline-Codeschnipsel sollten immer \cs für das Makro, \marg für obligatorische (mandatory) Argumente und \oarg
   für optionale Argumente nutzen:
   \cs{beispiel\marg{Argument}}
   Soll ein Argument nicht in <...> gesetzt werden, so kann \marg* bzw. \oarg* genutzt werden.
@@ -58,16 +58,16 @@ Makronamen, die nicht hervorgehoben werden, können im Vorspann über die Liste 
 
 
 5. Kurzanleitung git für dummies und solche, die noch nicht einmal das sind
- 
+
  Repository auf einen neuen Computer laden:
  git clone https://github.com/thomas-hilarius-meyer/latex-fuer-geisteswissenschaftler.git
- 
+
  Repository auf den neuesten Stand bringen:
  git pull
- 
+
  Eigene Änderungen hochladen:
  git commit -a -m "Kommitbeschreibung" lädt aktuelle Änderungen im Arbeitsverzeichnis in das
  lokale Repository
  "git push" lädt das lokale Repos. auf den Server
- 
+
  Weitere Hinweise: https://rogerdudler.github.io/git-guide/index.de.html
