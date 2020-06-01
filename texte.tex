@@ -4,7 +4,7 @@
 \autor{Thomas Hilarius Meyer}
 
 Geistes- und humanwissenschaftliche Arbeiten haben besondere Anforderungen an die typografische
-Gestaltung. 
+Gestaltung.
 Die häufigsten Anforderungen werden im folgenden der Reihe nach durchgegangen.
 Manches davon ist \LaTeX-Standard; anderes wird außerhalb der Geisteswissenschaften eher
 selten gebraucht.
@@ -17,8 +17,8 @@ der Satz von komplexen mathematischen Formeln und Gleichungen.
 \dictum[Louis Sullivan]{Form follows function.}
 
 Der Grundgedanke bei der Benutzung von \LaTeX\ ist, dass sich der Autor um die inhaltliche Seite seines
-Textes kümmert, und die typografische Aufbereitung den Algorithmen der Software überlässt, 
-die aus der ihr mitgeteilten logischen Struktur anhand der traditionellen Regeln funktionaler Setzerkunst 
+Textes kümmert, und die typografische Aufbereitung den Algorithmen der Software überlässt,
+die aus der ihr mitgeteilten logischen Struktur anhand der traditionellen Regeln funktionaler Setzerkunst
 eine schön -- im Sinne funktionaler Ästhetik -- aufbereitete Druckfassung erstellt.
 
 Dieser Ansatz widerspricht der weitverbreiteten Do-it-yourself-Mentalität der Typografie des
@@ -32,30 +32,30 @@ Hans Peter Willberg und Friedrich Forssmann karikiert wird:
  So gewöhnt man sich an falsche und schlechte Typografie.
  \footcite[9]{erste_hilfe}
  \end{quote}
- 
+
 \begin{quotation}
  \emph{Du warst doch mal Sekretärin.
  Ich muss meine Diss schreiben, kannst Du mir zeigen, wie das geht?}
- 
+
  \emph{Was} ein Doktorand oder Diplomand zu schreiben hat, das hat er studiert.
  \emph{Wie} er es zu schreiben hat, hat er nicht studiert, er setzt irgendwie drauflos.
  Mit unübersichtlicher und schlecht lesbarer Laien-Typografie schadet er oft genug seiner Arbeit.
  \footcite[86]{erste_hilfe}
 \end{quotation}
 
-Natürlich beinhaltet auch eine moderne \LaTeX -Installation keine künstliche Intelligenz mit 
+Natürlich beinhaltet auch eine moderne \LaTeX -Installation keine künstliche Intelligenz mit
 vollständiger Setzerlehre und vor allem sind die Spezialanforderungen gerade an die Satzerstellung im
-humanwissenschaftlichen Bereich so speziell und individuell, dass es gelegentlich nicht ohne 
+humanwissenschaftlichen Bereich so speziell und individuell, dass es gelegentlich nicht ohne
 \enquote{Selbermachen} und \enquote{Basteln} geht, aber dennoch ist es wichtig, sich den Grundsatz
 klarzumachen: In einem \LaTeX -Dokument wird primär der \emph{Inhalt} ausgezeichnet, und erst sekundär
 die Repräsentation der inhaltlichen Struktur in ein Druckbild.
 
-Um was geht es im einzelnen beim Erstellen von Texten mit \LaTeX ? 
+Um was geht es im einzelnen beim Erstellen von Texten mit \LaTeX ?
 
 
 \section{Wahl der Dokumentklasse}
 
-In der ersten Zeile eines \LaTeX -Dokumentes wird die Dokumentklasse des folgenden Textes 
+In der ersten Zeile eines \LaTeX -Dokumentes wird die Dokumentklasse des folgenden Textes
 festgelegt. Die Dokumentklasse definiert die grundsätzlichen Spielregeln:
 Welche Gliederungsebenen sind vorgesehen, wie ist die grundsätzliche Formatierung aufgebaut etc.
 
@@ -66,9 +66,9 @@ Dokumentklasse. Existiert eine solche, sollte man sie i.\,d.\,R. auch benutzen.
 Die folgende Einführung beschränkt sich auf die Klassen des \KOMAScript-Paketes von
 Markus Kohm, weil diese eine überragende typografische Qualität sowie zahllose Möglichkeiten
 zur individuellen Anpassung bieten.%
-\footnote{Wer allerdings ihre volle Funktionalität nutzen will, sollte sich die originale 
+\footnote{Wer allerdings ihre volle Funktionalität nutzen will, sollte sich die originale
 Dokumentation beschaffen und sich mit ihrer Hilfe genauer einarbeiten \dots}
-Hinzu treten zwei Dokumentklassen für speziellere Fälle, nämlich für Präsentationen und 
+Hinzu treten zwei Dokumentklassen für speziellere Fälle, nämlich für Präsentationen und
 Prüfungen.
 
 \begin{labeling}{scrreprt}
@@ -78,7 +78,7 @@ Prüfungen.
   die Titelei etc.
  \item[exam] ist eine eigene Klasse zur Entwicklung von Aufgabenblättern zu Prüfungszwecken.
  \item[beamer] stellt eine ganze Reihe von Features für die Erstellung von Präsentationen
-  zur Verfügung. Mit etwas Einarbeitung gelingen damit schneller bessere Präsentationen als 
+  zur Verfügung. Mit etwas Einarbeitung gelingen damit schneller bessere Präsentationen als
   mit der verbreiteten Konkurrenz.
 \end{labeling}
 
@@ -89,11 +89,11 @@ Prüfungen.
 
 In \LaTeX -Kreisen ebenso wie innerhalb dieser Anleitung ist häufig von \enquote{Paketen} die Rede,
 die \enquote{geladen} werden müssen, um eine bestimmte Funktionalität zu gewährleisten.
-Andererseits stellen zahlreiche \enquote{Klassen} bereits Features zur Verfügung etc. 
+Andererseits stellen zahlreiche \enquote{Klassen} bereits Features zur Verfügung etc.
 -- wie sind diese Begriffe zu verstehen?
 
 Eine \textbf{Dokumentklasse} definiert die grundlegende Struktur zur Bearbeitung einer Textgattung
-mit Hilfe von \LaTeX. Das kann ganz allgemein sein -- wie die ursprünglichen Standardklassen book, report, 
+mit Hilfe von \LaTeX. Das kann ganz allgemein sein -- wie die ursprünglichen Standardklassen book, report,
 article -- oder sehr speziell -- wie die Vorlage einer Dissertation in Elektrotechnik an einer ganz
 bestimmten Technischen Hochschule.
 
@@ -104,7 +104,7 @@ Die gewünschte Dokumentklasse wird ganz am Anfang angegeben durch das Kommando
 % sondern nutzt eine Dokumentenklasse, die viele Detaileinstellungen vornimmt
 % und darüber hinaus eine Reihe von logisch strukturierenden Voreinstellungen
 % bereitstellt, die für den jeweiligen Anwendungsfall festgelegt wurden.
-% Auch könnte auf die Äquivalenz zwischen Dokumentenklasse und Vorlagen bei 
+% Auch könnte auf die Äquivalenz zwischen Dokumentenklasse und Vorlagen bei
 % Textverarbeitungssystemen hingewiesen werden.
 
 Grundsätzlich gilt: Je spezieller eine Dokumentklasse ist, desto genauer passt sie zu einer spezifischen
@@ -125,14 +125,14 @@ Das \enquote{Laden} eines Paketes erfolgt durch den Befehl \cs{usepackage}\oarg{
 
 Dokumentklassen und Pakete enthalten in der Regel eine ziemlich gute Dokumentation, die man
 ggf. zu Rate ziehen sollte, um ihren vollen Funktionsumfang ausnutzen zu können.%
-\footnote{Wie kann man die Paketdokumentation aufrufen? 
+\footnote{Wie kann man die Paketdokumentation aufrufen?
     Vgl. hierzu \ref{paketdoku} auf S.~\pageref{paketdoku} }
 
 
 \section{Nationale Besonderheiten -- das Paket babel}
 \label{babel}
 
-\dictum[Gen 11,7]{Wohlan, lasst uns hinabfahren und daselbst ihre Sprache verwirren, dass keiner mehr 
+\dictum[Gen 11,7]{Wohlan, lasst uns hinabfahren und daselbst ihre Sprache verwirren, dass keiner mehr
     des anderen Sprache verstehe.}
 
 Das vielleicht wichtigste Paket, das in praktisch jedem Dokument zu laden ist, heißt \paket{babel}.
@@ -140,10 +140,10 @@ Es sorgt dafür, dass \LaTeX\ an die verschiedenen nationalsprachlichen Besonder
 Das betrifft auch automatisch eingesetzte Begriffe wie \enquote{Kapitel} statt \enquote{chapter} sowie
 sprachspezifische typografische Regelungen.
 
-Der Aufruf des Paketes \paket{babel} erfolgt wie bei allen Paketen: 
+Der Aufruf des Paketes \paket{babel} erfolgt wie bei allen Paketen:
 % Ich würde nicht von Aufruf, sondern von Bereitstellen der Funktionalität sprechen
 \cs{usepackage\oarg{Liste mit benutzen Sprachen}\marg{babel}}
-Die in der Liste zuletzt angegebene Sprache ist die Standardsprache des Dokuments. 
+Die in der Liste zuletzt angegebene Sprache ist die Standardsprache des Dokuments.
 %(die am Anfang eingestellt ist) dar.
 
 Babel unterstützt eine ganze Reihe von Sprachen; für Geisteswissenschaftler am wichtigsten sind
@@ -155,15 +155,15 @@ wohl:
  \item[greek] Neugriechisch (nur Akut, keine \emph{spiritus}, wahrscheinlich auch kein \emph{Iota subscriptum})
 %von Philipp angepaßt, war vorher:
 % \item[polutonikogreek] (XXX was ist der Unterschied)
- \item[greek.ancient] oder \ldots 
+ \item[greek.ancient] oder \ldots
  \item[polutonikogreek] Altgriechisch (Akut, Gravis, Zirkumflex; spiritus lenis und asper; Iota subscriptum)
 \end{labeling}
 
 
 Auch der Dokumentklasse sollte man die Standardsprache des Dokumentes bekanntgeben.
-Denn zahlreiche Pakete, die später geladen werden, werten diese Sprachoption aus und 
+Denn zahlreiche Pakete, die später geladen werden, werten diese Sprachoption aus und
 passen sich an (z.\,B. \paket{varioref}).
-% Ausdruck ist anthropomorphisierend -- nicht passen sich an, sondern 
+% Ausdruck ist anthropomorphisierend -- nicht passen sich an, sondern
 % passen sprachsensible Konstruktionen an
 
 Somit ergibt sich folgender typischer Dokumentbeginn:
@@ -195,7 +195,7 @@ Im laufenden Dokument kann auf eine der im Paketaufruf angegebenen Sprachen umge
 \label{komaskript}
 \index{Seitenspiegel} \index{Goldener Schnitt}
 
-Die folgenden Angaben sind nur von Interesse, wenn man als Papierformat nicht DIN"~A4-Papier 
+Die folgenden Angaben sind nur von Interesse, wenn man als Papierformat nicht DIN"~A4-Papier
 nutzen will und/oder nicht die eingebauten Satzspiegelkonstruktionen verwenden kann.
 In den allermeisten Fällen empfiehlt es sich, den Vorgaben insbesondere der Dokumentklassen von
 \KOMAScript{} zu überlassen, wie das Verhältnis von bedrucktem Bereich und Rändern aufzuteilen ist,
@@ -204,8 +204,8 @@ klassische Ideale wie den Goldenen Schnitt berücksichtigt.
 
 Dazu reicht es, bei der Angabe der Dokumentklasse das Papierformat als Option \lstinline/paper=.../ anzugeben.
 Vordefiniert sind: letter, legal, executive, a0, a1, a2, a3, a4, a5, a6, a7, a8, b0 bis b8, c0 bis c8 und
-d0 bis d8. 
-% statt 
+d0 bis d8.
+% statt
 % a0, a1, a2, a3, a4, a5, a6, a7, a8
 % besser: a0 bis a8
 %
@@ -216,7 +216,7 @@ Außerdem ist es möglich, die Breite und Höhe des Papiers direkt anzugeben:
 Lediglich, wenn z.\,B. spezielle Vorgaben des Verlages es erforderlich machen, empfiehlt es sich
 die Einstellungen der Seitenränder sowie ihrer zahlreichen Bestandteile (Marginalspalten, Bereiche
 für Fußnoten und Seitenzahlen, Kolumnentitel usw.) direkt zu verändern.
- 
+
 
 \minisec{Direktes Einstellen des Papierformats und Satzspiegels}
 
@@ -245,7 +245,7 @@ Beim einseitigen Layout sind alle Seiten gleich gestaltet, während beim zweisei
 linken und rechten Seiten unterschieden wird. Definitionsgemäß haben \enquote{linke} Seiten gerade
 Seitenzahlen und \enquote{rechte} Seiten ungerade.
 
-Die Unterscheidung hat z.\,B. auf die Positionierung der Seitenzahlen (mittig oder außen), 
+Die Unterscheidung hat z.\,B. auf die Positionierung der Seitenzahlen (mittig oder außen),
 Kolumnentitel und Marginalien Einfluss.
 
 
@@ -255,7 +255,7 @@ Kolumnentitel und Marginalien Einfluss.
 
 \TeX\ führt den Zeilenumbruch automatisch durch.
 
-Die Absatzgrenze wird durch eine Leerzeile markiert. 
+Die Absatzgrenze wird durch eine Leerzeile markiert.
 
 Alternativ kann durch \lstinline/\\/ ein Zeilenwechsel erzwungen werden.%
 \footnote{Ganz so einfach ist es nicht.}
@@ -271,43 +271,43 @@ Alternativ kann durch \lstinline/\\/ ein Zeilenwechsel erzwungen werden.%
  \section{Ein Abschnitt}
  \subsection{Ein Unterabschnitt}
  \subsubsection{Ein kleiner Unterabschnitt}
- 
+
  \chapter*{Ein Kapitel ohne Eintrag im Inhaltsverzeichnis}
  \section*{Ein Abschnitt ohne Eintrag im Inhaltsverz.}
  \subsection*{Ein Unterabs. o. E. im Iv.}
  \subsubsection*{Ein kleiner Unterabschnitt o.\,E.i.\,I.}
- 
+
  \chapter[Kurzfssg. f. d. Kolumnentitel]{Ein Kapitel}
  \section[Kurzfssg. f. d. Kolumnentitel]{Ein Abschnitt}
  \subsection[Kurzfssg. f. d. Kolumnentitel]{Ein Unterabschnitt}
- 
+
  \end{document}
 \end{lfgwcode}
 
 Texte lassen sich in \LaTeX{} mit Hilfe eines hierarchischen Systems von Überschriften gliedern:
 
 \begin{labeling}{Hummel}
- \item[2-6] Texte der Kategorien 
-    \lstinline/book/, 
-    \lstinline/scrbook/, 
-    \lstinline/report/ und 
-    \lstinline/scrreprt/ 
+ \item[2-6] Texte der Kategorien
+    \lstinline/book/,
+    \lstinline/scrbook/,
+    \lstinline/report/ und
+    \lstinline/scrreprt/
  bestehen aus Teilen (\lstinline/\part{}/)
- \footnote{Ehrlich gesagt: eher selten. 
- \lstinline/part/ 
+ \footnote{Ehrlich gesagt: eher selten.
+ \lstinline/part/
  erzeugt einen \enquote{Zwischentitel},
  der im deutschsprachigen Raum eher unüblich ist. Ausprobieren! }
  und Kapitel (\lstinline/\chapter/);
- desweiteren lassen sich alle Texte in Abschnitte und Unterabschnitte untergliedern 
- (\lstinline/\section{}/ bis \lstinline/\subsubsection{}/) 
+ desweiteren lassen sich alle Texte in Abschnitte und Unterabschnitte untergliedern
+ (\lstinline/\section{}/ bis \lstinline/\subsubsection{}/)
  gliedern.
  Jede Überschrift beeinflusst die Kolumnentitel (s.\,u.) und erzeugt automatisch einen Eintrag
  im Inhaltsverzeichnis.
- 
+
  \item[8-11] Die \enquote{Sternvarianten} der Gliederungsbefehle erzeugen die gleiche
  Formatierung der Überschriften, hinterlassen aber keinen Eintrag im Inhaltsverzeichnis.
  Außerdem werden die Überschriften nicht nummeriert.
- 
+
  \item[13-15] Die Kapitel und ggf. Abschnittsüberschriften werden auch als lebende Kolumnentitel
  verwendet. Wenn sie dafür zu lang sind, kann man in eckigen Klammern einen alternativen
  Kurztitel zur Verwendung als Kolumnentitel angeben. \index{Kolumnentitel}
@@ -348,7 +348,7 @@ Standardmäßig erlaubt \LaTeX\ die typischen Auszeichnungen:
  \lstinline/\texttt{}/      &       \texttt{Schreibmaschinenschrift}    &   ? \\
  \lstinline/\textsuperscript{}/ &   Text\textsuperscript{hochgestellt}  &     \\
  \lstinline/\textsubscript{}/ &     Text\textsubscript{tiefgestellt}    &     \\
- \end{tabular} 
+ \end{tabular}
 \end{center}
 
 \minisec{Unterstreichungen}
@@ -359,7 +359,7 @@ gearbeitet.
 
 Dennoch können Unterstreichungen in Sonderfällen sinnvoll sein.
 
-Oftmals wünscht man sich dann sogar eine größere Auswahl an verschiedenen 
+Oftmals wünscht man sich dann sogar eine größere Auswahl an verschiedenen
 Unterstreichungsarten, um etwa verschiedene Textherkünfte o.\,ä. markieren zu können.
 
 Abhilfe schafft das Paket \paket{ulem}, das verschiedene Arten der Unterstreichung
@@ -374,14 +374,14 @@ ermöglicht:
       \lstinline/\uwave{text}/ &    \uwave{wellenförmiges Unterstreichen}\\
       \lstinline/\sout{text}/ &     \sout{Durchstreichen} \\
       \lstinline/\xout{text}/ &     \xout{Ausschraffieren von Text} \\
-  \end{tabular}    
-\end{center} 
+  \end{tabular}
+\end{center}
 
 
 \minisec{Texte sperren}
 
-Eine sehr elegant-konservative typografische Möglichkeit zur aktiven Auszeichnung ist das 
-\textls{Sperren}  
+Eine sehr elegant-konservative typografische Möglichkeit zur aktiven Auszeichnung ist das
+\textls{Sperren}
 von Textpassagen. Hierzu stellt das Paket \paket{microtype} den Befehl
 \lstinline/\textls{Text}/ zur Verfügung.
 % Das ist jetzt nicht Ernst gemeint.
@@ -393,7 +393,7 @@ von Textpassagen. Hierzu stellt das Paket \paket{microtype} den Befehl
 Die Schriftgröße lässt sich sehr leicht verändern, wobei anzumerken ist, dass
 die konkrete Bedeutung der Größenangaben von der Dokumentklasse vorgenommen werden:
 
-\begin{center} 
+\begin{center}
 \begin{tabular}{ll}
           Befehl &      Beschreibung \\
           \hline
@@ -423,7 +423,7 @@ Dank \LuaLaTeX{} ist es heutzutage möglich beliebige TrueType oder OpenType Sch
 Gleichzeitig nahm die Zahl der qualitativ hochwertigen freien Schriften zu.
 Viele dieser Schriften sind Bestandteil von \TeXLive{} und können so ohne Aufwand benutzt werden.
 
-Ein weiterer Vorteil der OpenType Schriften ist die Verwendung von erweiterten Attributen, 
+Ein weiterer Vorteil der OpenType Schriften ist die Verwendung von erweiterten Attributen,
 so lassen sich z.\,B. unterschiedliche Ziffern auswählen.
 
 \newfontfamily\LIMOfont[Ligatures=TeX,Numbers={Monospaced,OldStyle}]{Linux Libertine O}
@@ -443,19 +443,19 @@ Diese werde von \LaTeX{} für die entsprechenden Befehle benutzt.
 Der Befehl \cs{setsansfont} definiert die Schrift für \cs{textsf},
 \cs{setmonofont} die Schrift für \cs{texttt} und \cs{setromanfont} die normale Textschrift.
 
-Die Option \texttt{[Ligature=TeX]} aktiviert ein paar Ligaturen, 
+Die Option \texttt{[Ligature=TeX]} aktiviert ein paar Ligaturen,
 die die Eingabe von Text erleichtern und bei den Standard \LaTeX{}-Schriften ebenfalls definiert waren.
 Aus der Eingabe \verb+--+ wird ein \enquote{--}, aus der Eingabe \verb+---+ wird ein \enquote{---}.
-Diese Definition sorgt manchmal für Überraschungen, 
+Diese Definition sorgt manchmal für Überraschungen,
 da auch \verb+!`+ zu \enquote{!`} und \verb+?`+ zu \enquote{?`} gewandelt wird.
 Gibt man den Text direkt in Unicode ein, kann man auf die Ligaturen verzichten.
 In vielen alten Texten werden sie jedoch verwendet, daher diese Option.
 
-Außerdem ist es möglich zusätzliche Schriftfamilien zu definieren, 
-diese können dann für andere Sprachen benutzt werden, 
+Außerdem ist es möglich zusätzliche Schriftfamilien zu definieren,
+diese können dann für andere Sprachen benutzt werden,
 wenn die Hauptschrift nicht über die benötigten Zeichen verfügt.
-Oder man definiert für Tabellen eine eigene Schrift, 
-damit alle Ziffern die gleiche Breite haben. 
+Oder man definiert für Tabellen eine eigene Schrift,
+damit alle Ziffern die gleiche Breite haben.
 
 \begin{lfgwcode}{label={lst:luatex-schriften}}
   % !TEX TS-program = LuaLaTeX
@@ -470,7 +470,7 @@ Benötigt man nur eine Schrift, weil es z.\,B. keine kursive oder fette Variante
 so reicht der \cs{newfonface}-Befehl.
 Für arabische, hebräische oder chinesische Schriften gibt es normalerweise nur eine Variante.
 Gleiches gilt für Symbolschriften wir im Beispiel \ref{lst:luatex-schriften-einzel}.
-In diesem Fall wäre es aber besser gewesen, das \paket{fontawesome} Paket zu verwenden, 
+In diesem Fall wäre es aber besser gewesen, das \paket{fontawesome} Paket zu verwenden,
 mit diesem kann man die Symbole mit ihrem Namen ansprechen.
 
 \begin{lfgwcode}{label={lst:luatex-schriften-einzel}}
@@ -478,11 +478,11 @@ mit diesem kann man die Symbole mit ihrem Namen ansprechen.
   % !TEX encoding = UTF-8
   \newfontface\AWsome{FontAwesome}
   % besser, funktioniert auch mit pdfLaTeX:
-  \usepackage{fontawesome}  
+  \usepackage{fontawesome}
 \end{lfgwcode}
 
-Für viele der hier vorgestellten Schriften gibt es auch \LaTeX-Pakete, 
-die die Verwendung mit \pdfLaTeX{} ermöglichen (siehe \ref{lst:pdflatex-schriften}). 
+Für viele der hier vorgestellten Schriften gibt es auch \LaTeX-Pakete,
+die die Verwendung mit \pdfLaTeX{} ermöglichen (siehe \ref{lst:pdflatex-schriften}).
 Dann stehen aber weniger Optionen zur Verfügung.
 So fehlen z.\,B. die nichtlateinischen Buchstaben und es gibt nur eine Art Ziffern.
 
@@ -493,9 +493,9 @@ So fehlen z.\,B. die nichtlateinischen Buchstaben und es gibt nur eine Art Ziffe
 
 \minisec{Die \TeX-User-Group-Schriften}
 
-Verschiedene \TeX-User-Gruppen haben sich zusammengetan um die Weiterentwicklung der 
+Verschiedene \TeX-User-Gruppen haben sich zusammengetan um die Weiterentwicklung der
 \texttt{Computer Modern Roman} zur \texttt{Latin Modern Roman} zu finanzieren.
-Diese Schrift sollte alle Lateinischen Schriftzeichen und Akzente umfassen und 
+Diese Schrift sollte alle Lateinischen Schriftzeichen und Akzente umfassen und
 somit auch für komplizierte Schriften wie Vietnamesisch geeignet sein.
 
 Nach dem Erfolg dieser Erweiterung wurden dann auch die klassischen PostScript-Schriften überarbeitet.
@@ -503,9 +503,9 @@ Da die Namen rechtlich geschützt sind, wurden ähnlich klingende Namen gewählt
 die mit etwas Fantasie den Rückschluss auf die Originalnamen zulassen.
 Diese Schriften wurden in der \texttt{TeX Gyre} Familie zusammengefasst.
 
-Im Jahre 2007 wurde von Microsoft \Program{Office 2007} eingeführt und damit eine 
+Im Jahre 2007 wurde von Microsoft \Program{Office 2007} eingeführt und damit eine
 Codierung für mathematische Zeichensätze definiert.
-In der Folge entstand ein Mathematikzeichensatz für \texttt{Latin Modern Roman} sowie etwas später 
+In der Folge entstand ein Mathematikzeichensatz für \texttt{Latin Modern Roman} sowie etwas später
 entsprechende Zeichensätze für die weiteren Schriften.
 
 \newfontfamily\LMRfont[Ligatures=TeX,Numbers={Proportional,OldStyle}]{Latin Modern Roman}
@@ -529,24 +529,24 @@ Schriftname & Buchstaben & Textziffern \\\hline
 \PAfont TeX Gyre Pagella    &\PAfont abcdef ABCDEF  &\PAfont 1234567890 \\
 \SCfont TeX Gyre Schola     &\SCfont abcdef ABCDEF  &\SCfont 1234567890 \\
 \TEfont TeX Gyre Termes     &\TEfont abcdef ABCDEF  &\TEfont 1234567890 \\
-\end{tabular} 
+\end{tabular}
 
 \minisec{Weitere \TeXLive-Schriften}
 
 \TeXLive{} bringt bereits eine große Auswahl an Schriften mit.
 Der Unterbaum \texttt{fonts} ist mit knapp 2~GigaByte das zweitgrößte Verzeichnis.
 Hier lohnt sich der Blick in die Unterverzeichnisse \texttt{truetype} und \texttt{opentype}.
- 
+
 \newfontfamily\LLfont[Ligatures=TeX,Scale=0.9,Numbers={Proportional,OldStyle}]{Linux Libertine O}
 \newfontfamily\LBfont[Ligatures=TeX,Scale=0.9,Numbers={Proportional,OldStyle}]{Linux Biolinum O}
 \newfontfamily\OSfont[Ligatures=TeX,Scale=0.9,Numbers={Proportional,OldStyle}]{Old Standard}
 \newfontfamily\APfont[Ligatures=TeX,Scale=0.9,Numbers={Proportional,OldStyle}]{Antykwa Poltawskiego}
 \newfontfamily\ATfont[Ligatures=TeX,Scale=0.9,Numbers={Proportional,OldStyle}]{Antykwa Torunska}
 \newfontfamily\FSEfont[Ligatures=TeX,Scale=0.9,Numbers={Proportional,OldStyle}]{FreeSerif}
-\newfontfamily\FSAfont[Ligatures=TeX,Scale=0.9,Numbers={Proportional,OldStyle}]{FreeSans}   
+\newfontfamily\FSAfont[Ligatures=TeX,Scale=0.9,Numbers={Proportional,OldStyle}]{FreeSans}
 \newfontfamily\FMfont[Ligatures=TeX,Scale=0.9,Numbers={Proportional,OldStyle}]{FreeMono}
 \newfontfamily\PSEfont[Ligatures=TeX,Scale=0.9,Numbers={Proportional,OldStyle}]{PT Serif}
-\newfontfamily\PSAfont[Ligatures=TeX,Scale=0.9,Numbers={Proportional,OldStyle}]{PT Sans}    
+\newfontfamily\PSAfont[Ligatures=TeX,Scale=0.9,Numbers={Proportional,OldStyle}]{PT Sans}
 \newfontfamily\PMfont[Ligatures=TeX,Scale=0.9,Numbers={Proportional,OldStyle}]{PT Mono}
 \newfontfamily\DVSEfont[Ligatures=TeX,Scale=0.8,Numbers={Proportional,OldStyle}]{DejaVu Serif}
 \newfontfamily\DVSAfont[Ligatures=TeX,Scale=0.8,Numbers={Proportional,OldStyle}]{DejaVu Sans}
@@ -602,19 +602,19 @@ Die ersten drei Schriften stammen von SIL.
 Hier ein paar Beispiele:
 
 \begin{labeling}{Gentium Plus}
-\item[Gentium Plus] Die Gentium Basic aus \TeXLive{} enthält nur lateinische Zeichen, 
+\item[Gentium Plus] Die Gentium Basic aus \TeXLive{} enthält nur lateinische Zeichen,
     die Plus Version hat ein deutlich größeres Repertoire.
-\item[Charis SIL] Eine gut lesbare Schrift mit einem umfangreichen Zeichenvorrat, 
-    es fehlen allerdings ein paar griechische Buchstaben. 
-\item[Andika] Diese Schrift wurde für Leseanfänger entwickelt. 
+\item[Charis SIL] Eine gut lesbare Schrift mit einem umfangreichen Zeichenvorrat,
+    es fehlen allerdings ein paar griechische Buchstaben.
+\item[Andika] Diese Schrift wurde für Leseanfänger entwickelt.
     Hier wurde großen Wert auf unterschiedliche Formen ähnlicher Buchstaben geachtet.
     Andika: {\ABfont Il1 bd qp} Heros: {\HEfont Il1 bd qp}.
     Auch hier sind die griechischen Buchstaben nicht komplett.
-\item[Cardo] Diese Schrift wurde speziell für Mediävisten entwickelt. 
+\item[Cardo] Diese Schrift wurde speziell für Mediävisten entwickelt.
  Download unter: \url{http://scholarsfonts.net/index.html}
-\item[Vollkorn] Eine Brotschrift, also eine Schrift mit der ein Sätzer sein Brot verdient. 
+\item[Vollkorn] Eine Brotschrift, also eine Schrift mit der ein Sätzer sein Brot verdient.
     In diesem Fall ist es das Vollkornbrot des Schriftdesigners Friedrich Althausen.
-    Auch diese Schrift hat in der Version 3 einen großen Zeichenvorrat. 
+    Auch diese Schrift hat in der Version 3 einen großen Zeichenvorrat.
     Download unter \url{http://vollkorn-typeface.com/}
 \end{labeling}
 
@@ -635,13 +635,13 @@ Paket existiert, dass lediglich in der Präambel eingebunden werden muss.
 
 \minisec{Alte deutsche Schriften: Gothic, Fraktur und Schwabacher}
 {\frakfamily
-Mit} \LaTeX{} 
-{\frakfamily lassen sich drei "altere deutsche Schriftarten sehr komfortabel und mit 
+Mit} \LaTeX{}
+{\frakfamily lassen sich drei "altere deutsche Schriftarten sehr komfortabel und mit
 professionellem Anspruch verwenden:}
 
 \begin{enumerate}
  \item {\frakfamily Die Frakturschrift, die in Deutschland bis: 1941 die Standardschrift war.
-    Sie wirkt sehr feingliedrig, ist gut zu lesen (mit etwas: "Ubung) und ben"otigt 
+    Sie wirkt sehr feingliedrig, ist gut zu lesen (mit etwas: "Ubung) und ben"otigt
     "ubrigens: sehr wenig Platz.}
  \item {\gothfamily Die gotische Schrift, die direkt auf Johannes: Gutenberg zur"uckgeht.}
  \item {\swabfamily Die Schwabacher, die vor allem in der fr"uhen Neuzeit eine sehr weit
@@ -652,14 +652,14 @@ professionellem Anspruch verwenden:}
 Alle drei Schriftarten werden durch das: Paket}
 \paket{yfonts}
 {\frakfamily von}
-Yannis Haralambous 
+Yannis Haralambous
 {\frakfamily zug"anglich gemacht.
 
-(Das: "altere Paket \enquote{oldgerm}, das: dieselbe Aufgabe erf"ullt hat, sollte nicht mehr 
+(Das: "altere Paket \enquote{oldgerm}, das: dieselbe Aufgabe erf"ullt hat, sollte nicht mehr
 verwendet werden, da es: sich schlecht mit dem modernen Font-Encoding vertr"agt, was: sich
 an Problemen mit Zeichen wie "a, "o, "u, "s zeigt.)
 
-Abweichende Schriftschnitte wie kursiv, geneigt oder (halb-)fett stehen nicht zur 
+Abweichende Schriftschnitte wie kursiv, geneigt oder (halb-)fett stehen nicht zur
 Verf"ugung.
 
 Doch bei der Verwendung des Paketes  lauert eine Stolperfalle:
@@ -667,8 +667,8 @@ Das: Paket bietet nur die Unterst"utzung f"ur die Fonts:, das: hei"st zahlreiche
 zur Eingabe etc., enth"alt aber nicht selbst die Fonts:.
 Diese m"ussen separat installiert werden, sonst l"asst sich}
 \paket{yfonts}
-{\frakfamily 
-zwar einbinden, doch der Aufruf der Schriften verursacht eine Fehlermeldung und 
+{\frakfamily
+zwar einbinden, doch der Aufruf der Schriften verursacht eine Fehlermeldung und
 statt h"ubscher Frakturschrift stehen in der \textrm{PDF}-Datei nur leere Fl"achen.
 
 Das: Paket stellt sechs: Befehle zur Verf"ugung:}
@@ -681,17 +681,17 @@ Das: Paket stellt sechs: Befehle zur Verf"ugung:}
 
 {\frakfamily
 Der jeweils: erste Befehl stellt die Schrift dauerhaft auf Fraktur, Gotisch oder
-Schwabacher um; der jeweils: zweite Befehl dient, um eine k"urzere Passage in der 
+Schwabacher um; der jeweils: zweite Befehl dient, um eine k"urzere Passage in der
 jeweiligen Schriftart aus:zugeben.}
 
-{\frakfamily 
+{\frakfamily
 Typografisch mu"s man beachten, da"s die Frakturschrift zwei Zeichen f"ur das: kleine S hat:
 }
 
 \begin{itemize}
  \item \textfrak{s: steht am Wortausgang sowie auch bei zusammengesetzten W"ortern.
   Es: wird als:}
-  \lstinline/s:/  
+  \lstinline/s:/
   \textfrak{eingegeben.}
  \item \textfrak{s steht im Wortinneren.}
 \end{itemize}
@@ -700,7 +700,7 @@ Typografisch mu"s man beachten, da"s die Frakturschrift zwei Zeichen f"ur das: k
 Wenn man schon Fraktur-Schrift benutzt, sollte man sich ein wenig aus:kennen und mu"s
 sich in den Schriftcharakter einf"uhlen. So vertr"agt sich Fraktur mit der Rechtschreibreform
 von 1996 nur sehr schlecht: W"orter wie \enquote{da"s} verlangen nach der SZ-Ligatur.
-Die Paketdokumentation enth"alt nicht nur Hinweise zur technischen Benutzung des: 
+Die Paketdokumentation enth"alt nicht nur Hinweise zur technischen Benutzung des:
 Paketes:, sondern auch zu gestalterischen Fragen im Zusammenhang mit der Frakturschrift.
 }
 
@@ -709,7 +709,7 @@ Paketes:, sondern auch zu gestalterischen Fragen im Zusammenhang mit der Fraktur
 \index{Schreibschrift}
 
 Das Paket \paket{schulschriften} von Walter Entenmann bietet verschiedene deutsche Schulschriften.
-\footcite[Zur Geschichte der deutschen Schulschriften sowie dem Vorgehen zu ihrer Implementierung 
+\footcite[Zur Geschichte der deutschen Schulschriften sowie dem Vorgehen zu ihrer Implementierung
 in \LaTeX:][]{entenmann:dtk2012/4}
 
 Zu beachten ist, dass das Paket nicht mit \lstinline/\usepackage/ eingebunden werden muss;
@@ -772,7 +772,7 @@ Ich kann schreiben!}
 Die ausgezeichnete deutschsprachige Paketdokumentation eignet sich übrigens sehr gut,
 den dahinterliegenden Fontauswahlmechanismus von \LaTeX{} kennenzulernen.
 
-In der Praxis wird man die Fontaufrufe in ein selbstdefiniertes Makro verpacken, 
+In der Praxis wird man die Fontaufrufe in ein selbstdefiniertes Makro verpacken,
 vgl. \ref{makros} auf S.~\pageref{makros}.
 
 
@@ -780,27 +780,27 @@ vgl. \ref{makros} auf S.~\pageref{makros}.
 
 \minisec{Der Wortzwischenraum}
 
-Der übliche Wortzwischenraum (Fachbezeichnung: Spatium 
+Der übliche Wortzwischenraum (Fachbezeichnung: Spatium
 \marginpar{??? (NEIN, das Spatium ist nur eine Ergänzungmöglichkeit. Heute bei LaTeX als \, bekannt))}
  wird von \LaTeX{} beim Absatzumbruch innerhalb einer Zeile
-gleichmäßig verteilt. Die Eingabe erfolgt in Form von normalen Leerzeichen oder als 
+gleichmäßig verteilt. Die Eingabe erfolgt in Form von normalen Leerzeichen oder als
 einfacher Zeilenwechsel.
 
 Folgende beiden Eingaben sind also gleichwertig:
 
 \begin{lfgwexample}{}
  superbia avaritia invidia ira luxuria gula acedia
- 
+
  Hochmut
  Geiz
  Neid
- Zorn 
+ Zorn
  Genusssucht
  Völlerei
  Trägheit
 \end{lfgwexample}
 
-Ein \enquote{fester Ausschuss} ist in der Setzersprache ein Wortzwischenraum, an dem 
+Ein \enquote{fester Ausschuss} ist in der Setzersprache ein Wortzwischenraum, an dem
 kein Zeilenwechsel durchgeführt werden darf. Er wird mit dem Zeichen \lstinline/~/
 codiert:
 
@@ -808,7 +808,7 @@ codiert:
  Kunst und Kultur im 19.~Jahrhundert
 \end{lfgwexample}
 
-Manchmal ist es nötig, an einzelnen Stellen längere Spatien zu verwenden, etwa um Halbverse 
+Manchmal ist es nötig, an einzelnen Stellen längere Spatien zu verwenden, etwa um Halbverse
 in epischen Dichtungen zu markieren. Dazu kann man mehrere feste Ausschüsse verbinden:
 
 \begin{lfgwcode}{}
@@ -848,21 +848,21 @@ z.\,B.\\          % kleinerer Zwischenraum
 Wort\quad Wort\\  % Breite eines m
 Wort\qquad Wort\\ % das Doppelte
 Wort\hspace{20mm}Wort\\ % explizite Angabe
-\end{lfgwexample}    
+\end{lfgwexample}
 
 
 \minisec{Leerzeichen vermeiden -- das Zeichen \%}
 
 \LaTeX{} hält sich bekanntlich nicht an die Zeilenaufteilung der Quelldatei. Erst eine Leerzeile
-wird als Absatzgrenze interpretiert. Einfache Zeilenwechsel führen zu einem normalen 
+wird als Absatzgrenze interpretiert. Einfache Zeilenwechsel führen zu einem normalen
 Wortzwischenraum. Dies kann unerwünscht sein:
 
 Besonders bei komplexeren \LaTeX -Strukturen kann es sinnvoll sein, Zeilenwechsel einzufügen,
 z.\,B. zwischen einzelnen Befehlen oder einem Wort und einer folgenden Fußnote.
-An diesen Stellen soll aber kein Wortzwischenraum -- womöglich sogar ein sich ergebender 
+An diesen Stellen soll aber kein Wortzwischenraum -- womöglich sogar ein sich ergebender
 Zeilenwechsel -- eingefügt werden.
 
-Dazu kann man das Kommentarzeichen \% an das Zeilenende setzen. Der Zeilenwechsel wird auf diese 
+Dazu kann man das Kommentarzeichen \% an das Zeilenende setzen. Der Zeilenwechsel wird auf diese
 Weise quasi \enquote{auskommentiert}, bei der Übersetzung des Dokuments mit \LaTeX\
 verschwindet er vollständig.
 
@@ -871,7 +871,7 @@ Man beachte den Unterschied:
 \begin{lfgwexample}{}
  Matthäus
  Markus
- 
+
  Lukas%
  Johannes
 \end{lfgwexample}
@@ -879,7 +879,7 @@ Man beachte den Unterschied:
 
 \minisec{Sonderzeichen für Germanisten}
 
-Quasi unterhalb der Ebene von Unicode mit seinem Zugang zum gesamten Zeichensatz hält 
+Quasi unterhalb der Ebene von Unicode mit seinem Zugang zum gesamten Zeichensatz hält
 \LaTeX{} einige Sonderzeichen bereit, die z.\,B. für Germanisten von besonderem Interesse
 sein dürften. Sie können als besondere Befehle eingegeben werden:
 
@@ -900,7 +900,7 @@ zur Verfügung:
  \textmarried & \lstinline/\textmarried/ \\
  \textdied    & \lstinline/\textdied/ \\
  \end{tabular}
- 
+
 Dies stellt nur eine winzige Teilmenge der in \LaTeX{} zur Verfügung stehenden Sonderzeichen dar;
 eine vollständige Übersicht bietet die \enquote{Comprehensive \LaTeX{} Symbol List} von
 Scott Pakin (331 Seiten, Stand Nov. 2015).
@@ -914,10 +914,10 @@ Diakritika,\index{Diakritika} Betonungszeichen etc.
 
 \minisec{Unicode-Codes}
 
-Was immer geht: 
-vgl. Abschnitt \ref{unicodeeingabe} auf S.~\pageref{unicodeeingabe} 
+Was immer geht:
+vgl. Abschnitt \ref{unicodeeingabe} auf S.~\pageref{unicodeeingabe}
 (für die Eingabemethode)
-bzw. Abschnitt \ref{utf8codes} auf S.~\pageref{utf8codes} 
+bzw. Abschnitt \ref{utf8codes} auf S.~\pageref{utf8codes}
 (für eine Übersicht über häufig benötigte Unicode-Zeichen und ihre Codes).
 
 
@@ -977,27 +977,27 @@ Da die zugrundeliegenden Regeln nicht ganz trivial sind%
 kommen -- auch in professionell gesetzten Büchern -- häufig Fehler vor.
 Man sollte daher möglichst auf eine händische Eingabe ganz verzichten.
 
-Um diese Möglichkeit zu realisieren, ist das Paket \paket{csquotes} einzubinden (in der Präambel) und auf 
+Um diese Möglichkeit zu realisieren, ist das Paket \paket{csquotes} einzubinden (in der Präambel) und auf
 die Eingabe von Anführungszeichen vollständig zu verzichten: Das Paket enthält
 ein Makro namens \lstinline/\enquote{}/, das als Ersatz für die Anführungszeichen eingegeben
 wird.
 
 Das Paket erkennt, welche Sprache für das Dokument (mittels \paket{babel} oder \paket{polyglossia})
-eingestellt worden ist, und ersetzt die codierung \lstinline/\enquote{}/ durch die 
+eingestellt worden ist, und ersetzt die codierung \lstinline/\enquote{}/ durch die
 jeweils korrekte Form -- auch bei geschachtelt auftretenden Anführungszeichen:
 
 \begin{lfgwexample}{}
-Er sprach: \enquote{Hast du den \enquote{Faust} gelesen?} 
+Er sprach: \enquote{Hast du den \enquote{Faust} gelesen?}
 
 \selectlanguage{french}
-Er sprach: \enquote{Hast du den \enquote{Faust} gelesen?} 
+Er sprach: \enquote{Hast du den \enquote{Faust} gelesen?}
 
 \selectlanguage{english}
-He asked, \enquote{Have you read \enquote{On The Road} yet?} 
+He asked, \enquote{Have you read \enquote{On The Road} yet?}
 \end{lfgwexample}
 
 Die Verwendung von \paket{csquotes} hat noch einen zweiten Vorteil:
-Man kann an einer Stelle, nämlich bei den Optionen des Paketes, auch andere Anführungszeichen 
+Man kann an einer Stelle, nämlich bei den Optionen des Paketes, auch andere Anführungszeichen
 einstellen und muss nicht alle einzelnen Stellen umcodieren.
 
 Arbeitsumgebungen wie kile lassen sich übrigens so einstellen, dass die Eingabe von Shift + 2
@@ -1033,7 +1033,7 @@ Am anspruchslosesten ist die einfache Auflistung ohne irgendwelche Formatierung:
  \item der erste Punkt,
  \item der zweite Punkt,
  \item der dritte Punkt.
-\end{trivlist} 
+\end{trivlist}
 \end{lfgwexample}
 
 
@@ -1044,7 +1044,7 @@ Am anspruchslosesten ist die einfache Auflistung ohne irgendwelche Formatierung:
  \item der erste Punkt,
  \item der zweite Punkt,
  \item der dritte Punkt.
-\end{itemize} 
+\end{itemize}
 \end{lfgwexample}
 
 XXX Erklären: Verändern des Aufzählungszeichens für einen einzelnen Punkt und generell.
@@ -1057,10 +1057,10 @@ XXX Erklären: Verändern des Aufzählungszeichens für einen einzelnen Punkt un
  \item der erste Punkt,
  \item der zweite Punkt,
  \item der dritte Punkt.
-\end{enumerate} 
+\end{enumerate}
 \end{lfgwexample}
 
-Durch Verändern des Zählers \lstinline/enumi/ kann man den Startpunkt der 
+Durch Verändern des Zählers \lstinline/enumi/ kann man den Startpunkt der
 Aufzählung verändern:
 
 \begin{lfgwexample}{}
@@ -1069,15 +1069,15 @@ Aufzählung verändern:
  \item der erste Punkt,
  \item der zweite Punkt,
  \item der dritte Punkt.
-\end{enumerate} 
+\end{enumerate}
 \end{lfgwexample}
 
 
 \minisec{Erweiterte Möglichkeiten: das Paket \paket{enumitem}}
 
-Nur darauf hingewiesen sei auf das Paket \paket{enumitem}, mit dem sich zahlreiche 
+Nur darauf hingewiesen sei auf das Paket \paket{enumitem}, mit dem sich zahlreiche
 weitere Sonderwünsche verwirklichen lassen.\footcite[304\psqq]{voss:einfuehrung}
-Die Umgebung \lstinline/enumerate/  kann dahingehend modifiziert werden, sodass es ebenso möglich ist, 
+Die Umgebung \lstinline/enumerate/  kann dahingehend modifiziert werden, sodass es ebenso möglich ist,
 die durchnummerierten Label selbst zu definieren
 und auf diese im Fließtext zu verweisen:
 
@@ -1095,14 +1095,14 @@ der \ref{fall:4} hingegen Wenfall.
 \end{lfgwexample}
 
 \begin{description}
- \item[2] Modifikation des Zählers: 
+ \item[2] Modifikation des Zählers:
  Mit \lstinline/label=/ wird definiert,
- wie der Zähler beschriftet ist; hier wird er fett gesetzt und 
+ wie der Zähler beschriftet ist; hier wird er fett gesetzt und
  erhält eine arabische Nummer an die als Ergänzung \enquote*{. Fall:} gesetzt wird.
-  \item[3] Modifikation der Referenz: 
+  \item[3] Modifikation der Referenz:
    Mit \lstinline/ref=/ wird definiert,
    wie beim Aufruf von \lstinline/\ref/ der Verweis aussehen soll;
-   hier wie das Label jedoch ohne Fettung. 
+   hier wie das Label jedoch ohne Fettung.
  \end{description}
  \iffalse
  \begin{enumerate}[%
@@ -1116,7 +1116,7 @@ der \ref{fall:4} hingegen Wenfall.
 Der \ref{fall:1} wird auch Werfall genannt,
 der \ref{fall:4} hingegen Wenfall.
  \fi
- 
+
 \minisec{Worterklärung, Glossar I: description}
 \index{Glossar}
 
@@ -1126,13 +1126,13 @@ die zu jedem \lstinline/\item/  eine Angabe in eckigen Klammern erwartet:
 \begin{lfgwexample}{}
 \begin{description}
  \item[AT] das Alte Testament
- \item[NT] das Neue Testament 
-\end{description} 
+ \item[NT] das Neue Testament
+\end{description}
 \end{lfgwexample}
 
 
 \minisec{Worterklärung, Glossar II: labeling}
-Die Dokumentklassen von \KOMAScript\ stellen eine weitere Umgebung bereit, die die 
+Die Dokumentklassen von \KOMAScript\ stellen eine weitere Umgebung bereit, die die
 Formatierung von Schlagwortlisten noch weiter verfeinert:
 
 \begin{lfgwcode}{}
@@ -1155,7 +1155,7 @@ die Breite der linken Spalte:
 \end{lfgwexample}
 
 Wie alle Teile von \KOMAScript\ gibt es zahlreiche Möglichkeiten, die Gestaltung zu
-beeinflussen. Um diese Möglichkeiten auszuschöpfen, muss man sich mit der Dokumentation 
+beeinflussen. Um diese Möglichkeiten auszuschöpfen, muss man sich mit der Dokumentation
 beschäftigen.
 
 
@@ -1200,14 +1200,14 @@ Für besonderen Anwendungen (z.\,B. Juristen) gibt es Anpassungen für höhere T
 \minisec{Zitate im Fließtext}
 
 Normale Eingabe;
-Anführungszeichen am besten mit \lstinline/\enquote{}/ codieren (vgl. S.~\pageref{enquote}); 
+Anführungszeichen am besten mit \lstinline/\enquote{}/ codieren (vgl. S.~\pageref{enquote});
 Textstellen belegen mit Fußnote und automatischer Literaturverwaltung.
 
 
 \minisec{\enquote{Schlauer Spruch} am Kapitelanfang}
 \dictum[Sinnspruch nach Boethius]{Si tacuisses, philosophus mansisses.}
 
-\enquote{Ein häufiger anzutreffendes Element ist ein Zitat oder eine Redewendung, die rechtsbündig unter 
+\enquote{Ein häufiger anzutreffendes Element ist ein Zitat oder eine Redewendung, die rechtsbündig unter
 oder über einer Überschrift gesetzt wird. Dabei werden der Spruch selbst und der Quellennachweis
 in der Regel speziell formatiert.}\footcite[131]{kohm:2014}
 
@@ -1230,7 +1230,7 @@ Die Umgebung \lstinline/quote/ eignet sich dazu, ein Zitat von der Länge eines 
 
 \minisec{Eine längere Passage zitieren: quotation}
 
-Soll das gewünschte Zitat etwas länger ausfallen, wählt man statt dessen besser die 
+Soll das gewünschte Zitat etwas länger ausfallen, wählt man statt dessen besser die
 Umgebung \lstinline/quotation/:
 
 \begin{lfgwexample}{}
@@ -1247,7 +1247,7 @@ Die Kurzgeschichte \enquote{Cäsar und sein Legionär} von B. Brecht beginnt so:
 \minisec{Ein Gedicht zitieren: verse}
 \index{Gedicht} \index{Lyrik}
 
-Das standardmäßige Umgebung \lstinline/verse/ erlaubt mit sehr wenig Mühe den Einbau von 
+Das standardmäßige Umgebung \lstinline/verse/ erlaubt mit sehr wenig Mühe den Einbau von
 Gedichtpassagen, allerdings auch mit ziemlich einfacher Typografie:
 
 \begin{lfgwexample}{}
@@ -1283,10 +1283,10 @@ Leider nur für polyglossia\footcite[33\psqq]{rouquette:2012}
 
 \section{Fußnoten}
 
-Fußnoten haben eine doppelte Funktion: 
+Fußnoten haben eine doppelte Funktion:
 Zum einen können bestimmte Informationen, die den Lesefluss des Haupttextes eher behindern,
 Anmerkungen, Erklärungen, Ergänzungen oder Korrekturen in Fußnoten verlagert werden.
-Zum anderen dienen -- vor allem in den Geisteswissenschaften -- Fußnoten zur Aufnahme der 
+Zum anderen dienen -- vor allem in den Geisteswissenschaften -- Fußnoten zur Aufnahme der
 Literaturnachweise.
 
 Diese Doppelfunktion spiegelt sich in \LaTeX{} wider, das zwei Befehle zur Fußnotenerstellung
@@ -1297,14 +1297,14 @@ anbietet:
 \lstinline/\footcite[vordere Ergänzung][hintere Ergänzung]{bibl. Kennung}/ dient dazu,
 einen Literaturverweis zu setzen. Die verwendete bibliographische Kennung muss in einer
 Bibliografie-Datei aufgeschlüsselt werden und wird vom Programmsystem gemäß den Vorgaben
-des eingestellten Bibliografiestils aufgelöst. Dabei lassen sich alle Raffinessen 
-humanwissenschaftlicher Fußnotenkunst realisieren. 
-Die Details hierzu findet man in Kapitel \ref{biblatex} auf S.~\pageref{biblatex}. 
+des eingestellten Bibliografiestils aufgelöst. Dabei lassen sich alle Raffinessen
+humanwissenschaftlicher Fußnotenkunst realisieren.
+Die Details hierzu findet man in Kapitel \ref{biblatex} auf S.~\pageref{biblatex}.
 
 Nach den Setzerregeln steht die Fußnotenziffer ohne Leerzeichen direkt hinter dem letzten
 Satzzeichen oder Wort, auf das sich die Fußnote bezieht.
-Wenn der Fußnotenaufruf -- was sehr empfehlenswert ist, um die Quelldatei gut les- und 
-verarbeitbar zu halten -- die Fußnote in einer eigenen Zeile steht, sollte man durch ein 
+Wenn der Fußnotenaufruf -- was sehr empfehlenswert ist, um die Quelldatei gut les- und
+verarbeitbar zu halten -- die Fußnote in einer eigenen Zeile steht, sollte man durch ein
 \%-Zeichen die Umwandlung des Zeilenwechsels in ein Leerzeichen verhindern:
 
 \begin{lfgwcode}{}
@@ -1319,10 +1319,10 @@ verarbeitbar zu halten -- die Fußnote in einer eigenen Zeile steht, sollte man 
 Verwendet man eine \KOMAScript -Klasse, so lassen sich die Fußnoten sehr leicht und vielfältig
 den eigenen gestalterischen Wünschen anpassen. Dazu dienen die beiden Befehle
 \lstinline/\deffootnote[Markenbreite]{Einzug}{Absatzeinzug}{Markendefinition}/
-und 
+und
 \lstinline/\deffootnotemark{Markendefinition}/.
 
-Folgende Umdefinitionen erzeugen z.\,B. Fußnoten mit eingeklammerten Ziffern 
+Folgende Umdefinitionen erzeugen z.\,B. Fußnoten mit eingeklammerten Ziffern
 in Grundschriftgröße; die jeweils erste Zeile jeder Fußnote ist eingerückt:
 
 \begin{lfgwcode}{}
@@ -1332,7 +1332,7 @@ in Grundschriftgröße; die jeweils erste Zeile jeder Fußnote ist eingerückt:
 
 \minisec{Das Paket \paket{footmisc}}
 
-Das Paket \paket{footmisc} von Robin Fairbains erlaubt zahlreiche Sonderfunktionen, die 
+Das Paket \paket{footmisc} von Robin Fairbains erlaubt zahlreiche Sonderfunktionen, die
 lediglich per Paketoption angewählt werden müssen.
 
 Die meines Erachtens nützlichsten Optionen sind:
@@ -1368,32 +1368,32 @@ Das Paket \paket{manyfoot} von Alexander I. Rozhenko
 erlaubt die Definition verschiedener Fußnotenapparate, um beispielsweise
 Worterklärungen (Fußnoten 1, 2, 3, \ldots ) und Quellenhinweise (a, b, c, \ldots ) voneinander zu trennen.
 
-Auch Lesartenapparate in kritischen Editionsprojekten ließen sich theoretisch 
-mit diesem Ansatz organisieren; 
+Auch Lesartenapparate in kritischen Editionsprojekten ließen sich theoretisch
+mit diesem Ansatz organisieren;
 allerdings bietet \paket{reledmac} hierzu die besseren Instrumente, vgl. hierzu Kapitel~\ref{reledmac}.
 
 
-\section{Zeilennummern} 
+\section{Zeilennummern}
 \index{Zeilennummern}
 \paket{lineno}
 \label{zeilennummer}
 
 Es gibt zwei grundsätzlich verschiedene Szenarien, in denen man Zeilennummern verwenden
-kann. 
+kann.
 
 \begin{itemize}
  \item Einfach einen Text(abschnitt) durchnummerieren, z.\,B. auf einem Arbeitsblatt oder in
  einem Lehrbuch.
- \item einen Text mit Zeilennummern versehen, auf die später Bezug genommen wird, 
- z.\,B. im Rahmen einer großen Textausgabe. 
+ \item einen Text mit Zeilennummern versehen, auf die später Bezug genommen wird,
+ z.\,B. im Rahmen einer großen Textausgabe.
 \end{itemize}
 
 Hier wird nur das erste gezeigt;
-Aufgabe Nr. 2 ist viel komplexer, s. Kapitel zum Erstellen einer kritischen Edition, 
-S.~\pageref{reledmac} 
+Aufgabe Nr. 2 ist viel komplexer, s. Kapitel zum Erstellen einer kritischen Edition,
+S.~\pageref{reledmac}
 
-Das Paket \paket{lineno} bietet eine Reihe von Funktionen, einen Text -- oder 
-zahlreiche eingeschobene Texte wie Zitate o.\,ä. mit Zeilennummern als Lesehilfe zu 
+Das Paket \paket{lineno} bietet eine Reihe von Funktionen, einen Text -- oder
+zahlreiche eingeschobene Texte wie Zitate o.\,ä. mit Zeilennummern als Lesehilfe zu
 versehen.
 
 
@@ -1406,7 +1406,7 @@ Auch das Ende der aktuellen Umgebung beendet die Zeilennummern.
 
 \begin{lfgwcode}{}
  Georg Büchners \enquote{Lenz} beginnt mit einem langen Textabschnitt:
- 
+
  \begin{quotation}
  \modulolinenumbers[5]
  \linenumbers
@@ -1426,7 +1426,7 @@ Daraus wird:
  Den 20. ging Lenz durchs Gebirg. Die Gipfel und hohen Bergflächen im Schnee, die Täler
  hinunter graues Gestein, grüne Flächen, Felsen und Tannen. Es war naßkalt, das Wasser
  rieselte die Felsen hinunter und sprang über den Weg. Die Äste der Tannen hingen schwer
- herab in die feuchte Luft. Am Himmel zogen graue Wolken, aber alles so dicht, und dann 
+ herab in die feuchte Luft. Am Himmel zogen graue Wolken, aber alles so dicht, und dann
  dampfte der Nebel herauf und strich schwer und feucht durch das Gesträuch, so träg,
  so plump. Er ging gleichgültig weiter, es lag ihm nichts am Weg, bald auf- bald
  abwärts. Müdigkeit spürte er keine, nur war es ihm manchmal unangenehm, daß er nicht
@@ -1435,7 +1435,7 @@ Daraus wird:
 
 \minisec{Einstellmöglichkeiten von \paket{lineno}}
 
-Das Paket bietet zahlreiche Möglichkeiten, das Erscheinungsbild der Zeilennummern zu 
+Das Paket bietet zahlreiche Möglichkeiten, das Erscheinungsbild der Zeilennummern zu
 verändern:
 
 Beim Aufruf des Paketes können folgende Optionen angegeben werden:
@@ -1446,8 +1446,8 @@ Beim Aufruf des Paketes können folgende Optionen angegeben werden:
  \item[switch] Die Zeilennummern stehen (bei zweiseitigem Layout) am äußeren Rand.
  \item[switch*] Die Zeilennummern stehen am inneren Rand.
  \item[pagewise] Die Zeilennummerierung beginnt auf jeder neuen Seite wieder bei 1.
- \item[modulo] Nur jede x-te Zeile erhält eine Nummer. 
-  Das Einstellen der Schrittweite erfolgt durch \cs{modulolinenumbers\oarg{Integer}} 
+ \item[modulo] Nur jede x-te Zeile erhält eine Nummer.
+  Das Einstellen der Schrittweite erfolgt durch \cs{modulolinenumbers\oarg{Integer}}
   (sic! Die Klammern müssen eckig sein \dots);
   voreingestellt ist der Wert von 5.
 \end{labeling}
@@ -1459,7 +1459,7 @@ Länge \cs{linenumbersep} bestimmt Abstand zwischen Zeilennummer und Text.
 Zeilennummern bei größeren Projekten, insbesondere im Kontext von kritischen Editionsprojekten,
 sollten mit dem Paket \paket{reledmac} erzeugt werden, vgl. hierzu Kapitel \ref{reledmac}.
 
- 
+
 
 \minisec{Eingeschobene Gedichte o.\,ä. mit Zeilennummern}
 
@@ -1473,7 +1473,7 @@ Auch die Nummerierung eines Gedichtes gelingt auf diese Weise ohne Probleme:
   wie dass sie mich entzündet.\\
   Ist sie dann gleichwohl was,\\
   wem ist ihr tun bewusst?\\
-  
+
   Im Sommer \dots\\
  \end{verse}
 
@@ -1487,11 +1487,11 @@ Auch die Nummerierung eines Gedichtes gelingt auf diese Weise ohne Probleme:
 
 Mit dem Befehl \lstinline/\marginpar[links]{rechts}/ kann eine Randbemerkung gesetzt werden.
 \marginpar{Randbemerkung}
-Dabei ist die Bezeichnung \enquote{links} und \enquote{rechts} missverständlich: 
-Randbemerkungen stehen immer außen auf den Seitenrändern; bei zweispaltigem Layout wird 
+Dabei ist die Bezeichnung \enquote{links} und \enquote{rechts} missverständlich:
+Randbemerkungen stehen immer außen auf den Seitenrändern; bei zweispaltigem Layout wird
 \emph{auf linken Seiten} der als \lstinline/[links]/ definierte Text ausgegeben, falls vorhanden.
 
-Mit dem Befehl \cs{reversemarginpar} lässt sich dieses Verhalten umkehren; 
+Mit dem Befehl \cs{reversemarginpar} lässt sich dieses Verhalten umkehren;
 von der Benutzung ist abzuraten, da innen stehende Marginalien i.\,d.\,R. wegen der Bindung schlecht
 lesbar sind.
 
@@ -1500,12 +1500,12 @@ stehen und können selbst nur einfachen Text enthalten.
 
 
 \minisec{Erweiterte Möglichkeiten für Marginalien}
-Das Paket \paket{marginnote} stellt eine verbesserte Variante von Marginalien bereit, 
+Das Paket \paket{marginnote} stellt eine verbesserte Variante von Marginalien bereit,
 da marginpar Probleme mit Floats hat:
 \cs{marginnote}\oarg{left}\marg{right}\oarg{voffset}
 %Beschreibung der Optionen?
 
-Das Paket \paket{sidenotes} von Andy Thomas bietet weitere Möglichkeiten: 
+Das Paket \paket{sidenotes} von Andy Thomas bietet weitere Möglichkeiten:
 Es ist mit ihm auch möglich, Randbemerkungen innerhalb von Gleitumgebungen zu setzen oder
 Bilder
 \begin{marginfigure}
@@ -1543,9 +1543,9 @@ Vor- und Nachteile bzw. Einschränkungen:
 
 \minisec{Das ganze Dokument zweispaltig setzen}
 
-Wird als Dokumentklassen-Option \lstinline/twocolumn/ angegeben, wird das Dokument 
-zweispaltig gesetzt. 
-Der Titel mit Datum, Autorangabe, Abstract etc. werden als einspaltiger Kopf über beide 
+Wird als Dokumentklassen-Option \lstinline/twocolumn/ angegeben, wird das Dokument
+zweispaltig gesetzt.
+Der Titel mit Datum, Autorangabe, Abstract etc. werden als einspaltiger Kopf über beide
 Spalten gesetzt.
 
 
@@ -1569,11 +1569,11 @@ Benutzbarkeit meines Erachtens nach stark einschränkt.
  Die umfassendste Funktionalität bietet das Paket \paket{multicol} von Frank Mittelbach.
  Mit ihm lassen sich beliebige Textpassagen in mehreren Spalten in ein ansonsten
  einspaltiges Dokument einfügen.
- 
- Der Beginn einer mehrspaltigen Passage wird durch \lstinline/\begin{multicols}{Zahl}/ 
+
+ Der Beginn einer mehrspaltigen Passage wird durch \lstinline/\begin{multicols}{Zahl}/
  eingeleitet; die entsprechende Anweisung \lstinline/\end{multicols}/ schaltet wieder
- auf einspaltigen Satz um. \lstinline/Zahl/ steht dabei für die Anzahl der gewünschten 
- Spalten.                                            
+ auf einspaltigen Satz um. \lstinline/Zahl/ steht dabei für die Anzahl der gewünschten
+ Spalten.
 \end{multicols}
 
 \setlength{\columnseprule}{0.4pt}
@@ -1581,15 +1581,15 @@ Benutzbarkeit meines Erachtens nach stark einschränkt.
  Dabei liegt es in der Verantwortung des Nutzers, nicht zu viele Spalten zu verlangen,
  da sonst die einzelnen Spalten zu schmal werden und sich Aussehen und Lesbarkeit erheblich
  verschlechtern.
- 
+
  Faustregel: Der Wortabstand soll niemals größer sein als der Zeilenabstand.
  Evtl. kann es helfen, mehrspaltige Abschnitte im Flattersatz zu setzen.
  In typografischer Hinsicht ist dies ein sehr schlechter Absatz \dots
- 
- Um dem Leser zu ermöglichen, die Spalten besser wahrzunehmen kann der Längenwert 
+
+ Um dem Leser zu ermöglichen, die Spalten besser wahrzunehmen kann der Längenwert
  \lstinline/columnseprule/ auf einen Wert größer 0 gestellt werden;
  in diesem Beispiel liegt er bei 0.4pt: \lstinline/\setlength{\columnseprule}{0.4pt}/.
- 
+
  Daneben bietet das Paket weitere Einstellmöglichkeiten, wie. z.\,B. den Spaltenabstand
  oder die Farbe der Trennlinie.
 \end{multicols}
@@ -1603,7 +1603,7 @@ Benutzbarkeit meines Erachtens nach stark einschränkt.
 
 \section{Grafiken einbinden}
 \label{grafik-einbinden}
-\index{Grafik} 
+\index{Grafik}
 \index{Bilder}
 \index{Abbildungen}
 
@@ -1613,7 +1613,7 @@ Voraussetzung: Paket \paket{graphicx} in Dokumentpräambel einbinden:
 Dann fügt der Befehl \lstinline/\includegraphics[Optionen]{Name}/ an der jeweiligen Stelle
 die angegebene Grafik (als eigenen Absatz) ein.
 Als Option sollte z.\,B. die gewünschte Abbildungsgröße eingestellt werden.
-Wieder sind sowohl absolute Angaben möglich als auch Bezugnahmen z.\,B. auf 
+Wieder sind sowohl absolute Angaben möglich als auch Bezugnahmen z.\,B. auf
 \lstinline/\textwidth/.
 
 Meist möchte man die Abbildung jedoch in eine Gleitumgebung einfügen, so dass das Satzprogramm
@@ -1632,7 +1632,7 @@ Alles zusammen sieht dann so aus:
   \includegraphics[width=.5\textwidth]{Caesarius_von_Heisterbach_als_Novizenmeister}
   \caption{Caesarius von Heisterbach als Novizenmeister}
  \end{center}
-\end{figure} 
+\end{figure}
 \end{lstlisting}
 
 
@@ -1664,8 +1664,8 @@ Komplexes Thema, Spezialliteratur gerechtfertigt.\footcite{voss:tabellen}
 \index{Bibelstellen}
 
 Vor allem im Rahmen größerer Projekte empfiehlt es sich dringend, Bibelstellenangaben nicht einfach
-\enquote{frei Hand} in den Text zu schreiben, sondern diese in einer eindeutigen Form 
--- mit Hilfe eines \LaTeX{}-Befehls, der auszuzeichnen. 
+\enquote{frei Hand} in den Text zu schreiben, sondern diese in einer eindeutigen Form
+-- mit Hilfe eines \LaTeX{}-Befehls, der auszuzeichnen.
 Dafür gibt es zwei Gründe:
 
 \begin{itemize}
@@ -1673,44 +1673,44 @@ Dafür gibt es zwei Gründe:
     Stellenangaben aufsuchen, etwa um sie nachzuschlagen, auf Vollständigkeit zu überprüfen etc.
     \item Die eindeutige Auszeichnung ist Voraussetzung für eine automatische Erfassung in einem
     Index.
-    \item Während der langen Rezeptionsgeschichte der Bibel haben sich verschiedene Standards der 
+    \item Während der langen Rezeptionsgeschichte der Bibel haben sich verschiedene Standards der
     Bezeichnung der einzelnen biblischen Bücher herausgebildet. Stützt man seine Stellenangaben
-    auf eine eindeutig definierte maschinenlesbare Codierung, kann man den Computer automatisch 
+    auf eine eindeutig definierte maschinenlesbare Codierung, kann man den Computer automatisch
     dafür sorgen lassen, dass alle Bibelstellenangaben einer bestimmten Wiedergabekonvention folgen.
     Also, dass z.\,B. das erste Buch der Bibel einheitlich entweder als \enquote{Genesis} oder als \enquote{1. Buch Mose}
     referenziert wird.
 \end{itemize}
 
-Im Folgenden geht es darum, für die Zitierweise von Bibelstellen eine eindeutige Codierung zu verwenden, 
-die es einerseits ermöglicht, die auftretenden Bibelstellenangaben eindeutig und automatisch 
-verarbeitbar zu erfassen. 
-Andererseits soll die Erfassung möglichst komfortabel sein, das heißt möglichst wenige 
-kryptische Steuerzeichen in den Text bringen und außerdem in gewissen Grenzen tolerant gegenüber 
+Im Folgenden geht es darum, für die Zitierweise von Bibelstellen eine eindeutige Codierung zu verwenden,
+die es einerseits ermöglicht, die auftretenden Bibelstellenangaben eindeutig und automatisch
+verarbeitbar zu erfassen.
+Andererseits soll die Erfassung möglichst komfortabel sein, das heißt möglichst wenige
+kryptische Steuerzeichen in den Text bringen und außerdem in gewissen Grenzen tolerant gegenüber
 menschlicher Uneinheitlichkeit und Neigung zu Fehlern sein.
 
 Zweck dieses Codierungsaufwandes ist die einheitliche Formatierung der Bibelstellenangaben
 entsprechend etablierter Leitlinien sowie die automatische Erstellung eines Bibelstellenregisters.
 
-Zu diesem Zweck existieren auf \url{https://ctan.org} mehrere Pakete, die den Umgang 
+Zu diesem Zweck existieren auf \url{https://ctan.org} mehrere Pakete, die den Umgang
 auch mit großen Mengen an Bibelstellenangaben sehr komfortabel machen:
 
 \begin{itemize}
-    \item \paket{bibleref} 
-    \item \paket{bibleref-german} 
-    \item \paket{bibleref-parse} 
+    \item \paket{bibleref}
+    \item \paket{bibleref-german}
+    \item \paket{bibleref-parse}
 \end{itemize}
 
 \minisec{Das Paket \paket{bibleref}}
 
 Das Paket \paket{bibleref} von Nicola Talbot bietet die genannten Vorzüge, richtet sich aber primär
-an die Bedürfnisse englischsprachiger Nutzer. 
+an die Bedürfnisse englischsprachiger Nutzer.
 Dennoch lohnt sich ein Blick auf das Paket, weil es die konzeptionelle Grundlage für
 \paket{bibleref-german} bildet, dessen Funktionsweise man verstanden haben sollte.
 
 \paket{bibleref} stellt hauptsächlich zwei Makros bereit, die zuallererst wichtig sind:
 
 \begin{itemize}
-    \item \lstinline/\bibleref { Buch } ( Verse )/ dient zur Angabe einer Bibelstelle. 
+    \item \lstinline/\bibleref { Buch } ( Verse )/ dient zur Angabe einer Bibelstelle.
     Für Buch ist ein definiertes Kürzel einzugeben, dass in der Ausgabe ggf. durch eine vollständigere
     Schreibweise einheitlich ersetzt wird. (Das lässt sich einstellen; verschiedene Stile sind vordefiniert.)
     \item \lstinline/\ibibleref { Buch } ( Verse )/ dito, zugleich wird im Bibelstellenregister (s.u.)
@@ -1718,18 +1718,18 @@ Dennoch lohnt sich ein Blick auf das Paket, weil es die konzeptionelle Grundlage
 \end{itemize}
 
 Mit diesen beiden Befehlen lassen sich Bibelstelleneingaben eindeutig bezeichnen und deshalb
-mit Programmhilfe einheitlich formatiert ausgeben und im Register erschließen. 
+mit Programmhilfe einheitlich formatiert ausgeben und im Register erschließen.
 Voraussetzung ist natürlich das Einbinden des Paketes in der Präambel:
 \lstinline/\usepackage{bibleref}/
-Ein Beispiel: 
+Ein Beispiel:
 
 \begin{lfgwcode}{}
-Es gibt vier Evangelien: 
-\ibibleverse{Mt}, 
-\ibibleverse{Mk}, 
+Es gibt vier Evangelien:
+\ibibleverse{Mt},
+\ibibleverse{Mk},
 \ibibleverse{Lk} und \ibibleverse{John}.
 
-Diese Stelle kommt nicht ins Register: \bibleverse{Rev}(13:15-17), 
+Diese Stelle kommt nicht ins Register: \bibleverse{Rev}(13:15-17),
 während diese dort schon erscheint: \ibibleverse{John}(3:17).
 Die Bergpredigt steht übrigens in \ibibleverse{Mt}(5-7:).
 \end{lfgwcode}
@@ -1764,28 +1764,28 @@ Zur Wahl stehen angloamerikanische und international verbreitete Zitierstile:
 
 Betrachtet man die entstandene Ausgabe unseres Beispieltextes, so fallen
 dem deutschen Leser (mindestens) vier Wünsche ein, die der unmittelbaren Verwendung von
-\paket{bibleref} in deutschsprachigen Texten im Wege stehen: 
+\paket{bibleref} in deutschsprachigen Texten im Wege stehen:
 
 \begin{itemize}
     \item Einzelne Kürzel sind im deutschen Sprachraum unhandlich: \enquote{John} statt \enquote{Jo}.
     (Übrigens: Verwendet man die Abkürzung \enquote{Jo}, wird diese zu \enquote{Joel} expandiert.)
-    \item Die in der Ausgabe erzeugten Bezeichnungen der biblischen Bücher sind englisch bzw. 
+    \item Die in der Ausgabe erzeugten Bezeichnungen der biblischen Bücher sind englisch bzw.
     -- je nach eingestelltem Zitierstil -- lateinisch.
-    \item Die Zeichensetzung der ausgegebenen Stellenangaben ist für deutsche Gewohnheiten ungewohnt: 
-    Wir erwarten statt Angaben wie \enquote{Gen 1:1} eher das Format \enquote{Gen 1,1}: 
+    \item Die Zeichensetzung der ausgegebenen Stellenangaben ist für deutsche Gewohnheiten ungewohnt:
+    Wir erwarten statt Angaben wie \enquote{Gen 1:1} eher das Format \enquote{Gen 1,1}:
     Buch -- Kapitel -- Komma -- Vers.
     \item Die Codierung der Versangaben im Quelltext ist etwas unhandlich.
 \end{itemize}
 
-Alle vier Einschränkungen lassen sich umgehen; 
-für die ersten drei Punkte hilft \paket{bibleref-german}, 
+Alle vier Einschränkungen lassen sich umgehen;
+für die ersten drei Punkte hilft \paket{bibleref-german},
 für die letzte Einschränkung wurde \paket{bibleref-parse} entwickelt.
 Es ist besonders praktisch, dass sich beide Pakete kombinieren lassen.
 
 
 \minisec{Das Paket \paket{bibleref-german}}
 
-Das Paket \paket{bibleref-german} wurde von Dr. Dominik Waßenhoven entwickelt und bietet die Leistungen von \paket{bibleref} 
+Das Paket \paket{bibleref-german} wurde von Dr. Dominik Waßenhoven entwickelt und bietet die Leistungen von \paket{bibleref}
 angepasst an die Bedürfnisse deutscher Nutzer.
 
 Es stellt im deutschsprachigen Raum das Standardwerkzeug zum Umgang mit Bibelreferenzen dar,
@@ -1796,7 +1796,7 @@ den Paketaufruf austauscht. (Übrigens stehen auch die englischsprachigen Ausgab
 \paket{bibleref} unter \paket{bibleref-german} zur Verfügung.)
 
 Das Ergebnis desselben Eingabetextes wie oben entspricht weit mehr deutschen Erwartungen, wenn man
-nur den Paketaufruf in der Präambel ersetzt 
+nur den Paketaufruf in der Präambel ersetzt
 (\lstinline/\usepackage{bibleref-german}/): XXXX
 
 \begin{quotation}
@@ -1810,18 +1810,18 @@ nur den Paketaufruf in der Präambel ersetzt
 %\caption{Das Ergebnis von Listing 2.}
 %\end{figure}
 
-Das Ersetzen von \paket{bibleref} durch \paket{bibleref-german} hat 
+Das Ersetzen von \paket{bibleref} durch \paket{bibleref-german} hat
 drei Dinge zur Folge:
 
 \begin{itemize}
     \item Das Paket \enquote{versteht} als Eingabe sowohl die im deutschsprachigen Raum üblichen Kürzel -- übrigens
     auch die englischen -- als auch die ausgeschriebenen Buchnamen. Man braucht keine Namenskonventionen
-    zu \enquote{lernen}, meistens versteht biblref-german, welches Buch man meint. 
+    zu \enquote{lernen}, meistens versteht biblref-german, welches Buch man meint.
     Teilweise sind mehrere Bezeichnungen für das gleiche Buch definiert -- z.B. sind Numeri, Num, 4Mos und
     IVMos gleichbedeutend.
     (Selbstverständlich enthält die Paketdokumentation eine vollständige Auflistung der Buchbezeichnungen.)%
     \footnote{Achtung! Die Eingabecodierung \enquote{Jo} wird zum Buch Joel aufgelöst; das Johannes-Evangelium
-        ist als \enquote{Joh} einzugeben, was dann bei Verwendung des Vulgata-Stils zu Io interpoliert wird. 
+        ist als \enquote{Joh} einzugeben, was dann bei Verwendung des Vulgata-Stils zu Io interpoliert wird.
         So kompliziert kann die Welt sein\ldots }
     \item In der Ausgabe erscheinen deutsche Buchtitel.
     \item Die Zeichensetzung entspricht deutschen Gewohnheiten.
@@ -1833,38 +1833,38 @@ zweierlei Weise modifizieren:
 \begin{itemize}
     \item Zitierstil:
     Durch die Angabe als Paketoption oder alternativ mit \cs{biblerefstyle\marg{Stil}} lässt sich die Ausgabekonvention verändern.
-    Mögliche Werte sind die im deutschsprachigen Raum meist verwendeten Standards: 
+    Mögliche Werte sind die im deutschsprachigen Raum meist verwendeten Standards:
     \begin{itemize}
         \item \lstinline/Einheitsübersetzung/ (der voreingestellte Standardwert),
         \item \lstinline/Lutherbibel/ (in der Form von 1984),
         \item \lstinline/LThK/ (die Konventionen des Lexikons für Theologie und Kirche),
         \item \lstinline/RGG/ (Religion in Geschichte und Gegenwart),
-        \item \lstinline/TRE/ (Theologische Realenzyklopädie) und 
+        \item \lstinline/TRE/ (Theologische Realenzyklopädie) und
         \item \lstinline/Vulgata/ (die lateinischen Bezeichnungen der Vulgata).
     \end{itemize}
-    
+
     \item Format:
     Für jeden dieser Zitierstile definiert \paket{bibleref-german} noch vier Formate, die die Wiedergabe der
     Stellenangaben definieren und durch den Befehl \lstinline/\biblerefformat{<Format>}/ eingestellt
     werden können:
-    
+
     \begin{itemize}
         \item kurz -- Offb 13,17
         \item lang -- Offenbarung 13,17
         \item Terminus -- Die Offenbarung des Johannes 13,17
         \item Zahlwort -- Die Offenbarung des Johannes, Kapitel dreizehn, Vers siebzehn
     \end{itemize}
-    
+
 \end{itemize}
 
-Mit beiden Angaben lässt sich die Ausgabe der Belege sehr differenziert an die eigenen Bedürfnisse 
+Mit beiden Angaben lässt sich die Ausgabe der Belege sehr differenziert an die eigenen Bedürfnisse
 anpassen:
 
 %\lstinputlisting[caption=Beispiel 3: Die selbe Stelle in verschiedenen Formaten und Stilen]
 %    {listing_bibleref-german_stile}
 
 \begin{lstlisting}
-\documentclass{scrartcl} 
+\documentclass{scrartcl}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[ngerman]{babel}
@@ -1874,7 +1874,7 @@ anpassen:
 \begin{document}
 \bibleverse{Jo}(1:1)
 
-\bibleverse{Joh}(3:17) 
+\bibleverse{Joh}(3:17)
 
 \biblerefstyle{Vulgata}
 \bibleverse{Offb}(1:1)
@@ -1883,15 +1883,15 @@ anpassen:
 \bibleverse{Offb}(1:1)
 
 \biblerefstyle{LThK}
-\bibleverse{Joh}(3:17) 
+\bibleverse{Joh}(3:17)
 
-\biblerefformat{Terminus} 
-\bibleverse{Joh}(3:17) 
+\biblerefformat{Terminus}
+\bibleverse{Joh}(3:17)
 
 \biblerefformat{Zahlwort}
 \bibleverse{Joh}(3:17)
 
-\biblerefstyle{Vulgata} 
+\biblerefstyle{Vulgata}
 \biblerefformat{kurz}
 \bibleverse{Joh}(1:1)
 \end{document}
@@ -1900,26 +1900,26 @@ anpassen:
 Es ergibt sich eine erstaunliche Variationsbreite an Zitiermöglichkeiten:
 
 \begin{quotation}
-    Joël 1,1 
-    
+    Joël 1,1
+
     Johannes 3,17
-    
+
     Apc 1,1
-    
+
     Apocalypsis 1,1
-    
+
     Johannes 3,17
-    
+
     Das Evangelium nach Johannes 3,17
-    
+
     Das Evangelium nach Johannes, Kapitel drei, Vers siebzehn
-    
+
     Io 1,1
 \end{quotation}
 
 
-Die Formate Terminus und Zahlwort sind im Deutschen wegen der notwendigen Flexion der bestimmten Artikel 
-problematischer als die englischsprachigen \texttt{text}-Variante des Paketes \paket{bibleref}. 
+Die Formate Terminus und Zahlwort sind im Deutschen wegen der notwendigen Flexion der bestimmten Artikel
+problematischer als die englischsprachigen \texttt{text}-Variante des Paketes \paket{bibleref}.
 Ihre Benutzung ist wahrscheinlich eher die Ausnahme.
 Anzumerken ist, dass der Stil Zahlwort ausgaben wie ``Kapitel one'' ergibt, wenn nicht mit babel
 die Sprache auf german (oder ngerman) eingestellt wurde. Das Babel-Paket muss vor bibleref-german
@@ -1942,11 +1942,11 @@ Die beiden wichtigsten Befehle, die von dem Paket definiert werden, lauten analo
 \paket{bibleref} und \paket{bibleref-german}:
 
 \begin{itemize}
-    \item\lstinline/\pbibleref { Buch mit Kapitel- u. Versangabe } / (Man beachte das \textbf{p}!) 
-    \footnote{Die Umbenennung der beiden Befehle ist deshalb nötig, weil innerhalb desselben 
-        Dokuments sowohl Bibelstellen im Eingabeformat von \paket{bibleref} bzw. \paket{bibleref-german} als auch 
+    \item\lstinline/\pbibleref { Buch mit Kapitel- u. Versangabe } / (Man beachte das \textbf{p}!)
+    \footnote{Die Umbenennung der beiden Befehle ist deshalb nötig, weil innerhalb desselben
+        Dokuments sowohl Bibelstellen im Eingabeformat von \paket{bibleref} bzw. \paket{bibleref-german} als auch
         im Format von \paket{bibleref-parse} möglich sind. Wahrscheinlich ist es empfehlenswert, bei einer größeren
-        Arbeit sich auf \paket{bibleref-parse} festzulegen und eine eigene Abkürzung zu definieren, z.B. 
+        Arbeit sich auf \paket{bibleref-parse} festzulegen und eine eigene Abkürzung zu definieren, z.B.
         \lstinline/bibel/ für normale Stellen und \lstinline/bibelx/ für Stellen, die im Index
         erfasst werden sollen.}
     definiert einen Bibelstellenverweis.
@@ -1955,7 +1955,7 @@ Die beiden wichtigsten Befehle, die von dem Paket definiert werden, lauten analo
 \end{itemize}
 
 Mit ihnen ist es möglich, Bibelstellen so zu zitieren, wie es der deutschsprachige Nutzer gewohnt ist.
-Dabei stellt sich der Parser sehr weitgehend auf die vielen Sonderfälle ein, die in Bibelstellen 
+Dabei stellt sich der Parser sehr weitgehend auf die vielen Sonderfälle ein, die in Bibelstellen
 auftreten können. Deshalb ist die Hauptregel ganz einfach:
 \enquote{The  basic message is: Just use your intuition. This is what this package was created for.}%
 \footnote{ebd. S. 3.}
@@ -1969,7 +1969,7 @@ Bequemer geht's nicht. Nur das \enquote{p} am Beginn der Bibelstellen-Kennungen 
 %    {listing_bibleref-german-parse}
 
 \begin{lstlisting}
-\documentclass{scrartcl} 
+\documentclass{scrartcl}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 
@@ -1978,13 +1978,13 @@ Bequemer geht's nicht. Nur das \enquote{p} am Beginn der Bibelstellen-Kennungen 
 
 
 \begin{document}
-Es gibt vier Evangelien: 
-\pibibleverse{Mt}, 
-\pibibleverse{Markus}, 
-\pibibleverse{Luke} 
-und \pibibleverse{Joh}. 
-Diese Stelle kommt nicht ins Register: \pbibleverse{Offb 13,15-17}, 
-während diese dort erscheint: \pibibleverse{Joh 3,17}. 
+Es gibt vier Evangelien:
+\pibibleverse{Mt},
+\pibibleverse{Markus},
+\pibibleverse{Luke}
+und \pibibleverse{Joh}.
+Diese Stelle kommt nicht ins Register: \pbibleverse{Offb 13,15-17},
+während diese dort erscheint: \pibibleverse{Joh 3,17}.
 Die Bergpredigt steht übrigens in \pibibleverse{Mt 5-7}.
 \end{document}
 \end{lstlisting}
@@ -2014,7 +2014,7 @@ Zur Registererstellung vgl. \fullref{Bibelstellenregister}.
 % Section Lyrik-Satz von Christine Römer - thm 6.3.2017
 
 \input{Teil-Lyrik}
-	
+
 
 \section{Dramen}
 \autor{Thomas H. Meyer}
