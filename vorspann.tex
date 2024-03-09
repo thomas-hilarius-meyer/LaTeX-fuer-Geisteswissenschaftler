@@ -301,6 +301,7 @@ lfgwstyle/.style={%
 %%%\defbibheading{bibliography}{\addchap{#1}} %%%Besser bei \addchap bleiben
 
 \usepackage{fancyvrb}
+\usepackage{fvextra}
 \makeatletter
 \usepackage[% reledmac
    series={A,B,C},%nur die Apparate A B C aktivieren
@@ -317,23 +318,21 @@ lfgwstyle/.style={%
 \usepackage{reledpar}
 
 \usepackage{varioref}
-\usepackage{hyperxmp}
 \usepackage{hyperref}
 \hypersetup{					% setup the hyperref-package options
 	pdftitle={LaTeX für Geisteswissenschaftler},	% 	- title (PDF meta)
 	pdfsubject={Handbuch},% 	- subject (PDF meta)
 	pdfauthor={varia},	% 	- author (PDF meta)
-	pdfauthortitle={},
-	pdfcopyright={Copyright (c) \the\year\. All rights reserved.},
+%	pdfcopyright={Copyright (c) \the\year\. All rights reserved.},
 	pdfhighlight=/N,
 	pdfdisplaydoctitle=true,
-	pdfdate={\the\year-\the\month-\the\day}, % Fehler
+%	pdfdate={\the\year-\the\month-\the\day}, % Fehler
 	pdflang={de},
     pdfencoding=unicode,   % Sorgt für korrekte Umlaute in den pdf-Lesezeichen - thm
-	pdfcaptionwriter={varia},
+%	pdfcaptionwriter={varia},
 	pdfkeywords={{LaTeX}, {Geisteswissenschaften}},
 	pdfproducer={LuaLaTeX},
-	pdflicenseurl={http://creativecommons.org/licenses/by-nc-nd/4.0/},
+%	pdflicenseurl={http://creativecommons.org/licenses/by-nc-nd/4.0/},
 	plainpages=false,			% 	- 
     colorlinks   = true, %Colours links instead of ugly boxes
     urlcolor     =  blue!50!black, %Colour for external hyperlinks
@@ -350,6 +349,7 @@ lfgwstyle/.style={%
    pdfdisplaydoctitle,
 	final=true	% = true, nur bei web-Dokument!! (wichtig!!)
 }
+\usepackage{hyperxmp}
 \usepackage{bookmark}%advanced bookmarks
 \usepackage[% cleveref
   sort,

@@ -1,20 +1,50 @@
 name: Check Build
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  schedule:
+    - cron: '1 2 5 * *'
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+
 jobs:
   build_latex:
     runs-on: ubuntu-latest
     steps:
       - name: Set up Git repository
-        uses: actions/checkout@v2
-      - name: Compile lfgw.tex with lualatex
-        uses: dante-ev/latex-action@0.1.0
+        uses: actions/checkout@v4
+      - uses: awalsh128/cache-apt-pkgs-action@latest
         with:
-          root_file: lfgw.tex
-          compiler: lualatex
-          args: -interaction=nonstopmode
-      - name: Compile lfgw.tex with biber
-        uses: dante-ev/latex-action@0.1.0
+          packages: fonts-sil-gentium-basic
+          version: 1.0
+      - name: Install TeX Live
+        uses: zauguin/install-texlive@v3
         with:
-          root_file: lfgw
-          compiler: biber
-          args:
+           package_file: tl_packages
+      - run: lualatex lfgw -interaction=nonstopmode
+      - run: biber lfgw
+      - run: lualatex lfgw -interaction=nonstopmode
+      - run: lualatex lfgw -interaction=nonstopmode
+      - name: Upload build
+        uses: actions/upload-artifact@v4
+        with:
+          name: lfgw
+          path: lfgw.pdf
+      - name: texlogsieve
+        run: texlogsieve < lfgw.log
+      - name: Compile LaTeX documents in Examples/
+        run: |
+          for filename in Examples/*.tex; do
+            echo "Compiling $filename"
+            lualatex -interaction=nonstopmode -output-directory=$(dirname "$filename") "$filename"
+            if [ $? -ne 0 ]; then
+              echo "Compilation error in $filename"
+              exit 1
+            fi
+          done
