@@ -6,6 +6,7 @@ texlogsieve
 
 amsfonts
 amsmath
+archaic
 auxhook
 babel
 babel-greek
@@ -76,7 +77,6 @@ ragged2e
 refcount
 reledmac
 rerunfilecheck
-runic
 showexpl
 sidenotes
 siunitx
