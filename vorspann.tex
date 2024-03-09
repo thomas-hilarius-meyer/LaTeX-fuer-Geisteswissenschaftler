@@ -327,22 +327,22 @@ lfgwstyle/.style={%
 	pdfcopyright={Copyright (c) \the\year\. All rights reserved.},
 	pdfhighlight=/N,
 	pdfdisplaydoctitle=true,
-	pdfdate={\the\year-\the\month-\the\day}
+	pdfdate={\the\year-\the\month-\the\day}, % Fehler
 	pdflang={de},
-   pdfencoding=unicode,   % Sorgt für korrekte Umlaute in den pdf-Lesezeichen - thm
+    pdfencoding=unicode,   % Sorgt für korrekte Umlaute in den pdf-Lesezeichen - thm
 	pdfcaptionwriter={varia},
 	pdfkeywords={{LaTeX}, {Geisteswissenschaften}},
 	pdfproducer={LuaLaTeX},
 	pdflicenseurl={http://creativecommons.org/licenses/by-nc-nd/4.0/},
 	plainpages=false,			% 	- 
-   colorlinks   = true, %Colours links instead of ugly boxes
-   urlcolor     =  blue!50!black, %Colour for external hyperlinks
-   linkcolor    = blue, %Colour of internal links
-   citecolor   = green!50!black, %Colour of citations
-   linktoc=page,
+    colorlinks   = true, %Colours links instead of ugly boxes
+    urlcolor     =  blue!50!black, %Colour for external hyperlinks
+    linkcolor    = blue, %Colour of internal links
+    citecolor   = green!50!black, %Colour of citations
+    linktoc=page,
   	pdfborder={0 0 0},			% 	-
 	breaklinks=true,			% 	- allow line break inside links
- %   bookmarks=true,
+%   bookmarks=true,
 	bookmarksnumbered=true,		%
 	bookmarksopenlevel=2,
 	bookmarksopen=true,		%
@@ -514,5 +514,9 @@ lfgwstyle/.style={%
 \setcounter{topnumber}{2} % 2
 \setcounter{bottomnumber}{2} % 1
 %\setcounter{totalnumber}{10} % 3
+
+% Aus kritischeApparate
+\newcounter{alteSeite}
+
 
 \endinput
