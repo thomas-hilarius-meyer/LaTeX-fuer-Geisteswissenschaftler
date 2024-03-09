@@ -16,6 +16,7 @@ bigintcalc
 bitset
 bookmark
 caption
+cbfonts
 changepage
 chronology
 cjhebrew
@@ -37,6 +38,7 @@ gb4e
 genealogytree
 gettitlestring
 graphics
+greek-fontenc
 grfext
 grffile
 hologo
