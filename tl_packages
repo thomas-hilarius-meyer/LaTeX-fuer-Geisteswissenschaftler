@@ -4,27 +4,15 @@ luatexbase
 scheme-basic
 texlogsieve
 
-amsbsy
 amsfonts
-amsgen
 amsmath
-amsopn
-amssymb
-amstext
-array
-atbegshi-ltx
-atveryend-ltx
 auxhook
 babel
 biblatex
 bigintcalc
 bitset
-blx-case-expl3
 bookmark
-calc
 caption
-caption3
-cgloss4e
 changepage
 chronology
 cjhebrew
