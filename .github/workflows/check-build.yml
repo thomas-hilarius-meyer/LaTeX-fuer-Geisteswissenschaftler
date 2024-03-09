@@ -21,7 +21,7 @@ jobs:
         uses: actions/checkout@v4
       - uses: awalsh128/cache-apt-pkgs-action@latest
         with:
-          packages: fonts-sil-gentium-basic
+          packages: fonts-sil-gentium-basic fonts-linuxlibertine
           version: 1.0
       - name: Install TeX Live
         uses: zauguin/install-texlive@v3
