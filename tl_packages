@@ -79,6 +79,7 @@ luatexbase
 marginnote
 microtype
 oldstandard
+paralist
 pdfcol
 pdfescape
 pdftexcmds
