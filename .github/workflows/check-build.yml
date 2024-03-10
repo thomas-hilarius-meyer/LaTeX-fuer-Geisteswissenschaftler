@@ -47,7 +47,6 @@ jobs:
         file: [
           "Examples/beamer/lfgw-article.tex",
           "Examples/beamer/lfgw-beamer.tex",
-          "Examples/beamer/lfgw-text.tex",
           "Examples/exam/beispiel-01.tex",
           "Examples/exam/beispiel-02.tex",
           "Examples/exam/beispiel-03.tex",
