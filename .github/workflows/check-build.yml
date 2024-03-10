@@ -14,15 +14,16 @@ concurrency:
 
 
 jobs:
-  build_latex:
+  lfgw:
     runs-on: ubuntu-latest
+    name: lfgw
     steps:
-      - name: Set up Git repository
-        uses: actions/checkout@v4
       - uses: awalsh128/cache-apt-pkgs-action@latest
         with:
           packages: fonts-sil-gentium-basic fonts-linuxlibertine fonts-freefont-otf fonts-dejavu-core fonts-noto-core fonts-paratype fonts-junicode
           version: 1.0
+      - name: Checkout
+        uses: actions/checkout@v4
       - name: Install TeX Live
         uses: zauguin/install-texlive@v3
         with:
@@ -31,20 +32,61 @@ jobs:
       - run: biber lfgw
       - run: lualatex lfgw -interaction=nonstopmode
       - run: lualatex lfgw -interaction=nonstopmode
-      - name: Upload build
+      - name: texlogsieve
+        run: texlogsieve < lfgw.log
+      - name: Upload PDF
         uses: actions/upload-artifact@v4
         with:
           name: lfgw
           path: lfgw.pdf
-      - name: texlogsieve
-        run: texlogsieve < lfgw.log
-      - name: Compile LaTeX documents in Examples/
+  examples:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        file: [
+          "Examples/beamer/lfgw-article.tex",
+          "Examples/beamer/lfgw-beamer.tex",
+          "Examples/beamer/lfgw-text.tex",
+          "Examples/exam/beispiel-01.tex",
+          "Examples/exam/beispiel-02.tex",
+          "Examples/exam/beispiel-03.tex",
+          "Examples/exam/beispiel-04.tex",
+          "Examples/exam/beispiel-05.tex",
+          "Examples/exam/beispiel-06.tex",
+          "Examples/exam/beispiel-07.tex",
+          "Examples/exam/beispiel-08.tex",
+          "Examples/exam/beispiel-09.tex",
+          "Examples/exam/beispiel-10.tex",
+          "Examples/exam/beispiel-11.tex",
+          "Examples/exam/beispiel-12.tex",
+          "Examples/exam/beispiel-13.tex",
+          "Examples/exam/beispiel-14.tex",
+          "Examples/Vorlagen/lfgw-musterdatei.tex"
+        ]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - uses: awalsh128/cache-apt-pkgs-action@latest
+        with:
+          packages: fonts-sil-gentium-basic fonts-linuxlibertine fonts-freefont-otf fonts-dejavu-core fonts-noto-core fonts-paratype fonts-junicode
+          version: 1.0
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install TeX Live
+        uses: zauguin/install-texlive@v3
+        with:
+            package_file: tl_packages
+      - name: Compile ${{ matrix.file }})
+        id: compile
         run: |
-          for filename in Examples/*.tex; do
-            echo "Compiling $filename"
-            lualatex -interaction=nonstopmode -output-directory=$(dirname "$filename") "$filename"
-            if [ $? -ne 0 ]; then
-              echo "Compilation error in $filename"
-              exit 1
-            fi
-          done
+          DIR=$(dirname ${{ matrix.file }})
+          FILE=$(basename ${{ matrix.file }})
+          cd $DIR
+          lualatex $FILE
+          echo "PDF_PATH=$DIR/${BASENAME}.pdf" >> $GITHUB_OUTPUT
+      - name: Upload PDF
+        uses: actions/upload-artifact@v4
+        with:
+          name: pdf-${{ matrix.file }}
+          path: ${{ steps.compile.outputs.PDF_PATH }}
