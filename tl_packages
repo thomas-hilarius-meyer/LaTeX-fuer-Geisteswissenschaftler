@@ -10,7 +10,9 @@ antt
 archaic
 auxhook
 babel
+babel-german
 babel-greek
+beamer
 biblatex
 bigfoot
 bigintcalc
@@ -31,6 +33,7 @@ enumitem
 environ
 epstopdf
 etoolbox
+exam
 fancyvrb
 float
 fontspec

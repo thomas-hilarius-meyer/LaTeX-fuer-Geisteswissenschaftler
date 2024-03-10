@@ -64,6 +64,7 @@ jobs:
           "Examples/exam/beispiel-14.tex",
           "Examples/Vorlagen/lfgw-musterdatei.tex"
         ]
+    name: "${{ matrix.file }}"
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -77,7 +78,7 @@ jobs:
         uses: zauguin/install-texlive@v3
         with:
             package_file: tl_packages
-      - name: Compile ${{ matrix.file }})
+      - name: Compile ${{ matrix.file }}
         id: compile
         run: |
           DIR=$(dirname ${{ matrix.file }})
