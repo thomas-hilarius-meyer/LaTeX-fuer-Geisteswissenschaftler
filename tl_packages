@@ -25,6 +25,7 @@ cleveref
 crop
 csquotes
 ctablestack
+dehyph
 elocalloc
 enumitem
 environ
@@ -47,6 +48,8 @@ hologo
 hycolor
 hyperref
 hyperxmp
+hyphenation-greek
+ibycus-babel
 ibygrk
 ifmtarg
 iftex
@@ -101,6 +104,7 @@ unicode-math
 uniquecounter
 upquote
 url
+ushyph
 varwidth
 verse
 xargs
