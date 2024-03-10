@@ -9,7 +9,6 @@ pagesize,%
 twoside,%
 ]{scrartcl} % scrreprt, scrbook
 
-\usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[ngerman]{babel}
 
@@ -30,14 +29,16 @@ twoside,%
 %\usepackage{tgschola}			% Century Schoolbook 	*serif* font
 %\usepackage{iwona}				% Iwona					*serif* font
 %\usepackage{anttor}			% Antykwa Torunska		*serif* font
-%
 % Schriften aus dem Buch
 %
 \usepackage{libertine}
-\usepackage[supstfm=libertinesups,%
+
+\usepackage[%
+   supsfam=LibertinusSerif-Sup,% Version 2.0 of superiors
    supscaled=1.2,%
    raised=-.13em]% match XHeight of libertine
    {superiors}
+
 \usepackage[scaled=0.8]{beramono}
 %
 % Einheiten konsistent darstellen
@@ -86,21 +87,21 @@ twoside,%
 % Aktive Links im Inhaltsverzeichnis, Index, usw.
 % PDF-Metadaten
 %
-\usepackage{cmap,hyperxmp,hyperref}	% Immer zuletzt laden
+\usepackage{cmap,hyperref,hyperxmp}	% Immer zuletzt laden
 \hypersetup{					% setup the hyperref-package options
 	pdftitle={LaTeX für Geisteswissenschaftler},	% 	- title (PDF meta)
 	pdfsubject={Handbuch},% 	- subject (PDF meta)
 	pdfauthor={varia},	% 	- author (PDF meta)
-	pdfauthortitle={},
-	pdfcopyright={Copyright (c) \the\year\. All rights reserved.},
+	%pdfauthortitle={},
+	%pdfcopyright={Copyright (c) \the\year\. All rights reserved.},
 	pdfhighlight=/N,
 	pdfdisplaydoctitle=true,
-	pdfdate={\the\year-\the\month-\the\day}
+	pdfdate={\the\year-\the\month-\the\day},
 	pdflang={de},
 	pdfcaptionwriter={varia},
 	pdfkeywords={{LaTeX}, {Geisteswissenschaften}},
 %	pdfproducer={XeLaTeX},
-	pdflicenseurl={http://creativecommons.org/licenses/by-nc-nd/4.0/},
+%	pdflicenseurl={http://creativecommons.org/licenses/by-nc-nd/4.0/},
 	plainpages=false,			% 	- 
     colorlinks   = true, %Colours links instead of ugly boxes
     urlcolor     =  blue!50!black, %Colour for external hyperlinks
@@ -128,5 +129,3 @@ twoside,%
   duzfc cuf zdf sufzxtfgsdt soxfg 7odxt idg zuifgi7sdtos7g fkxvtgjsxctsfousf
    uxfx tufxucfx utcfuxf zuxf ioxd odxf doxzf doifd ouixf ozidf zid fio
 \end{document}
-
-
