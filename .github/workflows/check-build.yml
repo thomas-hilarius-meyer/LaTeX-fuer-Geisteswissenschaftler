@@ -14,7 +14,22 @@ concurrency:
 
 
 jobs:
+  cache:
+    runs-on: ubuntu-latest
+    name: cache
+    steps:
+      - uses: awalsh128/cache-apt-pkgs-action@latest
+        with:
+          packages: fonts-sil-gentium-basic fonts-linuxlibertine fonts-freefont-otf fonts-dejavu-core fonts-noto-core fonts-paratype fonts-junicode
+          version: 1.0
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install TeX Live
+        uses: zauguin/install-texlive@v3
+        with:
+            package_file: tl_packages
   lfgw:
+    needs: [cache]
     runs-on: ubuntu-latest
     name: lfgw
     steps:
@@ -40,6 +55,7 @@ jobs:
           name: lfgw
           path: lfgw.pdf
   examples:
+    needs: [cache]
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
