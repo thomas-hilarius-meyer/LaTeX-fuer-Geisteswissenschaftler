@@ -48,7 +48,6 @@ hologo
 hycolor
 hyperref
 hyperxmp
-hyphenation-greek
 ibycus-babel
 ibygrk
 ifmtarg
@@ -104,7 +103,6 @@ unicode-math
 uniquecounter
 upquote
 url
-ushyph
 varwidth
 verse
 xargs
