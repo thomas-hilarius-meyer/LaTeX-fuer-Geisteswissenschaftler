@@ -12,6 +12,8 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: write
 
 jobs:
   cache:
@@ -54,6 +56,23 @@ jobs:
         with:
           name: lfgw
           path: lfgw.pdf
+      - name: Prepare gh-pages branch content
+        if: >
+          (github.repository == 'thomas-hilarius-meyer/LaTeX-fuer-Geisteswissenschaftler') &&
+          (github.ref == 'refs/heads/master')
+        run: |
+          mkdir build
+          mv lfgw.pdf build/
+      - name: Upload to gh-pages branch
+        if: >
+          (github.repository == 'thomas-hilarius-meyer/LaTeX-fuer-Geisteswissenschaftler') &&
+          (github.ref == 'refs/heads/master')
+        uses: crazy-max/ghaction-github-pages@v4
+        with:
+          target_branch: gh-pages
+          build_dir: build
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   examples:
     needs: [cache]
     runs-on: ubuntu-latest
