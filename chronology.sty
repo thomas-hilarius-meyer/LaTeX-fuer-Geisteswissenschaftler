@@ -1,0 +1,227 @@
+% \section{User documentation}
+%This package defines the new environment \verb|chronology|.  This 
+%  environment contains \verb|\event| commands. 
+%
+% \subsection{Example 1}
+% This output:\\
+% \begin{figure}[h]
+% \centering
+%\begin{chronology}[5]{1983}{2010}{10cm}[7cm]
+%\event{1984}{\color{blue}{one}}
+%\event[1985]{1986}{\small{two}}
+%\event{\decimaldate{25}{12}{2001}}{\huge{three}}
+%\end{chronology}
+%\end{figure}
+%
+% is produced by this input:
+%\begin{verbatim}
+%  \begin{chronology}[5]{1983}{2010}{10cm}[7cm]
+%    \event{1984}{\color{blue}{one}}
+%    \event[1985]{1986}{\small{two}}
+%    \event{\decimaldate{25}{12}{2001}}{\huge{three}}
+%  \end{chronology}
+%  \end{verbatim}
+%
+% \subsection{Example 2}
+%Similarly, this output:\\
+%\begin{figure}[h]
+% \centering
+%    \begin{chronology}*[5]{1983}{2010}{10cm}
+%      \event{1984}{\color{blue}{one}}
+%      \event[1985]{1986}{\small{two}}
+%      \event{\decimaldate{25}{12}{2001}}{\huge{three}}
+%    \end{chronology}
+%  \end{figure}
+%   
+%  Is produced by this input:\\
+%  
+%  \begin{verbatim}
+%    \begin{chronology}*[5]{1983}{2010}{10cm}
+%      \event{1984}{\color{blue}{one}}
+%      \event[1985]{1986}{\small{two}}
+%      \event{\decimaldate{25}{12}{2001}}{\huge{three}}
+%    \end{chronology}
+%  \end{verbatim}
+%
+% \subsection{Example 3}
+%And finally, this output:\\
+%\begin{figure}[h]
+%  \centering
+%  \begin{chronology}[5]{1983}{2010}{10cm}[13cm]
+%  \event{1984}{\color{blue}{one}}
+%  \event[1985]{1986}{\small{two}}
+%  \event{\decimaldate{25}{12}{2001}}{\huge{three}}
+%\end{chronology}
+%\end{figure}
+%
+% is produced by this input:
+%
+%\begin{verbatim}
+%  \begin{chronology}[5]{1983}{2010}{10cm}[13cm]
+%    \event{1984}{\color{blue}{one}}
+%    \event[1985]{1986}{\small{two}}
+%    \event{\decimaldate{25}{12}{2001}}{\huge{three}}
+%  \end{chronology}
+%\end{verbatim}
+%
+% \newpage
+% \section{Package macros}
+% \subsection{Standard package loading}
+%    \begin{macrocode}
+\NeedsTeXFormat{LaTeX2e}%
+\ProvidesPackage{chronology}[2015/03/27 v1.1.1 Horizontal timeline]%
+\RequirePackage{calc}%
+\RequirePackage{tikz}%
+\RequirePackage{xparse}%
+%    \end{macrocode}
+%
+% \subsection{Defining counters and lengths}
+%    \begin{macrocode}
+\newcounter{step}\newcounter{stepstart}\newcounter{stepstop}%
+\newcounter{yearstart}\newcounter{yearstop}\newcounter{deltayears}%
+\newlength{\xstart}\newlength{\xstop}%
+\newlength{\distanceunit}\newlength{\timelinewidth}%
+\newsavebox{\timelinebox}%
+%    \end{macrocode}
+% \subsection{Defining TikZ styles for labels and events}
+%    \begin{macrocode}
+\tikzset{%
+  ,chronevent/.style={fill=black,draw=none,opacity=0.5}
+  ,chronlabel/.style={opacity=1}
+  ,chrontickslabel/.style={chronlabel}
+  ,chroneventlabel/.style={chronlabel}
+  ,eventlabel/.style={chroneventlabel,anchor=south 
+  west,yshift=.2\distanceunit,rotate=45}
+  ,flippedeventlabel/.style={chroneventlabel,anchor=north 
+  west,yshift=-.2\distanceunit,rotate=-45}
+  }
+%    \end{macrocode}
+% \subsubsection{For compatibity with babel. Handling of active characters in 
+%TikZ}
+%    \begin{macrocode}
+\tikzset{
+  handle active characters in code,
+  handle active characters in nodes
+}
+%    \end{macrocode}
+%
+% \subsection{The chronology environment macros}
+%  \begin{environment}{chronology}
+%    \begin{macrocode}
+\newif\ifchronology@star%
+\newenvironment{chronology}{%
+  \@ifstar{\chronology@startrue\chronology@i*}{\chronology@starfalse\chronology@i*}%
+}{%
+  \end{tikzpicture}%
+  \end{lrbox}%
+  \raisebox{2ex}{\resizebox{\timelinewidth}{!}{\usebox{\timelinebox}}}%
+}%
+%    \end{macrocode}
+%  \end{environment}
+%
+% \subsubsection{Starred and unstarred forms and arguments}
+%
+%    \begin{macro}{\chronology@i}
+%    \begin{macrocode}
+\def\chronology@i*{%
+  \@ifnextchar[{\chronology@ii*}{\chronology@ii*[{5}]}%
+}%
+%    \end{macrocode}
+%    \end{macro}
+%    \begin{macro}{\chronology@ii}
+%    \begin{macrocode}
+\def\chronology@ii*[#1]#2#3#4{%
+  \@ifnextchar[{\chronology@iii*[{#1}]{#2}{#3}{#4}}
+    {\chronology@iii*[{#1}]{#2}{#3}{#4}[{#4}]}%
+}%
+%    \end{macrocode}
+%    \end{macro}
+%    \begin{macro}{\chronology@iii}
+%    \begin{macrocode}
+\def\chronology@iii*[#1]#2#3#4[#5]{%
+  \newif\ifflipped%
+  \ifchronology@star%
+    \flippedtrue%
+  \else%
+    \flippedfalse%
+  \fi%
+%  
+  \setcounter{step}{#1}%
+  \setcounter{yearstart}{#2}\setcounter{yearstop}{#3}%
+  \setcounter{deltayears}{\theyearstop-\theyearstart}%
+  \setlength{\distanceunit}{#5/\thedeltayears}%
+  \setlength{\timelinewidth}{#4}%
+  \pgfmathsetcounter{stepstart}{\theyearstart+\thestep-mod(\theyearstart,\thestep)}%
+  \pgfmathsetcounter{stepstop}{\theyearstop-mod(\theyearstop,\thestep)}%
+  \addtocounter{step}{\thestepstart}%
+%
+  \begin{lrbox}{\timelinebox}%
+    \begin{tikzpicture}[baseline={(current bounding box.north)}]%
+      \draw [|->] (0,0) -- (\thedeltayears*\distanceunit+\distanceunit, 0);%
+%
+    \foreach \x in {1,...,\thedeltayears}%
+        \draw[xshift=\x*\distanceunit] (0,-.1\distanceunit) -- 
+        (0,.1\distanceunit);%
+      \addtocounter{deltayears}{1}%
+%
+      \foreach \x in {\thestepstart,\thestep,...,\thestepstop}{%
+        \pgfmathsetlength\xstop{(\x-\theyearstart)*\distanceunit}%
+        \draw[xshift=\xstop] (0,-.3\distanceunit) -- (0,.3\distanceunit);%
+        \ifflipped%
+          \node[chrontickslabel] at (\xstop,0) [above=.2\distanceunit] {\x};%
+        \else%
+          \node[chrontickslabel] at (\xstop,0) [below=.2\distanceunit] {\x};%
+        \fi%
+      }%
+}%
+%    \end{macrocode}
+%    \end{macro}
+%
+%    \begin{macro}{\event}
+%    \begin{macrocode}
+  \DeclareDocumentCommand \event {o m m}{%
+  \pgfmathsetlength\xstop{(#2-\theyearstart)*\distanceunit}%
+  \IfNoValueTF {#1} {%
+    \ifflipped%
+      \draw[chronevent]%
+      (\xstop, 0) circle (.2\distanceunit)%
+      node[flippedeventlabel] {#3};%
+    \else%
+      \draw[chronevent]%
+      (\xstop, 0) circle (.2\distanceunit)%
+      node[eventlabel] {#3};%
+    \fi%
+  }{%
+    \pgfmathsetlength\xstart{(#1-\theyearstart)*\distanceunit}%
+    \ifflipped%
+      \draw[chronevent,rounded corners=.2\distanceunit]%
+      (\xstart,-.2\distanceunit) rectangle%
+      node[flippedeventlabel] {#3} (\xstop,.2\distanceunit);%
+    \else%
+      \draw[chronevent,rounded corners=.2\distanceunit]%
+      (\xstart,-.2\distanceunit) rectangle%
+      node[eventlabel] {#3} (\xstop,.2\distanceunit);%
+    \fi%
+  }%
+}
+%    \end{macrocode}
+%    \end{macro}
+%
+%    \begin{macro}{\decimaldate}
+%    \begin{macrocode}
+\newcommand{\decimaldate}[3]{(#1-1)/31/12+(#2-1)/12+#3}%
+%    \end{macrocode}
+%    \end{macro}
+%
+%\section{Changelog}
+%\begin{description}
+%  \item [2023-08-08] Dominik forked the lwiseman/chronology 
+% GitHub repo and set up this documentation;
+%  \item [2023-08-08] Dominik merged the changes of Alexander Klemd of
+%  2022-12-19 that “Rename variable 'unit' to 'distanceunit' (for compatibility 
+%with package: siunitx)” into the wujastyk branch
+%\end{description}
+%   \newpage
+%  \PrintIndex  
+\endinput%
+

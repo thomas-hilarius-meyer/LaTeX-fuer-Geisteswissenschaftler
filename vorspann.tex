@@ -14,7 +14,7 @@
 \newcommand\gkk[1]{%{\GFSDidot
 #1}
 
-\usepackage[]{babel}
+\usepackage[german]{babel}
 %\usepackage[ngerman,noftligs]{selnolig}
 %%%\setmainfont{Libertinus Serif} %reicht auch, unten evtl. besser wegen SB
 \setmainfont{libertinusserif}[
@@ -47,6 +47,9 @@
 \ihead{\headmark}
 \ohead{\pagemark}
 \pagestyle{scrheadings}
+
+\usepackage{fancyvrb}
+\usepackage{fvextra}
 
 \usepackage[autostyle]{csquotes}
 \usepackage[newcommands]{ragged2e}
@@ -211,7 +214,6 @@ lfgwstyle/.style={%
 \usepackage{showexpl}
 %\lstset{explpreset={escapeinside={*@}{@*}}}
 
-\usepackage[pagewise]{lineno}
 \usepackage{sidenotes}
 \usepackage{multicol}
 % Für den Abschnitt über Konstituentenanylyse von C. Römer:
@@ -300,7 +302,6 @@ lfgwstyle/.style={%
 \addbibresource{lfgw-bibliographie.bib}
 %%%\defbibheading{bibliography}{\addchap{#1}} %%%Besser bei \addchap bleiben
 
-\usepackage{fancyvrb}
 \makeatletter
 \usepackage[% reledmac
    series={A,B,C},%nur die Apparate A B C aktivieren
@@ -317,23 +318,21 @@ lfgwstyle/.style={%
 \usepackage{reledpar}
 
 \usepackage{varioref}
-\usepackage{hyperxmp}
 \usepackage{hyperref}
 \hypersetup{					% setup the hyperref-package options
 	pdftitle={LaTeX für Geisteswissenschaftler},	% 	- title (PDF meta)
 	pdfsubject={Handbuch},% 	- subject (PDF meta)
 	pdfauthor={varia},	% 	- author (PDF meta)
-	pdfauthortitle={},
-	pdfcopyright={Copyright (c) \the\year\. All rights reserved.},
+%	pdfcopyright={Copyright (c) \the\year\. All rights reserved.},
 	pdfhighlight=/N,
 	pdfdisplaydoctitle=true,
-	pdfdate={\the\year-\the\month-\the\day}, % Fehler
+%	pdfdate={\the\year-\the\month-\the\day}, % Fehler
 	pdflang={de},
     pdfencoding=unicode,   % Sorgt für korrekte Umlaute in den pdf-Lesezeichen - thm
-	pdfcaptionwriter={varia},
+%	pdfcaptionwriter={varia},
 	pdfkeywords={{LaTeX}, {Geisteswissenschaften}},
 	pdfproducer={LuaLaTeX},
-	pdflicenseurl={http://creativecommons.org/licenses/by-nc-nd/4.0/},
+%	pdflicenseurl={http://creativecommons.org/licenses/by-nc-nd/4.0/},
 	plainpages=false,			% 	- 
     colorlinks   = true, %Colours links instead of ugly boxes
     urlcolor     =  blue!50!black, %Colour for external hyperlinks
@@ -350,6 +349,7 @@ lfgwstyle/.style={%
    pdfdisplaydoctitle,
 	final=true	% = true, nur bei web-Dokument!! (wichtig!!)
 }
+\usepackage{hyperxmp}
 \usepackage{bookmark}%advanced bookmarks
 \usepackage[% cleveref
   sort,
@@ -358,9 +358,9 @@ lfgwstyle/.style={%
 
 \crefname{tcb@cnt@lfgwexample}{Beispiel}{Beispiele}
 \addto\captionsngerman{%
-    \crefformat{lfgwexample}{#2Beispiel\,#1#3}%
-    \crefformat{lfgwcode}{#2Beispiel\,#1#3}%
-    \crefformat{lfgwprint}{#2Beispiel\,#1#3}%
+    \crefformat{lfgwexample}{##2Beispiel\,##1##3}%
+    \crefformat{lfgwcode}{##2Beispiel\,##1##3}%
+    \crefformat{lfgwprint}{##2Beispiel\,##1##3}%
 }
 
 \setkomafont{pagehead}{\normalcolor\normalfont\small\upshape}

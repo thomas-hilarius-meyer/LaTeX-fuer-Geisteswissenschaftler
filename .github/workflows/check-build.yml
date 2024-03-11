@@ -1,0 +1,138 @@
+name: Check Build
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  schedule:
+    - cron: '1 2 5 * *'
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  cache:
+    runs-on: ubuntu-latest
+    name: cache
+    steps:
+      - uses: awalsh128/cache-apt-pkgs-action@latest
+        with:
+          packages: fonts-sil-gentium-basic fonts-linuxlibertine fonts-freefont-otf fonts-dejavu-core fonts-noto-core fonts-paratype fonts-junicode
+          version: 1.0
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install TeX Live
+        uses: zauguin/install-texlive@v3
+        with:
+            package_file: tl_packages
+  lfgw:
+    needs: [cache]
+    runs-on: ubuntu-latest
+    name: lfgw
+    steps:
+      - uses: awalsh128/cache-apt-pkgs-action@latest
+        with:
+          packages: fonts-sil-gentium-basic fonts-linuxlibertine fonts-freefont-otf fonts-dejavu-core fonts-noto-core fonts-paratype fonts-junicode
+          version: 1.0
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install TeX Live
+        uses: zauguin/install-texlive@v3
+        with:
+           package_file: tl_packages
+      - run: lualatex lfgw -interaction=nonstopmode
+      - run: biber lfgw
+      - run: lualatex lfgw -interaction=nonstopmode
+      - run: lualatex lfgw -interaction=nonstopmode
+      - name: texlogsieve
+        run: texlogsieve < lfgw.log
+      - name: Upload PDF
+        uses: actions/upload-artifact@v4
+        with:
+          name: lfgw
+          path: lfgw.pdf
+      - name: Prepare gh-pages branch content
+        if: >
+          (github.repository == 'thomas-hilarius-meyer/LaTeX-fuer-Geisteswissenschaftler') &&
+          (github.ref == 'refs/heads/master')
+        run: |
+          mkdir build
+          mv lfgw.pdf build/
+      - name: Upload to gh-pages branch
+        if: >
+          (github.repository == 'thomas-hilarius-meyer/LaTeX-fuer-Geisteswissenschaftler') &&
+          (github.ref == 'refs/heads/master')
+        uses: crazy-max/ghaction-github-pages@v4
+        with:
+          target_branch: gh-pages
+          build_dir: build
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  examples:
+    needs: [cache]
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        file: [
+          "Examples/beamer/lfgw-article.tex",
+          "Examples/beamer/lfgw-beamer.tex",
+          "Examples/exam/beispiel-01.tex",
+          "Examples/exam/beispiel-02.tex",
+          "Examples/exam/beispiel-03.tex",
+          "Examples/exam/beispiel-04.tex",
+          "Examples/exam/beispiel-05.tex",
+          "Examples/exam/beispiel-06.tex",
+          "Examples/exam/beispiel-07.tex",
+          "Examples/exam/beispiel-08.tex",
+          "Examples/exam/beispiel-09.tex",
+          "Examples/exam/beispiel-10.tex",
+          "Examples/exam/beispiel-11.tex",
+          "Examples/exam/beispiel-12.tex",
+          "Examples/exam/beispiel-13.tex",
+          "Examples/exam/beispiel-14.tex",
+          "Examples/Vorlagen/lfgw-musterdatei.tex"
+        ]
+    name: "${{ matrix.file }}"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - uses: awalsh128/cache-apt-pkgs-action@latest
+        with:
+          packages: fonts-sil-gentium-basic fonts-linuxlibertine fonts-freefont-otf fonts-dejavu-core fonts-noto-core fonts-paratype fonts-junicode
+          version: 1.0
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install TeX Live
+        uses: zauguin/install-texlive@v3
+        with:
+            package_file: tl_packages
+      - name: Compile ${{ matrix.file }}
+        id: compile
+        run: |
+          DIR=$(dirname ${{ matrix.file }})
+          FILE=$(basename ${{ matrix.file }})
+          BASENAME=${FILE%.tex}
+          cd $DIR
+          lualatex $FILE
+          echo "PDF_PATH=$DIR/${BASENAME}.pdf" >> $GITHUB_OUTPUT
+          echo "PDF_FILENAME=${BASENAME}.pdf" >> $GITHUB_OUTPUT
+      - name: Upload PDF
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.compile.outputs.PDF_FILENAME }}
+          path: ${{ steps.compile.outputs.PDF_PATH }}
+  keepalive:
+    name: Keepalive
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: gautamkrishnar/keepalive-workflow@v2

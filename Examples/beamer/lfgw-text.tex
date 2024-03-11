@@ -127,25 +127,16 @@ So kann man bei schlechten Lichtverhältnissen schnell auf eine Alternative wech
 \section{Inhalt}
 \subsection{Rahmen}
 \begin{frame}[label=rahmen1,fragile]{Rahmen}
-  \begin{verbatim}
-    \begin{frame}{Rahmen}
-     Inhalt
-    \end{frame}
-    
-    \frame{
-          \frametitle{Rahmen}
-          Inhalt
-          }
-  \end{verbatim}
+    \verb1\begin{frame}{Rahmen}1\\
+    \verb1Inhalt1\\
+    \textbackslash\verb1end{frame}1
 \end{frame}
 
 \begin{frame}[label=rahmen2,fragile]{Rahmen mit Overlayspezifikation}
-  \begin{verbatim}
-    \begin{frame}<beamer>{Inhalt}
-    % Nur im Beamer-Mode anzeigen 
-       \tabelofcontents[pausesections]
-    \end{frame}
-  \end{verbatim}
+  \verb1\begin{frame}<beamer>{Inhalt}1\\
+  \verb1% Nur im Beamer-Mode anzeigen1\\
+  \verb1\tabelofcontents[pausesections]1\\  
+  \verb1\end{frame}1
 \end{frame}
 
 \begin{frame}<beamer>[label=inhalt]{Inhalt}
