@@ -1,4 +1,5 @@
 name: Check Build
+
 on:
   push:
     branches:
@@ -127,3 +128,11 @@ jobs:
         with:
           name: ${{ steps.compile.outputs.PDF_FILENAME }}
           path: ${{ steps.compile.outputs.PDF_PATH }}
+  keepalive:
+    name: Keepalive
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: gautamkrishnar/keepalive-workflow@v2
