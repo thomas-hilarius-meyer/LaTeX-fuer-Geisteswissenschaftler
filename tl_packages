@@ -31,6 +31,7 @@ crop
 csquotes
 ctablestack
 dehyph
+dehyph-exptl
 elocalloc
 enumitem
 environ
@@ -53,6 +54,7 @@ grffile
 hologo
 hycolor
 hyperref
+hyphen-german
 hyperxmp
 ibycus-babel
 ibygrk
