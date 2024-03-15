@@ -126,6 +126,7 @@ jobs:
           echo "PDF_PATH=$DIR/${BASENAME}.pdf" >> $GITHUB_OUTPUT
           echo "PDF_FILENAME=${BASENAME}.pdf" >> $GITHUB_OUTPUT
           echo "LOG_FILENAME=${BASENAME}.log" >> $GITHUB_OUTPUT
+      - run: texlogsieve < ${{ steps.compile.outputs.LOG_FILENAME }}
       - name: Upload PDF
         uses: actions/upload-artifact@v4
         with:
