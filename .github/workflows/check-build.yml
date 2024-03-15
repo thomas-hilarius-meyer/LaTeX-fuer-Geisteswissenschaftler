@@ -123,17 +123,17 @@ jobs:
           BASENAME=${FILE%.tex}
           cd $DIR
           lualatex $FILE
+          echo "LOG_PATH=$DIR/${BASENAME}.log" >> $GITHUB_OUTPUT
           echo "PDF_PATH=$DIR/${BASENAME}.pdf" >> $GITHUB_OUTPUT
           echo "PDF_FILENAME=${BASENAME}.pdf" >> $GITHUB_OUTPUT
-          echo "LOG_FILENAME=${BASENAME}.log" >> $GITHUB_OUTPUT
-      - run: texlogsieve < ${{ steps.compile.outputs.LOG_FILENAME }}
+      - run: texlogsieve < ${{ steps.compile.outputs.LOG_PATH }}
       - name: Upload PDF
         uses: actions/upload-artifact@v4
         with:
           name: ${{ steps.compile.outputs.PDF_FILENAME }}
           path: |
             ${{ steps.compile.outputs.PDF_PATH }}
-            ${{ steps.compile.outputs.LOG_FILENAME }}
+            ${{ steps.compile.outputs.LOG_PATH }}
   keepalive:
     name: Keepalive
     runs-on: ubuntu-latest
