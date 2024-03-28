@@ -48,10 +48,10 @@ jobs:
            package_file: tl_packages
       - run: lualatex lfgw -interaction=nonstopmode
       - run: biber lfgw
-      - run: lualatex lfgw -interaction=nonstopmode
-      - run: lualatex lfgw -interaction=nonstopmode
+      - run: lualatex lfgw --recorder -interaction=nonstopmode
+      - run: lualatex lfgw --recorder -interaction=nonstopmode
       - name: texlogsieve
-        run: texlogsieve < lfgw.log
+        run: texlogsieve lfgw.log
       - name: Upload PDF
         uses: actions/upload-artifact@v4
         with:
@@ -122,18 +122,18 @@ jobs:
           FILE=$(basename ${{ matrix.file }})
           BASENAME=${FILE%.tex}
           cd $DIR
-          lualatex $FILE
-          echo "LOG_PATH=$DIR/${BASENAME}.log" >> $GITHUB_OUTPUT
-          echo "PDF_PATH=$DIR/${BASENAME}.pdf" >> $GITHUB_OUTPUT
+          lualatex --recorder $FILE
+          echo "LOG_FILEPATH=$DIR/${BASENAME}.log" >> $GITHUB_OUTPUT
+          echo "PDF_FILEPATH=$DIR/${BASENAME}.pdf" >> $GITHUB_OUTPUT
           echo "PDF_FILENAME=${BASENAME}.pdf" >> $GITHUB_OUTPUT
-      - run: texlogsieve < ${{ steps.compile.outputs.LOG_PATH }}
+      - run: texlogsieve ${{ steps.compile.outputs.LOG_PATH }}
       - name: Upload PDF
         uses: actions/upload-artifact@v4
         with:
           name: ${{ steps.compile.outputs.PDF_FILENAME }}
           path: |
-            ${{ steps.compile.outputs.PDF_PATH }}
-            ${{ steps.compile.outputs.LOG_PATH }}
+            ${{ steps.compile.outputs.PDF_FILEPATH }}
+            ${{ steps.compile.outputs.LOG_FILEPATH }}
   keepalive:
     name: Keepalive
     runs-on: ubuntu-latest
